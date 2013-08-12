@@ -1,0 +1,61 @@
+[user]
+	email = lundberg.mattias@gmail.com
+	name = Mattias Lundberg
+	signingkey = 8D7C6980
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[alias]
+	st = status --short --branch
+	ci = commit
+	br = branch
+	co = checkout
+	cp = cherry-pick
+    df = diff
+    mt = mergetool
+	sh = show
+	fa = fetch --all
+	fu = fetch upstream
+	fo = fetch origin
+	dc = diff --cached
+	lg = log -p
+	ls = ls-files
+	pp = push origin
+	lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
+	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
+	svnr = svn rebase
+	svnd = svn dcommit
+	svnl = svn log --oneline --show-commit
+	svnf = svn fetch
+	untrack = rm -r --cached 
+
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+	undo = reset --soft HEAD^
+	g = grep --break --heading --line-number
+
+[core]
+	editor = vim
+	excludesfile = /home/mattias/.gitignore_global
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
+[push]
+	default = current

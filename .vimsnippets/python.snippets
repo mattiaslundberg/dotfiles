@@ -1,0 +1,13 @@
+snippet     test
+abbr        def test(..)
+options     head
+    def test_${1}(self):
+        ${2}
+
+snippet     testclass
+abbr        class TestA(TestCase)
+options     head
+    from django.test import TestCase
+
+    class Test${1}(TestCase):
+        ${2}
