@@ -63,7 +63,7 @@ alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias fixkbd="xmodmap ~/.Xmodmap"
+alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
 
 diaconvert() { echo $1 | awk -F '.' '{ print $1 }' | awk '{ print "dia -e " $f ".eps -t eps " $f ".dia ; epstopdf " $f ".eps " }' | sh ;}
 
