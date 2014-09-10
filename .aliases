@@ -102,6 +102,22 @@ vimupgrade(){
 	vim +BundleInstall +BundleClean +qall
 }
 
+# Helpers for running skype in a docker container.
+# Requires local "mattiaslundberg/skype" docker image.
+# And "skype" ssh alias for port 55555
+skypeinstall(){
+	docker run -d --name=myskype -v /home/mattias/.Skype:/home/docker/.Skype --device=/dev/video0 -p 55555:22 mattiaslundberg/skype
+	ssh-copy-id -i ~/.ssh/id_ecdsa.pub skype
+	docker stop myskype
+}
+# Start docker and attach to skype
+skypestart(){
+	docker start myskype
+	sleep 5
+	ssh skype skype-pulseaudio || true
+	docker stop myskype
+}
+
 case $HOST in
 	toad)
 		hdmi() {
