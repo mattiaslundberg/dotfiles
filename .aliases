@@ -80,6 +80,13 @@ builddeb() {
 	rm -rf /tmp/mattias/$1
 }
 
+gitbranchclean() {
+	for b in $(git branch | cut -b3-); do
+		[[ "$b" == "master" || "$b" == "develop" ]] && continue
+		git branch -D "$b"
+	done
+}
+
 
 # copy and paste from the command line - http://www.shell-fu.org/lister.php?id=177
 ccopy(){ cp $1 /tmp/ccopy.$1; }
