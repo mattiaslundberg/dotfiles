@@ -182,7 +182,8 @@ set pastetoggle=<F12>			" pastetoggle (sane indentation on pastes)
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
-au FileType python setl shiftwidth=4 tabstop=4 noexpandtab softtabstop=4
+autocmd FileType python setl shiftwidth=4 tabstop=4 noexpandtab softtabstop=4
+autocmd BufRead set nofoldenable
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
