@@ -59,3 +59,5 @@
 	prompt = false
 [push]
 	default = current
+[github]
+	user = mattiaslundberg
