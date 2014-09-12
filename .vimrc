@@ -308,6 +308,8 @@ function! CleverCr()
 	endif
 endfunction
 
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
 " <CR> close popup and save indent or expand snippet
 imap <expr> <CR> CleverCr()
 
