@@ -1123,19 +1123,19 @@ xkb_symbols "pc+se+inet(evdev)" {
     };
     key <AE07> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               7,           slash,       braceleft,        division ]
+        symbols[Group1]= [               7,           slash,       NoSymbol,        division ]
     };
     key <AE08> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               8,       parenleft,     bracketleft,   guillemotleft ]
+        symbols[Group1]= [               8,       parenleft,     dead_diaeresis,   guillemotleft ]
     };
     key <AE09> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               9,      parenright,    bracketright,  guillemotright ]
+        symbols[Group1]= [               9,      parenright,    dead_circumflex,  guillemotright ]
     };
     key <AE10> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               0,           equal,      braceright,          degree ]
+        symbols[Group1]= [               0,           equal,      NoSymbol,          degree ]
     };
     key <AE11> {
         type= "FOUR_LEVEL",
@@ -1191,12 +1191,12 @@ xkb_symbols "pc+se+inet(evdev)" {
         symbols[Group1]= [               p,               P,           thorn,           THORN ]
     };
     key <AD11> {
-        type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [           aring,           Aring,  dead_diaeresis,  dead_abovering ]
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [     bracketleft,       braceleft,           aring,           Aring ]
     };
     key <AD12> {
-        type= "FOUR_LEVEL",
-        symbols[Group1]= [  dead_diaeresis, dead_circumflex,      dead_tilde,      dead_caron ]
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [   bracketright,       braceright,      dead_tilde,      dead_caron ]
     };
     key <RTRN> {         [          Return ] };
     key <LCTL> {         [       Control_L ] };
