@@ -87,6 +87,28 @@ gitbranchclean() {
 	done
 }
 
+usbmnt() {
+	NODES=($(ls -1 /dev/sd[abcdefghij][123456]))
+	I=1
+
+	echo "Available devices:"
+	for N in $NODES ; do
+		echo " $I) $N"
+		(( I++ ))
+	done
+
+	echo "Select device:"
+	read DEVID
+	echo "Mounting device ${NODES[$DEVID]}"
+	sudo cryptsetup luksOpen ${NODES[$DEVID]} usb
+	sudo mount /dev/mapper/usb /mnt/usb
+}
+
+usbumnt() {
+	sudo umount /mnt/usb
+	sudo cryptsetup luksClose usb
+}
+
 
 # copy and paste from the command line - http://www.shell-fu.org/lister.php?id=177
 ccopy(){ cp $1 /tmp/ccopy.$1; }
