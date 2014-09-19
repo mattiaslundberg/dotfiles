@@ -3,6 +3,6 @@ pulseaudio --start
 tint2 &
 conky &
 volumeicon &
-(sleep 10 && xscreensaver -no-splash) & 
+(sleep 10 && xscreensaver -no-splash) &
 (sleep 30 && dropboxd) &
 (sleep 5 && setxkbmap se)  &
