@@ -389,6 +389,9 @@ map <Leader>x :x<CR>
 map <Leader>qq :qa!<CR>
 map <Leader>qw :wqa<CR>
 
+nmap < <<
+nmap > >>
+
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
 endif
