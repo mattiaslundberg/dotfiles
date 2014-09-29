@@ -1,0 +1,40 @@
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+
+set -o vi
+
+# Alias setup
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+# standard aliases
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -l'
+alias cd.='cd ..'
+alias cd..='cd ..'
+alias mkdir='mkdir -pv'
+cl() { cd $1 && la ; }
+mc() { mkdir $1 && cd $1 ; }
+alias 'du.'='du -hsx * | sort -rh | head -10'
+alias su='sudo -E -s'
+alias root='sudo -E -s'
+alias sudo='sudo ' # Make sudo and aliases compatible
+
+if [ -x /usr/bin/apt-get ]; then
+	# apt aliases
+	alias install='sudo apt-get install'
+	alias update='sudo apt-get update'
+	alias upgrade='sudo apt-get update && sudo apt-get upgrade'
+	alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade'
+	alias autoremove='sudo apt-get autoremove'
+	alias uninstall='sudo apt-get remove'
+	alias search='apt-cache search'
+	alias showpkg='apt-cache show'
+fi
+
+echo "Loaded host settings."

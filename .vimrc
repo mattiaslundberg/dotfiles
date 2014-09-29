@@ -25,9 +25,7 @@ Bundle 'vim-scripts/sessionman.vim'
 Bundle 'matchit.zip'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
-" Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'flazz/vim-colorschemes'
+
 Bundle 'mbbill/undotree'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/restore_view.vim'
@@ -86,9 +84,9 @@ filetype plugin indent on
 
 " General configuration
 set nofoldenable
-syntax on					" Syntax highlighting
-set mouse=a					" Automatically enable mouse usage
-set mousehide				" Hide the mouse cursor while typing
+syntax on
+set mouse=a
+set mousehide
 scriptencoding utf-8
 
 if has('clipboard')
@@ -98,15 +96,15 @@ if has('clipboard')
 		set clipboard=unnamed
 	endif
 endif
-set shortmess+=filmnrxoOtT			" Abbrev. of messages (avoids 'hit enter')
+set shortmess+=filmnrxoOtT
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-set virtualedit=onemore				" Allow for cursor beyond last character
-set history=1000					" Store a ton of history (default is 20)
-set spell							" Spell checking on
-set hidden							" Allow buffer switching without saving
-set iskeyword-=.					" '.' is an end of word designator
-set iskeyword-=#					" '#' is an end of word designator
-set iskeyword-=-					" '-' is an end of word designator
+set virtualedit=onemore
+set history=1000
+set spell
+set hidden
+set iskeyword-=.
+set iskeyword-=#
+set iskeyword-=-
 
 " Backup files
 set backupdir=~/.vimbackup/
@@ -115,9 +113,9 @@ set viewdir=~/.vimviews/
 set backup
 set noswapfile
 if has('persistent_undo')
-	set undofile				" So is persistent undo ...
-	set undolevels=1000			" Maximum number of changes that can be undone
-	set undoreload=10000		" Maximum number lines to save for undo on a buffer reload
+	set undofile
+	set undolevels=1000
+	set undoreload=10000
 endif
 
 " UI and colorscheme
@@ -126,10 +124,10 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 color solarized
-set tabpagemax=15
-set showmode					" Display the current mode
 
-set cursorline					" Highlight current line
+set tabpagemax=15
+set showmode
+set cursorline
 
 highlight clear SignColumn		" SignColumn should match background
 highlight clear LineNr			" Current line number row will have same background color in relative mode
@@ -151,34 +149,35 @@ if has('statusline')
 	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
-set backspace=indent,eol,start	" Backspace for dummies
-set linespace=0					" No extra spaces between rows
-set nu							" Line numbers on
-set showmatch					" Show matching brackets/parenthesis
-set incsearch					" Find as you type search
-set hlsearch					" Highlight search terms
-set winminheight=0				" Windows can be 0 line high
-set ignorecase					" Case insensitive search
-set smartcase					" Case sensitive when uc present
-set wildmenu					" Show list instead of just completing
-set wildmode=list:longest,full	" Command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]	" Backspace and cursor keys wrap too
-set scrolljump=5				" Lines to scroll when cursor leaves screen
-set scrolloff=3					" Minimum lines to keep above and below cursor
+set backspace=indent,eol,start
+set linespace=0
+set nu
+set showmatch
+set incsearch
+set hlsearch
+set winminheight=0
+set ignorecase
+set smartcase
+set wildmenu
+set wildmode=list:longest,full
+set whichwrap=b,s,h,l,<,>,[,]
+set scrolljump=5
+set scrolloff=3
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. 
 
 " Formatting
-set nowrap						" Do not wrap long lines
-set autoindent					" Indent at the same levelof the previous line
+set nowrap
+set autoindent
 set noexpandtab
-set shiftwidth=4				" Use indents of 4 spaces
-set tabstop=4					" An indentation every four columns
-set softtabstop=4				" Let backspace delete indent
-set nojoinspaces				" Prevents inserting two spaces after punctuation on a join (J)
-set splitright					" Puts new vsplit windows to the right of the current
-set splitbelow					" Puts new split windows to the bottom of the current
-set pastetoggle=<F12>			" pastetoggle (sane indentation on pastes)
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set nojoinspaces
+set splitright
+set splitbelow
+set pastetoggle=<F12>
+
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
@@ -192,6 +191,7 @@ autocmd FileType haskell setlocal commentstring=--\ %s
 " Workaround broken colour highlighting in Haskell
 autocmd FileType haskell,rust setlocal nospell
 
+" Fix typos
 if has("user_commands")
 	command! -bang -nargs=* -complete=file E e<bang> <args>
 	command! -bang -nargs=* -complete=file W w<bang> <args>
@@ -210,45 +210,42 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap . :normal .<CR>
 
-" Plugin configurations
-"let g:NERDShutUp=1
-nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+" Nerd tree
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 
+" Snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:neosnippet#snippets_directory='~/.vimsnippets'
 
+" Python mode
+let g:pymode_indent = 0
 let g:pymode_lint_checkers = ['pyflakes']
 let g:pymode_trim_whitespaces = 0
 let g:pymode_options = 0
 let g:pymode_rope = 0
 
-if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
-	let g:ctrlp_working_path_mode = 'ra'
-	nnoremap <silent> <D-t> :CtrlP<CR>
-	nnoremap <silent> <D-r> :CtrlPMRU<CR>
-	let g:ctrlp_custom_ignore = {
-				\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-				\ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+" CtrlP
+let g:ctrlp_working_path_mode = 'ra'
+nnoremap <silent> <D-t> :CtrlP<CR>
+nnoremap <silent> <D-r> :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+			\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+			\ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-	let s:ctrlp_fallback = 'ack %s --nocolor -f'
-	let g:ctrlp_user_command = {
-				\ 'types': {
-				\ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-				\ 2: ['.hg', 'hg --cwd %s locate -I .'],
-				\ },
-				\ 'fallback': s:ctrlp_fallback
-				\ }
+let s:ctrlp_fallback = 'ack %s --nocolor -f'
+let g:ctrlp_user_command = {
+			\ 'types': {
+			\ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+			\ 2: ['.hg', 'hg --cwd %s locate -I .'],
+			\ },
+			\ 'fallback': s:ctrlp_fallback
+			\ }
 
-	if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
-		" CtrlP extensions
-		let g:ctrlp_extensions = ['funky']
+" funky
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :CtrlPFunky<Cr>
 
-		"funky
-		nnoremap <Leader>fu :CtrlPFunky<Cr>
-	endif
-endif
-
+" Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -258,10 +255,10 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
-" Mnemonic _i_nteractive
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
 
+" Completion
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -278,10 +275,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
 			\ 'scheme' : $HOME.'/.gosh_completions'
 			\ }
 
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
-endif
+let g:neocomplcache_keyword_patterns = {}
 let g:neocomplcache_keyword_patterns._ = '\h\w*'
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -293,7 +287,6 @@ smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
 
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-"inoremap <expr><CR> neocomplcache#complete_common_string()
 
 function! CleverCr()
 	if pumvisible()
@@ -308,15 +301,8 @@ function! CleverCr()
 	endif
 endfunction
 
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
 " <CR> close popup and save indent or expand snippet
 imap <expr> <CR> CleverCr()
-
-" <CR>: close popup
-" <s-CR>: close popup and save indent.
-inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()"\<CR>" : "\<CR>"
-"inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -326,20 +312,16 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-let g:pymode_indent = 0
-let g:pymode_lint_checkers = ['pyflakes']
-let g:pymode_trim_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_rope = 0
-
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
+" Airline
 let g:airline_theme = 'solarized'
 let g:airline_left_sep='›'	" Slightly fancier than '>'
 let g:airline_right_sep='‹' " Slightly fancier than '<'
 
+" Gvim
 if has('gui_running')
 	set guioptions-=T
 	set guioptions-=l
@@ -348,9 +330,8 @@ if has('gui_running')
 	set guifont=Monospace\ 13
 else
 	if &term == 'xterm' || &term == 'screen'
-		set t_Co=256			" Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+		set t_Co=256
 	endif
-	"set term=builtin_ansi		 " Make arrow and other keys work
 endif
 
 " Strip whitespace {
@@ -366,7 +347,7 @@ function! StripTrailingWhitespace()
 	call cursor(l, c)
 endfunction
 
-" Shell command {
+" Shell command
 function! s:RunShellCommand(cmdline)
 	botright new
 
@@ -407,6 +388,7 @@ map <Leader>w :w<CR>
 map <Leader>x :x<CR>
 map <Leader>qq :qa!<CR>
 map <Leader>qw :wqa<CR>
+
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
 endif
