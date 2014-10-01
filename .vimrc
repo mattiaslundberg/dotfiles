@@ -181,7 +181,7 @@ set pastetoggle=<F12>
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType python setl shiftwidth=4 tabstop=4 noexpandtab softtabstop=4
+autocmd FileType python autocmd BufNewFile,BufRead set shiftwidth=4 tabstop=4 noexpandtab softtabstop=4
 autocmd BufRead set nofoldenable
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -219,7 +219,10 @@ let g:neosnippet#snippets_directory='~/.vimsnippets'
 
 " Python mode
 let g:pymode_indent = 0
-let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_options_max_line_length = 120
+let g:pymode_lint_options_pep8 =
+	\({'max_line_length': g:pymode_options_max_line_length})
 let g:pymode_trim_whitespaces = 0
 let g:pymode_options = 0
 let g:pymode_rope = 0
