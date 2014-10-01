@@ -169,7 +169,7 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 " Formatting
 set nowrap
 set autoindent
-set noexpandtab
+set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -181,7 +181,6 @@ set pastetoggle=<F12>
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType python autocmd BufNewFile,BufRead set shiftwidth=4 tabstop=4 noexpandtab softtabstop=4
 autocmd BufRead set nofoldenable
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
