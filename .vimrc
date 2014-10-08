@@ -225,6 +225,7 @@ let g:pymode_lint_options_pep8 =
 let g:pymode_trim_whitespaces = 0
 let g:pymode_options = 0
 let g:pymode_rope = 0
+let g:pymode_lint_ignore = "W0401"
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
