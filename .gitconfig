@@ -2,8 +2,6 @@
 	email = lundberg.mattias@gmail.com
 	name = Mattias Lundberg
 	signingkey = 8D7C6980
-[commit]
-	gpgsign = true
 [color]
 	ui = auto
 [color "branch"]
@@ -22,6 +20,7 @@
 [alias]
 	st = status --short --branch
 	ci = commit
+    cia = commit --amend
 	br = branch
 	co = checkout
 	cp = cherry-pick
@@ -35,6 +34,7 @@
 	lg = log -p
 	ls = ls-files
 	pp = push origin
+    ppf = push origin --force
 	lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
 	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
 	assume = update-index --assume-unchanged
@@ -56,7 +56,7 @@
 	editor = vim
 	excludesfile = /home/mattias/.gitignore_global
 [merge]
-	tool = vimdiff
+	tool = gvimdiff
 	conflictstyle = diff3
 	prompt = false
 [push]
