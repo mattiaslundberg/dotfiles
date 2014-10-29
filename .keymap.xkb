@@ -1304,7 +1304,10 @@ xkb_symbols "pc+se+inet(evdev)" {
         type= "FOUR_LEVEL",
         symbols[Group1]= [           space,           space,           space,    nobreakspace ]
     };
-    key <CAPS> {         [          BackSpace] };
+    key <CAPS> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [          BackSpace, BackSpace, Delete, Delete ]
+    };
     key <FK01> {
         type= "CTRL+ALT",
         symbols[Group1]= [              F1,              F1,              F1,              F1, XF86Switch_VT_1 ]
