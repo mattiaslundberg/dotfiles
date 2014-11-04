@@ -55,6 +55,7 @@
 [core]
 	editor = vim
 	excludesfile = /home/mattias/.gitignore_global
+	autocrlf = input
 [merge]
 	tool = gvimdiff
 	conflictstyle = diff3
