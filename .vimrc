@@ -104,6 +104,7 @@ set hidden
 set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-
+let mapleader = ","
 
 " Backup files
 set backupdir=~/.vimbackup/
@@ -210,6 +211,8 @@ vnoremap . :normal .<CR>
 
 " Nerd tree
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+nmap <leader>e :NERDTreeToggle<CR>
+
 
 " Snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -383,7 +386,6 @@ command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 cmap w!! w !sudo tee % >/dev/null
 
 " Custom keymappings
-let mapleader = ","
 imap jk <Esc>
 imap kj <Esc>
 map <Leader>w :w<CR>
