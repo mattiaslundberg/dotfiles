@@ -1,7 +1,7 @@
 snippet define
     //>>pure-amd
     define([
-        "${1}"
+        '${1}'
     ], function (
         ${2}
     ) {
@@ -11,18 +11,18 @@ snippet define
 snippet declare
     //>>pure-amd
     define([
-        "dojo/_base/declare",
-        "${1}"
+        'dojo/_base/declare',
+        '${1}'
     ], function (
         declare,
         ${2}
     ) {
-        return declare("${3}", [${4}], {
+        return declare('${3}', [${4}], {
             ${5}
         });
     });
 
 snippet require
-    require(["${1}"], function(${2}) {
+    require(['${1}'], function(${2}) {
         ${3}
     });
