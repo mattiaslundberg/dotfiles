@@ -19,9 +19,9 @@ mc() { mkdir $1 && cd $1 ; }
 
 if [ -x /usr/bin/packer ]; then
 	# aur aliases
-	alias aurinstall='sudo packer --noedit --auronly -S'
-	alias aurupgrade='sudo packer --noedit --auronly -Syu'
-	alias aursearch='sudo packer --auronly -Ss'
+	alias aurinstall='packer --noedit --auronly -S'
+	alias aurupgrade='packer --noedit --auronly -Syu'
+	alias aursearch='packer --auronly -Ss'
 fi
 
 if [ -x /usr/bin/pacman ]; then
