@@ -33,6 +33,12 @@
 	fu = fetch upstream
 	fo = fetch origin
 	dc = diff --cached
+    mud = merge upstream/develop
+    mod = merge origin/develop
+    rud = rebase upstream/develop
+    rod = rebase origin/develop
+    mom = merge origin/master
+    rom = rebase origin/master
 	lg = log -p
 	ls = ls-files
 	pp = push origin
