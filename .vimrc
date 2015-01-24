@@ -277,6 +277,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 " Airline
+set laststatus=2
 let g:airline_theme = 'solarized'
 let g:airline_left_sep='›'
 let g:airline_right_sep='‹'
