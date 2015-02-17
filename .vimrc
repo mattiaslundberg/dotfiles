@@ -165,6 +165,7 @@ set pastetoggle=<F12>
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead * set nofoldenable
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
@@ -278,6 +279,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " Airline
 set laststatus=2
+let g:bufferline_echo = 0
 let g:airline_theme = 'solarized'
 let g:airline_left_sep='›'
 let g:airline_right_sep='‹'
