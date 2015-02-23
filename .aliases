@@ -147,6 +147,12 @@ skypestart(){
 	docker stop myskype
 }
 
+# ssh via sshrc to vagrant boxes
+vs() {
+    vagrant ssh-config ${1} > /tmp/vagrantsetup_${1}
+    sshrc -F /tmp/vagrantsetup_${1} ${1}
+}
+
 case $HOST in
 	toad)
 		hdmi() {
