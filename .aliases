@@ -185,6 +185,21 @@ case $HOST in
 				;;
 			esac
 		}
+		netw() {
+			case "$1" in
+				f*)
+					sudo systemctl stop netctl-auto@wlo1.service
+					sudo netctl start fixed
+				;;
+				d*)
+					sudo netctl stop fixed
+					sudo systemctl start netctl-auto@wlo1.service
+				;;
+				*)
+					echo "Usage fixed|default"
+				;;
+			esac
+		}
 	;;
 	*)
 
