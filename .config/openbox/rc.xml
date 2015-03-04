@@ -18,10 +18,10 @@
 		<primaryMonitor>1</primaryMonitor>
 	</placement>
 	<theme>
-		<name>Artwiz-boxed</name>
-		<titleLayout>NLIMC</titleLayout>
+		<name>solarized</name>
+		<titleLayout>LIMC</titleLayout>
 		<keepBorder>yes</keepBorder>
-		<animateIconify>yes</animateIconify>
+		<animateIconify>no</animateIconify>
 		<font place="ActiveWindow">
 			<name>Sans</name>
 			<size>10</size>
