@@ -12,7 +12,7 @@ background_color = #002b36 100
 #---------------------------------------------
 # PANEL
 #---------------------------------------------
-panel_monitor = 1
+panel_monitor = all
 panel_position = top center horizontal
 panel_size = 100% 40
 panel_margin = 0 0
