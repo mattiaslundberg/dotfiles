@@ -133,8 +133,6 @@ set cursorline
 highlight clear SignColumn
 highlight clear LineNr
 
-set secure
-set exrc
 set backspace=indent,eol,start
 set linespace=0
 set nu
