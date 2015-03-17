@@ -9,6 +9,7 @@
 
 # Linux specific
 *~
+.exrc
 
 # Netbeans
 nbproject/private/
