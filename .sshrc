@@ -1,4 +1,5 @@
 export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+export INPUTRC="$SSHHOME/.sshrc.d/.inputrc"
 
 set -o vi
 
