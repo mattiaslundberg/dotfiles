@@ -78,6 +78,7 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'markcornick/vim-vagrant'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'thanthese/Tortoise-Typing'
+Bundle 'takac/vim-hardtime'
 call vundle#end()
 filetype plugin indent on
 
@@ -105,7 +106,7 @@ set hidden
 set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-
-let mapleader = ","
+let mapleader = "\<space>"
 
 " Backup files
 set backupdir=~/.vimbackup/
@@ -148,7 +149,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set scrolljump=5
 set scrolloff=3
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. 
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Formatting
 set nowrap
