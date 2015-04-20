@@ -1,7 +1,7 @@
 [user]
-	email = lundberg.mattias@gmail.com
+	email = mattiaslundberg@openmailbox.org
 	name = Mattias Lundberg
-	signingkey = 8D7C6980
+	signingkey = E4B7697B
 [commit]
 	gpgsign = true
 [color]
