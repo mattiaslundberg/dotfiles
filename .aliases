@@ -128,7 +128,7 @@ viminstall(){
 	vimupgrade
 }
 vimupgrade(){
-	vim +BundleInstall +BundleClean +qall
+	vim +PluginInstall +PluginClean +qall
 }
 
 # Helpers for running skype in a docker container.
