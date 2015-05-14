@@ -9,17 +9,13 @@ call vundle#rc()
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'spf13/vim-colors'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/sessionman.vim'
 Plugin 'matchit.zip'
 Plugin 'bling/vim-airline'
@@ -30,19 +26,14 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-abolish.git'
-Plugin 'osyo-manga/vim-over'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-indent'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-commentary'
 Plugin 'godlygeek/tabular'
 
-" Completion
+" Completion/snippets
 Plugin 'Shougo/neocomplcache'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -67,22 +58,12 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'tpope/vim-haml'
 Plugin 'mattn/emmet-vim'
 
-" MISC
+" Other langs
 Plugin 'wting/rust.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'spf13/vim-preview'
-Plugin 'tpope/vim-cucumber'
-Plugin 'cespare/vim-toml'
-Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'thanthese/Tortoise-Typing'
-Plugin 'takac/vim-hardtime'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
 call vundle#end()
 filetype plugin indent on
 
@@ -118,11 +99,9 @@ set undodir=~/.vimundo/
 set viewdir=~/.vimviews/
 set backup
 set noswapfile
-if has('persistent_undo')
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
-endif
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " UI and colorscheme
 let g:solarized_termcolors=256
@@ -130,6 +109,18 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 color solarized
+
+if has('gui_running')
+    set guioptions-=T
+    set guioptions-=l
+    set guioptions-=r
+    set lines=40
+    set guifont=Monospace\ 10
+else
+ if &term == 'xterm' || &term == 'screen'
+        set t_Co=256
+    endif
+endif
 
 set tabpagemax=15
 set showmode
@@ -140,7 +131,7 @@ highlight clear LineNr
 
 set backspace=indent,eol,start
 set linespace=0
-set nu
+set number
 set showmatch
 set incsearch
 set hlsearch
@@ -174,11 +165,6 @@ autocmd BufNewFile,BufRead * set nofoldenable
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
-" Workaround vim-commentary for Haskell
-autocmd FileType haskell setlocal commentstring=--\ %s
-" Workaround broken colour highlighting in Haskell
-autocmd FileType haskell,rust setlocal nospell
-
 nnoremap Y y$
 
 vnoremap < <gv
@@ -188,9 +174,10 @@ vnoremap . :normal .<CR>
 " Nerd tree
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>fe :NERDTreeFind<CR>
 
 " Snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets,~/.vimsnippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets,~/.vim/bundle/neosnippet-snippets/neosnippets.vim,~/.vimsnippets'
 
 " Python mode
 let g:pymode_indent = 0
@@ -289,19 +276,6 @@ let g:airline_theme = 'solarized'
 let g:airline_left_sep='›'
 let g:airline_right_sep='‹'
 
-" Gvim
-if has('gui_running')
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=r
-    set lines=40
-    set guifont=Monospace\ 13
-else
-    if &term == 'xterm' || &term == 'screen'
-        set t_Co=256
-    endif
-endif
-
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -343,6 +317,9 @@ function FixTabs()
     %retab!
 endfunction
 command FixTabs :call FixTabs()
+
+" Don't restore cursor for git commits
+let g:skipview_files = ['COMMIT_EDITMSG']
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
