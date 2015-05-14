@@ -207,6 +207,11 @@ let g:ctrlp_user_command = {
             \ 'fallback': s:ctrlp_fallback
             \ }
 
+" Use c-v and c-x to open ack results in splits
+let g:ack_mappings = {
+    \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J",
+    \ "<C-x>": "<C-W><CR><C-W>K" }
+
 " funky
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
@@ -323,6 +328,9 @@ let g:skipview_files = ['COMMIT_EDITMSG']
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
+
+"Disable ex mode
+nnoremap Q <nop>
 
 " Custom keymappings
 imap jk <Esc>
