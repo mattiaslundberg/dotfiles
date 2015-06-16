@@ -64,6 +64,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'Puppet-Syntax-Highlighting'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'darvelo/vim-systemd'
 call vundle#end()
 filetype plugin indent on
 
