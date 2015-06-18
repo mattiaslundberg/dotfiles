@@ -2,6 +2,7 @@ export VIMINIT="source $SSHHOME/.sshrc.d/.vimrc"
 export INPUTRC="$SSHHOME/.sshrc.d/.inputrc"
 
 set -o vi
+bind -f $SSHHOME/.sshrc.d/.inputrc
 
 # Alias setup
 if [ -x /usr/bin/dircolors ]; then
