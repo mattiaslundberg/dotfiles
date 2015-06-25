@@ -32,6 +32,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-commentary'
 Plugin 'godlygeek/tabular'
+Plugin 'AndrewRadev/linediff.vim'
 
 " Completion/snippets
 Plugin 'Shougo/neocomplcache'
