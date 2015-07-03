@@ -113,15 +113,11 @@ let g:solarized_visibility="normal"
 color solarized
 
 if has('gui_running')
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=r
+    set guioptions=a
     set lines=40
-    set guifont=Monospace\ 10
+    set guifont=Monospace\ 18
 else
- if &term == 'xterm' || &term == 'screen'
-        set t_Co=256
-    endif
+    set t_Co=256
 endif
 
 set tabpagemax=15
