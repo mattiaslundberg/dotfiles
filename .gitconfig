@@ -22,39 +22,28 @@
 [alias]
 	st = status --short --branch
 	ci = commit
-    cia = commit --amend
+	cia = commit --amend --no-edit
 	br = branch
 	co = checkout
 	cp = cherry-pick
-    df = diff
-    mt = mergetool
-	sh = show
+	df = diff
+	dc = diff --cached
 	fa = fetch --all
 	fu = fetch upstream
 	fo = fetch origin
-	dc = diff --cached
-    mud = merge upstream/develop
-    mod = merge origin/develop
-    rud = rebase upstream/develop
-    rod = rebase origin/develop
-    mom = merge origin/master
-    rom = rebase origin/master
-	lg = log -p
+	mud = merge --ff-only upstream/develop
+	mod = merge --ff-only origin/develop
+	rud = rebase upstream/develop
+	rod = rebase origin/develop
+	mom = merge --ff-only origin/master
+	rom = rebase origin/master
 	ls = ls-files
 	pp = push origin
-    ppf = push origin --force
+	ppf = push origin --force
 	lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
 	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
-	assume = update-index --assume-unchanged
-	unassume = update-index --no-assume-unchanged
-	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
 	reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
-	svnr = svn rebase
-	svnd = svn dcommit
-	svnl = svn log --oneline --show-commit
-	svnf = svn fetch
-	untrack = rm -r --cached 
-	standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+	standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
 
 	# Show files ignored by git:
 	ign = ls-files -o -i --exclude-standard
@@ -66,7 +55,7 @@
 	excludesfile = /home/mattias/.gitignore_global
 	autocrlf = input
 [merge]
-	tool = gvimdiff
+	tool = vimdiff
 	conflictstyle = diff3
 	prompt = false
 [push]
