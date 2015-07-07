@@ -95,51 +95,27 @@
 	</dock>
 	<keyboard>
 		<chainQuitKey>C-g</chainQuitKey>
-		<keybind key="C-A-Left">
+		<keybind key="C-A-j">
 			<action name="GoToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="C-A-Right">
+		<keybind key="C-A-k">
 			<action name="GoToDesktop">
 				<to>right</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="C-A-Up">
-			<action name="GoToDesktop">
-				<to>up</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="C-A-Down">
-			<action name="GoToDesktop">
-				<to>down</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="S-A-Left">
+		<keybind key="S-A-j">
 			<action name="SendToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="S-A-Right">
+		<keybind key="S-A-k">
 			<action name="SendToDesktop">
 				<to>right</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="S-A-Up">
-			<action name="SendToDesktop">
-				<to>up</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="S-A-Down">
-			<action name="SendToDesktop">
-				<to>down</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
@@ -271,7 +247,7 @@
 				<command>xscreensaver-command -lock</command>
 			</action>
 		</keybind>
-		<keybind key="W-Left">
+		<keybind key="W-H">
 			<action name="UnmaximizeFull"/>
 			<action name="MaximizeVert"/>
 			<action name="MoveResizeTo">
@@ -279,7 +255,7 @@
 			</action>
 			<action name="MoveToEdge"><direction>west</direction></action>
 		</keybind>
-		<keybind key="W-Right">
+		<keybind key="W-L">
 			<action name="UnmaximizeFull"/>
 			<action name="MaximizeVert"/>
 			<action name="MoveResizeTo">
@@ -287,10 +263,10 @@
 			</action>
 			<action name="MoveToEdge"><direction>east</direction></action>
 		</keybind>
-		<keybind key="W-Down">
+		<keybind key="W-J">
 			<action name="Unmaximize"/>
 		</keybind>
-		<keybind key="W-Up">
+		<keybind key="W-K">
 			<action name="Maximize"/>
 		</keybind>
 		<keybind key="xf86audioplay">
