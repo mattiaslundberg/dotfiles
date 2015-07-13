@@ -196,7 +196,7 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$\|venv$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-let s:ctrlp_fallback = 'ack %s --nocolor -f'
+let s:ctrlp_fallback = 'ag %s --nocolor -f'
 let g:ctrlp_user_command = {
             \ 'types': {
             \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
@@ -209,6 +209,7 @@ let g:ctrlp_user_command = {
 let g:ack_mappings = {
     \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J",
     \ "<C-x>": "<C-W><CR><C-W>K" }
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " funky
 let g:ctrlp_extensions = ['funky']
