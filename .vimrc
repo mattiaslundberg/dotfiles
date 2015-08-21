@@ -33,6 +33,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-commentary'
 Plugin 'godlygeek/tabular'
 Plugin 'AndrewRadev/linediff.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Completion/snippets
 Plugin 'Shougo/neocomplcache'
