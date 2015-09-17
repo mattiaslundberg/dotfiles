@@ -719,55 +719,153 @@ xkb_compatibility "complete" {
     interpret ISO_Last_Group+AnyOfOrNone(all) {
         action= LockGroup(group=2);
     };
-    interpret j {
+    interpret KP_1+AnyOfOrNone(all) {
         repeat= True;
-        action= MovePtr(x=+0,y=+5);
+        action= MovePtr(x=-1,y=+1);
     };
-    interpret h {
+    interpret KP_End+AnyOfOrNone(all) {
         repeat= True;
-        action= MovePtr(x=-5,y=+0);
+        action= MovePtr(x=-1,y=+1);
     };
-    interpret l {
+    interpret KP_2+AnyOfOrNone(all) {
         repeat= True;
-        action= MovePtr(x=+5,y=+0);
+        action= MovePtr(x=+0,y=+1);
     };
-    interpret k {
+    interpret KP_Down+AnyOfOrNone(all) {
         repeat= True;
-        action= MovePtr(x=+0,y=-5);
+        action= MovePtr(x=+0,y=+1);
     };
-    interpret n {
+    interpret KP_3+AnyOfOrNone(all) {
         repeat= True;
-        action= PtrBtn(button=1,count=2);
+        action= MovePtr(x=+1,y=+1);
     };
-    interpret m {
+    interpret KP_Next+AnyOfOrNone(all) {
         repeat= True;
-        action= PtrBtn(button=1);
+        action= MovePtr(x=+1,y=+1);
     };
-    interpret comma {
+    interpret KP_4+AnyOfOrNone(all) {
         repeat= True;
-        action= PtrBtn(button=2);
+        action= MovePtr(x=-1,y=+0);
     };
-    interpret period {
+    interpret KP_Left+AnyOfOrNone(all) {
         repeat= True;
-        action= PtrBtn(button=3);
+        action= MovePtr(x=-1,y=+0);
     };
-    interpret b {
+    interpret KP_6+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=+0);
+    };
+    interpret KP_Right+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=+0);
+    };
+    interpret KP_7+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=-1,y=-1);
+    };
+    interpret KP_Home+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=-1,y=-1);
+    };
+    interpret KP_8+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+0,y=-1);
+    };
+    interpret KP_Up+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+0,y=-1);
+    };
+    interpret KP_9+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=-1);
+    };
+    interpret KP_Prior+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=-1);
+    };
+    interpret KP_5+AnyOfOrNone(all) {
+        repeat= True;
+        action= PtrBtn(button=default);
+    };
+    interpret KP_Begin+AnyOfOrNone(all) {
+        repeat= True;
+        action= PtrBtn(button=default);
+    };
+    interpret KP_F2+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=1);
+    };
+    interpret KP_Divide+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=1);
+    };
+    interpret KP_F3+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=2);
+    };
+    interpret KP_Multiply+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=2);
+    };
+    interpret KP_F4+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=3);
+    };
+    interpret KP_Subtract+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=3);
+    };
+    interpret KP_Separator+AnyOfOrNone(all) {
+        repeat= True;
+        action= PtrBtn(button=default,count=2);
+    };
+    interpret KP_Add+AnyOfOrNone(all) {
+        repeat= True;
+        action= PtrBtn(button=default,count=2);
+    };
+    interpret KP_0+AnyOfOrNone(all) {
         repeat= True;
         action= LockPtrBtn(button=default,affect=lock);
     };
-    interpret p {
-        action = LockPointerButton(button=1,affect=lock);
+    interpret KP_Insert+AnyOfOrNone(all) {
+        repeat= True;
+        action= LockPtrBtn(button=default,affect=lock);
     };
-    interpret o {
-        action = LockPointerButton(button=1,affect=unlock);
+    interpret KP_Decimal+AnyOfOrNone(all) {
+        repeat= True;
+        action= LockPtrBtn(button=default,affect=unlock);
     };
-    interpret u {
-        repeat= true;
-        action= PointerButton(button=4, count=2);
+    interpret KP_Delete+AnyOfOrNone(all) {
+        repeat= True;
+        action= LockPtrBtn(button=default,affect=unlock);
     };
-    interpret i {
-        repeat= true;
-        action= PointerButton(button=5, count=2);
+    interpret F25+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=1);
+    };
+    interpret F26+AnyOfOrNone(all) {
+        repeat= True;
+        action= SetPtrDflt(affect=button,button=2);
+    };
+    interpret F27+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=-1,y=-1);
+    };
+    interpret F29+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=-1);
+    };
+    interpret F31+AnyOfOrNone(all) {
+        repeat= True;
+        action= PtrBtn(button=default);
+    };
+    interpret F33+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=-1,y=+1);
+    };
+    interpret F35+AnyOfOrNone(all) {
+        repeat= True;
+        action= MovePtr(x=+1,y=+1);
     };
     interpret Pointer_Button_Dflt+AnyOfOrNone(all) {
         action= PtrBtn(button=default);
@@ -1204,7 +1302,7 @@ xkb_symbols "pc+se+inet(evdev)" {
     key <LALT> {         [           Alt_L,          Meta_L ] };
     key <SPCE> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           space,           space,           MouseKeys_Enable,    MouseKeys_Enable ]
+        symbols[Group1]= [           space,           space,           space,    nobreakspace ]
     };
     key <CAPS> {
         type= "FOUR_LEVEL",
