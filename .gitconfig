@@ -1,64 +1,66 @@
 [user]
-	email = mattiaslundberg@openmailbox.org
-	name = Mattias Lundberg
-	signingkey = E4B7697B
+    email = mattiaslundberg@openmailbox.org
+    name = Mattias Lundberg
+    signingkey = E4B7697B
 [commit]
-	gpgsign = true
+    gpgsign = true
 [color]
-	ui = auto
+    ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 [alias]
-	st = status --short --branch
-	ci = commit
-	cia = commit --amend --no-edit
-	br = branch
-	co = checkout
-	cp = cherry-pick
-	df = diff
-	dc = diff --cached
-	fa = fetch --all
-	fu = fetch upstream
-	fo = fetch origin
-	mud = merge --ff-only upstream/develop
-	mod = merge --ff-only origin/develop
-	rud = rebase upstream/develop
-	rod = rebase origin/develop
-	mom = merge --ff-only origin/master
-	rom = rebase origin/master
-	ls = ls-files
-	pp = push origin
-	ppf = push origin --force
-	lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
-	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
-	reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
-	standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+    st = status --short --branch
+    ci = commit
+    cia = commit --amend --no-edit
+    br = branch
+    co = checkout
+    cp = cherry-pick
+    df = diff
+    dc = diff --cached
+    fa = fetch --all
+    fu = fetch upstream
+    fo = fetch origin
+    mud = merge --ff-only upstream/develop
+    mod = merge --ff-only origin/develop
+    rud = rebase upstream/develop
+    rod = rebase origin/develop
+    ra = rebase --abort
+    rc = rebase --continue
+    mom = merge --ff-only origin/master
+    rom = rebase origin/master
+    ls = ls-files
+    pp = push origin
+    ppf = push origin --force
+    lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
+    lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
+    reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
+    standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
 
-	# Show files ignored by git:
-	ign = ls-files -o -i --exclude-standard
-	undo = reset --soft HEAD^
-	g = grep --break --heading --line-number
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
+    undo = reset --soft HEAD^
+    g = grep --break --heading --line-number
 
 [core]
-	editor = vim
-	excludesfile = /home/mattias/.gitignore_global
-	autocrlf = input
+    editor = vim
+    excludesfile = /home/mattias/.gitignore_global
+    autocrlf = input
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-	prompt = false
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
 [push]
-	default = current
+    default = current
 [github]
-	user = mattiaslundberg
+    user = mattiaslundberg
