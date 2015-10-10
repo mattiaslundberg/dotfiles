@@ -99,4 +99,4 @@ case $USER in
   ;;
 esac
 
-export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/home/mattias/bin:/home/mattias/.gem/ruby/2.1.0/bin"
+export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/home/mattias/.bin:/home/mattias/.gem/ruby/2.1.0/bin"

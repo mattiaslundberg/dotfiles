@@ -27,7 +27,7 @@ fi
 if [ -x /usr/bin/pacman ]; then
 	# pacman aliases
 	alias install='sudo pacman -S'
-	alias upgrade='sudo pacman -Syu'
+	alias upgrade='sudo pacman -Syu && sudo chkboot'
 	alias uninstall='sudo pacman -Rs'
 	alias search='sudo pacman -Ss'
 fi
@@ -181,20 +181,17 @@ case $HOST in
 				;;
 			esac
 		}
-		homedesk() {
+		dp() {
 			fixkbd
 			case "$1" in
-				normal)
-					xrandr --auto --output HDMI1 --mode 1680x1050 --right-of eDP1 --rotate normal
-				;;
-				rotate)
-					xrandr --auto --output HDMI1 --mode 1680x1050 --right-of eDP1 --rotate left
+				home)
+					xrandr --output eDP1 --off --output HDMI1 --scale 1.4x1.4 --panning 1680x1050 --auto --fb 2352x1470
 				;;
 				off)
-					xrandr --auto --output HDMI1 --off
+					xrandr --output eDP1 --auto --output HDMI1 --off
 				;;
 				*)
-					echo "Usage off|normal|rotate"
+					echo "Usage off|home"
 				;;
 			esac
 		}

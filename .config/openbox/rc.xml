@@ -251,32 +251,32 @@
 		</keybind>
 		<keybind key="xf86audioplay">
 			<action name="execute">
-				<execute>~/bin/musickeys.sh play</execute>
+				<execute>~/.bin/musickeys.sh play</execute>
 			</action>
 		</keybind>
 		<keybind key="W-l">
 			<action name="execute">
-				<execute>~/bin/musickeys.sh play</execute>
+				<execute>~/.bin/musickeys.sh play</execute>
 			</action>
 		</keybind>
 		<keybind key="XF86AudioNext">
 			<action name="Execute">
-				<execute>~/bin/musickeys.sh next</execute>
+				<execute>~/.bin/musickeys.sh next</execute>
 			</action>
 		</keybind>
 		<keybind key="W-n">
 			<action name="Execute">
-				<execute>~/bin/musickeys.sh next</execute>
+				<execute>~/.bin/musickeys.sh next</execute>
 			</action>
 		</keybind>
 		<keybind key="XF86AudioPrev">
 			<action name="Execute">
-				<execute>~/bin/musickeys.sh prev</execute>
+				<execute>~/.bin/musickeys.sh prev</execute>
 			</action>
 		</keybind>
 		<keybind key="W-h">
 			<action name="Execute">
-				<execute>~/bin/musickeys.sh prev</execute>
+				<execute>~/.bin/musickeys.sh prev</execute>
 			</action>
 		</keybind>
 	</keyboard>
