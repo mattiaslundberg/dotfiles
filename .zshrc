@@ -17,10 +17,6 @@ mattias)
 ;;
 esac
 
-COLOR_MAP="~/.colormap"
-[[ -s $COLOR_MAP ]] && source $COLOR_MAP
-
-
 setopt histignorealldups sharehistory
 setopt autocd
 set -o shwordsplit
@@ -87,6 +83,9 @@ if [ -f ~/.aliases ]; then
 fi
 if [ -f ~/.zshrc.local ]; then
     . ~/.zshrc.local
+fi
+if [ -f ~/.colormap ]; then
+    . ~/.colormap
 fi
 
 case $USER in
