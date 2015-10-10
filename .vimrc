@@ -9,22 +9,24 @@ call vundle#rc()
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
+" Navigation
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'chriskempson/base16-vim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'vim-scripts/sessionman.vim'
+
+" Color
+Plugin 'chriskempson/base16-vim.git'
 Plugin 'matchit.zip'
+
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 
 Plugin 'mbbill/undotree'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/restore_view.vim'
-Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-abolish.git'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'scrooloose/syntastic'
