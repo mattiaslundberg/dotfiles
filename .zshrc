@@ -17,6 +17,10 @@ mattias)
 ;;
 esac
 
+COLOR_MAP="~/.colormap"
+[[ -s $COLOR_MAP ]] && source $COLOR_MAP
+
+
 setopt histignorealldups sharehistory
 setopt autocd
 set -o shwordsplit

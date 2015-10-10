@@ -7,7 +7,7 @@
 #---------------------------------------------
 rounded = 0
 border_width = 0
-background_color = #002b36 100
+background_color = #181818 100
 
 #---------------------------------------------
 # PANEL
@@ -40,7 +40,7 @@ task_maximum_size = 190 55
 task_centered = 0
 task_padding = 10 3
 task_font = sans 14
-task_font_color = #839496 100
+task_font_color = #b8b8b8 100
 task_background_id = 3
 task_icon_asb = 100 0 0
 # replace STATUS by 'urgent', 'active' or 'iconfied'
@@ -49,7 +49,7 @@ task_icon_asb = 100 0 0
 #task_STATUS_icon_asb = 100 0 0
 # example:
 task_active_background_id = 2
-task_active_font_color = #b58900 100
+task_active_font_color = #a1b56c 100
 task_active_icon_asb = 100 0 0
 urgent_nb_of_blink = 8
 
@@ -70,7 +70,7 @@ time1_format = %H:%M
 time1_font = sans 16
 time2_format = %A %d %B
 time2_font = sans 10
-clock_font_color = #839496 100
+clock_font_color = #b8b8b8 100
 clock_padding = 1 0
 clock_background_id = 0
 clock_lclick_command = google-chrome-stable https://www.google.com/calendar/render
@@ -89,7 +89,7 @@ battery_low_status = 10
 battery_low_cmd = notify-send "battery low"
 bat1_font = sans 14
 bat2_font = sans 12
-battery_font_color = #839496 100
+battery_font_color = #b8b8b8 100
 battery_padding = 1 0
 battery_background_id = 0
 
@@ -109,8 +109,8 @@ tooltip_font = sans 10
 #---------------------------------------------
 mouse_middle = none
 mouse_right = close
-mouse_scroll_up = toggle
-mouse_scroll_down = iconify
+mouse_scroll_up = none
+mouse_scroll_down = none
 
 #---------------------------------------------
 # AUTOHIDE OPTIONS

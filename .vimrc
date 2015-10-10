@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -107,11 +107,8 @@ set undolevels=1000
 set undoreload=10000
 
 " UI and colorscheme
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-color solarized
+let base16colorspace=256
+color base16-default
 
 if has('gui_running')
     set guioptions=a
@@ -280,7 +277,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Airline
 set laststatus=2
 let g:bufferline_echo = 0
-let g:airline_theme = 'solarized'
 let g:airline_left_sep='›'
 let g:airline_right_sep='‹'
 
