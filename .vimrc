@@ -45,6 +45,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'klen/python-mode'
 Plugin 'python_match.vim'
 Plugin 'pythoncomplete'
+Plugin 'fisadev/vim-isort'
 
 " Javascript
 Plugin 'elzr/vim-json'
