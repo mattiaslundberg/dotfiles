@@ -9,7 +9,7 @@ call vundle#rc()
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim.git'
 Plugin 'tpope/vim-surround'
@@ -130,6 +130,7 @@ set backspace=indent,eol,start
 set linespace=0
 set number
 set showmatch
+set lazyredraw
 set incsearch
 set hlsearch
 set winminheight=0
@@ -195,27 +196,19 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$\|venv$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-let s:ctrlp_fallback = 'ag %s --nocolor -f'
-let g:ctrlp_user_command = {
-            \ 'types': {
-            \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-            \ },
-            \ 'fallback': s:ctrlp_fallback
-            \ }
-
-" Use c-v and c-x to open ack results in splits
-let g:ack_mappings = {
-    \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J",
-    \ "<C-x>": "<C-W><CR><C-W>K" }
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" Create continuous split
-noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-
 " funky
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
+
+let s:ctrlp_fallback = 'ag %s -l --nocolor -f -g'
+
+" Use c-v and c-x to open ag results in splits
+let g:ag_mappings = {
+    \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J",
+    \ "<C-x>": "<C-W><CR><C-W>K" }
+
+" Create continuous split
+noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 " Completion
 let g:acp_enableAtStartup = 0
