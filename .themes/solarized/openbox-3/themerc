@@ -54,7 +54,7 @@ window.active.button.toggled.image.color: #d8d8d8
 
 # Window settings (unfocused)
 window.inactive.title.bg: solid flat
-window.inactive.title.bg.color: #002b38
+window.inactive.title.bg.color: #181818
 
 window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #d8d8d8
