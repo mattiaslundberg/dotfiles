@@ -16,6 +16,8 @@ alias mkdir='mkdir -pv'
 cl() { cd $1 && la ; }
 mc() { mkdir $1 && cd $1 ; }
 
+alias g='git'
+
 
 if [ -x /usr/bin/packer ]; then
 	# aur aliases
