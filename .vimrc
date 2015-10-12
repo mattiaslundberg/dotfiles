@@ -132,7 +132,6 @@ set backspace=indent,eol,start
 set linespace=0
 set number
 set showmatch
-set lazyredraw
 set incsearch
 set hlsearch
 set winminheight=0
