@@ -23,5 +23,6 @@
 .config/openbox/
 .config/terminator/
 .config/tint2/
+.colormap
 .bin/
 bin/
