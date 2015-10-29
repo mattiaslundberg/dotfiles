@@ -327,8 +327,6 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap Q <nop>
 
 " Custom keymappings
-imap jk <Esc>
-imap kj <Esc>
 map <Leader>w :w<CR>
 map <Leader>x :x<CR>
 map <Leader>qq :qa!<CR>

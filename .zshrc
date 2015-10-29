@@ -58,8 +58,6 @@ source <(envoy -p)
 # Keybindings.
 bindkey -v
 bindkey '^R' history-incremental-search-backward
-bindkey -M viins "jk" vi-cmd-mode
-bindkey -M viins "kj" vi-cmd-mode
 
 # Show current git branch.
 GIT_PROMPT_PREFIX="%{$reset_color%}[%{$reset_color%}"
