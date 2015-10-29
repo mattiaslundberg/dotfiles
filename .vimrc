@@ -201,7 +201,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
-let s:ctrlp_fallback = 'ag %s -l --nocolor -f -g'
+let g:ctrlp_user_command = 'ag -l --nocolor -f -g "" %s'
+let g:ctrlp_use_caching = 0
 
 " Use c-v and c-x to open ag results in splits
 let g:ag_mappings = {
