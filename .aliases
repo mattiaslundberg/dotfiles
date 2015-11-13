@@ -1,9 +1,9 @@
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # standard aliases
@@ -20,30 +20,30 @@ alias g='git'
 
 
 if [ -x /usr/bin/packer ]; then
-	# aur aliases
-	alias aurinstall='packer --noedit --auronly -S'
-	alias aurupgrade='packer --noedit --auronly -Syu'
-	alias aursearch='packer --auronly -Ss'
+    # aur aliases
+    alias aurinstall='packer --noedit --auronly -S'
+    alias aurupgrade='packer --noedit --auronly -Syu'
+    alias aursearch='packer --auronly -Ss'
 fi
 
 if [ -x /usr/bin/pacman ]; then
-	# pacman aliases
-	alias install='sudo pacman -S'
-	alias upgrade='sudo pacman -Syu && sudo chkboot'
-	alias uninstall='sudo pacman -Rs'
-	alias search='sudo pacman -Ss'
+    # pacman aliases
+    alias install='sudo pacman -S'
+    alias upgrade='sudo pacman -Syu && sudo chkboot'
+    alias uninstall='sudo pacman -Rs'
+    alias search='sudo pacman -Ss'
 fi
 
 if [ -x /usr/bin/apt-get ]; then
-	# apt aliases
-	alias install='sudo apt-get install'
-	alias update='sudo apt-get update'
-	alias upgrade='sudo apt-get update && sudo apt-get upgrade'
-	alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade'
-	alias autoremove='sudo apt-get autoremove'
-	alias uninstall='sudo apt-get remove'
-	alias search='apt-cache search'
-	alias showpkg='apt-cache show'
+    # apt aliases
+    alias install='sudo apt-get install'
+    alias update='sudo apt-get update'
+    alias upgrade='sudo apt-get update && sudo apt-get upgrade'
+    alias dist-upgrade='sudo apt-get update && sudo apt-get dist-upgrade'
+    alias autoremove='sudo apt-get autoremove'
+    alias uninstall='sudo apt-get remove'
+    alias search='apt-cache search'
+    alias showpkg='apt-cache show'
 fi
 
 # Toggle git edit mode
@@ -75,59 +75,59 @@ mktmp() { mkdir $1 && sudo mount -t tmpfs none $(pwd)/$1 }
 rmtmp() { sudo umount $(pwd)/$1 && rmdir $1 }
 
 builddeb() {
-	[ -d $1 ] || exit 1
-	mkdir /tmp/mattias
-	rsync -ar $1 /tmp/mattias
-	cd /tmp/mattias/$1 ; dpkg-buildpackage -b -tc
-	rm -rf /tmp/mattias/$1
+    [ -d $1 ] || exit 1
+    mkdir /tmp/mattias
+    rsync -ar $1 /tmp/mattias
+    cd /tmp/mattias/$1 ; dpkg-buildpackage -b -tc
+    rm -rf /tmp/mattias/$1
 }
 
 gitbranchclean() {
-	for b in $(git branch | cut -b3-); do
-		[[ "$b" == "master" || "$b" == "develop" ]] && continue
-		git branch -D "$b"
-	done
+    for b in $(git branch | cut -b3-); do
+        [[ "$b" == "master" || "$b" == "develop" ]] && continue
+        git branch -D "$b"
+    done
 }
 
 # Reload all specifically loaded modules
 modreload() {
-	for m in $(cat /etc/modules-load.d/*); do
-		sudo modprobe $m
-	done
+    for m in $(cat /etc/modules-load.d/*); do
+        sudo modprobe $m
+    done
 }
 
 # Tmux helpers
 ta() { # Attach
-	echo -n "\033]0;$1\007"
-	tmux attach-session -t $1
+    echo -n "\033]0;$1\007"
+    tmux attach-session -t $1
 }
 
 tn() { # Create
-	echo -n "\033]0;$1\007"
-	tmux new-session -s $1
+    echo -n "\033]0;$1\007"
+    tmux new-session -s $1
 }
 
 
 usbmnt() {
-	NODES=($(ls -1 /dev/sd[abcdefghij][123456]))
-	I=1
+    NODES=($(ls -1 /dev/sd[abcdefghij][123456]))
+    I=1
 
-	echo "Available devices:"
-	for N in $NODES ; do
-		echo " $I) $N"
-		(( I++ ))
-	done
+    echo "Available devices:"
+    for N in $NODES ; do
+        echo " $I) $N"
+        (( I++ ))
+    done
 
-	echo "Select device:"
-	read DEVID
-	echo "Mounting device ${NODES[$DEVID]}"
-	sudo cryptsetup luksOpen ${NODES[$DEVID]} usb
-	sudo mount /dev/mapper/usb /mnt/usb
+    echo "Select device:"
+    read DEVID
+    echo "Mounting device ${NODES[$DEVID]}"
+    sudo cryptsetup luksOpen ${NODES[$DEVID]} usb
+    sudo mount /dev/mapper/usb /mnt/usb
 }
 
 usbumnt() {
-	sudo umount /mnt/usb
-	sudo cryptsetup luksClose usb
+    sudo umount /mnt/usb
+    sudo cryptsetup luksClose usb
 }
 
 
@@ -138,27 +138,27 @@ alias cpaste="ls /tmp/ccopy* | sed 's|[^\.]*.\.||' | xargs -I % mv /tmp/ccopy.% 
 alias mntdropbox='encfs -o allow_root ~/Dropbox/encrypted.bc/ ~/DropboxDecrypted/'
 
 viminstall(){
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	vimupgrade
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vimupgrade
 }
 vimupgrade(){
-	vim +PluginInstall +PluginClean +qall
+    vim +PluginInstall +PluginClean +qall
 }
 
 # Helpers for running skype in a docker container.
 # Requires local "mattiaslundberg/skype" docker image.
 # And "skype" ssh alias for port 55555
 skypeinstall(){
-	docker run -d --name=myskype -v /home/mattias/.Skype:/home/docker/.Skype --device=/dev/video0 -p 55555:22 mattiaslundberg/skype
-	ssh-copy-id -i ~/.ssh/id_ecdsa.pub skype
-	docker stop myskype
+    docker run -d --name=myskype -v /home/mattias/.Skype:/home/docker/.Skype --device=/dev/video0 -p 55555:22 mattiaslundberg/skype
+    ssh-copy-id -i ~/.ssh/id_ecdsa.pub skype
+    docker stop myskype
 }
 # Start docker and attach to skype
 skypestart(){
-	docker start myskype
-	sleep 5
-	ssh skype skype-pulseaudio || true
-	docker stop myskype
+    docker start myskype
+    sleep 5
+    ssh skype skype-pulseaudio || true
+    docker stop myskype
 }
 
 # ssh via sshrc to vagrant boxes
@@ -169,51 +169,68 @@ vs() {
 }
 
 case $HOST in
-	toad)
-		hdmi() {
-			case "$1" in
-				fhd)
-					xrandr --auto --output HDMI2 --mode 1920x1080 --right-of eDP1
-				;;
-				off)
-					xrandr --auto --output HDMI2 --off
-				;;
-				*)
-					echo "Usage off|fhd"
-				;;
-			esac
-		}
-		dp() {
-			fixkbd
-			case "$1" in
-				home)
-					xrandr --output eDP1 --off --output HDMI1 --scale 1.4x1.4 --panning 1680x1050 --auto --fb 2352x1470
-				;;
-				off)
-					xrandr --output eDP1 --auto --output HDMI1 --off
-				;;
-				*)
-					echo "Usage off|home"
-				;;
-			esac
-		}
-		netw() {
-			case "$1" in
-				f*)
-					sudo systemctl stop netctl-auto@wlo1.service
-					sudo netctl start fixed
-				;;
-				d*)
-					sudo netctl stop fixed
-					sudo systemctl start netctl-auto@wlo1.service
-				;;
-				*)
-					echo "Usage fixed|default"
-				;;
-			esac
-		}
-	;;
-	*)
+    toad)
+        hdmi() {
+            case "$1" in
+                fhd)
+                    xrandr --auto --output HDMI2 --mode 1920x1080 --right-of eDP1
+                ;;
+                off)
+                    xrandr --auto --output HDMI2 --off
+                ;;
+                *)
+                    echo "Usage off|fhd"
+                ;;
+            esac
+        }
+        dp() {
+            fixkbd
+            case "$1" in
+                home)
+                    xrandr --output eDP1 --off --output HDMI1 --scale 1.4x1.4 --panning 1680x1050 --auto --fb 2352x1470
+                ;;
+                off)
+                    xrandr --output eDP1 --auto --output HDMI1 --off
+                ;;
+                *)
+                    echo "Usage off|home"
+                ;;
+            esac
+        }
+        netw() {
+            case "$1" in
+                f*)
+                    sudo systemctl stop netctl-auto@wlo1.service
+                    sudo netctl start fixed
+                ;;
+                d*)
+                    sudo netctl stop fixed
+                    sudo systemctl start netctl-auto@wlo1.service
+                ;;
+                *)
+                    echo "Usage fixed|default"
+                ;;
+            esac
+        }
+    ;;
+    x230)
+        netw() {
+            case "$1" in
+                f*)
+                    sudo systemctl stop netctl-auto@wlp3s0.service
+                    sudo netctl start fixed
+                ;;
+                d*)
+                    sudo netctl stop fixed
+                    sudo systemctl start netctl-auto@wlp3s0.service
+                ;;
+                *)
+                    echo "Usage fixed|default"
+                ;;
+            esac
+        }
+    ;;
+    *)
 
-	;;
+    ;;
 esac
