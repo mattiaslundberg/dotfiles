@@ -209,7 +209,7 @@
 		</keybind>
 		<keybind key="XF86AudioMute">
 			<action name="Execute">
-				<command>amixer set Master toggle</command>
+				<execute>~/bin/musickeys.sh mute</execute>
 			</action>
 		</keybind>
 		<keybind key="C-A-Delete">
