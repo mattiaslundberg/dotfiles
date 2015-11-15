@@ -66,8 +66,8 @@ window.inactive.grip.bg: solid flat
 window.inactive.grip.bg.color: #181818
 
 window.inactive.button.unpressed.bg: solid flat
-window.inactive.button.unpressed.bg.color: #282828
-window.inactive.button.unpressed.bg.border.color: #282828
+window.inactive.button.unpressed.bg.color: #181818
+window.inactive.button.unpressed.bg.border.color: #181818
 window.inactive.button.unpressed.image.color: #d8d8d8
 
 window.inactive.button.pressed.bg: solid flat

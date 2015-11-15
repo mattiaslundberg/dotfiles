@@ -14,7 +14,7 @@ background_color = #181818 100
 #---------------------------------------------
 panel_monitor = all
 panel_position = top center horizontal
-panel_size = 100% 40
+panel_size = 100% 25
 panel_margin = 0 0
 panel_padding = 7 0
 font_shadow = 0
@@ -36,10 +36,10 @@ taskbar_background_id = 0
 #---------------------------------------------
 task_icon = 0
 task_text = 1
-task_maximum_size = 190 55
+task_maximum_size = 95 55
 task_centered = 0
 task_padding = 10 3
-task_font = sans 14
+task_font = sans 10
 task_font_color = #b8b8b8 100
 task_background_id = 3
 task_icon_asb = 100 0 0
@@ -67,13 +67,13 @@ systray_icon_asb = 100 0 0
 # CLOCK
 #---------------------------------------------
 time1_format = %H:%M
-time1_font = sans 16
+time1_font = sans 10
 time2_format = %A %d %B
-time2_font = sans 10
+time2_font = sans 8
 clock_font_color = #b8b8b8 100
 clock_padding = 1 0
 clock_background_id = 0
-clock_lclick_command = google-chrome-stable https://www.google.com/calendar/render
+#clock_lclick_command = google-chrome-stable https://www.google.com/calendar/render
 #clock_rclick_command = orage
 #clock_tooltip = %A %d %B
 #time1_timezone = :US/Hawaii
@@ -84,11 +84,11 @@ clock_tooltip_timezone = :/usr/share/zoneinfo/Europe/Paris
 # BATTERY
 #---------------------------------------------
 battery = 1
-battery_hide = 98
+#battery_hide = 98
 battery_low_status = 10
 battery_low_cmd = notify-send "battery low"
-bat1_font = sans 14
-bat2_font = sans 12
+bat1_font = sans 10
+bat2_font = sans 8
 battery_font_color = #b8b8b8 100
 battery_padding = 1 0
 battery_background_id = 0

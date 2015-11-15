@@ -116,7 +116,7 @@ color base16-default
 if has('gui_running')
     set guioptions=a
     set lines=40
-    set guifont=Monospace\ 18
+    set guifont=Monospace\ 12
 else
     set t_Co=256
 endif
