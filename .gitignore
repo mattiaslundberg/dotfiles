@@ -24,6 +24,7 @@
 !.config/openbox/
 !.config/terminator/
 !.config/tint2/
+!.config/nvim/init.vim
 !.colormap
 !.bin/
 !bin/
@@ -33,4 +34,5 @@
 Documents/
 code/
 .vim/
+.config/nvim/plugged/
 .vagrant.d/
