@@ -27,6 +27,7 @@
 !.config/nvim/init.vim
 !.colormap
 !.bin/
+!.zshgit
 !bin/
 
 !*/

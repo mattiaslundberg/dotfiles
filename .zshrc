@@ -65,19 +65,21 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Show current git branch.
-GIT_PROMPT_PREFIX="%{$reset_color%}[%{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$reset_color%}]%{$reset_color%}"
-parse_git_branch() {
-  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
-}
-git_prompt_string() {
-  local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
-}
-
-
+source ~/.zshgit/zshrc.sh
 precmd () {
-	RPROMPT=$(git_prompt_string)
+    RPROMPT="(...)"
+    asyncprompt &!
+}
+
+function asyncprompt() {
+    P=$(git_super_status)
+    printf "%s" $P > /tmp/prompt.$$
+    kill -s USR2 $$
+}
+
+function TRAPUSR2 {
+    RPROMPT=$(cat "/tmp/prompt.$$")
+    zle && zle reset-prompt
 }
 
 # Load external files
