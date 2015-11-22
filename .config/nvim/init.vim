@@ -4,9 +4,11 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source ~/.config/nvim/init.vim
 endif
+
 call plug#begin('~/.config/nvim/plugged')
 " Navigation
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'milkypostman/vim-togglelist'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -216,10 +218,11 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 let g:ctrlp_user_command = 'ag -l --nocolor -f -g "" %s'
 let g:ctrlp_use_caching = 0
 
-" Use c-v and c-x to open ag results in splits
-let g:ag_mappings = {
-    \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J",
-    \ "<C-x>": "<C-W><CR><C-W>K" }
+" Ag command
+command! -nargs=* -complete=file Ag Grepper! -tool ag -query <args>
+
+" Toogle quickfix list
+nmap <script> <silent> <leader>y :call ToggleQuickfixList()<CR> 
 
 " Create continuous split
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
