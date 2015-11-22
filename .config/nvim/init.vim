@@ -7,11 +7,10 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 " Navigation
 Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
+Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
 
 " Color
 Plug 'chriskempson/base16-vim'
@@ -25,7 +24,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'tpope/vim-abolish'
 Plug 'gcmt/wildfire.vim'
-"Plug 'scrooloose/syntastic'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
@@ -48,7 +46,6 @@ Plug 'fisadev/vim-isort'
 
 " Javascript
 Plug 'elzr/vim-json'
-Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script'
@@ -56,8 +53,8 @@ Plug 'kchmck/vim-coffee-script'
 " HTML
 Plug 'amirh/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
 " Testing
