@@ -71,24 +71,16 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'darvelo/vim-systemd'
 call plug#end()
 
+" General configuration
 set background=dark
 set nomodeline
-
-" General configuration
 set nofoldenable
 set foldlevel=1
 syntax on
-set mouse=a
-set mousehide
+set gdefault
 scriptencoding utf-8
 
-if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-    else
-        set clipboard=unnamed
-    endif
-endif
+set clipboard=unnamedplus
 set shortmess+=filmnrxoOtT
 set viewoptions=options,cursor,unix,slash
 set virtualedit=onemore
@@ -129,13 +121,11 @@ set cursorline
 highlight clear SignColumn
 highlight clear LineNr
 
-set backspace=indent,eol,start
 set linespace=0
 set number
 set showmatch
 set incsearch
 set hlsearch
-set winminheight=0
 set ignorecase
 set smartcase
 set wildmenu
@@ -148,7 +138,6 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Formatting
 set nowrap
-set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -220,6 +209,7 @@ let g:ctrlp_use_caching = 0
 
 " Ag command
 command! -nargs=* -complete=file Ag Grepper! -tool ag -query <args>
+nnoremap <leader>a :Ag
 
 " Toogle quickfix listg:toggle_list_no_mappings
 let g:toggle_list_no_mappings = 1
