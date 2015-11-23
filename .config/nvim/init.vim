@@ -221,8 +221,10 @@ let g:ctrlp_use_caching = 0
 " Ag command
 command! -nargs=* -complete=file Ag Grepper! -tool ag -query <args>
 
-" Toogle quickfix list
-nmap <script> <silent> <leader>y :call ToggleQuickfixList()<CR>
+" Toogle quickfix listg:toggle_list_no_mappings
+let g:toggle_list_no_mappings = 1
+nmap <script> <silent> <leader>k :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 
 " Create continuous split
 noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
