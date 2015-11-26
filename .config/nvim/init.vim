@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
+Plug 'ruanyl/vim-gh-line'
 
 " Color
 Plug 'chriskempson/base16-vim'
@@ -276,6 +277,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Open github links in chromium.
+let g:gh_open_command = 'chromium '
+
 
 " Airline
 set laststatus=2
