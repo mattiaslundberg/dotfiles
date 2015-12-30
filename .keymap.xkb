@@ -1239,11 +1239,11 @@ xkb_symbols "pc+se+inet(evdev)" {
     };
     key <AC10> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [      odiaeresis,      Odiaeresis,          oslash,          Oslash ]
+        symbols[Group1]= [      colon, semicolon, odiaeresis,      Odiaeresis ]
     };
     key <AC11> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [      adiaeresis,      Adiaeresis,              ae,              AE ]
+        symbols[Group1]= [     apostrophe, at, adiaeresis,      Adiaeresis ]
     };
     key <TLDE> {
         type= "FOUR_LEVEL",
@@ -1252,7 +1252,7 @@ xkb_symbols "pc+se+inet(evdev)" {
     key <LFSH> {         [         Shift_L ] };
     key <BKSL> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [      apostrophe,        asterisk,           acute,        multiply ]
+        symbols[Group1]= [      dead_tilde,        asterisk,           acute,        multiply ]
     };
     key <AB01> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
@@ -1284,11 +1284,11 @@ xkb_symbols "pc+se+inet(evdev)" {
     };
     key <AB08> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           comma,       semicolon,    dead_cedilla,     dead_ogonek ]
+        symbols[Group1]= [           comma,       less,    dead_cedilla,     dead_ogonek ]
     };
     key <AB09> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [          period,           colon,  periodcentered,   dead_abovedot ]
+        symbols[Group1]= [          period,           greater,  periodcentered,   dead_abovedot ]
     };
     key <AB10> {
         type= "FOUR_LEVEL",
