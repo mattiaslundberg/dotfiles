@@ -12,7 +12,8 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'tacahiroy/ctrlp-funky'
+Plug 'mattiaslundberg/ctrlp.vim', {'branch': 'mlfixes'}
+Plug 'mattiaslundberg/ctrlp-funky', {'branch': 'mlfixes'}
 Plug 'ruanyl/vim-gh-line'
 
 " Color
