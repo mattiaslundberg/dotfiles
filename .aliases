@@ -168,6 +168,11 @@ vs() {
     sshrc -F /tmp/vagrantsetup_${TARGET_HOST} ${TARGET_HOST}
 }
 
+vchrome() {
+    vagrant ssh-config default > /tmp/vchrome
+    ssh -X -F /tmp/vchrome default google-chrome
+}
+
 case $HOST in
     toad)
         hdmi() {
@@ -226,6 +231,24 @@ case $HOST in
                 ;;
                 *)
                     echo "Usage fixed|default"
+                ;;
+            esac
+        }
+
+        dock() {
+            case "$1" in
+                on)
+                    netw fixed
+                    xrandr --output LVDS1 --off --output HDMI3 --auto
+                    fixkbd
+                ;;
+                off)
+                    netw default
+                    xrandr --output LVDS1 --auto --output HDMI3 --off
+                    fixkbd
+                ;;
+                *)
+                    echo "Usage on|off"
                 ;;
             esac
         }

@@ -95,9 +95,13 @@ set iskeyword-=-
 let mapleader = "\<space>"
 
 " Backup files
-set backupdir=~/.vimbackup/
-set undodir=~/.vimundo/
-set viewdir=~/.vimviews/
+silent !mkdir -p ~/.config/nvim/backup/ &> /dev/null
+silent !mkdir -p ~/.config/nvim/undo/ &> /dev/null
+silent !mkdir -p ~/.config/nvim/view/ &> /dev/null
+
+set backupdir=~/.config/nvim/backup/
+set undodir=~/.config/nvim/undo/
+set viewdir=~/.config/nvim/view/
 set backup
 set noswapfile
 set undofile
