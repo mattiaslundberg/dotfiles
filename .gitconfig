@@ -53,7 +53,7 @@
     g = grep --break --heading --line-number
 
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = /home/mattias/.gitignore_global
     autocrlf = input
 [merge]
