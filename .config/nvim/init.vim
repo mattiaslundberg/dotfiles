@@ -214,7 +214,7 @@ let g:ctrlp_user_command = 'ag -l --nocolor -f -g "" %s'
 let g:ctrlp_use_caching = 0
 
 " Ag command
-command! -nargs=* -complete=file Ag Grepper! -tool ag -query <args>
+command! -nargs=* -complete=file Ag Grepper -tool ag -query <args>
 nnoremap <leader>a :Ag
 
 " Toogle quickfix listg:toggle_list_no_mappings
