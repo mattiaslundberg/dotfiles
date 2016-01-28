@@ -154,12 +154,20 @@ set splitbelow
 set pastetoggle=<F12>
 
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
-autocmd! BufWritePost * Neomake
+autocmd BufWritePost * Neomake
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
+"Save marks for last file of type
+autocmd BufLeave *.css,*.less,*scss normal! mC
+autocmd BufLeave *models* normal! mM
+autocmd BufLeave *api.py normal! mA
+autocmd BufLeave *views.py normal! mV
+autocmd BufLeave *test.*,*test_* normal! mT
+autocmd BufLeave *.html normal! mH
+autocmd BufLeave *.js normal! mJ
 
 nnoremap Y y$
 
