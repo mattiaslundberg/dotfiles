@@ -56,7 +56,7 @@ xkb_keymap {
         };
         key <AC10> {
             type= "FOUR_LEVEL_ALPHABETIC",
-            symbols[Group1]= [      colon, semicolon, odiaeresis,      Odiaeresis ]
+            symbols[Group1]= [      semicolon, colon, odiaeresis,      Odiaeresis ]
         };
         key <AC11> {
             type= "FOUR_LEVEL_ALPHABETIC",
