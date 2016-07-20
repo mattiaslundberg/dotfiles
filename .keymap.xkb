@@ -56,15 +56,18 @@ xkb_keymap {
         };
         key <AC10> {
             type= "FOUR_LEVEL_ALPHABETIC",
-            symbols[Group1]= [      semicolon, colon, odiaeresis,      Odiaeresis ]
+            symbols[Group1]= [      colon, semicolon, odiaeresis,      Odiaeresis ]
         };
         key <AC11> {
             type= "FOUR_LEVEL_ALPHABETIC",
             symbols[Group1]= [     apostrophe, quotedbl, adiaeresis,      Adiaeresis ]
         };
-        key <AE12> {
+
+        key <LSGT> { [ grave ,  asciitilde  ] };
+
+        key <AD03> {
             type= "FOUR_LEVEL",
-            symbols[Group1]= [   equal, plus,   dead_acute,      dead_grave ]
+            symbols[Group1]= [   e, E,   acute ]
         };
     };
 };
