@@ -53,6 +53,7 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx'
 
 " HTML
 Plug 'amirh/HTML-AutoCloseTag'
