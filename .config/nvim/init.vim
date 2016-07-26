@@ -332,3 +332,7 @@ map <Leader>qw :wqa<CR>
 
 nmap < <<
 nmap > >>
+
+if !empty(glob("project.vim"))
+    source project.vim
+endif
