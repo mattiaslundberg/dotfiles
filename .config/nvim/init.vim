@@ -197,18 +197,15 @@ let g:pymode_rope = 0
 let g:pymode_lint_ignore = "W0401"
 
 " Neomake
-let g:neomake_javascript_jshint_maker = {
-    \ 'args': ['--verbose'],
-    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-    \ }
 let g:neomake_python_pep8_maker = {
-    \ 'exe': 'pep8-python2',
+    \ 'exe': 'pep8',
     \ 'args': ['--max-line-length=120'],
     \ }
 let g:neomake_python_pyflakes_maker = {
-    \ 'exe': 'pyflakes-python2',
+    \ 'exe': 'pyflakes',
     \ }
-let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['pyflakes', 'pep8']
 
 " CtrlP
