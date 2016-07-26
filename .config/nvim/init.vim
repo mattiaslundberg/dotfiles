@@ -156,8 +156,9 @@ set splitright
 set splitbelow
 set pastetoggle=<F12>
 
+augroup customcmds
 autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
 
@@ -171,6 +172,7 @@ autocmd BufLeave *views.py normal! mV
 autocmd BufLeave *test.*,*test_* normal! mT
 autocmd BufLeave *.html normal! mH
 autocmd BufLeave *.js normal! mJ
+augroup end
 
 nnoremap Y y$
 
