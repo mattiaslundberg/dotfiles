@@ -112,7 +112,7 @@ set undoreload=10000
 
 " UI and colorscheme
 let base16colorspace=256
-color base16-default
+color base16-default-dark
 
 if has('gui_running')
     set guioptions=a
