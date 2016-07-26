@@ -131,6 +131,7 @@ highlight clear LineNr
 
 set linespace=0
 set number
+set relativenumber
 set showmatch
 set incsearch
 set hlsearch
