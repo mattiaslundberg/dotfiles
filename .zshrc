@@ -57,8 +57,10 @@ else
 fi
 unset MAILCHECK
 
-envoy -t ssh-agent
-source <(envoy -p)
+if [ -f /sbin/envoy ] ; then
+    envoy -t ssh-agent
+    source <(envoy -p)
+fi
 
 # Keybindings.
 bindkey -v
