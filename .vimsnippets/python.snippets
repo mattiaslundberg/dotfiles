@@ -9,5 +9,12 @@ abbr        class TestA(TestCase)
 options     head
     from django.test import TestCase
 
-    class Test${1}(TestCase):
+    class ${1}Test(TestCase):
         ${2}
+
+snippet     logger
+abbr        logging
+option      head
+    import logging
+
+    logger = logging.getLogger(__name__)
