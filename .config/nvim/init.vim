@@ -316,7 +316,7 @@ function! StripTrailingWhitespace()
 endfunction
 
 " Don't restore cursor for git commits
-let g:skipview_files = ['COMMIT_EDITMSG']
+let g:skipview_files = ['COMMIT_EDITMSG', 'PULLREQ_EDITMSG']
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
