@@ -5,10 +5,6 @@ xkb_keymap {
     xkb_symbols   {
         include "pc+us(intl)+inet(evdev)"
 
-        key <TLDE> {
-            type= "FOUR_LEVEL",
-            symbols[Group1]= [   Escape,    tilde,    paragraph, threequarters]
-        };
         key <CAPS> {
             type= "FOUR_LEVEL",
             symbols[Group1]= [          BackSpace, BackSpace, Delete, Delete ]
@@ -56,7 +52,7 @@ xkb_keymap {
         };
         key <AC10> {
             type= "FOUR_LEVEL_ALPHABETIC",
-            symbols[Group1]= [      colon, semicolon, odiaeresis,      Odiaeresis ]
+            symbols[Group1]= [      semicolon, colon, odiaeresis,      Odiaeresis ]
         };
         key <AC11> {
             type= "FOUR_LEVEL_ALPHABETIC",
