@@ -17,11 +17,10 @@ set autoindent
 set smarttab
 set backspace=indent,eol,start
 set number
+set relativenumber
 
 cmap w!! w !sudo tee % >/dev/null
 
-imap jk <Esc>
-imap kj <Esc>
 map <space>w :w<CR>
 map <space>x :x<CR>
 map <space>qq :qa!<CR>
