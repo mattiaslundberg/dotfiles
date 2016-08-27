@@ -86,7 +86,6 @@ set foldlevel=1
 syntax on
 set gdefault
 scriptencoding utf-8
-set noshowmode
 
 set clipboard=unnamedplus
 set shortmess+=filmnrxoOtT
@@ -127,7 +126,7 @@ else
 endif
 
 set tabpagemax=15
-set showmode
+set noshowmode
 set cursorline
 
 highlight clear SignColumn
