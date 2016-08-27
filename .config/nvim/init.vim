@@ -225,7 +225,7 @@ let g:ctrlp_use_caching = 0
 
 " Ag command
 command! -nargs=* -complete=file Ag Grepper -tool ag -query <args>
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Ag <C-r><c-w><cr>
 
 " Toogle quickfix listg:toggle_list_no_mappings
 let g:toggle_list_no_mappings = 1
