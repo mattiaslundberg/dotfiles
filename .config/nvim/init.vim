@@ -6,6 +6,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+" Global configuration
+Plug 'editorconfig/editorconfig-vim'
+
 " Navigation
 Plug 'mhinz/vim-grepper'
 Plug 'milkypostman/vim-togglelist'
@@ -66,6 +69,7 @@ Plug 'mattn/emmet-vim'
 Plug 'janko-m/vim-test'
 
 " Other langs
+Plug 'pearofducks/ansible-vim'
 Plug 'wting/rust.vim'
 Plug 'tpope/vim-markdown'
 Plug 'Puppet-Syntax-Highlighting'
