@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mattiaslundberg/ctrlp.vim', {'branch': 'mlfixes'}
 Plug 'mattiaslundberg/ctrlp-funky', {'branch': 'mlfixes'}
 Plug 'ruanyl/vim-gh-line'
+Plug 'jeetsukumaran/vim-markology'
 
 " Color
 Plug 'chriskempson/base16-vim'
