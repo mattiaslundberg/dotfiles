@@ -155,6 +155,10 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap . :normal .<CR>
 
+if has("mac")
+    nnoremap <silent> <C-=> :TmuxNavigateLeft<cr>
+endif
+
 " Nerd tree
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 nmap <leader>e :NERDTreeToggle<CR>
