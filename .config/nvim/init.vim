@@ -17,26 +17,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mattiaslundberg/ctrlp.vim', {'branch': 'mlfixes'}
 Plug 'mattiaslundberg/ctrlp-funky', {'branch': 'mlfixes'}
-Plug 'ruanyl/vim-gh-line'
-Plug 'jeetsukumaran/vim-markology'
 
 " Color
 Plug 'chriskempson/base16-vim'
-Plug 'matchit.zip'
 
-Plug 'bling/vim-airline'
-Plug 'bling/vim-bufferline'
-
-Plug 'mbbill/undotree'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/restore_view.vim'
-Plug 'tpope/vim-abolish'
-Plug 'gcmt/wildfire.vim'
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -48,8 +36,6 @@ Plug 'honza/vim-snippets'
 
 " Python
 Plug 'klen/python-mode'
-Plug 'python_match.vim'
-Plug 'pythoncomplete'
 Plug 'fisadev/vim-isort'
 
 " Javascript
@@ -60,14 +46,11 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 
 " HTML
+Plug 'matchit.zip'
 Plug 'amirh/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'groenewege/vim-less'
-Plug 'gorodinskiy/vim-coloresque'
 Plug 'mattn/emmet-vim'
-
-" Testing
-Plug 'janko-m/vim-test'
 
 " Other langs
 Plug 'pearofducks/ansible-vim'
@@ -93,22 +76,18 @@ set shortmess+=filmnrxoOtT
 set viewoptions=options,cursor,unix,slash
 set virtualedit=onemore
 set history=10000
-set spell
 set hidden
 set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-
 let mapleader = "\<space>"
 
-" Backup files
-silent !mkdir -p ~/.config/nvim/backup/ &> /dev/null
 silent !mkdir -p ~/.config/nvim/undo/ &> /dev/null
 silent !mkdir -p ~/.config/nvim/view/ &> /dev/null
 
-set backupdir=~/.config/nvim/backup/
 set undodir=~/.config/nvim/undo/
 set viewdir=~/.config/nvim/view/
-set backup
+set nobackup
 set noswapfile
 set undofile
 set undolevels=1000
@@ -117,14 +96,7 @@ set undoreload=10000
 " UI and colorscheme
 let base16colorspace=256
 color base16-default-dark
-
-if has('gui_running')
-    set guioptions=a
-    set lines=40
-    set guifont=Monospace\ 12
-else
-    set t_Co=256
-endif
+set t_Co=256
 
 set tabpagemax=15
 set noshowmode
@@ -141,7 +113,6 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set wildmenu
 set wildmode=list:longest,full
 set whichwrap=b,s,h,l,<,>,[,]
 set scrolljump=5
@@ -175,7 +146,7 @@ autocmd BufLeave *api.py normal! mA
 autocmd BufLeave *views.py normal! mV
 autocmd BufLeave *test.*,*test_* normal! mT
 autocmd BufLeave *.html normal! mH
-autocmd BufLeave *.js normal! mJ
+autocmd BufLeave *.jsx? normal! mJ
 augroup end
 
 nnoremap Y y$
@@ -201,16 +172,10 @@ let g:pymode_rope = 0
 let g:pymode_lint_ignore = "W0401"
 
 " Neomake
-let g:neomake_python_pep8_maker = {
-    \ 'exe': 'pep8',
-    \ 'args': ['--max-line-length=120'],
-    \ }
-let g:neomake_python_pyflakes_maker = {
-    \ 'exe': 'pyflakes',
-    \ }
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_python_enabled_makers = ['pyflakes', 'pep8']
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_airline = 0
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
@@ -235,9 +200,6 @@ nnoremap <leader>a :Ag <C-r><c-w><cr>
 let g:toggle_list_no_mappings = 1
 nmap <script> <silent> <leader>k :call ToggleQuickfixList()<CR>
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-
-" Create continuous split
-noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 " Completion
 let g:acp_enableAtStartup = 0
@@ -293,19 +255,22 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-
-" Open github links in chromium.
-let g:gh_open_command = 'chromium '
-
-
-" Airline
+function! Mode()
+    let l:mode = mode()
+    if     mode ==# "n"  | return "NORMAL"
+    elseif mode ==# "i"  | return "INSERT"
+    elseif mode ==# "R"  | return "REPLACE"
+    elseif mode ==# "v"  | return "VISUAL"
+    elseif mode ==# "V"  | return "V-LINE"
+    elseif mode ==# "" | return "V-BLOCK"
+    else                 | return l:mode
+    endif
+endfunc
 set laststatus=2
-let g:bufferline_echo = 0
-let g:airline_left_sep='›'
-let g:airline_right_sep='‹'
+set statusline=%{Mode()}\ %F
+set statusline+=%=
+set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
+set statusline+=%h%w%m%r%y\ %p%%\ %l/%L\ %c
 
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
