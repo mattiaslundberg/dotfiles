@@ -264,7 +264,7 @@ function! Mode()
     endif
 endfunc
 set laststatus=2
-set statusline=%{Mode()}\ %F
+set statusline=%{Mode()}\ %<%F
 set statusline+=%=
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=%h%w%m%r%y\ %p%%\ %l/%L\ %c
