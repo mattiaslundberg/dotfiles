@@ -29,7 +29,7 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Completion/snippets
-Plug 'Shougo/neocomplcache'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
@@ -207,23 +207,19 @@ nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 
 " Completion
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_max_list = 15
-let g:neocomplcache_force_overwrite_completefunc = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#max_list = 15
+let g:deoplete#enable_auto_delimiter = 1
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:deoplete#sources#dictionary#dictionaries = {
             \ 'default' : '',
             \ 'vimshell' : $HOME.'/.vimshell_hist',
             \ 'scheme' : $HOME.'/.gosh_completions'
             \ }
-
-let g:neocomplcache_keyword_patterns = {}
-let g:neocomplcache_keyword_patterns._ = '\h\w*'
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -232,16 +228,13 @@ imap <silent><expr><C-k> neosnippet#expandable() ?
             \ "\<C-e>" : "\<Plug>(neosnippet_expand_or_jump)")
 smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
 
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-
 function! CleverCr()
     if pumvisible()
         if neosnippet#expandable()
             let exp = "\<Plug>(neosnippet_expand)"
-            return exp . neocomplcache#close_popup()
+            return exp . deoplete#close_popup()
         else
-            return neocomplcache#close_popup()
+            return deoplete#close_popup()
         endif
     else
         return "\<CR>"
@@ -252,8 +245,8 @@ endfunction
 imap <expr> <CR> CleverCr()
 
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> deoplete#close_popup()
 
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
