@@ -16,13 +16,16 @@ abbr class extends React.Component
     }
 
 snippet then
+abbr then(() => {})
     then((${1}) => {${2}})
 
 snippet fn
+abbr () => {}
     (${1}) => {${2}}
 
 snippet import
-    import ${1} from ${2}
+abbr import xx from 'xx'
+    import ${1} from '${2}'
 
 snippet testclass
     import React from 'react'
@@ -33,3 +36,11 @@ snippet testclass
 snippet test
     it('${1}', () => {
     })
+
+snippet tobe
+abbr expect().toBe()
+    expect(${1}).toBe(${2})
+
+snippet setstate
+abbr this.setState({})
+    this.setState({${1}: ${2}})
