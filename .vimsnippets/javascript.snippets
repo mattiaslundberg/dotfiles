@@ -1,9 +1,11 @@
 snippet reactcomponent
+abbr class extends React.Component
+
     import React from 'react'
 
-    class ${1} extends React.Component {
-      constructor() {
-        super()
+    export default class ${1} extends React.Component {
+      constructor(props) {
+        super(props)
       }
 
       render() {
@@ -13,4 +15,21 @@ snippet reactcomponent
       }
     }
 
-    export default ${1};
+snippet then
+    then((${1}) => {${2}})
+
+snippet fn
+    (${1}) => {${2}}
+
+snippet import
+    import ${1} from ${2}
+
+snippet testclass
+    import React from 'react'
+
+    describe('${1}', () => {
+    })
+
+snippet test
+    it('${1}', () => {
+    })
