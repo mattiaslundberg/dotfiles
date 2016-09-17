@@ -59,11 +59,6 @@ else
 fi
 unset MAILCHECK
 
-if [ -f /sbin/envoy ] ; then
-    envoy -t ssh-agent
-    source <(envoy -p)
-fi
-
 # Keybindings.
 bindkey -v
 bindkey '^R' history-incremental-search-backward
