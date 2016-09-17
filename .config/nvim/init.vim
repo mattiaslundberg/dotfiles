@@ -60,6 +60,7 @@ Plug 'Puppet-Syntax-Highlighting'
 Plug 'markcornick/vim-vagrant'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'darvelo/vim-systemd'
+Plug 'elixir-lang/vim-elixir'
 call plug#end()
 
 " General configuration
