@@ -133,7 +133,7 @@ set splitbelow
 set pastetoggle=<F12>
 
 augroup customcmds
-autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl,elixir autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
