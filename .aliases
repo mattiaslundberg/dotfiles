@@ -64,6 +64,7 @@ alias su='sudo -E -s'
 alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
 alias tmux="TERM=screen-256color-bce tmux"
+alias mux="tmuxinator"
 
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
 
