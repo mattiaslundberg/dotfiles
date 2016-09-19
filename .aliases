@@ -46,9 +46,6 @@ if [ -x /usr/bin/apt-get ]; then
     alias showpkg='apt-cache show'
 fi
 
-# Toggle git edit mode
-alias editmode='([ -d ~/.git ] && mv ~/.git{,_repo}) || mv ~/.git{_repo,}'
-
 # Some other aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias 'du.'='du -hsx * | sort -rh | head -10'
@@ -68,27 +65,10 @@ alias mux="tmuxinator"
 
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
 
-diaconvert() { echo $1 | awk -F '.' '{ print $1 }' | awk '{ print "dia -e " $f ".eps -t eps " $f ".dia ; epstopdf " $f ".eps " }' | sh ;}
-
 wsharkremote() { wireshark -k -i <(ssh $1 "tcpdump -i $2 -U -s0 -w - $3"); }
 
 mktmp() { mkdir $1 && sudo mount -t tmpfs none $(pwd)/$1 }
 rmtmp() { sudo umount $(pwd)/$1 && rmdir $1 }
-
-builddeb() {
-    [ -d $1 ] || exit 1
-    mkdir /tmp/mattias
-    rsync -ar $1 /tmp/mattias
-    cd /tmp/mattias/$1 ; dpkg-buildpackage -b -tc
-    rm -rf /tmp/mattias/$1
-}
-
-gitbranchclean() {
-    for b in $(git branch | cut -b3-); do
-        [[ "$b" == "master" || "$b" == "develop" ]] && continue
-        git branch -D "$b"
-    done
-}
 
 # Reload all specifically loaded modules
 modreload() {
@@ -96,18 +76,6 @@ modreload() {
         sudo modprobe $m
     done
 }
-
-# Tmux helpers
-ta() { # Attach
-    echo -n "\033]0;$1\007"
-    tmux attach-session -t $1
-}
-
-tn() { # Create
-    echo -n "\033]0;$1\007"
-    tmux new-session -s $1
-}
-
 
 usbmnt() {
     NODES=($(ls -1 /dev/sd[abcdefghij][123456]))
@@ -132,36 +100,6 @@ usbumnt() {
 }
 
 
-# copy and paste from the command line - http://www.shell-fu.org/lister.php?id=177
-ccopy(){ cp $1 /tmp/ccopy.$1; }
-alias cpaste="ls /tmp/ccopy* | sed 's|[^\.]*.\.||' | xargs -I % mv /tmp/ccopy.% ./%"
-
-alias mntdropbox='encfs -o allow_root ~/Dropbox/encrypted.bc/ ~/DropboxDecrypted/'
-
-viminstall(){
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vimupgrade
-}
-vimupgrade(){
-    vim +PluginInstall +PluginClean +qall
-}
-
-# Helpers for running skype in a docker container.
-# Requires local "mattiaslundberg/skype" docker image.
-# And "skype" ssh alias for port 55555
-skypeinstall(){
-    docker run -d --name=myskype -v /home/mattias/.Skype:/home/docker/.Skype --device=/dev/video0 -p 55555:22 mattiaslundberg/skype
-    ssh-copy-id -i ~/.ssh/id_ecdsa.pub skype
-    docker stop myskype
-}
-# Start docker and attach to skype
-skypestart(){
-    docker start myskype
-    sleep 5
-    ssh skype skype-pulseaudio || true
-    docker stop myskype
-}
-
 # ssh via sshrc to vagrant boxes
 vs() {
     TARGET_HOST=${1-"default"}
@@ -169,56 +107,7 @@ vs() {
     sshrc -F /tmp/vagrantsetup_${TARGET_HOST} ${TARGET_HOST}
 }
 
-vchrome() {
-    vagrant ssh-config default > /tmp/vchrome
-    ssh -X -F /tmp/vchrome default google-chrome
-}
-
 case $HOST in
-    toad)
-        hdmi() {
-            case "$1" in
-                fhd)
-                    xrandr --auto --output HDMI2 --mode 1920x1080 --right-of eDP1
-                ;;
-                off)
-                    xrandr --auto --output HDMI2 --off
-                ;;
-                *)
-                    echo "Usage off|fhd"
-                ;;
-            esac
-        }
-        dp() {
-            fixkbd
-            case "$1" in
-                home)
-                    xrandr --output eDP1 --off --output HDMI1 --scale 1.4x1.4 --panning 1680x1050 --auto --fb 2352x1470
-                ;;
-                off)
-                    xrandr --output eDP1 --auto --output HDMI1 --off
-                ;;
-                *)
-                    echo "Usage off|home"
-                ;;
-            esac
-        }
-        netw() {
-            case "$1" in
-                f*)
-                    sudo systemctl stop netctl-auto@wlo1.service
-                    sudo netctl start fixed
-                ;;
-                d*)
-                    sudo netctl stop fixed
-                    sudo systemctl start netctl-auto@wlo1.service
-                ;;
-                *)
-                    echo "Usage fixed|default"
-                ;;
-            esac
-        }
-    ;;
     x230)
         netw() {
             case "$1" in
