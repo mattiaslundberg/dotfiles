@@ -1,5 +1,6 @@
 # Set up the prompt
 autoload -Uz promptinit
+autoload -U colors && colors
 promptinit
 
 PROMPT="%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m %{$fg_no_bold[yellow]%}%3~ %{$reset_color%}"
