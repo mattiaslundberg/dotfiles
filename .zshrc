@@ -40,7 +40,7 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Show current git branch.
-source ~/.zshgit/zshrc.sh
+source ~/.zsh/zsh-git-prompt.git/zshrc.sh
 precmd () {
     RPROMPT="$(git_super_status)"
 }
