@@ -66,3 +66,7 @@ case $USER in
 esac
 
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin"
+
+if [ -f ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh ] ; then
+    . ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh
+fi
