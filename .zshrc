@@ -32,7 +32,7 @@ fi
 unset MAILCHECK
 
 if [ -f /usr/bin/keychain ] ; then
-    eval $(keychain --eval --agents ssh id_rsa id_ed25519)
+    eval $(keychain --eval --agents ssh id_rsa id_ed25519 &> /dev/null)
 fi
 
 # Keybindings.
