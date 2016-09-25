@@ -47,7 +47,7 @@ fi
 unset MAILCHECK
 
 if [ -f /usr/bin/keychain ] ; then
-    eval $(keychain --eval --agents ssh id_rsa id_ed25519 &> /dev/null)
+    eval $(keychain --eval --agents ssh id_rsa id_ed25519)
 fi
 
 # Keybindings.
@@ -69,6 +69,9 @@ if [ -f ~/.zshrc.local ]; then
 fi
 if [ -f ~/.colormap ]; then
     . ~/.colormap
+fi
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    . /usr/bin/virtualenvwrapper.sh
 fi
 
 case $USER in
