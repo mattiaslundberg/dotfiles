@@ -253,19 +253,8 @@ inoremap <expr><C-y> deoplete#close_popup()
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-function! Mode()
-    let l:mode = mode()
-    if     mode ==# "n"  | return "NORMAL"
-    elseif mode ==# "i"  | return "INSERT"
-    elseif mode ==# "R"  | return "REPLACE"
-    elseif mode ==# "v"  | return "VISUAL"
-    elseif mode ==# "V"  | return "V-LINE"
-    elseif mode ==# "" | return "V-BLOCK"
-    else                 | return l:mode
-    endif
-endfunc
 set laststatus=2
-set statusline=%{Mode()}\ %<%F
+set statusline=%<%F
 set statusline+=%=
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=%h%w%m%r%y\ %p%%\ %l/%L\ %c
