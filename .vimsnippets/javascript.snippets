@@ -31,10 +31,12 @@ snippet testclass
     import React from 'react'
 
     describe('${1}', () => {
+      ${2}
     })
 
 snippet test
     it('${1}', () => {
+      ${2}
     })
 
 snippet tobe
@@ -44,3 +46,7 @@ abbr expect().toBe()
 snippet setstate
 abbr this.setState({})
     this.setState({${1}: ${2}})
+
+snippet bt
+abbr this.method = this.method.bind(this)
+    this.${1} = this.$1.bind(this)
