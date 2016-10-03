@@ -83,11 +83,6 @@ set iskeyword-=#
 set iskeyword-=-
 let mapleader = "\<space>"
 
-silent !mkdir -p ~/.config/nvim/undo/ &> /dev/null
-silent !mkdir -p ~/.config/nvim/view/ &> /dev/null
-
-set undodir=~/.config/nvim/undo/
-set viewdir=~/.config/nvim/view/
 set nobackup
 set noswapfile
 set undofile
