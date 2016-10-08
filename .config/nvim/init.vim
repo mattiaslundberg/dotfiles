@@ -134,6 +134,7 @@ autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.jsx,*.js set filetype=javascript.jsx
 
 "Save marks for last file of type
 autocmd BufLeave *.css,*.less,*scss normal! mC
@@ -142,7 +143,7 @@ autocmd BufLeave *api.py normal! mA
 autocmd BufLeave *views.py normal! mV
 autocmd BufLeave *test.*,*test_* normal! mT
 autocmd BufLeave *.html normal! mH
-autocmd BufLeave *.jsx? normal! mJ
+autocmd BufLeave *.jsx,*.js normal! mJ
 augroup end
 
 nnoremap Y y$
