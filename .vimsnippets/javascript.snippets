@@ -16,10 +16,12 @@ abbr class extends React.Component
     }
 
 snippet then
+options word
 abbr then(() => {})
     then((${1}) => {${2}})
 
 snippet fn
+options word
 abbr () => {}
     (${1}) => {${2}}
 
@@ -42,6 +44,11 @@ snippet test
 snippet tobe
 abbr expect().toBe()
     expect(${1}).toBe(${2})
+
+snippet snapshot
+alias snap
+abbr expect().toMatchSnapshot()
+    expect(${1}).toMatchSnapshot()
 
 snippet setstate
 abbr this.setState({})
