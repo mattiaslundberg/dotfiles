@@ -35,6 +35,7 @@
     mod = merge --ff-only origin/develop
     rud = rebase upstream/develop
     rod = rebase origin/develop
+    up = "!git fetch --all && git rebase origin/master"
     ra = rebase --abort
     rc = rebase --continue
     mom = merge --ff-only origin/master
