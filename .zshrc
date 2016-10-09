@@ -40,6 +40,7 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
     alias vi='nvim'
     export EDITOR='nvim'
+    export DIFFPROG='nvim -d'
 else
     alias vi='vim'
     export EDITOR='vim'
