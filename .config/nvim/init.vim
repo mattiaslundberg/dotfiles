@@ -27,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'thirtythreeforty/lessspace.vim'
 
 " Completion/snippets
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -128,7 +129,6 @@ set splitbelow
 set pastetoggle=<F12>
 
 augroup customcmds
-autocmd FileType c,cpp,java,go,php,javascript,html,puppet,python,rust,twig,xml,yml,perl,elixir autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
@@ -254,18 +254,6 @@ set statusline=%<%F
 set statusline+=%=
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=%h%w%m%r%y\ %p%%\ %l/%L\ %c
-
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
 
 " Don't restore cursor for git commits
 let g:skipview_files = ['COMMIT_EDITMSG', 'PULLREQ_EDITMSG']
