@@ -253,7 +253,7 @@ set laststatus=2
 set statusline=%<%F
 set statusline+=%=
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
-set statusline+=%h%w%m%r%y\ %p%%\ %l/%L\ %c
+set statusline+=%h%w%m%r%y\ %l/%L
 
 " Don't restore cursor for git commits
 let g:skipview_files = ['COMMIT_EDITMSG', 'PULLREQ_EDITMSG']
