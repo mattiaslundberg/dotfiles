@@ -28,6 +28,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'thirtythreeforty/lessspace.vim'
+Plug 'tweekmonster/braceless.vim'
 
 " Completion/snippets
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -36,7 +37,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
 " Python
-Plug 'klen/python-mode'
 Plug 'fisadev/vim-isort'
 
 " Javascript
@@ -129,6 +129,7 @@ set splitbelow
 set pastetoggle=<F12>
 
 augroup customcmds
+autocmd FileType python BracelessEnable +indent
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
@@ -163,14 +164,6 @@ nmap <leader>fe :NERDTreeFind<CR>
 
 " Snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/bundle/vim-snippets/snippets,~/.config/nvim/bundle/neosnippet-snippets/neosnippets.vim,~/.vimsnippets'
-
-" Python mode
-let g:pymode_indent = 0
-let g:pymode_lint_checkers = []
-let g:pymode_trim_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_rope = 0
-let g:pymode_lint_ignore = "W0401"
 
 " Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
