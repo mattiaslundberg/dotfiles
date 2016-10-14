@@ -36,6 +36,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
+# macOS Sierra extended attributes
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true # Make clean tarballs and more in Tiger
+export COPYFILE_DISABLE=true # Make clean tarballs and more in Leopard
 
 if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
     alias vi='nvim'
