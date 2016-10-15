@@ -36,6 +36,8 @@
     rud = rebase upstream/develop
     rod = rebase origin/develop
     up = "!git fetch --all && git rebase origin/master"
+    sqm = "!git rebase -i $(git rev-parse master)"
+    sqd = "!git rebase -i $(git rev-parse develop)"
     ra = rebase --abort
     rc = rebase --continue
     mom = merge --ff-only origin/master
