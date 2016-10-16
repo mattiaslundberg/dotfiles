@@ -65,5 +65,7 @@ xkb_keymap {
             type= "FOUR_LEVEL",
             symbols[Group1]= [   e, E,   acute ]
         };
+
+        key <AE06> { [    6, asciicircum,    onequarter,      asciicircum ] };
     };
 };
