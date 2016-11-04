@@ -39,3 +39,6 @@ debhelper.log
 
 # nfs
 .nfs*
+
+# Tags
+tags
