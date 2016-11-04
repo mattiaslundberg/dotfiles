@@ -62,6 +62,7 @@ Plug 'markcornick/vim-vagrant'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'darvelo/vim-systemd'
 Plug 'elixir-lang/vim-elixir'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " General configuration
