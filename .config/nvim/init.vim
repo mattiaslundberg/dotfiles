@@ -40,29 +40,20 @@ Plug 'honza/vim-snippets'
 Plug 'fisadev/vim-isort'
 
 " Javascript
-Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
-Plug 'briancollins/vim-jst'
 Plug 'kchmck/vim-coffee-script'
-Plug 'mxw/vim-jsx'
 
 " HTML
 Plug 'matchit.zip'
 Plug 'amirh/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'groenewege/vim-less'
 Plug 'mattn/emmet-vim'
 
 " Other langs
-Plug 'pearofducks/ansible-vim'
-Plug 'wting/rust.vim'
 Plug 'tpope/vim-markdown'
-Plug 'Puppet-Syntax-Highlighting'
 Plug 'markcornick/vim-vagrant'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'darvelo/vim-systemd'
-Plug 'elixir-lang/vim-elixir'
 Plug 'hashivim/vim-terraform'
+
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " General configuration
