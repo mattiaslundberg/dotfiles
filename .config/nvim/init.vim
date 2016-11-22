@@ -149,10 +149,12 @@ autocmd BufLeave *.jsx,*.js normal! mJ
 augroup end
 
 nnoremap Y y$
+nnoremap <leader>/ :let @/ = ""<CR>
 
 vnoremap < <gv
 vnoremap > >gv
 vnoremap . :normal .<CR>
+
 
 if has("mac")
     nnoremap <silent> <C-=> :TmuxNavigateLeft<cr>
