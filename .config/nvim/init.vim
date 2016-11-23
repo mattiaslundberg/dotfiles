@@ -52,6 +52,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-markdown'
 Plug 'markcornick/vim-vagrant'
 Plug 'hashivim/vim-terraform'
+Plug 'pearofducks/ansible-vim'
 
 Plug 'sheerun/vim-polyglot'
 call plug#end()
