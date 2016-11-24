@@ -3,7 +3,7 @@ autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 
-PROMPT="%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m %{$fg_no_bold[yellow]%}%3~ %{$reset_color%}"
+PROMPT="%{$fg_no_bold[red]%}%? %{$fg_no_bold[yellow]%}%4~ %{$fg_no_bold[magenta]%}%#%{$reset_color%} "
 
 setopt histignorealldups sharehistory
 setopt autocd
@@ -60,9 +60,7 @@ bindkey '^R' history-incremental-search-backward
 
 # Show current git branch.
 source ~/.zsh/zsh-git-prompt.git/zshrc.sh
-precmd () {
-    RPROMPT="$(git_super_status)"
-}
+RPROMPT="$(git_super_status)"
 
 # Load external files
 if [ -f ~/.aliases ]; then
