@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# git-finish
+# Does a no-ff rebase and merge onto the target branch from the current one.
+# Also updates the origin of the current branch so that the github tracker knows it is merged
+
+set -e
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+to_branch=master
+from_branch=${1-${current_branch}}
+
+if [ "${to_branch}" = "${from_branch}" ]; then
+    echo "Already on branch ${to_branch}, aborting merge."
+    exit
+fi
+
+# Rebase old branch
+git checkout "${from_branch}" && git pull --rebase origin master
+git push -f
+
+# Update master
+git checkout ${to_branch} && git pull --rebase
+git merge --no-ff --no-edit "${from_branch}" && git push
+
+# Delete old branch
+git push origin :"${from_branch}" && git branch -D "${from_branch}"
