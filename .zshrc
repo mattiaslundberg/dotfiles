@@ -69,7 +69,7 @@ bindkey '^R' history-incremental-search-backward
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
-if [ -f ~/.zshrc.local ]; then
+if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 if [ -f ~/.colormap ]; then
