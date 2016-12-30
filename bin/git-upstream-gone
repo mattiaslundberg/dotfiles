@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+for branch in $(git for-each-ref refs/heads/ --format='%(refname:short)'); do
+    merge=$(git config "branch.$branch.merge");
+    upstream=$(git rev-parse "$branch@{upstream}" --verify -q -- 2>/dev/null);
+    [[ "$merge" ]] &&  [[ -z "$upstream" ]] && echo "$branch";
+done
