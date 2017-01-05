@@ -126,7 +126,6 @@ autocmd FileType python BracelessEnable +indent
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead * set nofoldenable
 autocmd BufWritePost * Neomake
-autocmd BufWritePost * silent! !ctags -R &
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead *.jsx,*.js set filetype=javascript.jsx
