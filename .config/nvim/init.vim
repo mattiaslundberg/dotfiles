@@ -39,9 +39,6 @@ Plug 'honza/vim-snippets'
 " Python
 Plug 'fisadev/vim-isort'
 
-" Javascript
-Plug 'kchmck/vim-coffee-script'
-
 " HTML
 Plug 'matchit.zip'
 Plug 'amirh/HTML-AutoCloseTag'
