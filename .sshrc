@@ -39,4 +39,8 @@ if [ -x /usr/bin/apt-get ]; then
 	alias showpkg='apt-cache show'
 fi
 
+if [ -f $SSHHOME/.sshrc.d/local ] ; then
+    source $SSHHOME/.sshrc.d/local
+fi
+
 echo "Loaded host settings."
