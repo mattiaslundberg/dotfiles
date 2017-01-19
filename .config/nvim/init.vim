@@ -82,7 +82,7 @@ set undoreload=10000
 
 " UI and colorscheme
 let base16colorspace=256
-color base16-default-light
+color base16-flat
 set t_Co=256
 
 set tabpagemax=15
