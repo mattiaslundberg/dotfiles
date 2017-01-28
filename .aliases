@@ -19,13 +19,6 @@ mc() { mkdir $1 && cd $1 ; }
 alias g='git'
 
 
-if [ -x /usr/bin/packer ]; then
-    # aur aliases
-    alias aurinstall='packer --noedit --auronly -S'
-    alias aurupgrade='packer --noedit --auronly -Syu'
-    alias aursearch='packer --auronly -Ss'
-fi
-
 if [ -x /usr/bin/pacman ]; then
     # pacman aliases
     alias install='sudo pacman -S'
