@@ -79,6 +79,10 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     . /usr/bin/virtualenvwrapper.sh
 fi
 
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
 case $USER in
   root)
     export HOME="/root"
