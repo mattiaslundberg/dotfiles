@@ -80,7 +80,7 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
 fi
 
 fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  eval $( fc -l 1 | fzf +s --tac | sed 's/ *[0-9]*[\*\ ] *//' )
 }
 
 case $USER in
