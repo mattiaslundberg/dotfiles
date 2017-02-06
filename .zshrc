@@ -78,10 +78,9 @@ fi
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     . /usr/bin/virtualenvwrapper.sh
 fi
-
-fh() {
-  eval $( fc -l 1 | fzf +s --tac | sed 's/ *[0-9]*[\*\ ] *//' )
-}
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    . /usr/share/fzf/key-bindings.zsh
+fi
 
 case $USER in
   root)
