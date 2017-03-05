@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'mattiaslundberg/ctrlp.vim', {'branch': 'mlfixes'}
 Plug 'mattiaslundberg/ctrlp-funky', {'branch': 'mlfixes'}
+Plug 'gavinbeatty/dragvisuals.vim'
 
 " Color
 Plug 'chriskempson/base16-vim'
@@ -143,7 +144,11 @@ nnoremap <leader>/ :let @/ = ""<CR>
 vnoremap < <gv
 vnoremap > >gv
 vnoremap . :normal .<CR>
-
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
 
 if has("mac")
     nnoremap <silent> <C-=> :TmuxNavigateLeft<cr>
