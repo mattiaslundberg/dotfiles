@@ -66,9 +66,9 @@ systray_icon_asb = 100 0 0
 #---------------------------------------------
 # CLOCK
 #---------------------------------------------
-time1_format = %H:%M
+# time1_format = %H:%M
 time1_font = sans 10
-time2_format = %A %d %B
+# time2_format = %A %d %B
 time2_font = sans 8
 clock_font_color = #b8b8b8 100
 clock_padding = 1 0
