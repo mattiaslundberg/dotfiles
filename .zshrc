@@ -78,9 +78,10 @@ fi
 if [ -f ~/.colormap ]; then
     . ~/.colormap
 fi
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    . /usr/bin/virtualenvwrapper.sh
-fi
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
 fi
