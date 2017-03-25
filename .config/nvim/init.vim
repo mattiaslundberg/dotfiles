@@ -5,6 +5,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source ~/.config/nvim/init.vim
 endif
 
+let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+
 call plug#begin('~/.config/nvim/plugged')
 " Global configuration
 Plug 'editorconfig/editorconfig-vim'
