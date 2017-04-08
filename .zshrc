@@ -60,6 +60,8 @@ else
 fi
 unset MAILCHECK
 
+alias em="emacsclient -c . &"
+
 addToPath () {
     case ":$PATH:" in
         *":${1}:"*) :;; # already there
