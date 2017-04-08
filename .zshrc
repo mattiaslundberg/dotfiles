@@ -16,8 +16,8 @@ setopt histignorealldups sharehistory
 setopt autocd
 set -o shwordsplit
 
-HISTSIZE=3000
-SAVEHIST=3000
+HISTSIZE=30000
+SAVEHIST=30000
 HISTFILE=~/.zsh_history
 
 autoload -U colors && colors
