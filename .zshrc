@@ -60,6 +60,13 @@ else
 fi
 unset MAILCHECK
 
+addToPath () {
+    case ":$PATH:" in
+        *":${1}:"*) :;; # already there
+        *) export PATH="${1}:$PATH";;
+    esac
+}
+
 if [ -f /usr/bin/keychain ] ; then
     eval $(keychain --eval --agents ssh id_rsa id_ed25519)
 fi
@@ -98,7 +105,10 @@ case $USER in
   ;;
 esac
 
-export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin"
+addToPath /sbin
+addToPath /usr/sbin
+addToPath /usr/local/sbin
+addToPath ~/bin
 
 if [ -f ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh ] ; then
     . ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh
