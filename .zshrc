@@ -60,6 +60,11 @@ else
 fi
 unset MAILCHECK
 
+if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
+    alias emd="reattache-to-user-namespace emacs --daemom"
+else
+    alias emd="emacs --daemom"
+fi
 alias em="emacsclient -c . &"
 
 addToPath () {
