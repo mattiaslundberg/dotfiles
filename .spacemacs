@@ -332,6 +332,8 @@ you should place your code here."
 
   "Don't wrap long lines"
   (setq truncate-lines t)
+
+  (setq-default dotspacemacs-excluded-packages '(helm-dash))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
