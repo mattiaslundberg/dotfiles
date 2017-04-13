@@ -329,6 +329,9 @@ you should place your code here."
   "Don't scroll to the edge of the window"
   (setq scroll-margin 3)
   (setq scroll-conservatively 3)
+
+  "Don't wrap long lines"
+  (setq truncate-lines t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
