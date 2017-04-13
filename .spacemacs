@@ -324,6 +324,9 @@ you should place your code here."
   (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
   (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
   (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
+
+  (setq scroll-margin 3)
+  (setq scroll-conservatively 3)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
