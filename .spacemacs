@@ -335,6 +335,8 @@ you should place your code here."
   (setq truncate-lines t)
 
   (setq-default dotspacemacs-excluded-packages '(helm-dash))
+
+  (setq powerline-default-separator 'bar)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
