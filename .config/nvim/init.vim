@@ -146,7 +146,6 @@ autocmd BufLeave *.html normal! mH
 autocmd BufLeave *.jsx,*.js normal! mJ
 augroup end
 
-nnoremap Y y$
 nnoremap <leader>\ :let @/ = ""<CR>
 
 " Make more consistent with spacemacs
@@ -268,10 +267,3 @@ cmap w!! w !sudo tee % >/dev/null
 
 "Disable ex mode
 nnoremap Q <nop>
-
-nmap < <<
-nmap > >>
-
-if !empty(glob("project.vim"))
-    source project.vim
-endif
