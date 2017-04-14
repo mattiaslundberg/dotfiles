@@ -21,7 +21,5 @@ set relativenumber
 
 cmap w!! w !sudo tee % >/dev/null
 
-map <space>w :w<CR>
-map <space>x :x<CR>
-map <space>qq :qa!<CR>
-map <space>qw :wqa<CR>
+map <space>fs :w<CR>
+map <space>w <C-w>
