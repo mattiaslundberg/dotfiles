@@ -149,6 +149,10 @@ augroup end
 nnoremap Y y$
 nnoremap <leader>/ :let @/ = ""<CR>
 
+" Make more consistent with spacemacs
+noremap <leader>fs :w<CR>
+noremap <leader>w <C-w>
+
 vnoremap < <gv
 vnoremap > >gv
 vnoremap . :normal .<CR>
@@ -264,12 +268,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 "Disable ex mode
 nnoremap Q <nop>
-
-" Custom keymappings
-map <Leader>w :w<CR>
-map <Leader>x :x<CR>
-map <Leader>qq :qa!<CR>
-map <Leader>qw :wqa<CR>
 
 nmap < <<
 nmap > >>
