@@ -147,7 +147,7 @@ autocmd BufLeave *.jsx,*.js normal! mJ
 augroup end
 
 nnoremap Y y$
-nnoremap <leader>/ :let @/ = ""<CR>
+nnoremap <leader>\ :let @/ = ""<CR>
 
 " Make more consistent with spacemacs
 noremap <leader>fs :w<CR>

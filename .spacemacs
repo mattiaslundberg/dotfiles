@@ -327,6 +327,9 @@ you should place your code here."
   (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
   (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 
+  "Use space+\ to clear current search hightlight"
+  (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
+
   "Don't scroll to the edge of the window"
   (setq scroll-margin 3)
   (setq scroll-conservatively 3)
