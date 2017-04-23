@@ -64,7 +64,7 @@ values."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
    '(
-     smartparens
+     helm-dash
      )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -341,12 +341,10 @@ you should place your code here."
   (setq scroll-margin 3)
   (setq scroll-conservatively 3)
 
-  "Don't wrap long lines"
-  (setq truncate-lines t)
-
-  (setq-default dotspacemacs-excluded-packages '(helm-dash))
-
   (setq powerline-default-separator 'bar)
+
+  "Don't wrap long lines"
+  (setq truncate-lines nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
