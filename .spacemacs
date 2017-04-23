@@ -344,7 +344,11 @@ you should place your code here."
   (setq powerline-default-separator 'bar)
 
   "Don't wrap long lines"
-  (setq truncate-lines nil)
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+
+  "Disable js2-mode warnings"
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
