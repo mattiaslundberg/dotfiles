@@ -23,3 +23,4 @@ cmap w!! w !sudo tee % >/dev/null
 
 map <space>fs :w<CR>
 map <space>w <C-w>
+noremap <leader>qq :wqall!<CR>

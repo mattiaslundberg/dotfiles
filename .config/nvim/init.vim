@@ -151,6 +151,7 @@ nnoremap <leader>\ :let @/ = ""<CR>
 " Make more consistent with spacemacs
 noremap <leader>fs :w<CR>
 noremap <leader>w <C-w>
+noremap <leader>qq :wqall!<CR>
 
 vnoremap < <gv
 vnoremap > >gv
