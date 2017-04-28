@@ -152,6 +152,8 @@ nnoremap <leader>\ :let @/ = ""<CR>
 noremap <leader>fs :w<CR>
 noremap <leader>w <C-w>
 noremap <leader>qq :wqall!<CR>
+noremap ,c :wqall!<CR>
+noremap ,k :qall!<CR>
 
 vnoremap < <gv
 vnoremap > >gv
