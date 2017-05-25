@@ -96,6 +96,9 @@ fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
 fi
