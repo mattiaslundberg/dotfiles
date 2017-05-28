@@ -96,6 +96,7 @@ fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+alias asdfinstallall="xargs -L1 asdf install < .tool-versions"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
