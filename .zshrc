@@ -93,6 +93,11 @@ if [ -f ~/.colormap ]; then
     . ~/.colormap
 fi
 
+addToPath /sbin
+addToPath /usr/sbin
+addToPath /usr/local/sbin
+addToPath ~/bin
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -115,11 +120,6 @@ case $USER in
 
   ;;
 esac
-
-addToPath /sbin
-addToPath /usr/sbin
-addToPath /usr/local/sbin
-addToPath ~/bin
 
 if [ -f ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh ] ; then
     . ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh
