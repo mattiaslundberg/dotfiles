@@ -353,6 +353,18 @@ you should place your code here."
   "Disable js2-mode warnings"
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
+
+  "Fix Ctrl-w"
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+    )
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+    )
+
+  "Fix AltGr keyboard combinations on mac"
+  (setq mac-option-key-is-meta t)
+  (setq mac-right-option-modifier nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
