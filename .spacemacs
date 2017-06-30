@@ -365,6 +365,10 @@ you should place your code here."
   "Fix AltGr keyboard combinations on mac"
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
+
+  "Activate editorconfig"
+  (require 'editorconfig)
+  (editorconfig-mode 1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
