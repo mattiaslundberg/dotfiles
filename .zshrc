@@ -108,8 +108,8 @@ alias asdfinstallall="xargs -L1 asdf install < .tool-versions"
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
 fi
-if [ -f /usr/local/Cellar/fzf/0.16.5/shell/key-bindings.zsh ]; then
-    . /usr/local/Cellar/fzf/0.16.5/shell/key-bindings.zsh
+if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
+    . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
 
 case $USER in
