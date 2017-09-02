@@ -369,6 +369,8 @@ you should place your code here."
   (editorconfig-mode 1)
 
   (setq magit-push-current-set-remote-if-missing t)
+
+  (setq create-lockfiles nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
