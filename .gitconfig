@@ -1,42 +1,45 @@
 [user]
-    email = me@mlundberg.se
-    name = Mattias Lundberg
+	email = me@mlundberg.se
+	name = Mattias Lundberg
 [color]
-    ui = auto
+	ui = auto
 [alias]
-    st = status --short --branch
-    ci = commit
-    cia = commit --amend --no-edit
-    br = branch
-    co = checkout
-    cp = cherry-pick
-    df = diff
-    dc = diff --cached
-    fa = fetch --all
-    fu = fetch upstream
-    rom = rebase origin/master
-    ra = rebase --abort
-    rc = rebase --continue
-    ls = ls-files
-    pp = push origin
-    ppf = push origin --force-with-lease
-    lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
-    lot = log -n 15 --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
-    lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
-    reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
-    g = grep --break --heading --line-number
+	st = status --short --branch
+	ci = commit
+	cia = commit --amend --no-edit
+	br = branch
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	dc = diff --cached
+	fa = fetch --all
+	fu = fetch upstream
+	rom = rebase origin/master
+	ra = rebase --abort
+	rc = rebase --continue
+	ls = ls-files
+	pp = push origin
+	ppf = push origin --force-with-lease
+	lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
+	lot = log -n 15 --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
+	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
+	reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
+	g = grep --break --heading --line-number
 
 [core]
-    editor = nvim
-    excludesfile = /home/mattias/.gitignore_global
-    autocrlf = input
+	editor = nvim
+	excludesfile = /home/mattias/.gitignore_global
+	autocrlf = input
 [merge]
-    tool = nvimdiff
-    conflictstyle = diff3
-    prompt = false
+	tool = nvimdiff
+	conflictstyle = diff3
+	prompt = false
 [mergetool "nvimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
 [push]
-    default = current
+	default = current
+	pushDefault = origin
+[pull]
+	rebase = True
 [github]
-    user = mattiaslundberg
+	user = mattiaslundberg
