@@ -1,24 +1,8 @@
 [user]
-    email = mattiaslundberg@openmailbox.org
+    email = me@mlundberg.se
     name = Mattias Lundberg
-    signingkey = E4B7697B
-[commit]
-    gpgsign = true
 [color]
     ui = auto
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-[color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
 [alias]
     st = status --short --branch
     ci = commit
@@ -30,30 +14,16 @@
     dc = diff --cached
     fa = fetch --all
     fu = fetch upstream
-    fo = fetch origin
-    mud = merge --ff-only upstream/develop
-    mod = merge --ff-only origin/develop
-    rud = rebase upstream/develop
-    rod = rebase origin/develop
-    up = "!git fetch --all && git rebase origin/master"
-    sqm = "!git rebase -i $(git rev-parse master)"
-    sqd = "!git rebase -i $(git rev-parse develop)"
+    rom = rebase origin/master
     ra = rebase --abort
     rc = rebase --continue
-    mom = merge --ff-only origin/master
-    rom = rebase origin/master
     ls = ls-files
     pp = push origin
-    ppf = push origin --force
+    ppf = push origin --force-with-lease
     lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
     lot = log -n 15 --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
     lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
     reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
-    standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
-
-    # Show files ignored by git:
-    ign = ls-files -o -i --exclude-standard
-    undo = reset --soft HEAD^
     g = grep --break --heading --line-number
 
 [core]
