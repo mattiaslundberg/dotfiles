@@ -26,6 +26,7 @@ if [ -f /usr/bin/dircolors ] ; then
 fi
 
 # Use modern completion system
+fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' auto-description 'specify: %d'
