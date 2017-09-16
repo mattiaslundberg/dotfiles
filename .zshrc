@@ -62,9 +62,9 @@ fi
 unset MAILCHECK
 
 if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
-    alias emd="reattach-to-user-namespace emacs --daemon"
+    alias emd="reattach-to-user-namespace emacs --daemon &"
 else
-    alias emd="emacs --daemon"
+    alias emd="emacs --daemon &"
 fi
 em() { emacsclient -c $1 & }
 alias em.="emacsclient -c . &"
