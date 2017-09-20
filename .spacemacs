@@ -374,7 +374,10 @@ you should place your code here."
   (setq magit-push-current-set-remote-if-missing t)
 
   (setq create-lockfiles nil)
-  )
+
+  "Use company-mode globally"
+  (global-company-mode)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
