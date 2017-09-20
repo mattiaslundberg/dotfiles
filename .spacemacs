@@ -360,6 +360,9 @@ you should place your code here."
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
 
+  "Don't prompt about keeping tag table"
+  (setq tags-add-tables nil)
+
   "Fix AltGr keyboard combinations on mac"
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
