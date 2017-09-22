@@ -372,6 +372,7 @@ you should place your code here."
   (editorconfig-mode 1)
 
   (setq magit-push-current-set-remote-if-missing t)
+  (setq magit-revision-show-gravatars nil)
 
   (setq create-lockfiles nil)
 
