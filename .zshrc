@@ -91,9 +91,6 @@ fi
 if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
-if [ -f ~/.colormap ]; then
-    . ~/.colormap
-fi
 
 addToPath /sbin
 addToPath /usr/sbin
