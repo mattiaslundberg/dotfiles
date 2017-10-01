@@ -62,12 +62,12 @@ fi
 unset MAILCHECK
 
 if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
-    alias emd="reattach-to-user-namespace emacs --daemon &"
+    alias emd="(reattach-to-user-namespace emacs --daemon && emacsclient -nqc .) &"
 else
-    alias emd="emacs --daemon &"
+    alias emd="(emacs --daemon && emacsclient -nqc .) &"
 fi
-em() { emacsclient -c $1 & }
-alias em.="emacsclient -c . &"
+alias em=emacsclient -nq
+alias em.="emacsclient -nq ."
 
 addToPath () {
     case ":$PATH:" in
