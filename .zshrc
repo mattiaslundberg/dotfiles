@@ -66,7 +66,7 @@ if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
 else
     alias emd="(emacs --daemon && emacsclient -nqc .) &"
 fi
-alias em=emacsclient -nq
+alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
 
 addToPath () {
