@@ -48,18 +48,17 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true # Make clean tarballs and more in Tiger
 export COPYFILE_DISABLE=true # Make clean tarballs and more in Leopard
 
+unset MAILCHECK
+
 if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
     if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
         alias nvim="reattach-to-user-namespace nvim"
     fi
     alias vi='nvim'
-    export EDITOR='nvim'
     export DIFFPROG='nvim -d'
 else
     alias vi='vim'
-    export EDITOR='vim'
 fi
-unset MAILCHECK
 
 if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
     alias emd="(reattach-to-user-namespace emacs --daemon && emacsclient -nqc .) &"
@@ -68,6 +67,7 @@ else
 fi
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
+export EDITOR="emacsclient -nq"
 
 addToPath () {
     case ":$PATH:" in
