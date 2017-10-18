@@ -349,6 +349,9 @@ you should place your code here."
   "Don't wrap long lines"
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
+  "Display emojis"
+  (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
+
   "Disable js2-mode warnings"
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
