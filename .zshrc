@@ -51,20 +51,13 @@ export COPYFILE_DISABLE=true # Make clean tarballs and more in Leopard
 unset MAILCHECK
 
 if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
-    if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
-        alias nvim="reattach-to-user-namespace nvim"
-    fi
     alias vi='nvim'
     export DIFFPROG='nvim -d'
 else
     alias vi='vim'
 fi
 
-if [ -f /usr/local/bin/reattach-to-user-namespace ] ; then
-    alias emd="(reattach-to-user-namespace emacs --daemon && emacsclient -nqc .) &"
-else
-    alias emd="(emacs --daemon && emacsclient -nqc .) &"
-fi
+alias emd="(emacs --daemon && emacsclient -nqc .) &"
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
 export EDITOR="emacsclient"
