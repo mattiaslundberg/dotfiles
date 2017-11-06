@@ -5,14 +5,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source ~/.config/nvim/init.vim
 endif
 
-if has("mac")
-    let g:python_host_prog = '/Users/mattias/.pyenv/versions/neovim2/bin/python'
-    let g:python3_host_prog = '/Users/mattias/.pyenv/versions/neovim3/bin/python'
-else
-    let g:python_host_prog = '/home/mattias/.pyenv/versions/neovim2/bin/python'
-    let g:python3_host_prog = '/home/mattias/.pyenv/versions/neovim3/bin/python'
-end
-
 call plug#begin('~/.config/nvim/plugged')
 " Global configuration
 Plug 'editorconfig/editorconfig-vim'
