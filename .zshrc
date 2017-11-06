@@ -60,7 +60,7 @@ fi
 alias emd="(emacs --daemon && emacsclient -nqc .) &"
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
-export EDITOR="emacsclient"
+export EDITOR="vi"
 
 addToPath () {
     case ":$PATH:" in
