@@ -62,6 +62,8 @@ alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
 export EDITOR="vi"
 
+alias mex="iex -S mix"
+
 addToPath () {
     case ":$PATH:" in
         *":${1}:"*) :;; # already there
