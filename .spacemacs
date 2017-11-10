@@ -363,7 +363,7 @@ you should place your code here."
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
-
+  (define-coding-system-alias 'UTF-8 'utf-8)
   "Don't prompt about keeping tag table"
   (setq tags-add-tables nil)
 
