@@ -48,6 +48,9 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true # Make clean tarballs and more in Tiger
 export COPYFILE_DISABLE=true # Make clean tarballs and more in Leopard
 
+# Enable persistent history for elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 unset MAILCHECK
 
 if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
