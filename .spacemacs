@@ -380,6 +380,7 @@ you should place your code here."
   (require 'mix-format)
   (setq mixfmt-mix "/Users/mattias/.asdf/installs/elixir/ref-master/bin/mix")
   (setq mixfmt-elixir "/Users/mattias/.asdf/installs/elixir/ref-master/bin/elixir")
+  (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'mix-format)
 
   (setq magit-push-current-set-remote-if-missing t)
   (setq magit-revision-show-gravatars nil)
