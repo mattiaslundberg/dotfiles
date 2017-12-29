@@ -349,6 +349,8 @@ you should place your code here."
   "Display emojis"
   (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 
+  (add-to-list 'auto-mode-alist '("\\.es6.js\\'" . react-mode))
+
   "Disable js2-mode warnings"
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
