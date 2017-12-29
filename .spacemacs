@@ -334,10 +334,6 @@ you should place your code here."
   (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
   (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 
-  "Disable smartparens as default"
-  (spacemacs/toggle-smartparens-globally-off)
-  (remove-hook 'prog-mode-hook #'smartparens-mode)
-
   "Use space+\ to clear current search hightlight"
   (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
 
