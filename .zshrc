@@ -63,6 +63,8 @@ fi
 alias emd="(emacs --daemon && emacsclient -nqc .) &"
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
+alias emc="emacsclient -nqc"
+alias emc.="emacsclient -nqc ."
 export EDITOR="vi"
 
 alias mex="iex -S mix"
