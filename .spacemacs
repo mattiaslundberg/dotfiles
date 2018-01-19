@@ -332,11 +332,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
   (setq elm-format-on-save t)
-  "Use Ctrl+hjkl navigate between windows in normal mode"
-  (define-key evil-motion-state-map (kbd "C-h") #'evil-window-left)
-  (define-key evil-motion-state-map (kbd "C-j") #'evil-window-down)
-  (define-key evil-motion-state-map (kbd "C-k") #'evil-window-up)
-  (define-key evil-motion-state-map (kbd "C-l") #'evil-window-right)
 
   "Use space+\ to clear current search hightlight"
   (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
