@@ -378,10 +378,10 @@ you should place your code here."
   (require 'editorconfig)
   (editorconfig-mode 1)
 
-  "Setup mix formatter (requires asdf install of ref:master)"
+  "Setup mix formatter (requires asdf install of elixir 1.6)"
   (require 'mix-format)
-  (setq mixfmt-mix "/Users/mattias/.asdf/installs/elixir/ref-master/bin/mix")
-  (setq mixfmt-elixir "/Users/mattias/.asdf/installs/elixir/ref-master/bin/elixir")
+  (setq mixfmt-mix "/Users/mattias/.asdf/installs/elixir/1.6.0/bin/mix")
+  (setq mixfmt-elixir "/Users/mattias/.asdf/installs/elixir/1.6.0/bin/elixir")
   (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'mix-format)
 
   (setq magit-push-current-set-remote-if-missing t)
