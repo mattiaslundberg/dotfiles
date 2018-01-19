@@ -342,9 +342,6 @@ you should place your code here."
 
   (setq powerline-default-separator 'bar)
 
-  "Don't wrap long lines"
-  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
-
   "Display emojis"
   (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 
