@@ -53,18 +53,12 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 unset MAILCHECK
 
-if [ -f /usr/bin/nvim -o -f /usr/local/bin/nvim ] ; then
-    alias vi='nvim'
-    export DIFFPROG='nvim -d'
-else
-    alias vi='vim'
-fi
-
 alias emd="(emacs --daemon && emacsclient -nqc .) &"
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
 alias emc="emacsclient -nqc"
 alias emc.="emacsclient -nqc ."
+alias vi='vim'
 export EDITOR="vi"
 
 alias mex="iex -S mix"
