@@ -377,6 +377,9 @@ you should place your code here."
   (setq mixfmt-mix "/Users/mattias/.asdf/installs/elixir/1.6.0/bin/mix")
   (setq mixfmt-elixir "/Users/mattias/.asdf/installs/elixir/1.6.0/bin/elixir")
   (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'mix-format)
+  (add-hook 'elixir-mode-hook
+            (lambda () (add-hook 'before-save-hook 'mix-format-before-save)))
+
 
   (setq magit-push-current-set-remote-if-missing t)
   (setq magit-revision-show-gravatars nil)
