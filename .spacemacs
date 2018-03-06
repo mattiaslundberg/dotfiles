@@ -388,6 +388,10 @@ you should place your code here."
 
   "Use company-mode globally"
   (global-company-mode)
+
+  (require 'diminish)
+  (diminish 'editorconfig-mode "E")
+  (diminish 'alchemist-mode "al")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
