@@ -118,3 +118,5 @@ esac
 if [ -f ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh ] ; then
     . ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh
 fi
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
