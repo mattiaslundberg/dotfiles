@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     rust
      nginx
      csv
      ansible
@@ -332,6 +333,9 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
   (setq elm-format-on-save t)
+  (setq rust-format-on-save t)
+
+  (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
 
   "Use space+\ to clear current search hightlight"
   (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
