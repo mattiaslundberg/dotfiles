@@ -95,6 +95,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 addToPath ~/.local/bin
+addToPath ~/.cargo/bin
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
