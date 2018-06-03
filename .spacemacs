@@ -374,11 +374,11 @@ you should place your code here."
 
   "Setup mix formatter (requires asdf install of elixir 1.6)"
   (require 'mix-format)
-  (setq mixfmt-mix "/Users/mattias/.asdf/shims/mix")
-  (setq mixfmt-elixir "/Users/mattias/.asdf/shims/elixir")
+  (setq elixir-format-mix-path "/Users/mattias/.asdf/shims/mix")
+  (setq elixir-format-elixir-path "/Users/mattias/.asdf/shims/elixir")
   (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'mix-format)
   (add-hook 'elixir-mode-hook
-            (lambda () (add-hook 'before-save-hook 'mix-format-before-save)))
+            (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
 
   (setq magit-push-current-set-remote-if-missing t)
