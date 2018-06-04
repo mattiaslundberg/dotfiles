@@ -377,16 +377,23 @@ you should place your code here."
   (editorconfig-mode 1)
 
   "Setup mix formatter (requires asdf install of elixir 1.6)"
-  (require 'mix-format)
+  (require 'elixir-format)
   (setq elixir-format-mix-path "/Users/mattias/.asdf/shims/mix")
   (setq elixir-format-elixir-path "/Users/mattias/.asdf/shims/elixir")
-  (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'mix-format)
+  (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'elixir-format)
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
+  "Hide scrollbars"
+  (add-to-list 'default-frame-alist
+               '(vertical-scroll-bars . nil))
 
+  "Setup magit"
   (setq magit-push-current-set-remote-if-missing t)
   (setq magit-revision-show-gravatars nil)
+  (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
+  (setq-default git-magit-status-fullscreen t)
+
 
   (setq create-lockfiles nil)
 
