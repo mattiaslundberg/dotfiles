@@ -144,6 +144,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         subatomic
                          sanityinc-solarized-dark
                          sanityinc-solarized-light
                          )
@@ -340,6 +341,8 @@ you should place your code here."
   "Use transparent titlebar"
   (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
 
+  (setq flycheck-pos-tip-timeout 15)
+
   "Use space+\ to clear current search hightlight"
   (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
 
@@ -351,7 +354,7 @@ you should place your code here."
   (setq powerline-default-separator 'bar)
 
   (add-to-list 'auto-mode-alist '("\\.es6.js\\'" . react-mode))
- 
+
   "Disable js2-mode warnings"
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
@@ -398,12 +401,11 @@ you should place your code here."
 
   (setq create-lockfiles nil)
 
-  "Use company-mode globally"
-  (global-company-mode)
 
   (require 'diminish)
   (diminish 'editorconfig-mode "E")
   (diminish 'alchemist-mode "al")
+  (diminish 'elm-indent-mode "EI")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
