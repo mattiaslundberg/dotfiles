@@ -7,6 +7,8 @@ source /usr/local/share/antigen/antigen.zsh
 
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
+antigen bundle djui/alias-tips
+antigen bundle mdumitru/fancy-ctrl-z
 
 setopt histignorealldups sharehistory
 setopt autocd
