@@ -3,14 +3,10 @@ autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 
-source ~/.zsh/zsh-git-prompt.git/zshrc.sh
+source /usr/local/share/antigen/antigen.zsh
 
-PROMPT="%{$fg_no_bold[green]%}%? %{$fg_no_bold[yellow]%}%4~ %{$fg_no_bold[magenta]%}%#%{$reset_color%} "
-
-# Show current git branch.
-precmd() {
-    RPROMPT="$(git_super_status)"
-}
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 setopt histignorealldups sharehistory
 setopt autocd
@@ -116,8 +112,8 @@ case $USER in
   ;;
 esac
 
-if [ -f ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh ] ; then
-    . ~/.zsh/zsh-syntax-highlighting.git/zsh-syntax-highlighting.zsh
-fi
-
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
