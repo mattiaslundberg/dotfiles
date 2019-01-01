@@ -75,6 +75,14 @@ if [[ $(confirm "WEB on port 80 and 443") == 1 ]]; then
 	echo "Allowing WEB on 80 and 443"
 fi
 
+# Unifi controller
+if [[ $(confirm "Unifi Controller") == 1 ]]; then
+	$IPTABLES -A INPUT -p tcp --dport 8443 -m state --state NEW,ESTABLISHED -j ACCEPT
+	$IPTABLES -A INPUT -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+	$IPTABLES -A INPUT -p udp --dport 3478 -m state --state NEW,ESTABLISHED -j ACCEPT
+	echo "Allowing Unifi Controller"
+fi
+
 if [[ $(confirm "SSH server on port 22") == 1 ]]; then
 	$IPTABLES -A INPUT -p tcp --dport 22 -m state --state NEW,ESTABLISHED -m limit --limit 10/minute --limit-burst 25 -j ACCEPT
 	if [[ $IPV6SUPPORT && $(confirm "for IPv6") == 1 ]]; then
@@ -157,7 +165,7 @@ else
 	if [[ $IPV6SUPPORT ]]; then
 		sudo sh -c "ip6tables-save > /etc/ip6tables.rules"
 	fi
-	
+
 	# Enable loading of the rules since we don't have automatic support for it...
 	sudo sh -c "echo \"#\!/bin/sh\" > /etc/network/if-pre-up.d/iptables"
 	sudo sh -c "echo iptables-restore \< /etc/iptables.rules >> /etc/network/if-pre-up.d/iptables"
