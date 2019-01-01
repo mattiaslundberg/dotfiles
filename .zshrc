@@ -3,7 +3,13 @@ autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 
-source /usr/local/share/antigen/antigen.zsh
+if [ -f /usr/local/share/antigen/antigen.zsh ] ; then
+	source /usr/local/share/antigen/antigen.zsh
+fi
+if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
+	source /usr/share/zsh/share/antigen.zsh
+fi
+
 
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
