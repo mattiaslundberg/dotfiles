@@ -101,8 +101,10 @@ eval "$(pyenv virtualenv-init -)"
 addToPath ~/.local/bin
 addToPath ~/.cargo/bin
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [ -f /usr/local/bin/brew ]; then
+    . $(brew --prefix asdf)/asdf.sh
+    . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+fi
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
