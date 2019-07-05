@@ -11,6 +11,9 @@
 *~
 .exrc
 
+# Mac specific
+.DS_Store
+
 # Netbeans
 nbproject/private/
 build/
