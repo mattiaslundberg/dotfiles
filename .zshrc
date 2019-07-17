@@ -106,6 +106,8 @@ if [ -f /usr/local/bin/brew ]; then
     . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 fi
 
+eval "$(pipenv --completion)"
+
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
 fi
