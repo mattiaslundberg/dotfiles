@@ -1,15 +1,15 @@
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
 # standard aliases
-alias ll='ls -la'
-alias la='ls -A'
-alias l='ls -l'
+alias ls=exa
+alias ll='exa -la --git'
+alias la='exa -A'
+alias l='exa -l --git'
 alias cd.='cd ..'
 alias cd..='cd ..'
 alias mkdir='mkdir -pv'
