@@ -8,7 +8,7 @@ fi
 # standard aliases
 alias ls=exa
 alias ll='exa -la --git'
-alias la='exa -A'
+alias la='exa -a'
 alias l='exa -l --git'
 alias cd.='cd ..'
 alias cd..='cd ..'
