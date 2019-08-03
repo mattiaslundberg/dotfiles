@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/Users/mattias/bin/backupbrew > /Users/mattias/.brewrestore.sh
