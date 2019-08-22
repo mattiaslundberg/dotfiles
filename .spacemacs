@@ -65,7 +65,6 @@ values."
    '(
      editorconfig
      pbcopy
-     (mix-format :location (recipe :fetcher github :repo "anildigital/mix-format.el"))
      company-tabnine
      forge
      )
@@ -391,9 +390,6 @@ you should place your code here."
   (with-eval-after-load 'company
     (add-to-list 'company-backends #'company-tabnine))
 
-  "Setup mix formatter (requires asdf install of elixir 1.6)"
-  (require 'elixir-format)
-  (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'elixir-format)
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
