@@ -392,8 +392,6 @@ you should place your code here."
 
   "Setup mix formatter (requires asdf install of elixir 1.6)"
   (require 'elixir-format)
-  (setq elixir-format-mix-path "/Users/mattias/.asdf/shims/mix")
-  (setq elixir-format-elixir-path "/Users/mattias/.asdf/shims/elixir")
   (spacemacs/set-leader-keys-for-major-mode 'elixir-mode "f" 'elixir-format)
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
