@@ -50,8 +50,11 @@
 --exclude=elm-stuff
 --exclude=_build
 --exclude=deps
---exclude=.pyc
 --exclude=bundles
 --exclude=collected
 --exclude=js_bundles
 --exclude=transpiled_js
+--exclude=__pycache__
+--exclude=bundles
+--exclude=.cov
+--exclude=.cache
