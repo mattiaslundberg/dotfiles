@@ -388,7 +388,8 @@ you should place your code here."
   "Activate tabnine autocompletion"
   (require 'company-tabnine)
   (setq company-idle-delay 0)
-  (add-to-list 'company-backends #'company-tabnine)
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends #'company-tabnine))
 
   "Setup mix formatter (requires asdf install of elixir 1.6)"
   (require 'elixir-format)
