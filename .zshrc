@@ -1,4 +1,3 @@
-# Set up the prompt
 autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
@@ -9,7 +8,6 @@ fi
 if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
 	source /usr/share/zsh/share/antigen.zsh
 fi
-
 
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
@@ -48,16 +46,15 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
-# macOS Sierra extended attributes
-export COPY_EXTENDED_ATTRIBUTES_DISABLE=true # Make clean tarballs and more in Tiger
-export COPYFILE_DISABLE=true # Make clean tarballs and more in Leopard
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
+export COPYFILE_DISABLE=true
 
 # Enable persistent history for elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 unset MAILCHECK
 
-alias emd="(emacs --daemon && emacsclient -nqc .) &"
+alias emd="(LC_ALL=en_US.utf-8 emacs --daemon && emacsclient -nqc .) &"
 alias em="emacsclient -nq"
 alias em.="emacsclient -nq ."
 alias emc="emacsclient -nqc"
@@ -98,9 +95,6 @@ addToPath ~/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-addToPath ~/.local/bin
-addToPath ~/.cargo/bin
-
 if [ -f /usr/local/bin/brew ]; then
     . $(brew --prefix asdf)/asdf.sh
     . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
@@ -127,5 +121,4 @@ esac
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
-
 antigen apply
