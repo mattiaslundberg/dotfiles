@@ -413,7 +413,7 @@ you should place your code here."
   (when (string= system-type "darwin")
     (setq dired-use-ls-dired nil))
 
-  (setq projectile-project-search-path '("~/github/" "~/tmp/"))
+  (setq projectile-project-search-path '("~/github/mattiaslundberg" "~/githubkundo/" "~/github/foocoding/" "~/tmp/"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
