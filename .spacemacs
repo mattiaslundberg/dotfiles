@@ -422,6 +422,8 @@ you should place your code here."
   (diminish 'editorconfig-mode "E")
   (diminish 'alchemist-mode "al")
   (diminish 'elm-indent-mode "EI")
+  (diminish 'emoji-cheat-sheet-plus-display-mode "e")
+  (diminish 'orgtbl-mode "OT")
 
   (when (string= system-type "darwin")
     (setq dired-use-ls-dired nil))
