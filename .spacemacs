@@ -328,6 +328,11 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq exec-path-from-shell-check-startup-files nil)
+
+  (if (file-exists-p "~/.emacs.d/elpa/dash-20190814.2006/dash.el")
+    (load-file "~/.emacs.d/elpa/dash-20190814.2006/dash.el"))
+  (if (file-exists-p "~/.emacs.d/elpa/autothemer-20180920.923/autothemer.el")
+    (load-file "~/.emacs.d/elpa/autothemer-20180920.923/autothemer.el"))
   )
 
 (defun dotspacemacs/user-config ()
