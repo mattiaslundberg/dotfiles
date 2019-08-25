@@ -67,6 +67,8 @@ values."
      pbcopy
      company-tabnine
      forge
+     prettier-js
+     add-node-modules-path
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -392,6 +394,12 @@ you should place your code here."
 
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
+  (setq javascript-fmt-tool 'prettier)
+  (with-eval-after-load 'js2-mode
+    '(progn
+       (add-hook 'js2-mode-hook #'add-node-modules-path)
+       (add-hook 'js2-mode-hook #'prettier-js-mode)))
 
   "Hide scrollbars"
   (add-to-list 'default-frame-alist
