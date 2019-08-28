@@ -401,6 +401,8 @@ you should place your code here."
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
+  (add-hook 'flycheck-mode-hook #'add-node-modules-path)
+
   (setq javascript-fmt-tool 'prettier)
   (with-eval-after-load 'react-mode
     '(progn
