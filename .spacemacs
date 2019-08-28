@@ -363,7 +363,8 @@ you should place your code here."
   "Nicer bottom-bar"
   (setq powerline-default-separator 'bar)
 
-  (add-to-list 'auto-mode-alist '("\\.es6.js\\'" . react-mode))
+  "react-mode > js2-mode"
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . react-mode))
 
   "Disable js2-mode warnings"
   (setq js2-mode-show-parse-errors nil)
@@ -401,10 +402,10 @@ you should place your code here."
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
   (setq javascript-fmt-tool 'prettier)
-  (with-eval-after-load 'js2-mode
+  (with-eval-after-load 'react-mode
     '(progn
-       (add-hook 'js2-mode-hook #'add-node-modules-path)
-       (add-hook 'js2-mode-hook #'prettier-js-mode)))
+       (add-hook 'react-mode-hook #'add-node-modules-path)
+       (add-hook 'react-mode-hook #'prettier-js-mode)))
 
   "Hide scrollbars"
   (add-to-list 'default-frame-alist
