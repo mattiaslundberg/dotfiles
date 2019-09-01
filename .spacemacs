@@ -395,7 +395,8 @@ you should place your code here."
   "Activate tabnine autocompletion"
   (require 'company-tabnine)
   (setq company-idle-delay 0)
-  (add-to-list 'spacemacs-default-company-backends #'company-tabnine)
+  (setq company-backends '(company-tabnine))
+  (setq spacemacs-default-company-backends '(company-tabnine))
 
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
