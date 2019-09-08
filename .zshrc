@@ -118,7 +118,5 @@ case $USER in
   ;;
 esac
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
