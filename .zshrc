@@ -100,12 +100,15 @@ addToPath /usr/sbin
 addToPath /usr/local/sbin
 addToPath ~/bin
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+init_pyenv() {
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+}
+{ read pid < <(init_pyenv >&3 & echo $!); } 3>&1
 
 if [ -f /usr/local/bin/brew ]; then
-    . $(brew --prefix asdf)/asdf.sh
-    . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+    . /usr/local/opt/asdf/asdf.sh
+    . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
 eval "$(pipenv --completion)"
