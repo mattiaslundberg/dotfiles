@@ -26,6 +26,8 @@ upgrade () {
     brew cask upgrade
     mas upgrade
     asdf plugin-update --all
+    rustup update
+    tldr --update
 }
 
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
