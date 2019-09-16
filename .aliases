@@ -16,6 +16,7 @@ alias cleantemp='find $HOME -type f -name "*~" -print -exec rm {} \;'
 alias cleanlatex='rm -f dia/*.(pdf|eps) ; rubber --clean *.tex'
 
 alias ports='sudo netstat -tulpan'
+alias pping=prettyping
 alias su='sudo -E -s'
 alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
