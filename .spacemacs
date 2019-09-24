@@ -226,7 +226,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator bar :separator-scale 1)
+   dotspacemacs-mode-line-theme '(spacemacs :separator bar :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -234,7 +234,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 20
+                               :size 20.0
                                :weight normal
                                :width normal)
 
@@ -453,7 +453,7 @@ It should only modify the values of Spacemacs settings."
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'changed
 
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
@@ -478,6 +478,14 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (defun reset-default-font ()
+    (unless (spacemacs/set-default-font dotspacemacs-default-font)
+      (spacemacs-buffer/warning
+       "Cannot find any of the specified fonts (%s)! Font settings may not be correct."
+       (mapconcat 'car dotspacemacs-default-font ", ")))
+    (remove-hook 'focus-in-hook #'reset-default-font))
+
+  (add-hook 'focus-in-hook #'reset-default-font)
   )
 
 (defun dotspacemacs/user-config ()
@@ -499,7 +507,7 @@ you should place your code here."
   (setq flycheck-pos-tip-timeout 15)
 
   "Use space+\ to clear current search hightlight"
-  (define-key evil-normal-state-map (kbd "<SPC>\\") 'evil-search-highlight-persist-remove-all)
+  (define-key evil-normal-state-map (kbd "<SPC>\\") 'spacemacs/evil-search-clear-highlight)
 
   "Don't scroll to the edge of the window"
   (setq scroll-margin 3)
