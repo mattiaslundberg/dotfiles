@@ -49,9 +49,11 @@ This function should only modify configuration layer settings."
                       auto-completion-return-key-behavior nil
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-complete-with-key-sequence nil
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-snippets-in-popup nil
                       auto-completion-complete-with-key-sequence-delay 0.1
-                      auto-completion-private-snippets-directory nil)
+                      auto-completion-private-snippets-directory nil
+                      spacemacs-default-company-backends '(company-tabnine)
+                      )
      dash
      docker
      elixir
@@ -88,6 +90,7 @@ This function should only modify configuration layer settings."
      forge
      prettier-js
      add-node-modules-path
+     company-tabnine
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -547,10 +550,9 @@ you should place your code here."
   (require 'editorconfig)
   (editorconfig-mode 1)
 
-  "Activate tabnine autocompletion"
-  (setq auto-completion-return-key-behavior nil)
-  (setq auto-completion-tab-key-behavior 'complete)
+  "Activate autocompletion"
   (global-company-mode)
+  (require 'company-tabnine)
   (setq company-idle-delay 0)
   (setq auto-completion-enable-tabnine t)
 
