@@ -45,7 +45,13 @@ This function should only modify configuration layer settings."
      nginx
      csv
      ansible
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      dash
      docker
      elixir
@@ -79,7 +85,6 @@ This function should only modify configuration layer settings."
    '(
      editorconfig
      pbcopy
-     company-tabnine
      forge
      prettier-js
      add-node-modules-path
@@ -543,10 +548,11 @@ you should place your code here."
   (editorconfig-mode 1)
 
   "Activate tabnine autocompletion"
-  (require 'company-tabnine)
+  (setq auto-completion-return-key-behavior nil)
+  (setq auto-completion-tab-key-behavior 'complete)
+  (global-company-mode)
   (setq company-idle-delay 0)
-  (setq company-backends '(company-tabnine))
-  (setq spacemacs-default-company-backends '(company-tabnine))
+  (setq auto-completion-enable-tabnine t)
 
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
