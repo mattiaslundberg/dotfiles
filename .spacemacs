@@ -536,6 +536,10 @@ you should place your code here."
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
 
+  "Enable forge"
+  (with-eval-after-load 'magit
+    (require 'forge))
+
   "Fix strange python encoding name"
   (define-coding-system-alias 'UTF-8 'utf-8)
 
