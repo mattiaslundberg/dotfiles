@@ -65,7 +65,6 @@ This function should only modify configuration layer settings."
      treemacs
      erlang
      emoji
-     ;;git
      helm
      html
      javascript
@@ -90,7 +89,6 @@ This function should only modify configuration layer settings."
      pbcopy
      forge
      prettier-js
-     add-node-modules-path
      company-tabnine
      )
    ;; A list of packages that cannot be updated.
@@ -509,6 +507,8 @@ you should place your code here."
   "Autoformat on save"
   (setq elm-format-on-save t)
   (setq rust-format-on-save t)
+  (add-hook 'elixir-mode-hook
+            (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
   "Use transparent titlebar"
   (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
@@ -522,13 +522,6 @@ you should place your code here."
   (setq scroll-margin 3)
   (setq scroll-conservatively 3)
 
-  "react-mode > js2-mode"
-  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . react-mode))
-
-  "Disable js2-mode warnings"
-  (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil)
-
   "Fix Ctrl-w"
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
@@ -537,19 +530,17 @@ you should place your code here."
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
     )
 
-  "Enable forge"
-  (with-eval-after-load 'magit
-    (require 'forge))
-
   "Fix strange python encoding name"
   (define-coding-system-alias 'UTF-8 'utf-8)
 
   "Don't prompt about keeping tag table"
   (setq tags-add-tables nil)
 
-  "Fix AltGr keyboard combinations on mac"
+  "MacOS fixes"
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
+  (when (string= system-type "darwin")
+    (setq dired-use-ls-dired nil))
 
   "Activate editorconfig"
   (require 'editorconfig)
@@ -565,16 +556,21 @@ you should place your code here."
             (lambda()
               (global-set-key (kbd "<right>") 'company-complete)))
 
-  (add-hook 'elixir-mode-hook
-            (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+  "Nicer completion look"
+  (custom-set-faces
+   '(company-tooltip-common
+     ((t (:inherit company-tooltip :weight bold :underline nil))))
+   '(company-tooltip-common-selection
+     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 
-  (add-hook 'flycheck-mode-hook #'add-node-modules-path)
-
+  "Configure js2 mode"
   (setq javascript-fmt-tool 'prettier)
-  (with-eval-after-load 'react-mode
+  (with-eval-after-load 'js2-jsx-mode
     '(progn
-       (add-hook 'react-mode-hook #'add-node-modules-path)
-       (add-hook 'react-mode-hook #'prettier-js-mode)))
+       (add-hook 'js2-mode-hook #'prettier-js-mode)))
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
 
   "Hide scrollbars"
   (add-to-list 'default-frame-alist
@@ -585,15 +581,10 @@ you should place your code here."
   (setq magit-revision-show-gravatars nil)
   (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
   (setq-default git-magit-status-fullscreen t)
+  (with-eval-after-load 'magit
+    (require 'forge))
 
   (setq create-lockfiles nil)
-
-  "Nicer completion look"
-  (custom-set-faces
-   '(company-tooltip-common
-     ((t (:inherit company-tooltip :weight bold :underline nil))))
-   '(company-tooltip-common-selection
-     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 
   (require 'diminish)
   (diminish 'editorconfig-mode "E")
@@ -601,9 +592,6 @@ you should place your code here."
   (diminish 'elm-indent-mode "EI")
   (diminish 'emoji-cheat-sheet-plus-display-mode "e")
   (diminish 'orgtbl-mode "OT")
-
-  (when (string= system-type "darwin")
-    (setq dired-use-ls-dired nil))
 
   (setq projectile-project-search-path '("~/github/mattiaslundberg" "~/github/kundo" "~/github/foocoding/" "~/tmp/"))
 )
