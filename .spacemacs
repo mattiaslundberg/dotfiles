@@ -52,7 +52,8 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup nil
                       auto-completion-complete-with-key-sequence-delay 0.1
                       auto-completion-private-snippets-directory nil
-                      spacemacs-default-company-backends '(company-tabnine)
+                      auto-completion-enable-tabnine t
+                      spacemacs-default-company-backends '(company-tabnine company-yasnippet)
                       )
      dash
      docker
@@ -558,7 +559,6 @@ you should place your code here."
   (global-company-mode)
   (require 'company-tabnine)
   (setq company-idle-delay 0)
-  (setq auto-completion-enable-tabnine t)
 
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
