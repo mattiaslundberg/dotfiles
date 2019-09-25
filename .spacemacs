@@ -588,6 +588,13 @@ you should place your code here."
 
   (setq create-lockfiles nil)
 
+  "Nicer completion look"
+  (custom-set-faces
+   '(company-tooltip-common
+     ((t (:inherit company-tooltip :weight bold :underline nil))))
+   '(company-tooltip-common-selection
+     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+
   (require 'diminish)
   (diminish 'editorconfig-mode "E")
   (diminish 'alchemist-mode "al")
