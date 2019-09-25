@@ -65,7 +65,7 @@ This function should only modify configuration layer settings."
      treemacs
      erlang
      emoji
-     git
+     ;;git
      helm
      html
      javascript
