@@ -560,6 +560,11 @@ you should place your code here."
   (require 'company-tabnine)
   (setq company-idle-delay 0)
 
+  "Complete using C-<right> (system remapping to right arrow)"
+  (add-hook 'company-mode-hook
+            (lambda()
+              (global-set-key (kbd "<right>") 'company-complete)))
+
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
