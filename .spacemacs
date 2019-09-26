@@ -587,6 +587,7 @@ you should place your code here."
   (setq create-lockfiles nil)
 
   (setq treemacs-indentation 1)
+  (setq treemacs-width 25)
   (setq treemacs-show-cursor nil)
   (treemacs-resize-icons 16)
   (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
