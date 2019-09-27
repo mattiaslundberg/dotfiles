@@ -12,8 +12,9 @@
 	cp = cherry-pick
 	df = diff
 	dc = diff --cached
-	fa = fetch --all
+	fa = fetch --all --prune
 	rom = rebase origin/master
+	mm = "!git up && git ppf && git checkout master && git merge - && git lot"
 	ra = rebase --abort
 	rc = rebase --continue
 	ls = ls-files
@@ -24,7 +25,13 @@
 	lot = log -n 15 --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
 	lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
 	reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
+  	standup = "!git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+	undo = reset --soft HEAD^
 	g = grep --break --heading --line-number
+	g = grep --break --heading --line-number
+  cleanbranches = "!git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d"
 
 [core]
 	editor = vi
@@ -41,3 +48,5 @@
 	rebase = True
 [github]
 	user = mattiaslundberg
+[advice]
+	detachedHead = false
