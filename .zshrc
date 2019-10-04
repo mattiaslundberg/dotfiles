@@ -31,6 +31,9 @@ HISTSIZE=30000
 SAVEHIST=30000
 HISTFILE=~/.zsh_history
 
+# Show <status> <time> in right prompt
+export RPROMPT="%? %*"
+
 autoload -U colors && colors
 if [ -f /usr/bin/dircolors ] ; then
     eval "$(dircolors -b)"
