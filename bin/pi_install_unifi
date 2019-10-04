@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+import subprocess
+import tempfile
+import zlib
+
+base_path = "http://dl.ubnt.com/unifi/debian"
+
+with tempfile.TemporaryDirectory() as d:
+    subprocess.run(["curl", "-O", f"{base_path}/dists/stable/ubiquiti/binary-amd64/Packages.gz"], cwd=d)
+    subprocess.run(["gzip", "-d", "Packages.gz"], cwd=d)
+    fileurl = ""
+
+    with open(f"{d}/Packages", "r") as f:
+        prefix = "Filename: "
+        for line in f:
+            if line.startswith(prefix):
+                fileurl = line[len(prefix):]
+                break
+        else:
+            print("Failed to parse Packages")
+            exit(1)
+
+    url = f"{base_path}/{fileurl}".strip()
+    filename = url.split("/")[-1]
+    subprocess.run(["curl", "-O", url], cwd=d)
+    subprocess.run(["ar", "x", filename], cwd=d)
+    subprocess.run(["tar", "xf", "control.tar.gz"], cwd=d)
+    subprocess.run(["mv", "control", "oldcontrol"], cwd=d)
+
+    with open(f"{d}/oldcontrol", "r") as old, open(f"{d}/control", "w") as f:
+        for l in old:
+            if l.startswith(" ") or l.startswith("Depends:"):
+                pass
+            elif l.startswith("Architecture:"):
+                f.write("Architecture: all\n")
+            else:
+                f.write(l)
+
+    subprocess.run(["tar", "--ignore-failed-read", "-cvf", "control.tar.gz", "{post,pre}{inst,rm}" "md5sums", "control"], cwd=d)
+    subprocess.run(["ar", "rcs", "newpackage.deb", "debian-binary", "control.tar.gz", "data.tar.xz"], cwd=d)
+    subprocess.run(["sudo", "dpkg", "-i", "newpackage.deb"], cwd=d)
