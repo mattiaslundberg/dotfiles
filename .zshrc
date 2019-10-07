@@ -112,6 +112,9 @@ if [ -f /usr/local/bin/brew ]; then
     . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 
+addToPath ~/.cargo/bin
+
+
 eval "$(pipenv --completion)"
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
