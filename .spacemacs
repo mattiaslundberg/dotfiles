@@ -587,6 +587,8 @@ you should place your code here."
 
   (setq create-lockfiles nil)
 
+  (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
+
   (setq treemacs-indentation 1)
   (setq treemacs-width 25)
   (setq treemacs-show-cursor nil)
