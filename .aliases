@@ -9,10 +9,10 @@ mc() { mkdir $1 && cd $1 ; }
 
 alias g='git'
 
-# Some other aliases
 alias reload='source ~/.zshrc'
 alias cleantemp='find $HOME -type f -name "*~" -print -exec rm {} \;'
 alias cleanlatex='rm -f dia/*.(pdf|eps) ; rubber --clean *.tex'
+alias rerun='fd | entr '
 
 alias ports='sudo netstat -tulpan'
 alias pping=prettyping
