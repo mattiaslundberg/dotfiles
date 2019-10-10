@@ -91,6 +91,12 @@ fi
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+# Fastjump
+j() { cd $(fastjump $1) }
+chpwd() {
+    fastjump --save-visit $PWD
+}
+
 # Load external files
 if [ -f ~/.aliases ]; then
     . ~/.aliases
