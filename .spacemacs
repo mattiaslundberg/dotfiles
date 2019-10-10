@@ -578,7 +578,7 @@ you should place your code here."
                '(vertical-scroll-bars . nil))
 
   "Setup magit"
-  (setq magit-push-current-set-remote-if-missing t)
+  (setq magit-prefer-push-default t)
   (setq magit-revision-show-gravatars nil)
   (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
   (setq-default git-magit-status-fullscreen t)
