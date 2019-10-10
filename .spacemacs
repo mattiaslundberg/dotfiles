@@ -596,11 +596,14 @@ you should place your code here."
   (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
 
   (require 'diminish)
-  (diminish 'editorconfig-mode "E")
-  (diminish 'alchemist-mode "al")
+  (diminish 'editorconfig-mode "⌨")
+  (diminish 'alchemist-mode "🔮")
   (diminish 'elm-indent-mode "EI")
-  (diminish 'emoji-cheat-sheet-plus-display-mode "e")
+  (diminish 'emoji-cheat-sheet-plus-display-mode "🙂")
   (diminish 'orgtbl-mode "OT")
+  (diminish 'anaconda-mode "🐍")
+  (diminish 'spacemacs-whitespace-cleanup-mode "🧹")
+  (diminish 'magit-gitflow-mode "🌊")
 
   (setq projectile-project-search-path '("~/github/mattiaslundberg" "~/github/kundo" "~/github/foocoding/" "~/tmp/"))
 )
