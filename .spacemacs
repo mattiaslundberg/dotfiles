@@ -99,6 +99,7 @@ This function should only modify configuration layer settings."
    '(
      helm-dash
      anaconda-mode
+     importmagic
      tern
      company-tern
      org-indent
