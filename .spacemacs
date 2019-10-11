@@ -586,6 +586,7 @@ you should place your code here."
   (setq-default git-magit-status-fullscreen t)
   (with-eval-after-load 'magit
     (require 'forge))
+  (transient-bind-q-to-quit)
 
   (setq create-lockfiles nil)
 
