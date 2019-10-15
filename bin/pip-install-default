@@ -1,3 +1,0 @@
-#!/bin/sh
-pip install importmagic epc isort autoflake flake8 safety
-

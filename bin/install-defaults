@@ -1,0 +1,8 @@
+#!/bin/sh
+# Install nice to have dev-utils
+
+# Python
+pip install isort autoflake flake8 safety
+
+# Node
+npm install -g eslint prettier stylelint tslint typescript
