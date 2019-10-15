@@ -512,6 +512,7 @@ you should place your code here."
   (setq rust-format-on-save t)
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+  (setq typescript-fmt-on-save t)
 
   "Use transparent titlebar"
   (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
@@ -574,6 +575,8 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
+  (setq javascript-fmt-on-save t)
+
 
   "Hide scrollbars"
   (add-to-list 'default-frame-alist
