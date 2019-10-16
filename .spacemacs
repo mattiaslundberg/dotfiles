@@ -513,6 +513,8 @@ you should place your code here."
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
   (setq typescript-fmt-on-save t)
+  (setq python-formatter 'black)
+  (setq python-format-on-save nil)
 
   "Use transparent titlebar"
   (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
