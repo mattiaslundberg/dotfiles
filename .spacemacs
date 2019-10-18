@@ -597,11 +597,13 @@ you should place your code here."
 
   (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
 
-  (setq treemacs-indentation 1)
+  (setq treemacs-indentation 2)
   (setq treemacs-width 25)
   (setq treemacs-show-cursor nil)
   (treemacs-resize-icons 16)
   (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
+  (with-eval-after-load 'treemacs
+    (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
 
   (require 'diminish)
   (diminish 'editorconfig-mode "⌨")
