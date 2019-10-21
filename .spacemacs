@@ -590,8 +590,9 @@ you should place your code here."
   (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
   (setq-default git-magit-status-fullscreen t)
   (with-eval-after-load 'magit
-    (require 'forge))
-  (transient-bind-q-to-quit)
+    (require 'forge)
+    (transient-bind-q-to-quit)
+    )
 
   (setq create-lockfiles nil)
 
