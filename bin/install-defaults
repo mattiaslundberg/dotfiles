@@ -2,7 +2,8 @@
 # Install nice to have dev-utils
 
 # Python
-pip install isort autoflake flake8 safety black
+pip3 install black ; true
+pip install isort autoflake flake8 safety flake8-mypy
 
 # Node
 npm install -g eslint prettier stylelint tslint typescript
