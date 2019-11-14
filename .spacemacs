@@ -541,6 +541,7 @@ you should place your code here."
   "Activate mypy checking"
   (require 'flycheck-mypy)
   (flycheck-add-next-checker 'python-flake8 'python-mypy t)
+  (setq flycheck-python-mypy-args "--ignore-missing-imports")
 
   "Fix strange python encoding name"
   (define-coding-system-alias 'UTF-8 'utf-8)
