@@ -619,8 +619,6 @@ you should place your code here."
   (diminish 'elm-indent-mode "EI")
   (diminish 'emoji-cheat-sheet-plus-display-mode "🙂")
   (diminish 'orgtbl-mode "OT")
-  (diminish 'spacemacs-whitespace-cleanup-mode "🧹")
-  (diminish 'magit-gitflow-mode "🌊")
 
   (setq projectile-project-search-path '("~/github/mattiaslundberg" "~/github/kundo" "~/github/foocoding/" "~/tmp/"))
 )
