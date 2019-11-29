@@ -29,6 +29,12 @@ upgrade () {
     tldr --update
 }
 
+function kube-all-pods() { kubectl get pods --all-namespaces --field-selector='status.phase!=Succeeded' -o json | jq '.items[]|[.metadata.namespace,.metadata.name] | @tsv' -r | column -t; }
+
+function kube-select-pod() { kube-all-pods | fzf -q "$@" | awk '{ print $2 }'; }
+
+function kube-logs() { kubectl logs -n $(kube-pods "$@") }
+
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
 
 mktmp() { mkdir $1 && sudo mount -t tmpfs none $(pwd)/$1 }
