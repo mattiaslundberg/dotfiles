@@ -558,6 +558,7 @@ you should place your code here."
   (global-set-key (kbd "<C-tab>") 'bm-next)
   (global-set-key (kbd "<C-escape>") 'bm-previous)
   (global-set-key (kbd "C-=") 'bm-toggle)
+  (setq bm-cycle-all-buffers t)
 
   "Activate mypy checking"
   (require 'flycheck-mypy)
