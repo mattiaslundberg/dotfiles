@@ -114,12 +114,20 @@ addToPath /usr/sbin
 addToPath /usr/local/sbin
 addToPath ~/bin
 
+if [ -f ~/.pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 if [ -f /usr/local/bin/brew ]; then
     . /usr/local/opt/asdf/asdf.sh
     . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+fi
+if [ -f ~/.asdf/asdf.sh ]; then
+    . ~/.asdf/asdf.sh
+    . ~/.asdf/completions/asdf.bash
 fi
 
 addToPath ~/.cargo/bin
@@ -133,6 +141,11 @@ fi
 if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
     . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
+
+if [ -f ~/.fzf.zsh ]; then
+    . ~/.fzf.zsh
+fi
+
 
 case $USER in
   root)
