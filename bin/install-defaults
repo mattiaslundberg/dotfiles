@@ -4,6 +4,7 @@
 # Python
 pip3 install black flake8-mypy mypy ; true
 pip install isort autoflake flake8 safety
+pip install 'python-language-server[all]'
 
 # Node
 npm install -g eslint prettier stylelint tslint typescript
