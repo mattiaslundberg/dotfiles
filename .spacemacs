@@ -606,7 +606,7 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
-  (setq javascript-fmt-on-save )
+  (setq javascript-fmt-on-save nil)
 
 
   "Hide scrollbars"
@@ -642,7 +642,7 @@ you should place your code here."
   (diminish 'emoji-cheat-sheet-plus-display-mode "🙂")
   (diminish 'orgtbl-mode "OT")
 
-  (setq projectile-project-search-path '("~/projects/mattiaslundberg" "~/projects/foocoding/" "~/tmp/"))
+  (setq projectile-project-search-path '("~/projects/mattiaslundberg/" "~/projects/foocoding/" "~/tmp/"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
