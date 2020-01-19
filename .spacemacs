@@ -608,7 +608,6 @@ you should place your code here."
   (setq js2-mode-show-strict-warnings nil)
   (setq javascript-fmt-on-save nil)
 
-
   "Hide scrollbars"
   (add-to-list 'default-frame-alist
                '(vertical-scroll-bars . nil))
@@ -624,9 +623,6 @@ you should place your code here."
     )
 
   (setq create-lockfiles nil)
-
-  (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
-
   (setq treemacs-indentation 2)
   (setq treemacs-width 25)
   (setq treemacs-show-cursor nil)
@@ -642,7 +638,7 @@ you should place your code here."
   (diminish 'emoji-cheat-sheet-plus-display-mode "🙂")
   (diminish 'orgtbl-mode "OT")
 
-  (setq projectile-project-search-path '("~/projects/mattiaslundberg/" "~/projects/foocoding/" "~/tmp/"))
+  (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
