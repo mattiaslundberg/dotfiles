@@ -1,0 +1,14 @@
+scan_root: /Users/mattias
+previous_visits: /Users/mattias/.cache/fastjump_visits.yml
+num_threads: 3
+ignores:
+  - deps
+  - Documents
+  - Pictures
+  - _build
+  - node_modules
+  - build
+  - target
+  - __pycache__
+  - Library
+  - Dropbox
