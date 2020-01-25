@@ -21,9 +21,9 @@ alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
 alias tmux="TERM=screen-256color-bce tmux"
 upgrade() {
-    brew upgrade
-    brew cask upgrade
-    mas upgrade
+    brew upgrade || true
+    brew cask upgrade || true
+    mas upgrade || true
     asdf plugin-update --all
     rustup update
     tldr --update
