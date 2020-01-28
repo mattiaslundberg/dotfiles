@@ -532,6 +532,7 @@ you should place your code here."
   (setq python-formatter 'black)
   (setq python-format-on-save nil)
   (setq go-format-before-save t)
+  (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
 
   "Use transparent titlebar"
   (setq default-frame-alist '((ns-transparent-titlebar . t) (ns-appearance . t)))
