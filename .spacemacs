@@ -590,7 +590,7 @@ you should place your code here."
   "Complete using C-<right> (system remapping to right arrow)"
   (add-hook 'company-mode-hook
             (lambda()
-              (global-set-key (kbd "<right>") 'company-complete)))
+              (local-set-key (kbd "<right>") 'company-complete)))
 
   "Nicer completion look"
   (custom-set-faces
