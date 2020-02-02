@@ -78,9 +78,9 @@ j() { cd $(fastjump $1) }
 chpwd() {
     fastjump --save-visit $PWD
 }
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
 
 if [ -f /usr/local/opt/asdf/asdf.sh ]; then
     . /usr/local/opt/asdf/asdf.sh
