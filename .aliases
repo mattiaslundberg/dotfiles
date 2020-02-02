@@ -82,3 +82,11 @@ case $HOST in
 
     ;;
 esac
+
+alias emd="(LC_ALL=en_US.utf-8 emacs --daemon && emacsclient -nqc .) &"
+alias em="emacsclient -nq"
+alias em.="emacsclient -nq ."
+alias emc="emacsclient -nqc"
+alias emc.="emacsclient -nqc ."
+alias vi='vim'
+alias mex="iex -S mix"

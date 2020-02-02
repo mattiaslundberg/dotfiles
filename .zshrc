@@ -11,13 +11,13 @@ autoload -U colors && colors
 promptinit
 
 if [ -f /usr/local/share/antigen/antigen.zsh ] ; then
-	source /usr/local/share/antigen/antigen.zsh
+	. /usr/local/share/antigen/antigen.zsh
 fi
 if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
-	source /usr/share/zsh/share/antigen.zsh
+	. /usr/share/zsh/share/antigen.zsh
 fi
 if [ -f ~/.antigen/antigen.zsh ] ; then
-    source ~/antigen/.antigen.zsh
+  . ~/antigen/.antigen.zsh
 fi
 
 antigen bundle mafredri/zsh-async
@@ -62,30 +62,8 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
-export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
-export COPYFILE_DISABLE=true
-
 # Enable persistent history for elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-unset MAILCHECK
-
-alias emd="(LC_ALL=en_US.utf-8 emacs --daemon && emacsclient -nqc .) &"
-alias em="emacsclient -nq"
-alias em.="emacsclient -nq ."
-alias emc="emacsclient -nqc"
-alias emc.="emacsclient -nqc ."
-alias vi='vim'
-export EDITOR="vi"
-
-alias mex="iex -S mix"
-
-addToPath () {
-    case ":$PATH:" in
-        *":${1}:"*) :;; # already there
-        *) export PATH="${1}:$PATH";;
-    esac
-}
 
 if [ -f /usr/bin/keychain ] ; then
     eval $(keychain --eval --agents ssh id_rsa id_ed25519)
@@ -100,6 +78,18 @@ j() { cd $(fastjump $1) }
 chpwd() {
     fastjump --save-visit $PWD
 }
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+if [ -f /usr/local/opt/asdf/asdf.sh ]; then
+    . /usr/local/opt/asdf/asdf.sh
+    . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+fi
+if [ -f ~/.asdf/asdf.sh ]; then
+    . ~/.asdf/asdf.sh
+    . ~/.asdf/completions/asdf.bash
+fi
 
 # Load external files
 if [ -f ~/.aliases ]; then
@@ -109,30 +99,6 @@ if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 
-addToPath /sbin
-addToPath /usr/sbin
-addToPath /usr/local/sbin
-addToPath ~/bin
-
-if [ -f ~/.pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-fi
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-if [ -f /usr/local/bin/brew ]; then
-    . /usr/local/opt/asdf/asdf.sh
-    . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-fi
-if [ -f ~/.asdf/asdf.sh ]; then
-    . ~/.asdf/asdf.sh
-    . ~/.asdf/completions/asdf.bash
-fi
-
-addToPath ~/.cargo/bin
-
-
 eval "$(pipenv --completion)"
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
@@ -141,7 +107,6 @@ fi
 if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
     . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
-
 if [ -f ~/.fzf.zsh ]; then
     . ~/.fzf.zsh
 fi
