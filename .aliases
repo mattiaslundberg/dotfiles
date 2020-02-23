@@ -90,3 +90,12 @@ alias emc="emacsclient -nqc"
 alias emc.="emacsclient -nqc ."
 alias vi='vim'
 alias mex="iex -S mix"
+
+function light() {
+  if [ -z "$2" ]
+    then src="pbpaste"
+  else
+    src="cat $2"
+  fi
+  $src | highlight -O rtf --syntax $1 --font "Source Code Pro" --style base16/gruvbox-light-hard -W -J 80 -j 3 --font-size 24 | pbcopy
+}
