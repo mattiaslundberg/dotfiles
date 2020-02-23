@@ -233,8 +233,6 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-themes '(
                          gruvbox-dark-medium
                          gruvbox-light-medium
-                         sanityinc-solarized-light
-                         sanityinc-solarized-dark
                          )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
