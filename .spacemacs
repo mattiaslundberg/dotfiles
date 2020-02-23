@@ -522,6 +522,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
+  ;; (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=dist --exclude=node_modules --exclude=.mypy_cache --exclude=.git --exclude=images")
 
   "Autoformat on save"
   (setq elm-format-on-save t)
