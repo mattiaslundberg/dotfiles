@@ -31,7 +31,7 @@ upgrade() {
 }
 cleanup() {
     rm -rf ~/.tmux/resurrect/*
-    docker system prune
+    docker system prune --all
 }
 
 function kube-all-pods() { kubectl get pods --all-namespaces --field-selector='status.phase!=Succeeded' -o json | jq '.items[]|[.metadata.namespace,.metadata.name] | @tsv' -r | column -t; }
