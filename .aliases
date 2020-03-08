@@ -1,3 +1,4 @@
+// -*- mode: shell-script -*-
 alias ls=exa
 alias ll='exa -la --git'
 alias la='exa -a'
