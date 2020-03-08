@@ -538,6 +538,10 @@ you should place your code here."
 
   (setq flycheck-pos-tip-timeout 15)
 
+  "Add /usr/local/bin to path for access to gpg"
+  (add-to-list 'exec-path "/usr/local/bin")
+  (setq epg-gpg-program "/usr/local/bin")
+
   "Use space+\ to clear current search hightlight"
   (define-key evil-normal-state-map (kbd "<SPC>\\") 'spacemacs/evil-search-clear-highlight)
 
