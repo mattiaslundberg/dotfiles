@@ -101,7 +101,7 @@ fi
 
 eval "$(pipenv --completion)"
 
-addToPath ~/.cargo/bin
+export PATH="/Users/mattias/.cargo/bin:${PATH}"
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
