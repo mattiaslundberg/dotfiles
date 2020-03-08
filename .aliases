@@ -20,7 +20,6 @@ alias pping=prettyping
 alias su='sudo -E -s'
 alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
-alias tmux="TERM=screen-256color-bce tmux"
 upgrade() {
     brew upgrade || true
     brew cask upgrade || true
