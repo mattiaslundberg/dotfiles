@@ -55,7 +55,8 @@ modreload() {
 alias docker-gc="docker system prune --all"
 
 # ssh via sshrc to vagrant boxes
-vs() {
+alias vs="vagrant ssh"
+vsr() {
     TARGET_HOST=${1-"default"}
     vagrant ssh-config ${TARGET_HOST} > /tmp/vagrantsetup_${TARGET_HOST}
     sshrc -F /tmp/vagrantsetup_${TARGET_HOST} ${TARGET_HOST}
