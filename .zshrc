@@ -45,8 +45,8 @@ fi
 
 # Use modern completion system
 fpath=(~/.zsh/functions $fpath)
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -84,6 +84,7 @@ eval "$(pyenv virtualenv-init -)"
 
 if [ -f /usr/local/opt/asdf/asdf.sh ]; then
     . /usr/local/opt/asdf/asdf.sh
+    . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
 if [ -f ~/.asdf/asdf.sh ]; then
     . ~/.asdf/asdf.sh
