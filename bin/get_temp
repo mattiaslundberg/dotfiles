@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $(command -v osx-cpu-temp) ] ; then
+    osx-cpu-temp
+else
+    echo "?"
+fi
