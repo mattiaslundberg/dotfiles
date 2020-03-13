@@ -3,5 +3,5 @@
 if [ $(command -v osx-cpu-temp) ] ; then
     osx-cpu-temp
 else
-    echo "?"
+    sensors | grep Package | awk -F ' ' '{print $4}'
 fi
