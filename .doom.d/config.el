@@ -45,6 +45,11 @@
   (transient-bind-q-to-quit)
   )
 
+(evil-define-key 'normal with-editor-mode-map
+  ",k" 'with-editor-cancel
+  ",c" 'with-editor-finish
+  ",," 'with-editor-finish)
+
 "Configure js2 mode"
 (setq javascript-fmt-tool 'prettier)
 (with-eval-after-load 'js2-jsx-mode
