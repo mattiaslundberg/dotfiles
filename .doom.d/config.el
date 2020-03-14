@@ -82,6 +82,19 @@
 (setq go-format-before-save t)
 (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
 
+(setq create-lockfiles nil)
+(setq treemacs-indentation 2)
+(setq treemacs-width 25)
+(setq treemacs-show-cursor nil)
+(treemacs-resize-icons 16)
+(add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
+(with-eval-after-load 'treemacs
+  (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
+
+"Fix Ctrl-w"
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  )
 
 (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
 ;; (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=dist --exclude=node_modules --exclude=.mypy_cache --exclude=.git --exclude=images")
