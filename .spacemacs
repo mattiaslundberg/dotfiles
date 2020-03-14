@@ -70,7 +70,10 @@ This function should only modify configuration layer settings."
      html
      javascript
      markdown
-     python
+     (python :variables
+             python-pipenv-activate t
+             python-formatter 'black
+             python-format-on-save nil)
      react
      sql
      syntax-checking
@@ -528,8 +531,6 @@ you should place your code here."
   (add-hook 'elixir-mode-hook
             (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
   (setq typescript-fmt-on-save nil)
-  (setq python-formatter 'black)
-  (setq python-format-on-save nil)
   (setq go-format-before-save t)
   (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
 
