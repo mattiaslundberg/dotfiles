@@ -96,6 +96,10 @@
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
   )
 
+(setq ivy-re-builders-alist
+      '((swiper . ivy--regex-plus)
+        (t      . ivy--regex-fuzzy)))
+
 (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
 ;; (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=dist --exclude=node_modules --exclude=.mypy_cache --exclude=.git --exclude=images")
 
