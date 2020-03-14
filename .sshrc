@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 export VIMINIT="source $SSHHOME/.sshrc.d/.vimrc"
 export INPUTRC="$SSHHOME/.sshrc.d/.inputrc"
 
