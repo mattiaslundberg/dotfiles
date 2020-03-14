@@ -51,15 +51,12 @@
   ",," 'with-editor-finish)
 
 "Configure js2 mode"
-(setq javascript-fmt-tool 'prettier)
 (with-eval-after-load 'js2-jsx-mode
   '(progn
       (add-hook 'js2-mode-hook #'prettier-js-mode)))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
-(setq javascript-fmt-on-save nil)
-
 
 "Complete using C-<right> (system remapping to right arrow)"
 (add-hook 'company-mode-hook
@@ -70,6 +67,9 @@
 (global-company-mode)
 (require 'company-tabnine)
 (setq company-idle-delay 0)
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  )
 
 "MacOS fixes"
 (setq mac-option-key-is-meta t)
@@ -86,21 +86,15 @@
 (with-eval-after-load 'treemacs
   (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
 
-"Fix Ctrl-w"
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-  )
 
 (setq ivy-re-builders-alist
       '((swiper . ivy--regex-plus)
         (t      . ivy--regex-fuzzy)))
 
-(setq projectile-tags-command "/usr/local/bin/ctags -R -e")
-;; (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=dist --exclude=node_modules --exclude=.mypy_cache --exclude=.git --exclude=images")
+(setq pipenv-with-projectile t)
 
 (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
 
-(setq pipenv-with-projectile t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
