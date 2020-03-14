@@ -77,15 +77,6 @@
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
 
-"Autoformat on save"
-(setq elm-format-on-save t)
-(setq rust-format-on-save t)
-(add-hook 'elixir-mode-hook
-          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
-(setq typescript-fmt-on-save nil)
-(setq go-format-before-save t)
-(add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
-
 (setq create-lockfiles nil)
 (setq treemacs-indentation 2)
 (setq treemacs-width 25)
