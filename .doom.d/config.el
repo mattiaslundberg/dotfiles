@@ -62,7 +62,11 @@
 (with-eval-after-load 'treemacs
   (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
 
-
-(setq pipenv-with-projectile t)
+;; Make sure pipenv correctly activates
+(add-hook 'projectile-after-switch-project-hook (lambda ()
+                                     (pipenv-deactivate)
+                                     (cd (projectile-project-root))
+                                     (pipenv-activate)
+                                     ))
 
 (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
