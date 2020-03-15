@@ -63,10 +63,6 @@
   (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
 
 
-(setq ivy-re-builders-alist
-      '((swiper . ivy--regex-plus)
-        (t      . ivy--regex-fuzzy)))
-
 (setq pipenv-with-projectile t)
 
 (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
