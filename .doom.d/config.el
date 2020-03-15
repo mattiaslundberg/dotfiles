@@ -39,15 +39,23 @@
           (lambda()
             (local-set-key (kbd "<right>") 'company-complete)))
 
-"Activate autocompletion"
+;; Configure autocompletion
 (global-company-mode)
 (require 'company-tabnine)
 (setq company-idle-delay 0)
+(setq company-backends
+      '((company-files
+         company-keywords
+         company-tabnine)
+        ))
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-  )
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
+  (set-company-backend! 'python-mode '(company-tabnine)))
 
-"MacOS fixes"
+;; MacOS specific fixes
 (setq mac-option-key-is-meta t)
 (setq mac-right-option-modifier nil)
 (when (string= system-type "darwin")
