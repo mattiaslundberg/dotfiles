@@ -16,7 +16,7 @@
 (setq magit-revision-show-gravatars nil)
 ;; (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 (setq-default git-magit-status-fullscreen t)
-(with-eval-after-load 'magit
+(after! magit
   (require 'forge)
   (transient-bind-q-to-quit)
   )
@@ -31,17 +31,15 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
-"Complete using C-<right> (system remapping to right arrow)"
+;; Configure autocompletion
 (add-hook 'company-mode-hook
           (lambda()
             (local-set-key (kbd "<right>") 'company-complete)))
-
-;; Configure autocompletion
 (setq +lsp-company-backend '(company-lsp :with company-tabnine :separate))
 (after! company
   (setq company-idle-delay 0
         company-show-numbers t))
-(with-eval-after-load 'company
+(after! company
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
   (define-key company-active-map (kbd "<return>") nil)
   (define-key company-active-map (kbd "RET") nil)
@@ -59,7 +57,7 @@
 (setq treemacs-show-cursor nil)
 (treemacs-resize-icons 16)
 (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
-(with-eval-after-load 'treemacs
+(after! treemacs
   (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
 
 ;; Make sure pipenv correctly activates
