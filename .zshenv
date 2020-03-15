@@ -17,6 +17,7 @@ addToPath /sbin
 addToPath /usr/sbin
 addToPath /usr/local/sbin
 addToPath ~/bin
+addToPath ~/.emacs.d/bin/
 
 export PYENV_ROOT="$HOME/.pyenv"
 addToPath "$PYENV_ROOT/bin"
