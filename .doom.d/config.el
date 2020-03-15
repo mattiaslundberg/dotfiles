@@ -27,9 +27,6 @@
   ",," 'with-editor-finish)
 
 "Configure js2 mode"
-(with-eval-after-load 'js2-jsx-mode
-  '(progn
-      (add-hook 'js2-mode-hook #'prettier-js-mode)))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
@@ -40,20 +37,15 @@
             (local-set-key (kbd "<right>") 'company-complete)))
 
 ;; Configure autocompletion
-(global-company-mode)
-(require 'company-tabnine)
-(setq company-idle-delay 0)
-(setq company-backends
-      '((company-files
-         company-keywords
-         company-tabnine)
-        ))
+(setq +lsp-company-backend '(company-lsp :with company-tabnine :separate))
+(after! company
+  (setq company-idle-delay 0
+        company-show-numbers t))
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
   (define-key company-active-map (kbd "<return>") nil)
   (define-key company-active-map (kbd "RET") nil)
-  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
-  (set-company-backend! 'python-mode '(company-tabnine)))
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
 ;; MacOS specific fixes
 (setq mac-option-key-is-meta t)
