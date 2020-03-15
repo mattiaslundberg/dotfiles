@@ -3,6 +3,7 @@
 --exclude=elm-stuff
 --exclude=_build
 --exclude=deps
+--exclude=dist
 --exclude=bundles
 --exclude=collected
 --exclude=js_bundles
