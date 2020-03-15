@@ -74,7 +74,8 @@
 (add-hook 'projectile-after-switch-project-hook (lambda ()
                                      (pipenv-deactivate)
                                      (cd (projectile-project-root))
-                                     (pipenv-activate)
-                                     ))
+                                     (when (pipenv-project?)
+                                          (pipenv-activate))))
+
 
 (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
