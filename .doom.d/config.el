@@ -62,10 +62,10 @@
 
 ;; Make sure pipenv correctly activates
 (add-hook 'projectile-after-switch-project-hook (lambda ()
-                                     (pipenv-deactivate)
-                                     (cd (projectile-project-root))
-                                     (when (pipenv-project?)
-                                          (pipenv-activate))))
+                                                  (pipenv-deactivate)
+                                                  (cd (projectile-project-root))
+                                                  (when (pipenv-project?)
+                                                    (pipenv-activate))))
 
 
 (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
