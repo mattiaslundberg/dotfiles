@@ -27,6 +27,7 @@ upgrade() {
     asdf plugin-update --all
     rustup update
     tldr --update
+    ~/.emacs.d/bin/doom upgrade
 }
 cleanup() {
     rm -rf ~/.tmux/resurrect/*
