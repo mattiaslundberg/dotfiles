@@ -36,6 +36,6 @@ with tempfile.TemporaryDirectory() as d:
             else:
                 f.write(l)
 
-    subprocess.run(["tar", "--ignore-failed-read", "-cvf", "control.tar.gz", "{post,pre}{inst,rm}" "md5sums", "control"], cwd=d)
+    subprocess.run(["tar", "--ignore-failed-read", "-cvf", "control.tar.gz", "{post,pre}{inst,rm}", "md5sums", "control"], cwd=d)
     subprocess.run(["ar", "rcs", "newpackage.deb", "debian-binary", "control.tar.gz", "data.tar.xz"], cwd=d)
     subprocess.run(["sudo", "dpkg", "-i", "newpackage.deb"], cwd=d)
