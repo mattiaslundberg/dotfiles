@@ -23,7 +23,6 @@
 ;(package! some-package)
 
 (package! company-tabnine)
-(package! forge)
 (package! emoji-cheat-sheet-plus)
 (package! dash-at-point)
 
