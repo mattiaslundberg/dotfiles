@@ -648,7 +648,7 @@ you should place your code here."
   (diminish 'emoji-cheat-sheet-plus-display-mode "🙂")
   (diminish 'orgtbl-mode "OT")
 
-  (if (file-exists-p "~/.spacemacs.local") (load-file "~/.spacemacs.local"))
+  (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
