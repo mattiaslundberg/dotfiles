@@ -38,10 +38,6 @@
   (setq magit-revision-show-gravatars nil))
 (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 (setq-default git-magit-status-fullscreen t)
-(after! magit
-  (require 'forge)
-  (transient-bind-q-to-quit)
-  )
 
 ;; Company
 (add-hook 'company-mode-hook
