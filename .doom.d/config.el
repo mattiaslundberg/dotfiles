@@ -68,10 +68,15 @@
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
 ;;; Global keybindings
+;; Magit commits
 (evil-define-key 'normal with-editor-mode-map
   ",k" 'with-editor-cancel
   ",c" 'with-editor-finish
   ",," 'with-editor-finish)
+
+;; Lookup in dash
+(map! :leader (:prefix-map ("d" . "custom")
+                :desc "Dash lookup" "d" #'dash-at-point) )
 
 ;;; Language specific
 ;; Python
