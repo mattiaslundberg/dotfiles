@@ -43,14 +43,25 @@
   )
 
 ;; Company
-(add-hook 'company-mode-hook
-          (lambda()
-            (local-set-key (kbd "<right>") 'company-complete)))
-(setq +lsp-company-backend '(company-lsp :with company-tabnine :separate))
+ (add-hook 'company-mode-hook
+           (lambda()
+             (local-set-key (kbd "<right>") 'company-complete)))
+(setq company-backends '(company-tabnine))
+(add-hook! yaml-mode (set-company-backend! 'yaml-mode '(company-tabnine company-capf company-ansible)))
+(add-hook! emacs-lisp-mode (set-company-backend! 'emacs-lisp-mode '(company-tabnine company-capf company-elisp)))
+(add-hook! terraform-mode (set-company-backend! 'terraform-mode '(company-tabnine company-capf company-terraform)))
+(add-hook! js2-mode (set-company-backend! 'js2-mode '(company-tabnine company-capf)))
+(add-hook! typescript-mode (set-company-backend! 'typescript-mode '(company-tabnine company-capf)))
+(add-hook! web-mode (set-company-backend! 'web-mode '(company-tabnine company-capf)))
+(add-hook! sass-mode (set-company-backend! 'sass-mode '(company-tabnine company-capf)))
+(add-hook! css-mode (set-company-backend! 'css-mode '(company-tabnine company-capf)))
+(add-hook! elixir-mode (set-company-backend! 'elixir-mode '(company-tabnine company-capf)))
+(add-hook! rust-mode (set-company-backend! 'rust-mode '(company-tabnine company-capf)))
+(add-hook! sh-mode (set-company-backend! 'sh-mode '(company-tabnine company-capf)))
+(add-hook! shell-mode (set-company-backend! 'shell-mode '(company-tabnine company-capf)))
+
 (after! company
-  (setq company-idle-delay 0
-        company-show-numbers t))
-(after! company
+  (setq company-idle-delay 0)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
   (define-key company-active-map (kbd "<return>") nil)
   (define-key company-active-map (kbd "RET") nil)
