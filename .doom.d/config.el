@@ -10,7 +10,7 @@
 (setq doom-theme 'doom-gruvbox)
 
 (setq org-directory "~/Documents/org/")
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type nil)
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
