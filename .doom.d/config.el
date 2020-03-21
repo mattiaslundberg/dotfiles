@@ -14,7 +14,7 @@
 "Setup magit"
 (setq magit-prefer-push-default t)
 (setq magit-revision-show-gravatars nil)
-;; (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
+(add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 (setq-default git-magit-status-fullscreen t)
 (after! magit
   (require 'forge)

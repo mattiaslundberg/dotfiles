@@ -24,6 +24,7 @@
 
 (package! company-tabnine)
 (package! forge)
+(package! emoji-cheat-sheet-plus)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
