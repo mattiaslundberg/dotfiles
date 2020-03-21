@@ -12,3 +12,4 @@
 --exclude=bundles
 --exclude=.cov
 --exclude=.cache
+--exclude=.terraform
