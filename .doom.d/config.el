@@ -43,9 +43,9 @@
   )
 
 ;; Company
- (add-hook 'company-mode-hook
-           (lambda()
-             (local-set-key (kbd "<right>") 'company-complete)))
+(add-hook 'company-mode-hook
+          (lambda()
+            (local-set-key (kbd "<right>") 'company-complete)))
 (setq company-backends '(company-tabnine))
 (add-hook! yaml-mode (set-company-backend! 'yaml-mode '(company-tabnine company-capf company-ansible)))
 (add-hook! emacs-lisp-mode (set-company-backend! 'emacs-lisp-mode '(company-tabnine company-capf company-elisp)))
@@ -79,11 +79,12 @@
   (setq flycheck-python-mypy-args "--ignore-missing-imports")
   (flycheck-add-next-checker 'python-flake8 'python-mypy t))
 ;; Make sure pipenv correctly activates
-(add-hook 'projectile-after-switch-project-hook (lambda ()
-                                                  (pipenv-deactivate)
-                                                  (cd (projectile-project-root))
-                                                  (when (pipenv-project?)
-                                                    (pipenv-activate))))
+(after! python
+  (add-hook 'projectile-after-switch-project-hook (lambda ()
+                                                    (pipenv-deactivate)
+                                                    (cd (projectile-project-root))
+                                                    (when (pipenv-project?)
+                                                      (pipenv-activate)))))
 ;; Javascript
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js2-mode-show-parse-errors nil)
