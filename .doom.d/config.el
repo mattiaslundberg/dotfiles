@@ -50,7 +50,7 @@
 (add-hook! yaml-mode (set-company-backend! 'yaml-mode '(company-tabnine company-capf company-ansible)))
 (add-hook! emacs-lisp-mode (set-company-backend! 'emacs-lisp-mode '(company-tabnine company-capf company-elisp)))
 (add-hook! terraform-mode (set-company-backend! 'terraform-mode '(company-tabnine company-capf company-terraform)))
-(add-hook! js2-mode (set-company-backend! 'js2-mode '(company-tabnine company-capf)))
+(add-hook! js2-jsx-mode (set-company-backend! 'js2-jsx-mode '(company-tabnine company-capf)))
 (add-hook! typescript-mode (set-company-backend! 'typescript-mode '(company-tabnine company-capf)))
 (add-hook! web-mode (set-company-backend! 'web-mode '(company-tabnine company-capf)))
 (add-hook! sass-mode (set-company-backend! 'sass-mode '(company-tabnine company-capf)))
