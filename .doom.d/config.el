@@ -81,10 +81,11 @@
 
 ;;; System specific
 ;; MacOS
-(setq mac-option-key-is-meta t)
-(setq mac-right-option-modifier nil)
 (when (string= system-type "darwin")
-  (setq dired-use-ls-dired nil))
+  (setq dired-use-ls-dired nil)
+  (setq shell-file-name "/usr/local/bin/bash")
+  (setq mac-option-key-is-meta t)
+  (setq mac-right-option-modifier nil))
 
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
