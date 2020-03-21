@@ -62,7 +62,6 @@
   ",c" 'with-editor-finish
   ",," 'with-editor-finish)
 
-
 ;;; Language specific
 ;; Python
 (after! flycheck
