@@ -65,8 +65,9 @@
 
 ;;; Language specific
 ;; Python
-(flycheck-add-next-checker 'python-flake8 'python-mypy t)
-(setq flycheck-python-mypy-args "--ignore-missing-imports")
+(after! flycheck
+  (setq flycheck-python-mypy-args "--ignore-missing-imports")
+  (flycheck-add-next-checker 'python-flake8 'python-mypy t))
 ;; Make sure pipenv correctly activates
 (add-hook 'projectile-after-switch-project-hook (lambda ()
                                                   (pipenv-deactivate)
