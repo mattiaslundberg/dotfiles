@@ -37,13 +37,13 @@
 (after! magit
   (setq magit-revision-show-gravatars nil))
 (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
-(setq-default git-magit-status-fullscreen t)
 
 ;; Company
 (add-hook 'company-mode-hook
           (lambda()
             (local-set-key (kbd "<right>") 'company-complete)))
-(setq company-backends '(company-tabnine))
+(setq company-backends '(company-tabnine company-capf))
+(add-hook! anaconda-mode (set-company-backend! 'anaconda-mode '(company-tabnine company-capf)))
 (add-hook! yaml-mode (set-company-backend! 'yaml-mode '(company-tabnine company-capf company-ansible)))
 (add-hook! emacs-lisp-mode (set-company-backend! 'emacs-lisp-mode '(company-tabnine company-capf company-elisp)))
 (add-hook! terraform-mode (set-company-backend! 'terraform-mode '(company-tabnine company-capf company-terraform)))
@@ -53,7 +53,7 @@
 (add-hook! sass-mode (set-company-backend! 'sass-mode '(company-tabnine company-capf)))
 (add-hook! css-mode (set-company-backend! 'css-mode '(company-tabnine company-capf)))
 (add-hook! elixir-mode (set-company-backend! 'elixir-mode '(company-tabnine company-capf)))
-(add-hook! rust-mode (set-company-backend! 'rust-mode '(company-tabnine company-capf)))
+(add-hook! rustic-mode (set-company-backend! 'rustic-mode '(company-tabnine company-capf)))
 (add-hook! sh-mode (set-company-backend! 'sh-mode '(company-tabnine company-capf)))
 (add-hook! shell-mode (set-company-backend! 'shell-mode '(company-tabnine company-capf)))
 
