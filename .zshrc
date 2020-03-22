@@ -100,6 +100,7 @@ eval "$(pipenv --completion)"
 
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
 
+export FZF_DEFAULT_COMMAND='fd --type f'
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     . /usr/share/fzf/key-bindings.zsh
 fi
