@@ -32,10 +32,9 @@
     g = grep --break --heading --line-number
     g = grep --break --heading --line-number
     cleanbranches = "!git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d"
-
 [core]
     editor = vi
-    excludesfile = /home/mattias/.gitignore_global
+    excludesfile = ~/.gitignore_global
     autocrlf = input
 [merge]
     tool = vimdiff
@@ -46,7 +45,11 @@
     pushDefault = origin
 [pull]
     rebase = True
+[commit]
+    gpgsign = true
 [github]
     user = mattiaslundberg
 [advice]
     detachedHead = false
+[include]
+    path = ~/.gitconfig.local
