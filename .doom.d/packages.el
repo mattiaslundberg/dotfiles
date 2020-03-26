@@ -25,6 +25,7 @@
 (package! company-tabnine)
 (package! emoji-cheat-sheet-plus)
 (package! dash-at-point)
+(package! flycheck-mypy)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
