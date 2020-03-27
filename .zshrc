@@ -11,10 +11,10 @@ autoload -U colors && colors
 promptinit
 
 if [ -f /usr/local/share/antigen/antigen.zsh ] ; then
-	. /usr/local/share/antigen/antigen.zsh
+    . /usr/local/share/antigen/antigen.zsh
 fi
 if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
-	. /usr/share/zsh/share/antigen.zsh
+    . /usr/share/zsh/share/antigen.zsh
 fi
 if [ -f ~/.antigen/antigen.zsh ] ; then
   . ~/antigen/.antigen.zsh
