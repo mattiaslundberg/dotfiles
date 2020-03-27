@@ -64,6 +64,12 @@
   (define-key company-active-map (kbd "RET") nil)
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
+;; Projectile
+(setq projectile-project-search-path
+      (append
+       (doom-files-in "~/projects" :depth 0 :type 'dirs :full t)
+       `("~/tmp")))
+
 ;;; Global keybindings
 ;; Magit commits
 (evil-define-key 'normal with-editor-mode-map
