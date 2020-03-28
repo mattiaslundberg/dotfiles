@@ -42,27 +42,12 @@
 (add-hook 'company-mode-hook
           (lambda()
             (local-set-key (kbd "<right>") 'company-complete)))
-(setq company-backends '(company-tabnine company-capf))
-(add-hook! anaconda-mode (set-company-backend! 'anaconda-mode '(company-tabnine company-capf)))
-(add-hook! yaml-mode (set-company-backend! 'yaml-mode '(company-tabnine company-capf company-ansible)))
-(add-hook! emacs-lisp-mode (set-company-backend! 'emacs-lisp-mode '(company-tabnine company-capf company-elisp)))
-(add-hook! terraform-mode (set-company-backend! 'terraform-mode '(company-tabnine company-capf company-terraform)))
-(add-hook! js2-jsx-mode (set-company-backend! 'js2-jsx-mode '(company-tabnine company-capf)))
-(add-hook! typescript-mode (set-company-backend! 'typescript-mode '(company-tabnine company-capf)))
-(add-hook! web-mode (set-company-backend! 'web-mode '(company-tabnine company-capf)))
-(add-hook! sass-mode (set-company-backend! 'sass-mode '(company-tabnine company-capf)))
-(add-hook! css-mode (set-company-backend! 'css-mode '(company-tabnine company-capf)))
-(add-hook! elixir-mode (set-company-backend! 'elixir-mode '(company-tabnine company-capf)))
-(add-hook! rustic-mode (set-company-backend! 'rustic-mode '(company-tabnine company-capf)))
-(add-hook! sh-mode (set-company-backend! 'sh-mode '(company-tabnine company-capf)))
-(add-hook! shell-mode (set-company-backend! 'shell-mode '(company-tabnine company-capf)))
 
-(after! company
-  (setq company-idle-delay 0)
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-  (define-key company-active-map (kbd "<return>") nil)
-  (define-key company-active-map (kbd "RET") nil)
-  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
+(after! company-tng
+  (define-key! company-active-map
+      "TAB"       #'company-complete-selection
+      [tab]       #'company-complete-selection
+      [backtab]   nil))
 
 ;; Projectile
 (setq projectile-project-search-path
@@ -84,7 +69,6 @@
 ;;; Language specific
 ;; Python
 (after! flycheck
-  (setq flycheck-python-mypy-args "--ignore-missing-imports")
   (flycheck-add-next-checker 'python-flake8 'python-mypy t))
 ;; Make sure pipenv correctly activates
 (after! python
@@ -93,6 +77,7 @@
                                                     (cd (projectile-project-root))
                                                     (when (pipenv-project?)
                                                       (pipenv-activate)))))
+
 ;; Javascript
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js2-mode-show-parse-errors nil)
