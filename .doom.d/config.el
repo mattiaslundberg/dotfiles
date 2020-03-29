@@ -83,6 +83,12 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
+;; Elixir
+(map! :after alchemist
+      :localleader
+      :map alchemist-mode-map
+      "t" #'alchemist-mix-test)
+
 ;;; System specific
 ;; MacOS
 (when (string= system-type "darwin")
