@@ -7,7 +7,7 @@
 ;; Doom
 (setq doom-font (font-spec :family "Source Code Pro" :size 16.0))
 (setq doom-big-font (font-spec :family "Source Code Pro" :size 28.0))
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-snazzy)
 
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
