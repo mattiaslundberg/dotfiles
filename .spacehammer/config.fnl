@@ -276,6 +276,12 @@
         {:key :s
          :title "Slack"
          :action (activator "Slack")}
+        {:key :d
+         :title "Dash"
+         :action (activator "Dash")}
+        {:key :p
+         :title "Spark"
+         :action (activator "Spark")}
         {:key :b
          :title "Safari"
          :action (activator "Safari")}
