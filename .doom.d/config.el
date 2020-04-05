@@ -33,10 +33,16 @@
 (setq bm-cycle-all-buffers t)
 
 ;; Magit
-(setq magit-prefer-push-default t)
 (after! magit
+  (setq magit-prefer-push-default t)
   (setq magit-revision-show-gravatars nil))
 (add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
+(defadvice! fix-magit-revert-buffer (buffer)
+  :override #'+magit--revert-buffer
+  (with-current-buffer buffer
+    (setq +magit--stale-p nil)
+    (when buffer-file-name
+      (revert-buffer t (not (buffer-modified-p))))))
 
 ;; Company
 (add-hook 'company-mode-hook
