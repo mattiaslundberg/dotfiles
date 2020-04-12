@@ -108,3 +108,5 @@ function docker-show-context() {
   docker build -t docker-show-context https://github.com/pwaller/docker-show-context.git
   docker run --rm -v $PWD:/data docker-show-context
 }
+alias d=docker
+alias dc=docker-compose
