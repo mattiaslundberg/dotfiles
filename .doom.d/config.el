@@ -54,9 +54,9 @@
 
 (after! company-tng
   (define-key! company-active-map
-      "TAB"       #'company-complete-selection
-      [tab]       #'company-complete-selection
-      [backtab]   nil))
+    "TAB"       #'company-complete-selection
+    [tab]       #'company-complete-selection
+    [backtab]   nil))
 
 ;; Projectile
 (setq projectile-project-search-path
