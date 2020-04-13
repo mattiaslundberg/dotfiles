@@ -20,14 +20,14 @@
 (setq scroll-conservatively 3)
 
 ;; Treemacs
+(setq +treemacs-git-mode 'deferred)
 (setq create-lockfiles nil)
 (setq treemacs-indentation 2)
 (setq treemacs-width 25)
 (setq treemacs-show-cursor nil)
 (treemacs-resize-icons 16)
 (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
-(after! treemacs
-  (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?))
+(add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
 ;; BM
 (global-set-key (kbd "<C-tab>") 'bm-next)
