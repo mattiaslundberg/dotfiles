@@ -92,6 +92,10 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
+;; ReasonML
+(add-hook 'reason-mode-hook (lambda ()
+                              (add-hook 'before-save-hook #'refmt-before-save)))
+
 ;; Elixir
 (map! :after alchemist
       :localleader
