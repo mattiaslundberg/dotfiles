@@ -285,6 +285,9 @@
         {:key :b
          :title "Safari"
          :action (activator "Safari")}
+        {:key :n
+         :title "Notes"
+         :action (activator "Notes")}
         {:key :m
          :title music-app
          :action (activator music-app)}])
