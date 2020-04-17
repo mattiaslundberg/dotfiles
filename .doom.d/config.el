@@ -5,8 +5,8 @@
       user-mail-address "me@mlundberg.se")
 
 ;; Doom
-(setq doom-font (font-spec :family "Source Code Pro" :size 16.0))
-(setq doom-big-font (font-spec :family "Source Code Pro" :size 28.0))
+(setq doom-font (font-spec :family "Fira Code" :size 16.0))
+(setq doom-big-font (font-spec :family "Fira Code" :size 28.0))
 (setq doom-theme 'doom-snazzy)
 
 (setq org-directory "~/Documents/org/")
