@@ -18,7 +18,7 @@
     ra = rebase --abort
     rc = rebase --continue
     ls = ls-files
-    up = "!git fetch --all --prune && git rebase origin/master"
+    up = "!git fetch --all --prune && git rebase origin/master --autostash"
     pp = push origin
     ppf = push origin --force-with-lease
     lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
