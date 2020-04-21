@@ -39,7 +39,6 @@
 (after! magit
   (setq magit-prefer-push-default t)
   (setq magit-revision-show-gravatars nil))
-(add-hook 'magit-mode-hook 'emoji-cheat-sheet-plus-display-mode)
 (defadvice! fix-magit-revert-buffer (buffer)
   :override #'+magit--revert-buffer
   (with-current-buffer buffer
