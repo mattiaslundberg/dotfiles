@@ -96,6 +96,8 @@ if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 
+KERL_CONFIGURE_OPTIONS="--without-javac"
+
 eval "$(pipenv --completion)"
 
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
