@@ -14,6 +14,7 @@
 
 ;; Pretty code
 (setq +pretty-code-symbols '())
+(setq doom-modeline-buffer-modification-icon nil)
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
