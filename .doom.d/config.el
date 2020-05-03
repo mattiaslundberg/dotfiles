@@ -14,7 +14,6 @@
 
 ;; Pretty code
 (setq +pretty-code-symbols '())
-(setq doom-modeline-buffer-modification-icon nil)
 
 ;; Formatting
 (setq +format-on-save-enabled-modes
