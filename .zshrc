@@ -96,7 +96,7 @@ if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 
-KERL_CONFIGURE_OPTIONS="--without-javac"
+export KERL_CONFIGURE_OPTIONS="--without-javac"
 
 eval "$(pipenv --completion)"
 
