@@ -27,6 +27,8 @@
 (package! dash-at-point)
 (package! flycheck-mypy)
 (package! reason-mode)
+(package! protobuf-mode
+   :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
