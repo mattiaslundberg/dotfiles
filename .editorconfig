@@ -15,7 +15,7 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
-[{*.js,*.jsx,*.json,*.yml,*.ts,*.tsx}]
+[{*.js,*.jsx,*.json,*.yml,*.ts,*.tsx,*.css,*.scss}]
 indent_size = 2
 
 [*.html]
