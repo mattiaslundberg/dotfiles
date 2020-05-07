@@ -17,7 +17,9 @@
 
 ;; Formatting
 (setq +format-on-save-enabled-modes
-  (elixir-mode python-mode terraform-mode))
+      '(elixir-mode
+        python-mode
+        terraform-mode))
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
