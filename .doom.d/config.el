@@ -92,7 +92,8 @@
 ;; Python
 (after! flycheck
   (flycheck-add-next-checker 'python-flake8 'python-mypy t)
-  (setq flycheck-disabled-checkers '('python-flake8)))
+  (add-to-list flycheck-disabled-checkers 'python-flake8)
+  (add-to-list flycheck-disabled-checkers 'python-pylint))
 
 ;; Make sure pipenv correctly activates
 (after! python
