@@ -13,3 +13,4 @@
 --exclude=.cov
 --exclude=.cache
 --exclude=.terraform
+--exclude=.mypy_cache
