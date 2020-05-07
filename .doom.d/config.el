@@ -84,6 +84,10 @@
 (map! :leader
       (:desc "Format buffer" "f ." #'format-all-buffer))
 
+;; Regenerate tags
+(map! :leader
+      (:desc "Regenerate tags" "p [" #'projectile-regenerate-tags))
+
 ;;; Language specific
 ;; Python
 (after! flycheck
