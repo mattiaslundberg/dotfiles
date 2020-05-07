@@ -17,14 +17,7 @@
 
 ;; Formatting
 (setq +format-on-save-enabled-modes
-  '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
-        sql-mode         ; sqlformat is currently broken
-        tex-mode         ; latexindent is broken
-        yaml-mode
-        latex-mode
-        js2-mode
-        html-mode
-        sass-mode))
+  (elixir-mode python-mode terraform-mode))
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
