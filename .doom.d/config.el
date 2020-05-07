@@ -78,6 +78,10 @@
 (map! :leader (:prefix-map ("d" . "custom")
                 :desc "Dash lookup" "d" #'dash-at-point) )
 
+;; Format current buffer
+(map! :leader
+      (:desc "Format buffer" "f ." #'format-all-buffer))
+
 ;;; Language specific
 ;; Python
 (after! flycheck
