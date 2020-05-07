@@ -81,7 +81,9 @@
 ;;; Language specific
 ;; Python
 (after! flycheck
-  (flycheck-add-next-checker 'python-flake8 'python-mypy t))
+  (flycheck-add-next-checker 'python-flake8 'python-mypy t)
+  (setq flycheck-disabled-checkers '('python-flake8)))
+
 ;; Make sure pipenv correctly activates
 (after! python
   (add-hook 'projectile-after-switch-project-hook (lambda ()
