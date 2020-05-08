@@ -53,3 +53,5 @@ debhelper.log
 # Tags
 tags
 TAGS
+
+.dir-locals.el
