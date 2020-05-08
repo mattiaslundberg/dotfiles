@@ -8,6 +8,7 @@
 (setq doom-font (font-spec :family "Fira Code" :size 16.0))
 (setq doom-big-font (font-spec :family "Fira Code" :size 28.0))
 (setq doom-theme 'doom-snazzy)
+(setq doom-modeline-buffer-file-name-style 'buffer-name)
 
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
