@@ -40,6 +40,9 @@
 (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
+;; etags
+(setq tags-add-tables nil)
+
 ;; Magit
 (after! magit
   (setq magit-prefer-push-default t)
