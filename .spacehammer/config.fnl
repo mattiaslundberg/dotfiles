@@ -326,6 +326,9 @@
 
 (local web-bindings
         [return
+         {:key :=
+          :title "Switch"
+          :action (activator "Safari")}
          {:key :n
           :title "New Tab"
           :action (web-open "")}
