@@ -132,7 +132,8 @@
   (setq dired-use-ls-dired nil)
   (setq shell-file-name "/usr/local/bin/bash")
   (setq mac-option-key-is-meta t)
-  (setq mac-right-option-modifier nil))
+  (setq mac-right-option-modifier nil)
+  (setq ns-use-native-fullscreen t))
 
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
