@@ -375,6 +375,9 @@
        [{:mods [:alt :ctrl]
          :key :space
          :action "lib.modal:activate-modal"}
+        {:mods []
+         :key :f20
+         :action "lib.modal:activate-modal"}
         {:mods [:cmd :ctrl]
          :key "`"
          :action toggle-console}])
