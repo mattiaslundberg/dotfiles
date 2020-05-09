@@ -14,7 +14,6 @@
 
 (require-macros :lib.macros)
 (local windows (require :windows))
-(local emacs (require :emacs))
 (local slack (require :slack))
 (local vim (require :vim))
 
@@ -65,12 +64,6 @@
 ;; [x] |-- s - play\pause
 ;; [x] |-- a - launch player
 ;;
-;; [x] x - emacs
-;; [x] |-- c - capture
-;; [x] |-- z - note
-;; [x] |-- f - fullscreen
-;; [x] |-- v - split
-;;
 ;; [x] cmd-n - next-app
 ;; [x] cmd-p - prev-app
 
@@ -78,8 +71,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(emacs.enable-edit-with-emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Actions
@@ -315,21 +306,6 @@
          :title (.. "Launch " music-app)
          :action (activator music-app)}])
 
-(local emacs-bindings
-       [return
-        {:key :c
-         :title "Capture"
-         :action (fn [] (emacs.capture))}
-        {:key :z
-         :title "Note"
-         :action (fn [] (emacs.note))}
-        {:key :v
-         :title "Split"
-         :action "emacs:vertical-split-with-emacs"}
-        {:key :f
-         :title "Full Screen"
-         :action "emacs:full-screen"}])
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main Menu & Config
@@ -345,23 +321,20 @@
         {:key :j
          :title "Jump"
          :action "windows:jump"}
-        {:key :m
-         :title "Media"
-         :items media-bindings}
-        {:key :x
+        {:key :e
          :title "Emacs"
-         :items emacs-bindings}])
+         :action (activator "Emacs")}
+        {:key :i
+         :title "iTerm"
+         :action (activator "iTerm")}
+        {:key :m
+         :title "Spotify"
+         :items media-bindings}])
 
 (local common-keys
-       [{:mods [:alt]
+       [{:mods [:alt :ctrl]
          :key :space
          :action "lib.modal:activate-modal"}
-        {:mods [:alt]
-         :key :n
-         :action "apps:next-app"}
-        {:mods [:alt]
-         :key :p
-         :action "apps:prev-app"}
         {:mods [:cmd :ctrl]
          :key "`"
          :action toggle-console}])
@@ -377,56 +350,22 @@
          :action "chrome:open-location"}
         {:mods [:alt]
          :key :k
-         :action "chrome:next-tab"
-         :repeat true}
+         :action "chrome:next-tab"}
         {:mods [:alt]
          :key :j
-         :action "chrome:prev-tab"
-         :repeat true}])
-
-(local browser-items
-       (concat
-        menu-items
-        [{:key "'"
-          :title "Edit with Emacs"
-          :action "emacs:edit-with-emacs"}]))
+         :action "chrome:prev-tab"}])
 
 (local safari-config
        {:key "Safari"
-        :keys browser-keys
-        :items browser-items})
+        :keys browser-keys})
 
 (local chrome-config
        {:key "Google Chrome"
-        :keys browser-keys
-        :items browser-items})
+        :keys browser-keys })
 
 (local firefox-config
        {:key "Firefox"
-        :keys browser-keys
-        :items browser-items})
-
-(local emacs-config
-       {:key "Emacs"
-        :activate (fn []
-                    (vim.disable)
-                    (emacs.disable-edit-with-emacs))
-        :deactivate (fn []
-                      (vim.enable)
-                      (emacs.enable-edit-with-emacs))
-        :launch "emacs:maximize"
-        :items []
-        :keys []})
-
-(local grammarly-config
-       {:key "Grammarly"
-        :items (concat
-                menu-items
-                [{:mods [:ctrl]
-                  :key :c
-                  :title "Return to Emacs"
-                  :action "grammarly:back-to-emacs"}])
-        :keys ""})
+        :keys browser-keys})
 
 (local hammerspoon-config
        {:key "Hammerspoon"
@@ -492,8 +431,6 @@
        [safari-config
         chrome-config
         firefox-config
-        emacs-config
-        grammarly-config
         hammerspoon-config
         slack-config])
 
