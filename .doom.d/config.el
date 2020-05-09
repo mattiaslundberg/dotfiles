@@ -40,12 +40,6 @@
 (add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
-;; BM
-(global-set-key (kbd "<C-tab>") 'bm-next)
-(global-set-key (kbd "<C-escape>") 'bm-previous)
-(global-set-key (kbd "C-=") 'bm-toggle)
-(setq bm-cycle-all-buffers t)
-
 ;; Magit
 (after! magit
   (setq magit-prefer-push-default t)
