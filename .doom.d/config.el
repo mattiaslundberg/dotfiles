@@ -116,6 +116,9 @@
 (add-hook 'reason-mode-hook (lambda ()
                               (add-hook 'before-save-hook #'refmt-before-save)))
 
+;; Fennel
+(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+
 ;; Elixir
 (map! :after alchemist
       :localleader

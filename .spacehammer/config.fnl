@@ -1,4 +1,3 @@
-;;; -*- mode: lisp -*-
 ;; Copyright (c) 2017-2020 Ag Ibragimov & Contributors
 ;;
 ;;; Author: Ag Ibragimov <agzam.ibragimov@gmail.com>
