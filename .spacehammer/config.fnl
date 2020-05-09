@@ -101,6 +101,22 @@
    (hs.openConsole)))
 
 
+(fn web-open
+  [thing]
+  "
+  Function to open urls in safari
+  "
+  (fn activate []
+    (windows.activate-app "Safari")
+    (hs.osascript.applescript (.. "
+        tell application \"Safari\"
+            tell window 1
+                set current tab to (make new tab with properties {URL:\"" thing "\"})
+            end tell
+        end tell
+        ")))
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -308,10 +324,23 @@
          :title (.. "Launch " music-app)
          :action (activator music-app)}])
 
+(local web-bindings
+        [return
+         {:key :n
+          :title "New Tab"
+          :action (web-open "")}
+         {:key :h
+          :title "Hacker News"
+          :action (web-open "https://news.ycombinator.com")}
+         {:key :g
+          :title "Github"
+          :action (web-open "https://github.com")}])
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main Menu & Config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (local menu-items
        [{:key :w
@@ -332,6 +361,9 @@
         {:key :s
          :title "Safari"
          :action (activator "Safari")}
+        {:key :=
+        :title "Web"
+        :items web-bindings}
         {:key :m
          :title "Spotify"
          :items media-bindings}])
