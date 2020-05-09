@@ -278,6 +278,9 @@
         {:key :n
          :title "Notes"
          :action (activator "Notes")}
+        {:key :g
+         :title "Discord"
+         :action (activator "Discord")}
         {:key :m
          :title music-app
          :action (activator music-app)}])
@@ -326,6 +329,9 @@
         {:key :i
          :title "iTerm"
          :action (activator "iTerm")}
+        {:key :s
+         :title "Safari"
+         :action (activator "Safari")}
         {:key :m
          :title "Spotify"
          :items media-bindings}])
