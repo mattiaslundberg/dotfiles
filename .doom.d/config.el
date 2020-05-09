@@ -83,7 +83,7 @@
 
 ;; Lookup in dash
 (map! :leader (:prefix-map ("d" . "custom")
-                :desc "Dash lookup" "d" #'dash-at-point) )
+               :desc "Dash lookup" "d" #'dash-at-point) )
 
 ;; Format current buffer
 (map! :leader
