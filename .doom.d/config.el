@@ -96,9 +96,13 @@
 ;;; Language specific
 ;; Python
 (after! flycheck
-  (flycheck-add-next-checker 'python-flake8 'python-mypy t)
-  (add-to-list flycheck-disabled-checkers 'python-flake8)
-  (add-to-list flycheck-disabled-checkers 'python-pylint))
+  (flycheck-add-next-checker 'python-flake8 'python-mypy t))
+
+(after! flycheck
+  (setq-default flycheck-disabled-checkers
+                '(
+                  python-flake8 python-pylint emacs-lisp-checkdoc
+                  )))
 
 ;; Make sure pipenv correctly activates
 (after! python
