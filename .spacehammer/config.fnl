@@ -333,6 +333,9 @@
          {:key :h
           :title "Hacker News"
           :action (web-open "https://news.ycombinator.com")}
+         {:key :1
+          :title "Postwoman"
+          :action (web-open "https://postwoman.io")}
          {:key :g
           :title "Github"
           :action (web-open "https://github.com")}])
