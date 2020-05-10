@@ -389,7 +389,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (local browser-keys
-       [{:mods [:cmd :shift]
+       [{:mods [:ctrl :shift]
+         :key :k
+         :action (fn [] (hs.eventtap.keyStroke [] :pageup))}
+        {:mods [:ctrl :shift]
+         :key :j
+         :action (fn [] (hs.eventtap.keyStroke [] :pagedown))}
+        {:mods [:cmd :shift]
          :key :l
          :action "chrome:open-location"}
         {:mods [:alt]
@@ -443,12 +449,12 @@
                {:mods [:alt]
                 :key :n
                 :action "slack:next-day"}
-               {:mods [:alt]
-                :key :e
+               {:mods [:ctrl :shift]
+                :key :k
                 :action "slack:scroll-up"
                 :repeat true}
-               {:mods [:alt]
-                :key :y
+               {:mods [:ctrl :shift]
+                :key :j
                 :action "slack:scroll-down"
                 :repeat true}]})
 
