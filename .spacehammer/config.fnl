@@ -274,7 +274,7 @@
         {:key :f
          :title "Firefox"
          :action (activator "Firefox")}
-        {:key :i
+        {:key :t
          :title "iTerm"
          :action (activator "iTerm2")}
         {:key :s
@@ -356,7 +356,7 @@
         {:key :e
          :title "Emacs"
          :action (activator "Emacs")}
-        {:key :i
+        {:key :t
          :title "iTerm"
          :action (activator "iTerm")}
         {:key :s
