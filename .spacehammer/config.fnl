@@ -66,11 +66,6 @@
 ;; [x] cmd-n - next-app
 ;; [x] cmd-p - prev-app
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Initialize
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Actions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -250,6 +245,9 @@
         [{:key :m
           :title "Maximize"
           :action "windows:maximize-window-frame"}
+         {:key :f
+          :title "Toggle fullscreen"
+          :action (fn [] (hs.window.toggleFullscreen (hs.window.focusedWindow)))}
          {:key :c
           :title "Center"
           :action "windows:center-window-frame"}
@@ -294,7 +292,7 @@
         {:key :n
          :title "Notes"
          :action (activator "Notes")}
-        {:key :g
+        {:key :w
          :title "Discord"
          :action (activator "Discord")}
         {:key :m
@@ -424,50 +422,31 @@
 
 (local slack-config
        {:key "Slack"
-        :keys [{:mods [:cmd]
+        :keys [{:mods [:alt]
                 :key  :g
                 :action "slack:scroll-to-bottom"}
-               {:mods [:ctrl]
-                :key :r
-                :action "slack:add-reaction"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :h
                 :action "slack:prev-element"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :l
                 :action "slack:next-element"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :t
                 :action "slack:thread"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :p
                 :action "slack:prev-day"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :n
                 :action "slack:next-day"}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :e
                 :action "slack:scroll-up"
                 :repeat true}
-               {:mods [:ctrl]
+               {:mods [:alt]
                 :key :y
                 :action "slack:scroll-down"
-                :repeat true}
-               {:mods [:ctrl]
-                :key :i
-                :action "slack:next-history"
-                :repeat true}
-               {:mods [:ctrl]
-                :key :o
-                :action "slack:prev-history"
-                :repeat true}
-               {:mods [:ctrl]
-                :key :j
-                :action "slack:down"
-                :repeat true}
-               {:mods [:ctrl]
-                :key :k
-                :action "slack:up"
                 :repeat true}]})
 
 (local apps
