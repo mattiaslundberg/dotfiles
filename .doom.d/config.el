@@ -30,9 +30,11 @@
 (setq scroll-margin 3)
 (setq scroll-conservatively 3)
 
+;; Disable lockfiles
+(setq create-lockfiles nil)
+
 ;; Treemacs
 (setq +treemacs-git-mode 'deferred)
-(setq create-lockfiles nil)
 (setq treemacs-indentation 2)
 (setq treemacs-width 25)
 (setq treemacs-show-cursor nil)
