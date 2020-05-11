@@ -295,6 +295,12 @@
         {:key :w
          :title "Discord"
          :action (activator "Discord")}
+        {:key :a
+         :title "Authy Desktop"
+         :action (activator "Authy Desktop")}
+        {:key :r
+         :title "TablePlus"
+         :action (activator "TablePlus")}
         {:key :m
          :title music-app
          :action (activator music-app)}])
