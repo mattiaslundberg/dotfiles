@@ -65,6 +65,9 @@
     [tab]       #'company-complete-selection
     [backtab]   nil))
 
+(after! company
+  (setq company-idle-delay 0.1))
+
 ;; Projectile
 (setq projectile-project-search-path
       (append
