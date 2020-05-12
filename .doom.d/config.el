@@ -16,16 +16,6 @@
 ;; Pretty code
 (setq +pretty-code-symbols '())
 
-;; Formatting
-(setq +format-on-save-enabled-modes
-      '(elixir-mode
-        python-mode
-        terraform-mode
-        typescript-mode
-        js-mode
-        css-mode
-        web-mode))
-
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
 (setq scroll-conservatively 3)
@@ -89,7 +79,8 @@
 
 ;; Format current buffer
 (map! :leader
-      (:desc "Format buffer" "f ." #'format-all-buffer))
+      (:desc "Format buffer" "f ." #'format-all-buffer)
+      (:desc "Toogle format-all-mode" "f ," #'format-all-mode))
 
 ;; Regenerate tags
 (map! :leader
