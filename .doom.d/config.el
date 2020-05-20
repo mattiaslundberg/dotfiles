@@ -110,6 +110,11 @@
                                                     (cd (projectile-project-root))
                                                     (when (pipenv-project?)
                                                       (pipenv-activate)))))
+;; Remap test running
+(map! :after python
+      :localleader
+      :map python-mode-map
+      "t a" #'python-pytest)
 
 ;; Javascript
 (setq js2-mode-show-parse-errors nil)
@@ -126,7 +131,7 @@
 (map! :after alchemist
       :localleader
       :map alchemist-mode-map
-      "t" #'alchemist-mix-test)
+      "t a" #'alchemist-mix-test)
 
 ;;; System specific
 ;; MacOS
