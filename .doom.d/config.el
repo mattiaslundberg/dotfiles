@@ -72,6 +72,8 @@
   ",k" 'with-editor-cancel
   ",c" 'with-editor-finish
   ",," 'with-editor-finish)
+(evil-define-key 'normal magit-status-mode-map
+  "z" #'magit-stash)
 
 ;; Lookup in dash
 (map! :leader (:prefix-map ("d" . "custom")
