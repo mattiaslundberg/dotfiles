@@ -95,6 +95,14 @@
    (hs.closeConsole)
    (hs.openConsole)))
 
+(fn lock-screen
+  []
+  "
+  Function that locks screen
+  "
+  (fn activate []
+    (hs.caffeinate.lockScreen)))
+
 
 (fn web-open
   [thing]
@@ -346,6 +354,12 @@
           :title "Github"
           :action (web-open "https://github.com")}])
 
+(local power-bindings
+       [return
+        {:key :l
+         :title "Lock"
+         :action (lock-screen)}])
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main Menu & Config
@@ -353,7 +367,10 @@
 
 
 (local menu-items
-       [{:key :w
+       [{:key :p
+         :title "Power"
+         :items power-bindings}
+        {:key :w
          :title "Window"
          :items window-bindings}
         {:key :a
