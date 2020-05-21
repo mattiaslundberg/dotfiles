@@ -72,10 +72,12 @@ fi
 bindkey -v
 
 # Fastjump
-j() { cd $(fastjump $1) }
-chpwd() {
-    fastjump --save-visit $PWD
-}
+if [ $(command -v fastjump) ] ; then
+    j() { cd $(fastjump $1) }
+    chpwd() {
+        fastjump --save-visit $PWD
+    }
+fi
 
 if [ -f /usr/local/opt/asdf/asdf.sh ]; then
     . /usr/local/opt/asdf/asdf.sh
