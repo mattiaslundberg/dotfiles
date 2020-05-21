@@ -66,6 +66,18 @@
        (doom-files-in "~/projects" :depth 0 :type 'dirs :full t)
        `("~/tmp")))
 
+;;; Eshell
+;; Aliases
+(setq +eshell-aliases
+      (append
+       +eshell-aliases
+       '(
+         ("g" "git")
+         ("dc" "docker-compose")
+         ("d" "docker")
+         ("vs" "vagrant ssh")
+         ("reload" "eshell-read-aliases-list"))))
+
 ;;; Global keybindings
 ;; Magit
 (evil-define-key 'normal with-editor-mode-map
