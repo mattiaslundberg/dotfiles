@@ -116,6 +116,8 @@
       :map python-mode-map
       "t a" #'python-pytest)
 
+(set-popup-rule! "^\\*pytest" :size 0.3 :ttl 0)
+
 ;; Javascript
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
@@ -131,7 +133,14 @@
 (map! :after alchemist
       :localleader
       :map alchemist-mode-map
-      "t a" #'alchemist-mix-test)
+      "t a" #'alchemist-mix-test
+      "b r" #'alchemist-iex-run
+      "b p" #'alchemist-iex-project-run
+      "b l" #'alchemist-mix-rerun-last-task)
+(set-popup-rule! "^\\*Alchemist" :size 0.3 :ttl 0)
+
+;; Rust
+(set-popup-rule! "^\\*cargo" :size 0.3 :ttl 0)
 
 ;;; System specific
 ;; MacOS
