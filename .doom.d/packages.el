@@ -32,6 +32,8 @@
 
 (package! fennel-mode)
 (package! vagrant)
+(package! kubernetes)
+(package! kubernetes-evil)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:

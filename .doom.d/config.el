@@ -103,6 +103,10 @@
               (:desc "status" "?" #'vagrant-status)
               (:desc "edit" "e" #'vagrant-edit)))
 
+;; Kubernetes
+(map! :leader
+      (:desc "Kubernetes overview" "d k" #'kubernetes-overview))
+
 ;; Format current buffer
 (map! :leader
       (:desc "Format buffer" "f ." #'format-all-buffer)
