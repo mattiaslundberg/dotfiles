@@ -31,6 +31,7 @@
    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
 
 (package! fennel-mode)
+(package! vagrant)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:

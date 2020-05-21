@@ -93,7 +93,15 @@
 
 ;; Lookup in dash
 (map! :leader (:prefix-map ("d" . "custom")
-               :desc "Dash lookup" "d" #'dash-at-point) )
+               :desc "Dash lookup" "d" #'dash-at-point))
+
+;; Vagrant
+(map! :leader (:prefix-map ("d v" . "Vagrant")
+              (:desc "up" "u" #'vagrant-up)
+              (:desc "ssh" "s" #'vagrant-ssh)
+              (:desc "halt" "x" #'vagrant-halt)
+              (:desc "status" "?" #'vagrant-status)
+              (:desc "edit" "e" #'vagrant-edit)))
 
 ;; Format current buffer
 (map! :leader
