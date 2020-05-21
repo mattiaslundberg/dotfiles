@@ -21,16 +21,7 @@ alias pping=prettyping
 alias su='sudo -E -s'
 alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
-upgrade() {
-    brew upgrade || true
-    brew cask upgrade || true
-    mas upgrade || true
-    asdf plugin-update --all
-    rustup update
-    tldr --update
-    (cd ~/.hammerspoon && git pull)
-    ~/.emacs.d/bin/doom upgrade
-}
+
 cleanup() {
     rm -rf ~/.tmux/resurrect/*
     docker system prune --all

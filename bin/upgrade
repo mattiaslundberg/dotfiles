@@ -1,0 +1,10 @@
+#!/bin/sh
+
+brew upgrade
+brew cask upgrade
+mas upgrade
+asdf plugin-update --all
+rustup update
+tldr --update
+(cd ~/.hammerspoon && git pull)
+~/.emacs.d/bin/doom upgrade
