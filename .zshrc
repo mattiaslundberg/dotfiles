@@ -24,7 +24,6 @@ antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 antigen bundle djui/alias-tips
 antigen bundle mdumitru/fancy-ctrl-z
-antigen bundle zsh-users/zsh-autosuggestions
 
 setopt COMPLETE_ALIASES
 setopt histignorealldups sharehistory
