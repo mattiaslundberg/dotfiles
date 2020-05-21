@@ -70,7 +70,6 @@ fi
 
 # Keybindings.
 bindkey -v
-bindkey '^R' history-incremental-search-backward
 
 # Fastjump
 j() { cd $(fastjump $1) }
