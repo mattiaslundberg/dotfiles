@@ -35,6 +35,8 @@
 (package! kubernetes)
 (package! kubernetes-evil)
 
+(package! nose :disable t)
+
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
