@@ -103,6 +103,9 @@
 (defun eshell-prompt-fn ()
   (require 'shrink-path)
   (concat (if (bobp) "" "\n")
+          (propertize (number-to-string eshell-last-command-status)
+                      'face '+eshell-prompt-git-branch)
+          " "
           (propertize (format-time-string "%H:%M:%S\n" (current-time))
                       'face '+eshell-prompt-git-branch)
           (let ((pwd (eshell/pwd)))
