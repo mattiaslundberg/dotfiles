@@ -78,6 +78,44 @@
          ("vs" "vagrant ssh")
          ("reload" "eshell-read-aliases-list"))))
 
+;; Prompt
+(defvar-local eshell-current-command-start-time nil)
+
+(defun eshell-current-command-start ()
+  (setq eshell-current-command-start-time (current-time)))
+
+(defun eshell-current-command-stop ()
+  (when eshell-current-command-start-time
+    (let ((took (float-time
+                 (time-subtract (current-time)
+                                eshell-current-command-start-time))))
+      (if (> took 3)
+          (eshell-interactive-print
+           (format "%.0fs\n" took))))
+    (setq eshell-current-command-start-time nil)))
+
+(defun eshell-current-command-time-track ()
+  (add-hook 'eshell-pre-command-hook #'eshell-current-command-start nil t)
+  (add-hook 'eshell-post-command-hook #'eshell-current-command-stop nil t))
+
+(add-hook 'eshell-mode-hook #'eshell-current-command-time-track)
+
+(defun eshell-prompt-fn ()
+  (require 'shrink-path)
+  (concat (if (bobp) "" "\n")
+          (propertize (format-time-string "%H:%M:%S\n" (current-time))
+                      'face '+eshell-prompt-git-branch)
+          (let ((pwd (eshell/pwd)))
+            (propertize (if (equal pwd "~")
+                            pwd
+                          (abbreviate-file-name (shrink-path-file pwd)))
+                        'face '+eshell-prompt-pwd))
+          (propertize (+eshell--current-git-branch)
+                      'face '+eshell-prompt-git-branch)
+          (propertize " λ" 'face (if (zerop eshell-last-command-status) 'success 'error))
+          " "))
+(setq eshell-prompt-function #'eshell-prompt-fn)
+
 ;;; Global keybindings
 ;; Magit
 (evil-define-key 'normal with-editor-mode-map
@@ -97,11 +135,11 @@
 
 ;; Vagrant
 (map! :leader (:prefix-map ("d v" . "Vagrant")
-              (:desc "up" "u" #'vagrant-up)
-              (:desc "ssh" "s" #'vagrant-ssh)
-              (:desc "halt" "x" #'vagrant-halt)
-              (:desc "status" "?" #'vagrant-status)
-              (:desc "edit" "e" #'vagrant-edit)))
+               (:desc "up" "u" #'vagrant-up)
+               (:desc "ssh" "s" #'vagrant-ssh)
+               (:desc "halt" "x" #'vagrant-halt)
+               (:desc "status" "?" #'vagrant-status)
+               (:desc "edit" "e" #'vagrant-edit)))
 
 ;; Kubernetes
 (map! :leader
