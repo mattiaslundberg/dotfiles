@@ -78,6 +78,9 @@
          ("vs" "vagrant ssh")
          ("reload" "eshell-read-aliases-list"))))
 
+;; Use emacs as editor
+(add-hook 'eshell-mode-hook 'with-editor-export-editor)
+
 ;; Prompt
 (defvar-local eshell-current-command-start-time nil)
 
