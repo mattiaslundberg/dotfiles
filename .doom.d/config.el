@@ -104,22 +104,13 @@
 (add-hook 'eshell-mode-hook #'eshell-current-command-time-track)
 
 (defun eshell-prompt-fn ()
-  (require 'shrink-path)
   (concat (if (bobp) "" "\n")
           (propertize (number-to-string eshell-last-command-status)
                       'face '+eshell-prompt-git-branch)
           " "
-          (propertize (format-time-string "%H:%M:%S\n" (current-time))
+          (propertize (format-time-string "%H:%M:%S" (current-time))
                       'face '+eshell-prompt-git-branch)
-          (let ((pwd (eshell/pwd)))
-            (propertize (if (equal pwd "~")
-                            pwd
-                          (abbreviate-file-name (shrink-path-file pwd)))
-                        'face '+eshell-prompt-pwd))
-          (propertize (+eshell--current-git-branch)
-                      'face '+eshell-prompt-git-branch)
-          (propertize " λ" 'face (if (zerop eshell-last-command-status) 'success 'error))
-          " "))
+          (+eshell-default-prompt-fn)))
 (setq eshell-prompt-function #'eshell-prompt-fn)
 
 ;;; Global keybindings
