@@ -140,6 +140,10 @@
                (:desc "status" "?" #'vagrant-status)
                (:desc "edit" "e" #'vagrant-edit)))
 
+;; Doom
+(map! :leader
+      (:desc "doom/upgrade" "h r u" #'doom/upgrade))
+
 ;; Kubernetes
 (map! :leader
       (:desc "Kubernetes overview" "d k" #'kubernetes-overview))
