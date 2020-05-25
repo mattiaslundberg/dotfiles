@@ -72,10 +72,10 @@
       (append
        +eshell-aliases
        '(
-         ("g" "git")
-         ("dc" "docker-compose")
-         ("d" "docker")
-         ("vs" "vagrant ssh")
+         ("g" "git $*")
+         ("dc" "docker-compose $*")
+         ("d" "docker $*")
+         ("vs" "vagrant ssh $*")
          ("reload" "eshell-read-aliases-list"))))
 
 ;; Use emacs as editor
