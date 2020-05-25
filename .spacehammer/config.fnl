@@ -120,6 +120,14 @@
         ")))
 )
 
+(fn play-pause
+  []
+  "
+  Play or pause spotify playback
+  "
+  (fn play-or-pause []
+    (hs.spotify.playpause)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -317,7 +325,7 @@
        [return
         {:key :s
          :title "Play or Pause"
-         :action "multimedia:play-or-pause"}
+         :action (play-pause)}
         {:key :h
          :title "Prev Track"
          :action "multimedia:prev-track"}
