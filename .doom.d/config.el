@@ -111,7 +111,9 @@
           (propertize (format-time-string "%H:%M:%S" (current-time))
                       'face '+eshell-prompt-git-branch)
           (+eshell-default-prompt-fn)))
-(setq eshell-prompt-function #'eshell-prompt-fn)
+
+(after! eshell
+  (setq eshell-prompt-function #'eshell-prompt-fn))
 
 ;;; Global keybindings
 ;; Magit
