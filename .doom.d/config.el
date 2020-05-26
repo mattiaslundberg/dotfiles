@@ -97,7 +97,7 @@
                                 eshell-current-command-start-time))))
       (if (> took 3)
           (eshell-interactive-print
-           (format "%.0fs" took))))
+           (format-seconds "%H %M %z%.2ss" took))))
     (setq eshell-current-command-start-time nil)))
 
 (defun eshell-current-command-time-track ()
