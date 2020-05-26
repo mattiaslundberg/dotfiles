@@ -25,5 +25,5 @@ addToPath ~/.elixir-ls/bin
 export PYENV_ROOT="$HOME/.pyenv"
 addToPath "$PYENV_ROOT/bin"
 
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
