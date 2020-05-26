@@ -366,7 +366,10 @@
        [return
         {:key :l
          :title "Lock"
-         :action (lock-screen)}])
+         :action (lock-screen)}
+        {:key :a
+         :title "Activity Monitor"
+         :action (activator "Activity Monitor")}])
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
