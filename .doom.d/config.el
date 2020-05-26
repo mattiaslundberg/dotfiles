@@ -107,7 +107,7 @@
 (add-hook 'eshell-mode-hook #'eshell-current-command-time-track)
 
 (defun eshell-prompt-fn ()
-  (concat (if (bobp) "" "\n")
+  (concat "\n"
           (propertize (command-time) 'face '((t)))
           (propertize (number-to-string eshell-last-command-status)
                       'face '((t)))
