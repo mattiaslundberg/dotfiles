@@ -23,6 +23,9 @@
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
+;; Format errors in popup
+(set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
+
 ;; Treemacs
 (setq +treemacs-git-mode 'deferred)
 (setq treemacs-indentation 2)
