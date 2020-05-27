@@ -367,6 +367,9 @@
         {:key :l
          :title "Lock"
          :action (lock-screen)}
+        {:key :s
+         :title "Screenshot"
+         :action (activator "Screenshot")}
         {:key :a
          :title "Activity Monitor"
          :action (activator "Activity Monitor")}])
