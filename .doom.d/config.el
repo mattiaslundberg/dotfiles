@@ -8,10 +8,14 @@
 (setq doom-font (font-spec :family "Fira Code" :size 14.0))
 (setq doom-big-font (font-spec :family "Fira Code" :size 28.0))
 (setq doom-theme 'doom-one)
-(setq doom-modeline-buffer-file-name-style 'buffer-name)
 
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
+
+;; Modeline
+(setq doom-modeline-buffer-file-name-style 'buffer-name
+      doom-modeline-buffer-encoding nil
+      doom-modeline-github t)
 
 ;; Pretty code
 (setq +pretty-code-symbols '())
