@@ -121,6 +121,7 @@
           " "
           (propertize (format-time-string "%H:%M:%S" (current-time))
                       'face '((t)))
+          (if (bobp) " ")
           (+eshell-default-prompt-fn)))
 
 (after! eshell
