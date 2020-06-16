@@ -296,6 +296,9 @@
         {:key :s
          :title "Slack"
          :action (activator "Slack")}
+        {:key :c
+         :title "Calendar"
+         :action (activator "Calendar")}
         {:key :d
          :title "Dash"
          :action (activator "Dash")}
