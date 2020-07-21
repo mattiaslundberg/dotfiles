@@ -46,6 +46,7 @@ modreload() {
 }
 
 alias docker-gc="docker system prune --all"
+alias docker-stop-all="docker ps | awk -F" " '{print $1}' | xargs docker stop"
 
 # ssh via sshrc to vagrant boxes
 alias vs="vagrant ssh"
