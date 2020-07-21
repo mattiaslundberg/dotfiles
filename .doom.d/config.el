@@ -151,6 +151,7 @@
                (:desc "halt" "x" #'vagrant-halt)
                (:desc "status" "?" #'vagrant-status)
                (:desc "edit" "e" #'vagrant-edit)))
+(set-popup-rule! "^\\*Vagrant" :size 0.3 :ttl 0)
 
 ;; Doom
 (map! :leader
