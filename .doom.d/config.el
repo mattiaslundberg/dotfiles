@@ -18,7 +18,7 @@
       doom-modeline-github t)
 
 ;; Pretty code
-(setq +pretty-code-symbols '())
+(setq +ligatures-extra-symbols '())
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
