@@ -16,8 +16,8 @@ fi
 if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
     . /usr/share/zsh/share/antigen.zsh
 fi
-if [ -f ~/.antigen/antigen.zsh ] ; then
-  . ~/antigen/.antigen.zsh
+if [ -f ~/.antigen.zsh/antigen.zsh ] ; then
+  . ~/.antigen.zsh/antigen.zsh
 fi
 
 antigen bundle mafredri/zsh-async
