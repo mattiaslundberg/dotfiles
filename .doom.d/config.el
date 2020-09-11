@@ -17,9 +17,6 @@
       doom-modeline-buffer-encoding nil
       doom-modeline-github t)
 
-;; Pretty code
-(setq +ligatures-extra-symbols '())
-
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
 (setq scroll-conservatively 3)
