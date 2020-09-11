@@ -1,7 +1,7 @@
 #!/bin/sh
 
 brew upgrade
-brew cask upgrade
+brew upgrade --cask upgrade
 mas upgrade
 asdf plugin-update --all
 rustup update
