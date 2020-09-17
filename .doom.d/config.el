@@ -208,6 +208,8 @@
       :map js2-mode-map
       (:desc "Run all tests" "t a" #'custom-npm-test))
 
+(set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
+
 ;; ReasonML
 (add-hook 'reason-mode-hook (lambda ()
                               (add-hook 'before-save-hook #'refmt-before-save)))
