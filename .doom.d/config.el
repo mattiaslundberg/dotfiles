@@ -198,6 +198,16 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
+;; Custom keyboard mappings
+(defun custom-npm-test ()
+  (interactive)
+  (npm-mode--exec-process "npm run test"))
+
+(map! :after js2-mode
+      :localleader
+      :map js2-mode-map
+      (:desc "Run all tests" "t a" #'custom-npm-test))
+
 ;; ReasonML
 (add-hook 'reason-mode-hook (lambda ()
                               (add-hook 'before-save-hook #'refmt-before-save)))
