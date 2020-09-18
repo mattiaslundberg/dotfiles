@@ -15,6 +15,8 @@
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'buffer-name
       doom-modeline-buffer-encoding nil
+      doom-modeline-buffer-modification-icon nil
+      doom-modeline-env-version nil
       doom-modeline-github t)
 
 ;; Don't scroll to the edge of the window
