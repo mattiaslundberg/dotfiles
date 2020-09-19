@@ -7,7 +7,11 @@ alias cd.='cd ..'
 alias cd..='cd ..'
 alias mkdir='mkdir -pv'
 mc() { mkdir $1 && cd $1 ; }
-
+alias vs="vagrant ssh"
+alias em="emacsclient -nq"
+alias emc="emacsclient -nqc"
+alias vi='vim'
+alias mex="iex -S mix"
 alias g='git'
 
 alias reload='source ~/.zshrc'
@@ -35,57 +39,11 @@ function kube-logs() { kubectl logs -n $(kube-pods "$@") }
 
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
 
-mktmp() { mkdir $1 && sudo mount -t tmpfs none $(pwd)/$1 }
-rmtmp() { sudo umount $(pwd)/$1 && rmdir $1 }
-
-# Reload all specifically loaded modules
 modreload() {
     for m in $(cat /etc/modules-load.d/*); do
         sudo modprobe $m
     done
 }
-
-alias docker-gc="docker system prune --all"
-alias docker-stop-all='docker ps | awk -F" " "{print $1}" | xargs docker stop'
-
-# ssh via sshrc to vagrant boxes
-alias vs="vagrant ssh"
-vsr() {
-    TARGET_HOST=${1-"default"}
-    vagrant ssh-config ${TARGET_HOST} > /tmp/vagrantsetup_${TARGET_HOST}
-    sshrc -F /tmp/vagrantsetup_${TARGET_HOST} ${TARGET_HOST}
-}
-
-case $HOST in
-    x230)
-        netw() {
-            case "$1" in
-                f*)
-                    sudo systemctl stop netctl-auto@wlp3s0.service
-                    sudo netctl start fixed
-                ;;
-                d*)
-                    sudo netctl stop fixed
-                    sudo systemctl start netctl-auto@wlp3s0.service
-                ;;
-                *)
-                    echo "Usage fixed|default"
-                ;;
-            esac
-        }
-    ;;
-    *)
-
-    ;;
-esac
-
-alias emd="(LC_ALL=en_US.utf-8 emacs --daemon && emacsclient -nqc .) &"
-alias em="emacsclient -nq"
-alias em.="emacsclient -nq ."
-alias emc="emacsclient -nqc"
-alias emc.="emacsclient -nqc ."
-alias vi='vim'
-alias mex="iex -S mix"
 
 function light() {
   if [ -z "$2" ]
@@ -100,5 +58,6 @@ function docker-show-context() {
   docker build -t docker-show-context https://github.com/pwaller/docker-show-context.git
   docker run --rm -v $PWD:/data docker-show-context
 }
+
 alias d=docker
 alias dc=docker-compose
