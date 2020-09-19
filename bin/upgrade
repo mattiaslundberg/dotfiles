@@ -2,7 +2,6 @@
 
 brew upgrade
 brew upgrade --cask
-mas upgrade
 asdf plugin-update --all
 rustup update
 tldr --update
