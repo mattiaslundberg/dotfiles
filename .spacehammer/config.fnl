@@ -263,7 +263,7 @@
           :action "windows:maximize-window-frame"}
          {:key :f
           :title "Toggle fullscreen"
-          :action (fn [] (hs.window.toggleFullscreen (hs.window.focusedWindow)))}
+          :action (fn [] (: (hs.window.focusedWindow) :toggleFullScreen))}
          {:key :c
           :title "Center"
           :action "windows:center-window-frame"}
