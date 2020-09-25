@@ -320,6 +320,9 @@
         {:key :r
          :title "TablePlus"
          :action (activator "TablePlus")}
+        {:key :v
+         :title "Reminders"
+         :action (activator "Reminders")}
         {:key :m
          :title music-app
          :action (activator music-app)}])
