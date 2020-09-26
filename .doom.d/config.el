@@ -181,12 +181,11 @@
                   )))
 
 ;; Make sure pipenv correctly activates
-(after! python
-  (add-hook 'projectile-after-switch-project-hook (lambda ()
-                                                    (pipenv-deactivate)
-                                                    (cd (projectile-project-root))
-                                                    (when (pipenv-project?)
-                                                      (pipenv-activate)))))
+(add-hook 'projectile-after-switch-project-hook (lambda ()
+                                                (pipenv-deactivate)
+                                                (cd (projectile-project-root))
+                                                (when (pipenv-project?)
+                                                (pipenv-activate))))
 ;; Remap test running
 (map! :after python
       :localleader
