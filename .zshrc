@@ -98,8 +98,6 @@ fi
 
 export KERL_CONFIGURE_OPTIONS="--without-javac"
 
-eval "$(pipenv --completion)"
-
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
 
 export FZF_DEFAULT_COMMAND='fd --type f'
