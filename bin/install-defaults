@@ -2,12 +2,8 @@
 # Install nice to have dev-utils
 
 # Python
-if [ -e Pipfile ]; then
-	echo "Installing python dependencies in with pipenv"
-	pipenv run pip install 'python-language-server[all]' black flake8-mypy mypy isort autoflake flake8 safety
-else
-	pip install 'python-language-server[all]' black flake8-mypy mypy isort autoflake flake8 safety
-fi
+pip install --upgrade pip
+pip install 'python-language-server[all]' black flake8-mypy mypy isort autoflake flake8 safety micropipenv
 
 # Node
 npm install -g eslint prettier stylelint tslint typescript

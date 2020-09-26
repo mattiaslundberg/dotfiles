@@ -180,12 +180,6 @@
                   python-flake8 python-pylint emacs-lisp-checkdoc
                   )))
 
-;; Make sure pipenv correctly activates
-(add-hook 'projectile-after-switch-project-hook (lambda ()
-                                                (pipenv-deactivate)
-                                                (cd (projectile-project-root))
-                                                (when (pipenv-project?)
-                                                (pipenv-activate))))
 ;; Remap test running
 (map! :after python
       :localleader

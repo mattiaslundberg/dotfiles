@@ -36,6 +36,7 @@
 (package! kubernetes-evil)
 
 (package! nose :disable t)
+(package! pipenv :disable t)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
