@@ -19,6 +19,7 @@ alias cleantemp='find $HOME -type f -name "*~" -print -exec rm {} \;'
 alias cleanlatex='rm -f dia/*.(pdf|eps) ; rubber --clean *.tex'
 alias rerun='fd | entr '
 alias start_tmux="tmux new-session -A -s main"
+alias mpip=micropipenv
 
 alias ports='sudo netstat -tulpan'
 alias pping=prettyping
