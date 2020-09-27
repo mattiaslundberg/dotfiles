@@ -29,6 +29,7 @@
 (package! reason-mode)
 (package! protobuf-mode
    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
+(package! svelte-mode)
 
 (package! fennel-mode)
 (package! vagrant)
