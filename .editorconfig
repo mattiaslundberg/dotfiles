@@ -12,13 +12,9 @@ max_line_length = 0
 trim_trailing_whitespace = false
 
 [{*.ex,*.exs,*.eex}]
-indent_style = space
 indent_size = 2
 
-[{*.js,*.jsx,*.json,*.yml,*.ts,*.tsx,*.css,*.scss}]
-indent_size = 2
-
-[*.html]
+[{*.js,*.jsx,*.json,*.yml,*.ts,*.tsx,*.css,*.scss,*.html}]
 indent_size = 2
 
 [*.py]
