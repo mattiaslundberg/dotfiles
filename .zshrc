@@ -1,11 +1,3 @@
-# zmodload zsh/datetime
-# setopt PROMPT_SUBST
-# PS4='+$EPOCHREALTIME %N:%i> '
-# logfile=$(mktemp zsh_profile.XXXXXXXX)
-# echo "Logging to $logfile"
-# exec 3>&2 2>$logfile
-# setopt XTRACE
-
 autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
@@ -126,6 +118,3 @@ esac
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
-
-# unsetopt XTRACE
-# exec 2>&3 3>&-
