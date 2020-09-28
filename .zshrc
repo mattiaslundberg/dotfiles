@@ -106,14 +106,5 @@ if [ -f ~/.fzf.zsh ]; then
     . ~/.fzf.zsh
 fi
 
-case $USER in
-  root)
-    export HOME="/root"
-  ;;
-  *)
-
-  ;;
-esac
-
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
