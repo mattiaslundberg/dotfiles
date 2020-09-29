@@ -118,7 +118,7 @@
        ;;csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
        (elixir +lsp)            ; erlang done right
-       elm               ; care for a cup of TEA?
+       ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
@@ -153,7 +153,7 @@
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
-       (purescript +lsp +pyenv)        ; javascript, but functional
+       ;;(purescript +lsp)        ; javascript, but functional
        (python +lsp)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
