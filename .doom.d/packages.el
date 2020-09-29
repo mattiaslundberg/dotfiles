@@ -34,6 +34,7 @@
 (package! vagrant)
 (package! kubernetes)
 (package! kubernetes-evil)
+(package! systemd)
 
 (package! nose :disable t)
 (package! pipenv :disable t)
