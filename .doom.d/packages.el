@@ -27,13 +27,13 @@
 (package! dash-at-point)
 (package! flycheck-mypy)
 (package! reason-mode)
-(package! protobuf-mode
-   :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
+;; (package! protobuf-mode
+;;    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
 
 (package! fennel-mode)
 (package! vagrant)
-(package! kubernetes)
-(package! kubernetes-evil)
+;; (package! kubernetes)
+;; (package! kubernetes-evil)
 (package! systemd)
 
 (package! nose :disable t)
