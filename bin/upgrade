@@ -7,3 +7,10 @@ rustup update
 tldr --update
 (cd ~/.hammerspoon && git pull)
 ~/.emacs.d/bin/doom upgrade
+
+if [ -f /usr/bin/apt ] ; then
+  sudo apt update && sudo apt upgrade
+fi
+if [ -f /usr/bin/snap ] ; then
+  sudo snap refresh
+fi
