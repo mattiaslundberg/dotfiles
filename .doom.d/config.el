@@ -75,6 +75,10 @@
        (doom-files-in "~/projects" :depth 0 :type 'dirs :full t)
        `("~/tmp")))
 
+;; IVY
+(after! counsel
+  (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
+
 ;;; Eshell
 ;; Aliases
 (setq +eshell-aliases
