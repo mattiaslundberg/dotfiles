@@ -1,0 +1,7 @@
+FROM python:3.8.6-buster
+
+WORKDIR /usr/repo
+
+RUN pip install pipenv
+
+CMD sh

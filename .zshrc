@@ -91,6 +91,11 @@ if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 
+pipenv-docker() {
+    docker build -f ~/.dotfiles/.dockerfiles/Dockerfile.pipenv -t mattiaslundberg/docker-pipenv .
+    docker run -it -v $(pwd):/usr/repo --rm mattiaslundberg/docker-pipenv 
+}
+
 export KERL_CONFIGURE_OPTIONS="--without-javac"
 
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
