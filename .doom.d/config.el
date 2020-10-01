@@ -85,6 +85,7 @@
       (append
        +eshell-aliases
        '(
+         ("mpip" "micropipenv $*")
          ("g" "git $*")
          ("dc" "docker-compose $*")
          ("d" "docker $*")
