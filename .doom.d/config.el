@@ -238,7 +238,8 @@
   (setq shell-file-name "/usr/local/bin/bash")
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
-  (setq ns-use-native-fullscreen t))
+  (setq ns-use-native-fullscreen t)
+  (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
