@@ -264,6 +264,9 @@
          {:key :f
           :title "Toggle fullscreen"
           :action (fn [] (: (hs.window.focusedWindow) :toggleFullScreen))}
+         {:key :q
+          :title "Force quit current application"
+          :action (fn [] (: (: (hs.window.focusedWindow) :application) :kill9))}
          {:key :c
           :title "Center"
           :action "windows:center-window-frame"}
@@ -411,6 +414,9 @@
         {:key :=
         :title "Web"
         :items web-bindings}
+        {:key :q
+         :title "Quit current application"
+         :action (fn [] (: (: (hs.window.focusedWindow) :application) :kill))}
         {:key :m
          :title "Spotify"
          :items media-bindings}])
