@@ -8,8 +8,8 @@ alias cd..='cd ..'
 alias mkdir='mkdir -pv'
 mc() { mkdir $1 && cd $1 ; }
 alias vs="vagrant ssh"
-alias em="emacsclient -nq"
-alias emc="emacsclient -nqc"
+alias e=emacs
+alias et="emacs -nw"
 alias vi='vim'
 alias mex="iex -S mix"
 alias g='git'
