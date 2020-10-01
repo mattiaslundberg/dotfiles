@@ -2,8 +2,7 @@
 # Install nice to have dev-utils
 
 # Python
-pip install --upgrade pip
-pip install 'python-language-server[all]' black flake8-mypy mypy isort autoflake flake8 safety micropipenv
+pip install --upgrade pip 'python-language-server[all]' black flake8-mypy mypy isort autoflake flake8 safety micropipenv
 
 # Node
 npm install -g eslint prettier stylelint tslint typescript
