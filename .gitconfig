@@ -32,7 +32,7 @@
     editor = vi
     excludesfile = ~/.gitignore_global
     autocrlf = input
-	pager = delta --dark
+	pager = delta --light
 [merge]
     tool = vimdiff
     conflictstyle = diff3
