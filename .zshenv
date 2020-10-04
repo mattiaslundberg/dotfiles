@@ -1,5 +1,5 @@
 unset MAILCHECK
-export EDITOR="vim"
+export EDITOR="emacs"
 
 export PIPENV_IGNORE_VIRTUALENVS=1
 export MICROPIPENV_NO_LOCKFILE_WRITE=1
