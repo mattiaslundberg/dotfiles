@@ -33,7 +33,7 @@
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
 
 ;; Treemacs
-(setq +treemacs-git-mode 'deferred)
+(setq +treemacs-git-mode 'extended)
 (setq treemacs-indentation 2)
 (setq treemacs-width 25)
 (setq treemacs-show-cursor nil)
