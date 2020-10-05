@@ -13,7 +13,7 @@
 (setq display-line-numbers-type nil)
 
 ;; Modeline
-(setq doom-modeline-buffer-file-name-style 'buffer-name
+(setq doom-modeline-buffer-file-name-style 'relative-from-project
       doom-modeline-buffer-encoding nil
       doom-modeline-buffer-modification-icon nil
       doom-modeline-env-version nil
