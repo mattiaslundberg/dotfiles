@@ -209,10 +209,6 @@
 
 (set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
 
-;; ReasonML
-(add-hook 'reason-mode-hook (lambda ()
-                              (add-hook 'before-save-hook #'refmt-before-save)))
-
 ;; Fennel
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
 

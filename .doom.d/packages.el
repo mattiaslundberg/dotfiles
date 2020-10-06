@@ -18,6 +18,7 @@
 ;; Use it to unpin multiple packages
 ;(unpin! pinned-package another-pinned-package)
 
+(package! format-all :pin "84002b07ca2c4c3a24045232a3270956fa52cd52")
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
