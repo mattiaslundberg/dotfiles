@@ -9,39 +9,46 @@
     cia = commit --amend --no-edit
     br = branch
     co = checkout
-    cp = cherry-pick
+
+    # Diffing
     df = diff
     dc = diff --cached
+
+    # Updating
     fa = fetch --all --prune
     rom = rebase origin/master
-    mm = "!git up && git ppf && git checkout master && git merge - && git lot"
     ra = rebase --abort
     rc = rebase --continue
     up = "!git fetch --all --prune && git rebase origin/master --autostash"
+    mm = "!git up && git ppf && git checkout master && git merge - && git lot"
+
+    # Pushing
     pp = push origin
     ppf = push origin --force-with-lease
+
+    # Logging
     lol = log --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
     lot = log -n 15 --pretty=format:"%C(yellow)%h\\ %Cblue%G?%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --graph
     lola = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ (%cr)%Cblue\\ [%cn]" --decorate --numstat
-    reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
+
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
-    undo = reset --soft HEAD^
+
+    # Cleanup
+    reset-permission = "!git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply"
     cleanbranches = "!git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d"
 [core]
-    editor = vi
+    editor = "emacs -nw"
     excludesfile = ~/.gitignore_global
     autocrlf = input
-	pager = delta --light
+    pager = delta --light
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
     prompt = false
 [push]
     default = current
     pushDefault = origin
 [pull]
-    rebase = True
+    rebase = true
 [commit]
     gpgsign = true
 [github]
