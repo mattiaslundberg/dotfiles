@@ -20,7 +20,7 @@
     ra = rebase --abort
     rc = rebase --continue
     up = "!git fetch --all --prune && git rebase origin/master --autostash"
-    mm = "!git up && git ppf && git checkout master && git merge - && git lot"
+    mm = "!git up && git ppf && git checkout master && git merge -"
 
     # Pushing
     pp = push origin
