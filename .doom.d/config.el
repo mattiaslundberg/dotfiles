@@ -25,11 +25,14 @@
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
-;; Read more from output (Recommended from LSP mode)
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
-
 ;; Format errors in popup
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
+
+;; LSP
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-file-watch-threshold 10000)
+(after! lsp
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\]node_modules"))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
