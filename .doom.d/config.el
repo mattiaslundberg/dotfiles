@@ -32,7 +32,8 @@
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-file-watch-threshold 10000)
 (after! lsp
-  (add-to-list 'lsp-file-watch-ignored "[/\\\\]node_modules"))
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\]node_modules")
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\]\\.mypy_cache"))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
