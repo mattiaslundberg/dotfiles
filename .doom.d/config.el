@@ -31,10 +31,33 @@
 ;; LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-file-watch-threshold 10000)
-(after! lsp
-  (add-to-list 'lsp-file-watch-ignored "[/\\\\]node_modules")
-  (add-to-list 'lsp-file-watch-ignored "[/\\\\]__pycache__")
-  (add-to-list 'lsp-file-watch-ignored "[/\\\\]\\.mypy_cache"))
+(setq lsp-file-watch-ignored
+  '("[/\\\\]\\.git$"
+    "[/\\\\]\\.hg$"
+    "[/\\\\]\\.bzr$"
+    "[/\\\\]_darcs$"
+    "[/\\\\]\\.svn$"
+    "[/\\\\]_FOSSIL_$"
+    "[/\\\\]\\.idea$"
+    "[/\\\\]\\.ensime_cache$"
+    "[/\\\\]\\.eunit$"
+    "[/\\\\]node_modules$"
+    "[/\\\\]__pycache__$"
+    "[/\\\\]\\.mypy_cache$"
+    "[/\\\\]\\.fslckout$"
+    "[/\\\\]\\.tox$"
+    "[/\\\\]dist$"
+    "[/\\\\]dist-newstyle$"
+    "[/\\\\]\\.stack-work$"
+    "[/\\\\]\\.bloop$"
+    "[/\\\\]\\.metals$"
+    "[/\\\\]target$"
+    "[/\\\\]\\.ccls-cache$"
+    "[/\\\\]\\.vscode$"
+    "[/\\\\]\\.deps$"
+    "[/\\\\]build-aux$"
+    "[/\\\\]autom4te.cache$"
+    "[/\\\\]\\.reference$"))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
