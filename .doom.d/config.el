@@ -72,9 +72,9 @@
 (setq tags-add-tables nil)
 
 ;; Magit
-(after! magit
-  (setq magit-prefer-push-default t)
-  (setq magit-revision-show-gravatars nil))
+(setq magit-prefer-push-default t
+      magit-revision-show-gravatars nil
+      magit-display-buffer-function 'magit-display-buffer-traditional)
 (defadvice! fix-magit-revert-buffer (buffer)
   :override #'+magit--revert-buffer
   (with-current-buffer buffer
