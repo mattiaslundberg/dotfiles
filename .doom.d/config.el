@@ -204,5 +204,11 @@
   (setq ns-use-native-fullscreen t)
   (set-frame-parameter nil 'fullscreen 'fullboth))
 
+;; Linux
+(when (string= system-type "gnu/linux")
+  (setq shell-file-name "/bin/bash")
+  (after! projectile
+    (menu-bar-mode -99)))
+
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
