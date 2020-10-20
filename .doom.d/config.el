@@ -33,6 +33,7 @@
 (setq lsp-file-watch-threshold 10000)
 (after! lsp
   (add-to-list 'lsp-file-watch-ignored "[/\\\\]node_modules")
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\]__pycache__")
   (add-to-list 'lsp-file-watch-ignored "[/\\\\]\\.mypy_cache"))
 
 ;; Treemacs
