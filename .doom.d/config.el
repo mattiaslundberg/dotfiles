@@ -210,5 +210,8 @@
   (after! projectile
     (menu-bar-mode -99)))
 
+(if (file-exists-p "/snap/bin/universal-ctags")
+  (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
+
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
