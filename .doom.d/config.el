@@ -203,29 +203,17 @@
 
 ;;; Language specific
 ;; Python
-(after! flycheck
-  (flycheck-add-next-checker 'python-flake8 'python-mypy t))
-
-(after! flycheck
-  (setq-default flycheck-disabled-checkers
-                '(
-                  python-flake8 python-pylint emacs-lisp-checkdoc
-                  )))
-
-;; Remap test running
 (map! :after python
       :localleader
       :map python-mode-map
       "t a" #'python-pytest
       "t x" #'python-pytest-last-failed)
-
 (set-popup-rule! "^\\*pytest" :size 0.3 :ttl 0)
 
 ;; Javascript
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
-;; Custom keyboard mappings
 (defun custom-npm-test ()
   (interactive)
   (npm-mode--exec-process "npm run test"))

@@ -26,7 +26,6 @@
 ;; (package! company-tabnine)
 ;; (package! emoji-cheat-sheet-plus)
 (package! dash-at-point)
-(package! flycheck-mypy)
 (package! reason-mode)
 ;; (package! protobuf-mode
 ;;    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
