@@ -154,45 +154,9 @@
       (:desc "Regenerate tags" "p [" #'projectile-regenerate-tags))
 
 ;;; Language specific
-;; Python
-(map! :after python
-      :localleader
-      :map python-mode-map
-      "t a" #'python-pytest
-      "t x" #'python-pytest-last-failed)
-(set-popup-rule! "^\\*pytest" :size 0.3 :ttl 0)
-
-;; Javascript
-(setq js2-mode-show-parse-errors nil)
-(setq js2-mode-show-strict-warnings nil)
-
-(defun custom-npm-test ()
-  (interactive)
-  (npm-mode--exec-process "npm run test"))
-
-(map! :after js2-mode
-      :localleader
-      :map js2-mode-map
-      (:desc "Run all tests" "t a" #'custom-npm-test))
-
-(set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
-
-;; Fennel
-(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
-
-;; Elixir
-(map! :after alchemist
-      :localleader
-      :map alchemist-mode-map
-      "t a" #'alchemist-mix-test
-      "b r" #'alchemist-iex-run
-      "b p" #'alchemist-iex-project-run
-      "b l" #'alchemist-mix-rerun-last-task)
-(set-popup-rule! "^\\*Alchemist" :size 0.3 :ttl 0)
-(set-popup-rule! "^\\*alchemist" :size 0.3 :ttl 0)
-
-;; Rust
-(set-popup-rule! "^\\*cargo" :size 0.3 :ttl 0)
+(let ((cfs (doom-files-in "~/.doom.d/lang")))
+  (dolist (cf cfs)
+    (load-file cf)))
 
 ;;; System specific
 ;; MacOS
