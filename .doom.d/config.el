@@ -32,32 +32,32 @@
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-file-watch-threshold 10000)
 (setq lsp-file-watch-ignored
-  '("[/\\\\]\\.git$"
-    "[/\\\\]\\.hg$"
-    "[/\\\\]\\.bzr$"
-    "[/\\\\]_darcs$"
-    "[/\\\\]\\.svn$"
-    "[/\\\\]_FOSSIL_$"
-    "[/\\\\]\\.idea$"
-    "[/\\\\]\\.ensime_cache$"
-    "[/\\\\]\\.eunit$"
-    "[/\\\\]node_modules$"
-    "[/\\\\]__pycache__$"
-    "[/\\\\]\\.mypy_cache$"
-    "[/\\\\]\\.fslckout$"
-    "[/\\\\]\\.tox$"
-    "[/\\\\]dist$"
-    "[/\\\\]dist-newstyle$"
-    "[/\\\\]\\.stack-work$"
-    "[/\\\\]\\.bloop$"
-    "[/\\\\]\\.metals$"
-    "[/\\\\]target$"
-    "[/\\\\]\\.ccls-cache$"
-    "[/\\\\]\\.vscode$"
-    "[/\\\\]\\.deps$"
-    "[/\\\\]build-aux$"
-    "[/\\\\]autom4te.cache$"
-    "[/\\\\]\\.reference$"))
+      '("[/\\\\]\\.git$"
+        "[/\\\\]\\.hg$"
+        "[/\\\\]\\.bzr$"
+        "[/\\\\]_darcs$"
+        "[/\\\\]\\.svn$"
+        "[/\\\\]_FOSSIL_$"
+        "[/\\\\]\\.idea$"
+        "[/\\\\]\\.ensime_cache$"
+        "[/\\\\]\\.eunit$"
+        "[/\\\\]node_modules$"
+        "[/\\\\]__pycache__$"
+        "[/\\\\]\\.mypy_cache$"
+        "[/\\\\]\\.fslckout$"
+        "[/\\\\]\\.tox$"
+        "[/\\\\]dist$"
+        "[/\\\\]dist-newstyle$"
+        "[/\\\\]\\.stack-work$"
+        "[/\\\\]\\.bloop$"
+        "[/\\\\]\\.metals$"
+        "[/\\\\]target$"
+        "[/\\\\]\\.ccls-cache$"
+        "[/\\\\]\\.vscode$"
+        "[/\\\\]\\.deps$"
+        "[/\\\\]build-aux$"
+        "[/\\\\]autom4te.cache$"
+        "[/\\\\]\\.reference$"))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
@@ -211,7 +211,7 @@
     (menu-bar-mode -99)))
 
 (if (file-exists-p "/snap/bin/universal-ctags")
-  (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
+    (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
 
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
