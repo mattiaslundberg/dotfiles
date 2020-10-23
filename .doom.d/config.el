@@ -163,6 +163,7 @@
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil)
   (setq shell-file-name "/usr/local/bin/bash")
+  (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
   (setq ns-use-native-fullscreen t)
