@@ -27,6 +27,7 @@
 
 ;; Format errors in popup
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
+(setq +format-with-lsp nil)
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
