@@ -77,12 +77,6 @@
   (setq magit-prefer-push-default t
         magit-revision-show-gravatars nil
         magit-display-buffer-function 'magit-display-buffer-traditional))
-(defadvice! fix-magit-revert-buffer (buffer)
-  :override #'+magit--revert-buffer
-  (with-current-buffer buffer
-    (setq +magit--stale-p nil)
-    (when buffer-file-name
-      (revert-buffer t (not (buffer-modified-p))))))
 
 ;; Company
 (add-hook 'company-mode-hook
