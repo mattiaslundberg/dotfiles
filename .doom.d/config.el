@@ -34,13 +34,6 @@
 (setq lsp-file-watch-threshold 10000)
 (setq lsp-file-watch-ignored
       '("[/\\\\]\\.git$"
-        "[/\\\\]\\.hg$"
-        "[/\\\\]\\.bzr$"
-        "[/\\\\]_darcs$"
-        "[/\\\\]\\.svn$"
-        "[/\\\\]_FOSSIL_$"
-        "[/\\\\]\\.idea$"
-        "[/\\\\]\\.ensime_cache$"
         "[/\\\\]\\.eunit$"
         "[/\\\\]node_modules$"
         "[/\\\\]__pycache__$"
@@ -56,8 +49,6 @@
         "[/\\\\]\\.ccls-cache$"
         "[/\\\\]\\.vscode$"
         "[/\\\\]\\.deps$"
-        "[/\\\\]build-aux$"
-        "[/\\\\]autom4te.cache$"
         "[/\\\\]\\.reference$"))
 
 ;; Treemacs
