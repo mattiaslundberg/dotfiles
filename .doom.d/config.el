@@ -79,11 +79,7 @@
         magit-display-buffer-function 'magit-display-buffer-traditional))
 
 ;; Company
-(add-hook 'company-mode-hook
-          (lambda()
-            (local-set-key (kbd "<right>") 'company-complete)))
-
-(after! company-tng
+(after! company
   (define-key! company-active-map
     "TAB"       #'company-complete-selection
     [tab]       #'company-complete-selection
