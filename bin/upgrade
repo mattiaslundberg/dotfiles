@@ -14,4 +14,6 @@ if [ -f /usr/bin/snap ]; then
 	sudo snap refresh
 fi
 
+(cd ~/.elixir-ls && git up && mix deps.get && mix elixir_ls.release -o ./bin)
+
 ~/.emacs.d/bin/doom --yes upgrade
