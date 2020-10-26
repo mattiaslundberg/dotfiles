@@ -80,13 +80,11 @@
 
 ;; Company
 (after! company
+  (setq company-idle-delay 0.1)
   (define-key! company-active-map
     "TAB"       #'company-complete-selection
     [tab]       #'company-complete-selection
     [backtab]   nil))
-
-(after! company
-  (setq company-idle-delay 0.1))
 
 ;; Projectile
 (setq projectile-project-search-path
