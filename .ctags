@@ -14,3 +14,8 @@
 --exclude=.cache
 --exclude=.terraform
 --exclude=.mypy_cache
+--exclude=cover
+--exclude=.elixir_ls
+--exclude=.chalice
+--exclude=htmlcov
+--exclude=package-lock.json
