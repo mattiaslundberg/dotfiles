@@ -7,3 +7,5 @@
       "b l" #'alchemist-mix-rerun-last-task)
 (set-popup-rule! "^\\*Alchemist" :size 0.3 :ttl 0)
 (set-popup-rule! "^\\*alchemist" :size 0.3 :ttl 0)
+
+(setq flycheck-elixir-credo-strict t)
