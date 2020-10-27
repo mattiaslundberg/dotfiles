@@ -10,7 +10,7 @@
 (setq doom-theme 'doom-one-light)
 
 (custom-theme-set-faces! 'doom-one-light
- '(elixir-atom-face ((t (:foreground "SkyBlue4")))))
+ '(elixir-atom-face :foreground "SkyBlue4"))
 
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
