@@ -32,6 +32,21 @@
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
 (setq +format-with-lsp nil)
 
+(defun custom-format-enable-on-save-maybe-h ()
+  "Enable formatting on save in certain major modes.
+
+This is controlled by `+format-on-save-enabled-modes'."
+  (unless (or (eq major-mode 'fundamental-mode)
+              (cond ((booleanp +format-on-save-enabled-modes)
+                     (null +format-on-save-enabled-modes))
+                    ((eq (car +format-on-save-enabled-modes) 'not)
+                     (memq major-mode (cdr +format-on-save-enabled-modes)))
+                    ((not (memq major-mode +format-on-save-enabled-modes))))
+              (not (require 'format-all nil t)))
+    (format-all-mode +1)))
+
+(add-hook 'after-change-major-mode-hook #'custom-format-enable-on-save-maybe-h)
+
 ;; LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-file-watch-threshold 10000)
