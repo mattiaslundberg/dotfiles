@@ -4,7 +4,7 @@
 (setq user-full-name "Mattias Lundberg"
       user-mail-address "me@mlundberg.se")
 
-;; Doom
+;; Look and feel
 (setq doom-font (font-spec :family "Fira Code" :size 14.0))
 (setq doom-big-font (font-spec :family "Fira Code" :size 28.0))
 (setq doom-theme 'doom-one-light)
