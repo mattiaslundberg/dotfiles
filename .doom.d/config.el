@@ -9,6 +9,9 @@
 (setq doom-big-font (font-spec :family "Fira Code" :size 28.0))
 (setq doom-theme 'doom-one-light)
 
+(custom-theme-set-faces! 'doom-one-light
+ '(elixir-atom-face ((t (:foreground "SkyBlue4")))))
+
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
 
