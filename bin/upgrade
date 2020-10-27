@@ -2,7 +2,6 @@
 
 brew upgrade
 brew upgrade --cask
-asdf plugin-update --all
 rustup update
 tldr --update
 (cd ~/.hammerspoon && git pull)
@@ -15,5 +14,8 @@ if [ -f /usr/bin/snap ]; then
 fi
 
 (cd ~/.elixir-ls && git up && mix deps.get && mix elixir_ls.release -o ./bin)
+
+asdf plugin-update --all
+asdf plugin-list | xargs -I _ asdf install _ latest
 
 ~/.emacs.d/bin/doom --yes upgrade
