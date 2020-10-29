@@ -9,3 +9,10 @@
 (set-popup-rule! "^\\*alchemist" :size 0.3 :ttl 0)
 
 (setq flycheck-elixir-credo-strict t)
+
+(add-hook! 'elixir-mode-hook
+  (set (make-local-variable 'prettify-symbols-alist)
+       '(("fn" . ?λ)
+         ("and" . ?∧)
+         ("or" . ?∨))
+       ))

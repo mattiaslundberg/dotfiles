@@ -11,3 +11,9 @@
       (:desc "Run all tests" "t a" #'custom-npm-test))
 
 (set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
+
+(add-hook! '(js2-mode typescript-mode)
+  (set (make-local-variable 'prettify-symbols-alist)
+       '(("&&" . ?∧)
+         ("||" . ?∨))
+       ))
