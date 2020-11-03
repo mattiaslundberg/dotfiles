@@ -134,6 +134,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 (map! :leader (:prefix-map ("d v" . "Vagrant")
                (:desc "up" "u" #'vagrant-up)
                (:desc "ssh" "s" #'vagrant-ssh)
+               (:desc "tramp-term" "S" #'vagrant-tramp-term)
                (:desc "halt" "x" #'vagrant-halt)
                (:desc "status" "?" #'vagrant-status)
                (:desc "edit" "e" #'vagrant-edit)))
