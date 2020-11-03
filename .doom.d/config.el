@@ -105,6 +105,11 @@ This is controlled by `+format-on-save-enabled-modes'."
 (after! counsel
   (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
 
+;; Tramp
+(after! tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  (add-to-list 'tramp-remote-path "~/.local/bin"))
+
 ;;; Eshell
 (load-file "~/.doom.d/eshell.el")
 
