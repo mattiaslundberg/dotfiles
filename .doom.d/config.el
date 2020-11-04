@@ -126,6 +126,10 @@ This is controlled by `+format-on-save-enabled-modes'."
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
 
+;; Counsel-tramp
+(map! :leader
+      (:desc "counsel-tramp" "s h" #'counsel-tramp))
+
 ;; Lookup in dash
 (map! :leader (:prefix-map ("d" . "custom")
                :desc "Dash lookup" "d" #'dash-at-point))

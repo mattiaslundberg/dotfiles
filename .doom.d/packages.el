@@ -35,6 +35,7 @@
 ;; (package! kubernetes)
 ;; (package! kubernetes-evil)
 (package! systemd)
+(package! counsel-tramp)
 
 (package! nose :disable t)
 (package! pipenv :disable t)
