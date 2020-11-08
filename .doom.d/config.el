@@ -159,9 +159,10 @@ This is controlled by `+format-on-save-enabled-modes'."
       (:desc "Format buffer" "f ." #'format-all-buffer)
       (:desc "Toogle format-all-mode" "f ," #'format-all-mode))
 
-;; Regenerate tags
+;; Projectile
 (map! :leader
-      (:desc "Regenerate tags" "p [" #'projectile-regenerate-tags))
+      (:desc "Regenerate tags" "p [" #'projectile-regenerate-tags)
+      (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
 ;;; Language specific
 (let ((cfs (doom-files-in "~/.doom.d/lang")))
