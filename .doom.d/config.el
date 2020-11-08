@@ -106,6 +106,7 @@ This is controlled by `+format-on-save-enabled-modes'."
   (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
 
 ;; Tramp
+(setq enable-remote-dir-locals t)
 (after! tramp
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   (add-to-list 'tramp-remote-path "~/.local/bin"))
