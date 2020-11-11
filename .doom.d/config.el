@@ -96,6 +96,7 @@ This is controlled by `+format-on-save-enabled-modes'."
     [backtab]   nil))
 
 ;; Projectile
+(setq projectile-project-root-files '())
 (setq projectile-project-search-path
       (append
        (doom-files-in "~/projects" :depth 0 :type 'dirs :full t)
