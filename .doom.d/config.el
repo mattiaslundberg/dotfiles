@@ -50,6 +50,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-file-watch-threshold 10000)
+(setq lsp-modeline-diagnostics-enable nil)
 (setq lsp-file-watch-ignored
       '("[/\\\\]\\.git$"
         "[/\\\\]\\.eunit$"
