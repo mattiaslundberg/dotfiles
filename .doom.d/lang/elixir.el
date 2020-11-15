@@ -10,6 +10,8 @@
 
 (setq flycheck-elixir-credo-strict t)
 
+(setq alchemist-test-status-modeline nil)
+
 (add-hook! 'elixir-mode-hook
   (set (make-local-variable 'prettify-symbols-alist)
        '(("fn" . ?λ)
