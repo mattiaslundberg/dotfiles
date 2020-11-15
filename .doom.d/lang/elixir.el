@@ -2,6 +2,7 @@
       :localleader
       :map alchemist-mode-map
       "t a" #'alchemist-mix-test
+      "b a" #'alchemist-mix
       "b r" #'alchemist-iex-run
       "b p" #'alchemist-iex-project-run
       "b l" #'alchemist-mix-rerun-last-task)
