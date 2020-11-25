@@ -7,6 +7,9 @@ export MICROPIPENV_NO_LOCKFILE_WRITE=1
 export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
 export COPYFILE_DISABLE=true
 
+export ERL_AFLAGS="-kernel shell_history enabled"
+export KERL_CONFIGURE_OPTIONS="--without-javac"
+
 addToPath() {
 	case ":$PATH:" in
 	*":${1}:"*) : ;; # already there

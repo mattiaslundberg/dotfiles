@@ -53,9 +53,6 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
-# Enable persistent history for elixir
-export ERL_AFLAGS="-kernel shell_history enabled"
-
 # Keybindings.
 bindkey -v
 
@@ -91,8 +88,6 @@ pipenv-docker() {
     docker build -f ~/.dotfiles/.dockerfiles/Dockerfile.pipenv -t mattiaslundberg/docker-pipenv .
     docker run -it -v $(pwd):/usr/repo --rm mattiaslundberg/docker-pipenv 
 }
-
-export KERL_CONFIGURE_OPTIONS="--without-javac"
 
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
 
