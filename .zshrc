@@ -56,10 +56,6 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 # Enable persistent history for elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-if [ -f /usr/bin/keychain ] ; then
-    eval $(keychain --eval --agents ssh id_rsa id_ed25519)
-fi
-
 # Keybindings.
 bindkey -v
 
