@@ -1,6 +1,0 @@
-nitrogen --restore &
-pulseaudio --start
-tint2 &
-conky &
-volumeicon &
-(sleep 10 && xscreensaver -no-splash) &
