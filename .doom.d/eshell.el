@@ -13,6 +13,11 @@
 ;; Use emacs as editor
 (add-hook 'eshell-mode-hook 'with-editor-export-editor)
 
+(defun pr ()
+  "Move to project root"
+  (interactive)
+  (cd (projectile-project-root)))
+
 ;; Prompt
 (defvar-local eshell-current-command-start-time nil)
 
