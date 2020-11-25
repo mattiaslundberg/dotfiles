@@ -13,38 +13,19 @@ alias et="emacs -nw"
 alias vi='vim'
 alias mex="iex -S mix"
 alias g='git'
-
+alias pping=prettyping
 alias reload='source ~/.zshrc'
-alias cleantemp='find $HOME -type f -name "*~" -print -exec rm {} \;'
-alias cleanlatex='rm -f dia/*.(pdf|eps) ; rubber --clean *.tex'
 alias rerun='fd | entr '
 alias start_tmux="tmux new-session -A -s main"
 alias mpip=micropipenv
+alias d=docker
+alias dc=docker-compose
 
-alias ports='sudo netstat -tulpan'
-alias pping=prettyping
 alias su='sudo -E -s'
 alias root='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
 
-cleanup() {
-    rm -rf ~/.tmux/resurrect/*
-    docker system prune --all
-}
-
-function kube-all-pods() { kubectl get pods --all-namespaces --field-selector='status.phase!=Succeeded' -o json | jq '.items[]|[.metadata.namespace,.metadata.name] | @tsv' -r | column -t; }
-
-function kube-select-pod() { kube-all-pods | fzf -q "$@" | awk '{ print $2 }'; }
-
-function kube-logs() { kubectl logs -n $(kube-pods "$@") }
-
 alias fixkbd="xkbcomp ~/.keymap.xkb $DISPLAY 2>/dev/null"
-
-modreload() {
-    for m in $(cat /etc/modules-load.d/*); do
-        sudo modprobe $m
-    done
-}
 
 function light() {
   if [ -z "$2" ]
@@ -60,5 +41,3 @@ function docker-show-context() {
   docker run --rm -v $PWD:/data docker-show-context
 }
 
-alias d=docker
-alias dc=docker-compose
