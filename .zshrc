@@ -92,14 +92,11 @@ pipenv-docker() {
 export PATH="/Users/mattias/.cargo/bin:${PATH}"
 
 export FZF_DEFAULT_COMMAND='fd --type f'
-if [ -f /usr/share/fzf/key-bindings.zsh ]; then
-    . /usr/share/fzf/key-bindings.zsh
+if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+    . /usr/share/doc/fzf/examples/key-bindings.zsh 
 fi
 if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
     . /usr/local/opt/fzf/shell/key-bindings.zsh
-fi
-if [ -f ~/.fzf.zsh ]; then
-    . ~/.fzf.zsh
 fi
 
 antigen bundle zsh-users/zsh-syntax-highlighting
