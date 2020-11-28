@@ -41,3 +41,7 @@ function docker-show-context() {
   docker run --rm -v $PWD:/data docker-show-context
 }
 
+if [ -f /usr/bin/xclip ]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
