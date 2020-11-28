@@ -56,14 +56,6 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w 
 # Keybindings.
 bindkey -v
 
-# Fastjump
-if [ $(command -v fastjump) ] ; then
-    j() { cd $(fastjump $1) }
-    chpwd() {
-        fastjump --save-visit $PWD
-    }
-fi
-
 if [ -f /usr/local/opt/asdf/asdf.sh ]; then
     . /usr/local/opt/asdf/asdf.sh
     . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
