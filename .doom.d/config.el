@@ -123,13 +123,12 @@ This is controlled by `+format-on-save-enabled-modes'."
 
 ;;; Global keybindings
 ;; Magit
-(evil-define-key 'normal with-editor-mode-map
-  ",k" 'with-editor-cancel
-  ",c" 'with-editor-finish
-  ",," 'with-editor-finish)
-
-(evil-define-key 'normal magit-status-mode-map
-  "z" #'magit-stash)
+(map! :map with-editor-mode-map
+  :n ",k" 'with-editor-cancel
+  :n ",c" 'with-editor-finish
+  :n ",," 'with-editor-finish)
+(map! :map magit-status-mode-map
+  :n "z" #'magit-stash)
 
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
