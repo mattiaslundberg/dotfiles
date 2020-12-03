@@ -10,6 +10,10 @@ export COPYFILE_DISABLE=true
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_CONFIGURE_OPTIONS="--without-javac"
 
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_CASK_OPTS=--require-sha
+
 addToPath() {
 	case ":$PATH:" in
 	*":${1}:"*) : ;; # already there
