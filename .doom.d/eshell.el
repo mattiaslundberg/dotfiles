@@ -53,3 +53,17 @@
 
 (after! eshell
   (setq eshell-prompt-function #'eshell-prompt-fn))
+
+;; Fix mix completion
+(defadvice! fix-fish-completion (raw-prompt)
+  :override #'fish-completion-complete
+  (while (pcomplete-here
+          (let ((comp-list (fish-completion--list-completions raw-prompt)))
+            (if (and comp-list (file-exists-p (car comp-list)) (not (s-starts-with? "mix" raw-prompt)) )
+                ;; Completion result can be a filename.  pcomplete expects
+                ;; cannonical file names (i.e. without '~') while fish preserves
+                ;; non-cannonical results.  If the result contains a file, use
+                ;; pcomplete completion instead of fish.
+                (pcomplete-dirs-or-entries)
+              ;; Remove trailing spaces to avoid it being converted into "\ ".
+              (mapcar 'string-trim-right comp-list))))))
