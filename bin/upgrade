@@ -6,6 +6,9 @@ rustup update
 tldr --update
 (cd ~/.hammerspoon && git pull)
 
+(cd ~/.pyenv && git pull)
+(cd ~/.pyenv/plugins/pyenv-virtualenv && git pull)
+
 if [ -f /usr/bin/apt-get ]; then
 	sudo apt update && sudo apt upgrade -y
 fi
