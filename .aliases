@@ -45,3 +45,7 @@ if [ -f /usr/bin/xclip ]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
+
+function git-fetch-all() {
+    find . -maxdepth 3 -name .git -type d | rev | cut -c 6- | rev | xargs -P 3 -I {} git -C {} fetch --all --tags
+}
