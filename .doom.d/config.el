@@ -102,9 +102,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; Projectile
 (setq projectile-project-root-files '())
 (setq projectile-project-search-path
-      (append
-       (doom-files-in "~/projects" :depth 0 :type 'dirs :full t)
-       `("~/tmp")))
+       (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
 
 ;; IVY
 (after! counsel
