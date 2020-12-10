@@ -10,9 +10,9 @@
 (set-popup-rule! "^\\*Alchemist" :size 0.3 :ttl 0)
 (set-popup-rule! "^\\*alchemist" :size 0.3 :ttl 0)
 
-(setq flycheck-elixir-credo-strict t)
-
-(setq alchemist-test-status-modeline nil)
+(setq flycheck-elixir-credo-strict t
+      alchemist-test-ask-about-save  nil
+      alchemist-test-status-modeline nil)
 
 (add-hook! 'elixir-mode-hook
   (set (make-local-variable 'prettify-symbols-alist)
