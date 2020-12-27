@@ -2,20 +2,14 @@ autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 
-if [ -f /usr/local/share/antigen/antigen.zsh ] ; then
-    . /usr/local/share/antigen/antigen.zsh
-fi
-if [ -f /usr/share/zsh/share/antigen.zsh ] ; then
-    . /usr/share/zsh/share/antigen.zsh
-fi
-if [ -f ~/.antigen.zsh/antigen.zsh ] ; then
-  . ~/.antigen.zsh/antigen.zsh
+if [ -f ~/.zinit/bin/zinit.zsh ] ; then
+  . ~/.zinit/bin/zinit.zsh
 fi
 
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
-antigen bundle djui/alias-tips
-antigen bundle mdumitru/fancy-ctrl-z
+zinit light mafredri/zsh-async
+zinit light sindresorhus/pure
+zinit light djui/alias-tips
+zinit light mdumitru/fancy-ctrl-z
 
 setopt COMPLETE_ALIASES
 setopt histignorealldups sharehistory
@@ -91,5 +85,4 @@ if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
     . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+zinit light zsh-users/zsh-syntax-highlighting
