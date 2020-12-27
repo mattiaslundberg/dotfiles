@@ -28,8 +28,6 @@ if [ -f /usr/bin/dircolors ] ; then
     eval "$(dircolors -b)"
 fi
 
-# Use modern completion system
-fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' auto-description 'specify: %d'
