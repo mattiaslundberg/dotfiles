@@ -25,3 +25,4 @@ TAGS
 
 # Emacs
 .dir-locals.el
+flycheck_*.el
