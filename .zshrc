@@ -57,8 +57,10 @@ if [ -f ~/.asdf/asdf.sh ]; then
     . ~/.asdf/completions/asdf.bash
 fi
 
-eval "$(pyenv init - --no-rehash)"
-eval "$(pyenv virtualenv-init -)"
+if [ -f ~/.pyenv/bin/pyenv ]; then
+	eval "$(pyenv init - --no-rehash)"
+	eval "$(pyenv virtualenv-init -)"
+fi
 
 # Load external files
 if [ -f ~/.aliases ]; then
