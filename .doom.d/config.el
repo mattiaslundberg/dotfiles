@@ -32,6 +32,14 @@
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
 (setq +format-with-lsp nil)
 
+(setq +format-on-save-enabled-modes
+  '(not emacs-lisp-mode
+        sql-mode
+        tex-mode
+        latex-mode
+        sh-mode
+        shell-mode))
+
 (defun custom-format-enable-on-save-maybe-h ()
   "Enable formatting on save in certain major modes.
 
