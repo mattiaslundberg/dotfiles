@@ -29,9 +29,9 @@
 ;;    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
 
 (package! fennel-mode)
-(package! vagrant)
-(package! vagrant-tramp
-  :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
+;; (package! vagrant)
+;; (package! vagrant-tramp
+;;   :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
 ;; (package! kubernetes)
 ;; (package! kubernetes-evil)
 (package! systemd)
