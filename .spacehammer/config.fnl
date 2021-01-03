@@ -291,6 +291,9 @@
         {:key :s
          :title "Slack"
          :action (activator "Slack")}
+        {:key :z
+         :title "Teams"
+         :action (activator "Microsoft Teams")}
         {:key :c
          :title "Calendar"
          :action (activator "Calendar")}
@@ -300,6 +303,9 @@
         {:key :p
          :title "Spark"
          :action (activator "Spark")}
+        {:key :o
+         :title "Bitwarden"
+         :action (activator "Bitwarden")}
         {:key :b
          :title "Safari"
          :action (activator "Safari")}
