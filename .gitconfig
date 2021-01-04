@@ -51,9 +51,11 @@
     rebase = true
 [commit]
     gpgsign = true
-[github]
-    user = mattiaslundberg
 [advice]
     detachedHead = false
 [include]
     path = ~/.gitconfig.local
+[gitlab]
+	user = mattiaslundberg
+[github]
+    user = mattiaslundberg
