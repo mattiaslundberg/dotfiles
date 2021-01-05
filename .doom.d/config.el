@@ -30,10 +30,11 @@
 
 ;; Format errors in popup
 (set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
-(setq +format-with-lsp nil)
+(setq +format-with-lsp t)
 
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode
+        elixir-mode
         sql-mode
         tex-mode
         latex-mode
@@ -54,6 +55,13 @@ This is controlled by `+format-on-save-enabled-modes'."
     (format-all-mode +1)))
 
 (add-hook 'after-change-major-mode-hook #'custom-format-enable-on-save-maybe-h)
+
+(defun custom-format-elixir ()
+  (if (eq major-mode 'elixir-mode)
+    (lsp-format-buffer)))
+
+(add-hook! 'before-save-hook
+  #'custom-format-elixir)
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
