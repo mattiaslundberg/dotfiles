@@ -1,18 +1,12 @@
-(map! :after alchemist
+(map! :after elixir
       :localleader
-      :map alchemist-mode-map
-      "t a" #'alchemist-mix-test
-      "t s" #'alchemist-mix-test-stale
-      "b a" #'alchemist-mix
-      "b r" #'alchemist-iex-run
-      "b p" #'alchemist-iex-project-run
-      "b l" #'alchemist-mix-rerun-last-task)
-(set-popup-rule! "^\\*Alchemist" :size 0.3 :ttl 0)
-(set-popup-rule! "^\\*alchemist" :size 0.3 :ttl 0)
+      :map elixir-mode-map
+      :prefix "t"
+      "A" #'exunit-verify-all-in-umbrella)
 
-(setq flycheck-elixir-credo-strict t
-      alchemist-test-ask-about-save  nil
-      alchemist-test-status-modeline nil)
+(set-popup-rule! "^\\*exunit" :size 0.3 :ttl 0)
+
+(setq flycheck-elixir-credo-strict t)
 
 (add-hook! 'elixir-mode-hook
   (set (make-local-variable 'prettify-symbols-alist)
