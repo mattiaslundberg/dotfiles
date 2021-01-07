@@ -1,4 +1,4 @@
-(map! :after elixir
+(map! :after elixir-mode
       :localleader
       :map elixir-mode-map
       :prefix "t"
