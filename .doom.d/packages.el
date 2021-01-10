@@ -43,6 +43,11 @@
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
 
+;; TMP: Until define-obsolete-variable-alias fixes are bumped in doom
+(unpin! dockerfile-mode)
+(unpin! projectile)
+(unpin! treemacs)
+(unpin! doom-themes)
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
