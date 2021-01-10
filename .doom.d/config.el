@@ -33,13 +33,13 @@
 (setq +format-with-lsp t)
 
 (setq +format-on-save-enabled-modes
-  '(not emacs-lisp-mode
-        elixir-mode
-        sql-mode
-        tex-mode
-        latex-mode
-        sh-mode
-        shell-mode))
+      '(not emacs-lisp-mode
+            elixir-mode
+            sql-mode
+            tex-mode
+            latex-mode
+            sh-mode
+            shell-mode))
 
 (defun custom-format-enable-on-save-maybe-h ()
   "Enable formatting on save in certain major modes.
@@ -58,10 +58,10 @@ This is controlled by `+format-on-save-enabled-modes'."
 
 (defun custom-format-elixir ()
   (if (eq major-mode 'elixir-mode)
-    (lsp-format-buffer)))
+      (lsp-format-buffer)))
 
 (add-hook! 'before-save-hook
-  #'custom-format-elixir)
+           #'custom-format-elixir)
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024) ;; 1mb
@@ -119,7 +119,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; Projectile
 (setq projectile-project-root-files '())
 (setq projectile-project-search-path
-       (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
+      (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
 
 ;; IVY
 (after! counsel
@@ -139,11 +139,11 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;;; Global keybindings
 ;; Magit
 (map! :map with-editor-mode-map
-  :n ",k" 'with-editor-cancel
-  :n ",c" 'with-editor-finish
-  :n ",," 'with-editor-finish)
+      :n ",k" 'with-editor-cancel
+      :n ",c" 'with-editor-finish
+      :n ",," 'with-editor-finish)
 (map! :map magit-status-mode-map
-  :n "z" #'magit-stash)
+      :n "z" #'magit-stash)
 
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
