@@ -68,27 +68,19 @@ This is controlled by `+format-on-save-enabled-modes'."
       lsp-file-watch-threshold 10000
       lsp-modeline-diagnostics-enable nil
       lsp-headerline-breadcrumb-enable nil)
-(setq lsp-file-watch-ignored
-      '("[/\\\\]\\.git$"
-        "[/\\\\]\\.eunit$"
-        "[/\\\\]node_modules$"
+
+(setq custom-lsp-file-watch-ignored-directories
+      '(;; Python
         "[/\\\\]__pycache__$"
         "[/\\\\]\\.mypy_cache$"
-        "[/\\\\]\\.fslckout$"
-        "[/\\\\]\\.tox$"
+        ;; Elixir
         "[/\\\\]\\.elixir_ls$"
         "[/\\\\]deps$"
-        "[/\\\\]dist$"
-        "[/\\\\]_build$"
-        "[/\\\\]dist-newstyle$"
-        "[/\\\\]\\.stack-work$"
-        "[/\\\\]\\.bloop$"
-        "[/\\\\]\\.metals$"
-        "[/\\\\]target$"
-        "[/\\\\]\\.ccls-cache$"
-        "[/\\\\]\\.vscode$"
-        "[/\\\\]\\.deps$"
-        "[/\\\\]\\.reference$"))
+        "[/\\\\]_build$"))
+
+(defadvice! custom-lsp-ignored ()
+  :override #'lsp-file-watch-ignored-directories
+  (appendq! lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
