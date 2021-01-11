@@ -76,7 +76,9 @@ This is controlled by `+format-on-save-enabled-modes'."
         ;; Elixir
         "[/\\\\]\\.elixir_ls$"
         "[/\\\\]deps$"
-        "[/\\\\]_build$"))
+        "[/\\\\]_build$"
+        ;; Ruby
+        "[/\\\\]vendor$"))
 
 (defadvice! custom-lsp-ignored ()
   :override #'lsp-file-watch-ignored-directories
