@@ -36,7 +36,7 @@
 ;; (package! kubernetes-evil)
 (package! systemd)
 (package! counsel-tramp)
-(package! polymode :pin "44265e3")
+(package! polymode)
 
 (package! nose :disable t)
 (package! pipenv :disable t)
