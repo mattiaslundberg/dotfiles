@@ -193,7 +193,7 @@ This is controlled by `+format-on-save-enabled-modes'."
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
   (setq ns-use-native-fullscreen t))
-  ;; (set-frame-parameter nil 'fullscreen 'fullboth))
+;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Linux
 (when (string= system-type "gnu/linux")
