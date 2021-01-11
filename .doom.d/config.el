@@ -71,18 +71,18 @@ This is controlled by `+format-on-save-enabled-modes'."
 
 (setq custom-lsp-file-watch-ignored-directories
       '(;; Python
-        "[/\\\\]__pycache__$"
-        "[/\\\\]\\.mypy_cache$"
+        "[/\\\\]__pycache__\\'"
+        "[/\\\\]\\.mypy_cache\\'"
         ;; Elixir
-        "[/\\\\]\\.elixir_ls$"
-        "[/\\\\]deps$"
-        "[/\\\\]_build$"
+        "[/\\\\]\\.elixir_ls\\'"
+        "[/\\\\]deps\\'"
+        "[/\\\\]_build\\'"
         ;; Ruby
-        "[/\\\\]vendor$"))
+        "[/\\\\]vendor\\'"))
 
 (defadvice! custom-lsp-ignored ()
   :override #'lsp-file-watch-ignored-directories
-  (appendq! lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
+  (append lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended)
