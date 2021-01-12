@@ -15,12 +15,7 @@
          ("or" . ?∨))
        ))
 
-(after! lsp-mode
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-tramp-connection "language_server.sh")
-                    :major-modes '(elixir-mode)
-                    :remote? t
-                    :server-id 'elixir-ls-remote)))
+(setq lsp-clients-elixir-server-executable "~/.elixir-ls/bin/language_server.sh")
 
 ;; Support Phoenix Liveview inline html
 (define-hostmode poly-elixir-hostmode :mode 'elixir-mode)

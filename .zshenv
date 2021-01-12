@@ -29,7 +29,6 @@ addToPath /usr/local/bin
 addToPath ~/.bin
 addToPath ~/.emacs.d/bin/
 addToPath ~/go/bin
-addToPath ~/.elixir-ls/bin
 
 export PYENV_ROOT="$HOME/.pyenv"
 addToPath "$PYENV_ROOT/bin"
