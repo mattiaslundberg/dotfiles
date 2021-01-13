@@ -187,7 +187,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 
 ;;; System specific
 ;; MacOS
-(when (string= system-type "darwin")
+(when IS-MAC
   (setq dired-use-ls-dired nil)
   (setq shell-file-name "/usr/local/bin/bash")
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
@@ -197,7 +197,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Linux
-(when (string= system-type "gnu/linux")
+(when IS-LINUX
   (setq shell-file-name "/bin/bash")
   (after! projectile
     (menu-bar-mode -99)))
