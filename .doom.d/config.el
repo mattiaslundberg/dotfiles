@@ -88,10 +88,11 @@ This is controlled by `+format-on-save-enabled-modes'."
 (setq +treemacs-git-mode 'extended
       treemacs-indentation 2
       treemacs-width 25
-      treemacs-show-cursor nil
-      treemacs-follow-mode t)
+      treemacs-show-cursor nil)
 (treemacs-resize-icons 16)
-(add-hook 'treemacs-mode-hook (lambda () (treemacs-fringe-indicator-mode -1)))
+(add-hook 'treemacs-mode-hook (lambda ()
+                                (treemacs-fringe-indicator-mode -1)
+                                (treemacs-follow-mode) ))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
 ;; etags
