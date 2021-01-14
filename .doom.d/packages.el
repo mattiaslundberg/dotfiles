@@ -24,11 +24,11 @@
 ;; (package! company-tabnine)
 ;; (package! emoji-cheat-sheet-plus)
 (package! dash-at-point)
-(package! reason-mode)
+;;(package! reason-mode)
 ;; (package! protobuf-mode
 ;;    :recipe (:host github :repo "emacsmirror/protobuf-mode" :files (:defaults "*")))
 
-(package! fennel-mode)
+;;(package! fennel-mode)
 ;; (package! vagrant)
 ;; (package! vagrant-tramp
 ;;   :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
