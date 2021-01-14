@@ -92,7 +92,7 @@ This is controlled by `+format-on-save-enabled-modes'."
 (treemacs-resize-icons 16)
 (add-hook 'treemacs-mode-hook (lambda ()
                                 (treemacs-fringe-indicator-mode -1)
-                                (treemacs-follow-mode) ))
+                                (treemacs-follow-mode)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
 ;; etags
