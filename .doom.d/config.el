@@ -15,6 +15,9 @@
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
 
+(add-to-list 'default-frame-alist (cons 'width 120))
+(add-to-list 'default-frame-alist (cons 'height 50))
+
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'relative-from-project
       doom-modeline-buffer-encoding nil
@@ -200,9 +203,6 @@ This is controlled by `+format-on-save-enabled-modes'."
   (setq mac-right-option-modifier nil)
   (setq ns-use-native-fullscreen t))
 ;; (set-frame-parameter nil 'fullscreen 'fullboth))
-
-(add-to-list 'default-frame-alist (cons 'width 120))
-(add-to-list 'default-frame-alist (cons 'height 50))
 
 ;; Linux
 (when IS-LINUX
