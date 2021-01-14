@@ -201,6 +201,9 @@ This is controlled by `+format-on-save-enabled-modes'."
   (setq ns-use-native-fullscreen t))
 ;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
+(add-to-list 'default-frame-alist (cons 'width 120))
+(add-to-list 'default-frame-alist (cons 'height 50))
+
 ;; Linux
 (when IS-LINUX
   (setq shell-file-name "/bin/bash")
