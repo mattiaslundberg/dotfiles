@@ -369,7 +369,7 @@
           :title "Github"
           :action (web-open "https://github.com")}])
 
-(local power-bindings
+(local system-bindings
        [return
         {:key :l
          :title "Lock"
@@ -389,8 +389,8 @@
 
 (local menu-items
        [{:key :p
-         :title "Power"
-         :items power-bindings}
+         :title "System"
+         :items system-bindings}
         {:key :w
          :title "Window"
          :items window-bindings}
