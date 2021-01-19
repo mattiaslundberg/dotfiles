@@ -59,3 +59,5 @@
 	user = mattiaslundberg
 [github]
     user = mattiaslundberg
+[init]
+	defaultBranch = main
