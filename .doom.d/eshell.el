@@ -8,6 +8,7 @@
          ("dc" "docker-compose $*")
          ("d" "docker $*")
          ("vs" "vagrant ssh $*")
+         ("mex" "iex -S mix $*")
          ("reload" "eshell-read-aliases-list"))))
 
 ;; Use emacs as editor
