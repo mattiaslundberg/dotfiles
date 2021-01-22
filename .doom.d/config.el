@@ -151,6 +151,9 @@ This is controlled by `+format-on-save-enabled-modes'."
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
 
+;; Ivy
+(setq ivy-dispatching-done-hydra-exit-keys '(("C-[" nil)))
+
 ;; Counsel-tramp
 (map! :leader
       (:desc "counsel-tramp" "s h" #'counsel-tramp))
