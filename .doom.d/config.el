@@ -71,7 +71,8 @@ This is controlled by `+format-on-save-enabled-modes'."
 (setq read-process-output-max (* 1024 1024) ;; 1mb
       lsp-file-watch-threshold 10000
       lsp-modeline-diagnostics-enable nil
-      lsp-headerline-breadcrumb-enable nil)
+      lsp-headerline-breadcrumb-enable nil
+      lsp-modeline-workspace-status-enable nil)
 
 (setq custom-lsp-file-watch-ignored-directories
       '(;; Python
