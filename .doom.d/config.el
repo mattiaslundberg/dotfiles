@@ -22,8 +22,7 @@
 (setq doom-modeline-buffer-file-name-style 'relative-from-project
       doom-modeline-buffer-encoding nil
       doom-modeline-buffer-modification-icon nil
-      doom-modeline-env-version nil
-      doom-modeline-vcs-max-length nil)
+      doom-modeline-env-version nil)
 
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3)
