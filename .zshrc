@@ -84,5 +84,8 @@ fi
 if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
     . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
+if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]; then
+    . /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+fi
 
 zinit light zsh-users/zsh-syntax-highlighting
