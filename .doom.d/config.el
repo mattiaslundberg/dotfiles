@@ -201,7 +201,9 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; MacOS
 (when IS-MAC
   (setq dired-use-ls-dired nil)
-  (setq shell-file-name "/usr/local/bin/bash")
+  (if (file-exists-p "/opt/homebrew/bin/bash")
+    (setq shell-file-name "/opt/homebrew/bin/bash")
+    (setq shell-file-name "/usr/local/bin/bash"))
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
