@@ -26,6 +26,7 @@ addToPath /sbin
 addToPath /usr/sbin
 addToPath /usr/local/sbin
 addToPath /usr/local/bin
+addToPath /opt/homebrew/bin
 addToPath ~/.bin
 addToPath ~/.emacs.d/bin/
 addToPath ~/go/bin
