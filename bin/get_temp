@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $(command -v osx-cpu-temp) ] ; then
-    osx-cpu-temp
-else
-    sensors | grep Package | awk -F ' ' '{print $4}'
-fi
