@@ -202,8 +202,10 @@ This is controlled by `+format-on-save-enabled-modes'."
 (when IS-MAC
   (setq dired-use-ls-dired nil)
   (if (file-exists-p "/opt/homebrew/bin/bash")
-    (setq shell-file-name "/opt/homebrew/bin/bash")
-    (setq shell-file-name "/usr/local/bin/bash"))
+    (setq shell-file-name "/opt/homebrew/bin/bash"
+          vterm-shell "/opt/homebrew/bin/zsh")
+    (setq shell-file-name "/usr/local/bin/bash"
+          vterm-shell "/usr/local/bin/zsh"))
   (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
