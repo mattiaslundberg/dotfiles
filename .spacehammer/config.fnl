@@ -377,6 +377,9 @@
         {:key :s
          :title "Screenshot"
          :action (activator "Screenshot")}
+        {:key :p
+         :title "System Preferences"
+         :action (activator "System Preferences")}
         {:key :a
          :title "Activity Monitor"
          :action (activator "Activity Monitor")}])
