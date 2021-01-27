@@ -431,7 +431,11 @@
          :action "lib.modal:activate-modal"}
         {:mods [:cmd :ctrl]
          :key "`"
-         :action toggle-console}])
+         :action toggle-console}
+        {:mods [:ctrl :option]
+         :key :l
+         :title "Lock"
+         :action (lock-screen)}])
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
