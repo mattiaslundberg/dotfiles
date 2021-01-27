@@ -203,10 +203,11 @@ This is controlled by `+format-on-save-enabled-modes'."
   (setq dired-use-ls-dired nil)
   (if (file-exists-p "/opt/homebrew/bin/bash")
     (setq shell-file-name "/opt/homebrew/bin/bash"
-          vterm-shell "/opt/homebrew/bin/zsh")
+          vterm-shell "/opt/homebrew/bin/zsh"
+          projectile-tags-command "/opt/homebrew/bin/ctags -R -e")
     (setq shell-file-name "/usr/local/bin/bash"
-          vterm-shell "/usr/local/bin/zsh"))
-  (setq projectile-tags-command "/usr/local/bin/ctags -R -e")
+          vterm-shell "/usr/local/bin/zsh"
+          projectile-tags-command "/usr/local/bin/ctags -R -e"))
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
   (setq ns-use-native-fullscreen t))
@@ -215,11 +216,10 @@ This is controlled by `+format-on-save-enabled-modes'."
 ;; Linux
 (when IS-LINUX
   (setq shell-file-name "/bin/bash")
+  (if (file-exists-p "/snap/bin/universal-ctags")
+    (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
   (after! projectile
     (menu-bar-mode -99)))
-
-(if (file-exists-p "/snap/bin/universal-ctags")
-    (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
 
 ;; Local setup
 (if (file-exists-p "~/.emacs.local") (load-file "~/.emacs.local"))
