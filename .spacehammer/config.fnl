@@ -432,6 +432,8 @@
         {:mods [:cmd :ctrl]
          :key "`"
          :action toggle-console}
+        {:key :f19
+         :action (lock-screen)}
         {:mods [:ctrl :option]
          :key :l
          :title "Lock"
