@@ -464,6 +464,15 @@
        {:key "Firefox"
         :keys browser-keys})
 
+(local vscode-keys
+       [{:mods [:ctrl]
+         :key "["
+         :action (fn [] (hs.eventtap.keyStroke [] :escape))}])
+
+(local vscode-config
+       {:key "Code"
+        :keys vscode-keys})
+
 (local hammerspoon-config
        {:key "Hammerspoon"
         :items (concat
@@ -509,6 +518,7 @@
        [safari-config
         chrome-config
         firefox-config
+        vscode-config
         hammerspoon-config
         slack-config])
 
