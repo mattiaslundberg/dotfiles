@@ -41,8 +41,7 @@
   "Run formatter from project root, this is required to get mix format to find config files"
   :around #'apheleia-format-buffer
   (let ((default-directory (projectile-project-root)))
-    (funcall orig-fn command callback))
-  (append lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
+    (funcall orig-fn command callback)))
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024) ;; 1mb
