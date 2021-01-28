@@ -37,6 +37,8 @@
 (package! systemd)
 (package! counsel-tramp)
 (package! polymode)
+(package! apheleia
+   :recipe (:host github :repo "raxod502/apheleia"))
 
 (package! nose :disable t)
 (package! pipenv :disable t)

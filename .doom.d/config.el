@@ -31,40 +31,18 @@
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
-;; Format errors in popup
-(set-popup-rule! "^\\*format-all-errors" :size 0.3 :ttl 0)
-(setq +format-with-lsp t)
+;; Formatting
+(after! apheleia
+  (add-to-list 'apheleia-formatters '(mixformat . ("mix" "format" "-")))
+  (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat))
+  (add-hook 'doom-first-file-hook #'apheleia-global-mode))
 
-(setq +format-on-save-enabled-modes
-      '(not emacs-lisp-mode
-            elixir-mode
-            sql-mode
-            tex-mode
-            latex-mode
-            sh-mode
-            shell-mode))
-
-(defun custom-format-enable-on-save-maybe-h ()
-  "Enable formatting on save in certain major modes.
-
-This is controlled by `+format-on-save-enabled-modes'."
-  (unless (or (eq major-mode 'fundamental-mode)
-              (cond ((booleanp +format-on-save-enabled-modes)
-                     (null +format-on-save-enabled-modes))
-                    ((eq (car +format-on-save-enabled-modes) 'not)
-                     (memq major-mode (cdr +format-on-save-enabled-modes)))
-                    ((not (memq major-mode +format-on-save-enabled-modes))))
-              (not (require 'format-all nil t)))
-    (format-all-mode +1)))
-
-(add-hook 'after-change-major-mode-hook #'custom-format-enable-on-save-maybe-h)
-
-(defun custom-format-elixir ()
-  (if (eq major-mode 'elixir-mode)
-      (lsp-format-buffer)))
-
-(add-hook! 'before-save-hook
-           #'custom-format-elixir)
+(defadvice! custom-apheleia-format-buffer (orig-fn command &optional callback)
+  "Run formatter from project root, this is required to get mix format to find config files"
+  :around #'apheleia-format-buffer
+  (let ((default-directory (projectile-project-root)))
+    (funcall orig-fn command callback))
+  (append lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024) ;; 1mb
@@ -184,8 +162,8 @@ This is controlled by `+format-on-save-enabled-modes'."
 
 ;; Format current buffer
 (map! :leader
-      (:desc "Format buffer" "f ." #'format-all-buffer)
-      (:desc "Toogle format-all-mode" "f ," #'format-all-mode))
+      (:desc "Format buffer" "f ." #'apheleia-format-buffer)
+      (:desc "Toogle format on save" "f ," #'apheleia-mode))
 
 ;; Projectile
 (map! :leader
