@@ -126,9 +126,9 @@
 (map! :map magit-status-mode-map
       :n "z" #'magit-stash)
 (map! :map forge-post-mode-map
-  :n ",k" 'forge-post-cancel
-  :n ",c" 'forge-post-submit
-  :n ",," 'forge-post-submit)
+      :n ",k" 'forge-post-cancel
+      :n ",c" 'forge-post-submit
+      :n ",," 'forge-post-submit)
 
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
