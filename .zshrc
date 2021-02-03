@@ -73,6 +73,9 @@ fi
 if [ -e ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
+if [ -e ~/.zshrc.local.gpg ]; then
+    eval "$(gpg --decrypt ~/.zshrc.local.gpg 2>/dev/null)"
+fi
 
 pipenv-docker() {
     docker build -f ~/.dotfiles/.dockerfiles/Dockerfile.pipenv -t mattiaslundberg/docker-pipenv .
