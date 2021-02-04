@@ -44,6 +44,8 @@
 (package! pipenv :disable t)
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
+(package! spinner
+  :recipe (:host github :repo "Malabarba/spinner.el"))
 
 ;; TMP: Until define-obsolete-variable-alias fixes are bumped in doom
 (unpin! dockerfile-mode)
