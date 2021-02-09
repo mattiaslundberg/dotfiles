@@ -299,7 +299,7 @@
         {:key :d
          :title "Dash"
          :action (activator "Dash")}
-        {:key :p
+        {:key :x
          :title "Spark"
          :action (activator "Spark")}
         {:key :o
