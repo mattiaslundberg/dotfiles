@@ -29,6 +29,3 @@
 ;; Bumps (use github instead of repo)
 (package! spinner
   :recipe (:host github :repo "Malabarba/spinner.el"))
-
-;; TMP: Until define-obsolete-variable-alias fixes are bumped in doom
-(unpin! dockerfile-mode)
