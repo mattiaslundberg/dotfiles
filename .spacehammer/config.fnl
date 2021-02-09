@@ -14,7 +14,6 @@
 (require-macros :lib.macros)
 (local windows (require :windows))
 (local slack (require :slack))
-(local vim (require :vim))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
