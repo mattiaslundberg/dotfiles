@@ -351,24 +351,6 @@
          :title (.. "Launch " music-app)
          :action (activator music-app)}])
 
-(local web-bindings
-        [return
-         {:key :=
-          :title "Switch"
-          :action (activator "Safari")}
-         {:key :n
-          :title "New Tab"
-          :action (web-open "")}
-         {:key :h
-          :title "Hacker News"
-          :action (web-open "https://news.ycombinator.com")}
-         {:key :1
-          :title "Hoppscotch"
-          :action (web-open "https://hoppscotch.io")}
-         {:key :g
-          :title "Github"
-          :action (web-open "https://github.com")}])
-
 (local system-bindings
        [return
         {:key :l
@@ -412,9 +394,6 @@
         {:key :s
          :title "Safari"
          :action (activator "Safari")}
-        {:key :=
-        :title "Web"
-        :items web-bindings}
         {:key :q
          :title "Quit current application"
          :action (fn [] (: (: (hs.window.focusedWindow) :application) :kill))}
