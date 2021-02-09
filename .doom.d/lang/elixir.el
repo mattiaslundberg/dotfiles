@@ -36,4 +36,4 @@
 
 (setq web-mode-engines-alist '(("elixir" . "\\.ex\\'")))
 
-(add-to-list 'auto-mode-alist '("\\.ex" . poly-elixir-web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ex" . poly-elixir-web-mode))
