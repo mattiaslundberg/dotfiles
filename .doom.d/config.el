@@ -19,7 +19,7 @@
 (add-to-list 'default-frame-alist (cons 'height 50))
 
 ;; Modeline
-(setq doom-modeline-buffer-file-name-style 'relative-from-project
+(setq doom-modeline-buffer-file-name-style 'truncate-with-project
       doom-modeline-buffer-encoding nil
       doom-modeline-buffer-modification-icon nil
       doom-modeline-env-version nil)
