@@ -32,10 +32,10 @@
 (setq create-lockfiles nil)
 
 ;; Formatting
+(add-hook 'doom-first-file-hook #'apheleia-global-mode )
 (after! apheleia
   (add-to-list 'apheleia-formatters '(mixformat . ("mix" "format" "-")))
-  (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat))
-  (apheleia-global-mode +1))
+  (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat)))
 
 (defadvice! custom-apheleia-format-buffer (orig-fn command &optional callback)
   "Run formatter from project root, this is required to get mix format to find config files"
