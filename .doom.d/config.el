@@ -61,9 +61,7 @@
         ;; Elixir
         "[/\\\\]\\.elixir_ls\\'"
         "[/\\\\]deps\\'"
-        "[/\\\\]_build\\'"
-        ;; Ruby
-        "[/\\\\]vendor\\'"))
+        "[/\\\\]_build\\'"))
 
 (defadvice! custom-lsp-ignored ()
   :override #'lsp-file-watch-ignored-directories
