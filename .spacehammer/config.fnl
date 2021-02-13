@@ -102,6 +102,14 @@
   (fn activate []
     (hs.caffeinate.lockScreen)))
 
+(fn insert-text
+  [text]
+  "
+  Send text to current window
+  "
+  (fn a []
+    (hs.eventtap.keyStrokes text)))
+
 
 (fn web-open
   [thing]
@@ -268,6 +276,21 @@
           :title "Undo"
           :action "windows:undo-action"}]))
 
+(local text-bindings
+       [return
+        {:key :1
+         :title "👍"
+         :action (insert-text "👍")}
+        {:key :2
+         :title "😀"
+         :action (insert-text "😀")}
+        {:key :3
+         :title "🤣"
+         :action (insert-text "🤣")}
+        {:key :4
+         :title "❤️"
+         :action (insert-text "❤️")}])
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Apps Menu
@@ -365,7 +388,6 @@
          :title "Activity Monitor"
          :action (activator "Activity Monitor")}])
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main Menu & Config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -396,6 +418,9 @@
         {:key :q
          :title "Quit current application"
          :action (fn [] (: (: (hs.window.focusedWindow) :application) :kill))}
+        {:key :i
+         :title "Insert text"
+         :items text-bindings}
         {:key :m
          :title "Music"
          :items media-bindings}])
