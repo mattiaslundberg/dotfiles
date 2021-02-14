@@ -40,7 +40,7 @@
 (defadvice! custom-apheleia-format-buffer (orig-fn command &optional callback)
   "Run formatter from project root, this is required to get mix format to find config files"
   :around #'apheleia-format-buffer
-  ;; Hide lsp gui so it doesn't lock up
+  ;; Hide lsp ui so it doesn't lock up
   (lsp-ui-sideline--delete-ov)
   (if (string-equal "mix" (car command))
     (let ((default-directory (locate-dominating-file ".formatter.exs" default-directory)))
