@@ -19,10 +19,6 @@ debhelper.log
 # nfs
 .nfs*
 
-# Tags
-tags
-TAGS
-
 # Emacs
 .dir-locals.el
 flycheck_*.el

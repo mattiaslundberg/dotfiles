@@ -78,9 +78,6 @@
                                 (treemacs-follow-mode)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
-;; etags
-(setq tags-add-tables nil)
-
 ;; Magit
 (after! magit
   (setq magit-prefer-push-default t
@@ -168,8 +165,10 @@
 
 ;; Projectile
 (map! :leader
-      (:desc "Regenerate tags" "p [" #'projectile-regenerate-tags)
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
+
+;; Navigation
+(map! :m "C-]" #'+lookup/definition)
 
 ;;; Language specific
 (let ((cfs (doom-files-in "~/.doom.d/lang")))
@@ -182,11 +181,9 @@
   (setq dired-use-ls-dired nil)
   (if (file-exists-p "/opt/homebrew/bin/bash")
     (setq shell-file-name "/opt/homebrew/bin/bash"
-          vterm-shell "/opt/homebrew/bin/zsh"
-          projectile-tags-command "/opt/homebrew/bin/ctags -R -e")
+          vterm-shell "/opt/homebrew/bin/zsh")
     (setq shell-file-name "/usr/local/bin/bash"
-          vterm-shell "/usr/local/bin/zsh"
-          projectile-tags-command "/usr/local/bin/ctags -R -e"))
+          vterm-shell "/usr/local/bin/zsh"))
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
   (setq ns-use-native-fullscreen t))
@@ -195,8 +192,6 @@
 ;; Linux
 (when IS-LINUX
   (setq shell-file-name "/bin/bash")
-  (if (file-exists-p "/snap/bin/universal-ctags")
-    (setq projectile-tags-command "/snap/bin/universal-ctags -R -e --exclude=.git --exclude=node_modules --exclude=elm-stuff --exclude=_build --exclude=deps --exclude=dist --exclude=bundles --exclude=collected --exclude=js_bundles --exclude=transpiled_js --exclude=__pycache__ --exclude=bundles --exclude=.cov --exclude=.cache --exclude=.terraform --exclude=.mypy_cache"))
   (after! projectile
     (menu-bar-mode -99)))
 
