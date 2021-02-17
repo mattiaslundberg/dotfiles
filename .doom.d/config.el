@@ -139,24 +139,9 @@
 (map! :leader (:prefix-map ("d" . "custom")
                :desc "Dash lookup" "d" #'dash-at-point))
 
-;; Vagrant
-(map! :leader (:prefix-map ("d v" . "Vagrant")
-               (:desc "up" "u" #'vagrant-up)
-               (:desc "ssh" "s" #'vagrant-ssh)
-               (:desc "tramp-term" "S" #'vagrant-tramp-term)
-               (:desc "halt" "x" #'vagrant-halt)
-               (:desc "status" "?" #'vagrant-status)
-               (:desc "edit" "e" #'vagrant-edit)
-               (:desc "provision" "p" #'vagrant-provision)))
-(set-popup-rule! "^\\*Vagrant" :size 0.3 :ttl 0)
-
 ;; Doom
 (map! :leader
       (:desc "doom/upgrade" "h r u" #'doom/upgrade))
-
-;; Kubernetes
-(map! :leader
-      (:desc "Kubernetes overview" "d k" #'kubernetes-overview))
 
 ;; Format current buffer
 (map! :leader

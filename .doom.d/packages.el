@@ -12,8 +12,6 @@
 ;; (package! vagrant)
 ;; (package! vagrant-tramp
 ;;   :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
-;; (package! kubernetes)
-;; (package! kubernetes-evil)
 (package! systemd)
 (package! counsel-tramp)
 (package! polymode)

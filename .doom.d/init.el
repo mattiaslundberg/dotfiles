@@ -180,6 +180,9 @@
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
 
+       :custom
+       ;;vagrant
+
        :config
        ;;literate
        (default +bindings +smartparens))
