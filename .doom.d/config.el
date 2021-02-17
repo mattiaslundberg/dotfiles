@@ -109,9 +109,6 @@
   (add-to-list 'tramp-remote-path "~/.asdf/shims")
   (add-to-list 'tramp-remote-path "~/.pyenv/shims"))
 
-;;; Eshell
-(load-file "~/.doom.d/eshell.el")
-
 ;;; Global keybindings
 ;; Magit
 (map! :map with-editor-mode-map

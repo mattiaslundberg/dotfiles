@@ -1,3 +1,5 @@
+;;; custom/eshell/config.el -*- lexical-binding: t; -*-
+
 ;; Aliases
 (setq +eshell-aliases
       (append

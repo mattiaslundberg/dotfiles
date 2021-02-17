@@ -182,6 +182,7 @@
 
        :custom
        ;;vagrant
+       eshell
 
        :config
        ;;literate
