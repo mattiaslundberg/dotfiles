@@ -183,6 +183,7 @@
        :custom
        ;;vagrant
        eshell
+       (formatting +onsave)
 
        :config
        ;;literate
