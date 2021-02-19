@@ -1,4 +1,5 @@
-;;; custom/vagrant/packages.el -*- lexical-binding: t; -*-
+;; -*- no-byte-compile: t; -*-
+;;; custom/vagrant/packages.el
 
 (package! vagrant)
 (package! vagrant-tramp
