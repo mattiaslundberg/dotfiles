@@ -36,7 +36,8 @@
       lsp-file-watch-threshold 10000
       lsp-modeline-diagnostics-enable nil
       lsp-headerline-breadcrumb-enable nil
-      lsp-modeline-workspace-status-enable nil)
+      lsp-modeline-workspace-status-enable nil
+      lsp-enable-symbol-highlighting nil)
 
 (setq custom-lsp-file-watch-ignored-directories
       '(;; Python
