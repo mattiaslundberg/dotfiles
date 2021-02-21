@@ -10,4 +10,5 @@
   "Run formatter from project root, this is required to get mix format to find config files"
   :before #'apheleia-format-buffer
   ;; Hide lsp ui so it doesn't lock up
-  (lsp-ui-sideline--delete-ov))
+  (when (fboundp 'lsp-ui-sideline--delete-ov)
+    (lsp-ui-sideline--delete-ov))
