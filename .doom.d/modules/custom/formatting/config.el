@@ -11,4 +11,4 @@
   :before #'apheleia-format-buffer
   ;; Hide lsp ui so it doesn't lock up
   (when (fboundp 'lsp-ui-sideline--delete-ov)
-    (lsp-ui-sideline--delete-ov))
+    (lsp-ui-sideline--delete-ov)))
