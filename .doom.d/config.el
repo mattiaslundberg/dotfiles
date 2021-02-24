@@ -28,6 +28,17 @@
 (setq scroll-margin 3)
 (setq scroll-conservatively 3)
 
+;; Doom config
+(defun ml/ediff-dotfile-and-template ()
+  (interactive)
+  (ediff-files
+    "~/.doom.d/init.el"
+    "~/.emacs.d/init.example.el"))
+
+(map! :leader
+      (:desc "doom/upgrade" "h r u" #'doom/upgrade)
+      (:desc "doom/diff-init" "h d i" #'ml/ediff-dotfile-and-template))
+
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
@@ -132,9 +143,6 @@
 ;;; Global keybindings
 (map! :leader (:prefix-map ("d" . "custom")
                :desc "Dash lookup" "d" #'dash-at-point))
-
-(map! :leader
-      (:desc "doom/upgrade" "h r u" #'doom/upgrade))
 
 (map! :m "C-]" #'+lookup/definition
       :m "M-]" #'previous-buffer)
