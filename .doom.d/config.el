@@ -63,6 +63,19 @@
                                 (treemacs-follow-mode)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
+;; Ediff
+(defun ediff-copy-both-to-C ()
+  (interactive)
+  (ediff-copy-diff ediff-current-difference nil 'C nil
+                   (concat
+                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+                    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+
+;; FIXME
+;; (map! :after ediff-mode
+;;       :map ediff-mode-map
+;;       :g "d" 'ediff-copy-both-to-C)
+
 ;; Magit
 (after! magit
   (setq magit-prefer-push-default t
