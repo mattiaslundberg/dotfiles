@@ -82,33 +82,6 @@
         magit-revision-show-gravatars nil
         magit-display-buffer-function 'magit-display-buffer-traditional))
 
-;; Company
-(after! company
-  (setq company-idle-delay 0.1)
-  (define-key! company-active-map
-    "TAB"       #'company-complete-selection
-    [tab]       #'company-complete-selection
-    [backtab]   nil))
-
-;; Projectile
-(setq projectile-project-root-files '())
-(setq projectile-project-search-path
-      (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
-
-;; IVY
-(after! counsel
-  (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
-
-;; Tramp
-(setq enable-remote-dir-locals t)
-(after! tramp
-  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-  (add-to-list 'tramp-remote-path "~/.local/bin")
-  (add-to-list 'tramp-remote-path "~/.asdf/shims")
-  (add-to-list 'tramp-remote-path "~/.pyenv/shims"))
-
-;;; Global keybindings
-;; Magit
 (map! :map with-editor-mode-map
       :n ",k" 'with-editor-cancel
       :n ",c" 'with-editor-finish
@@ -123,31 +96,46 @@
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
 
-;; Ivy
-(setq ivy-dispatching-done-hydra-exit-keys '(("C-[" nil)))
-
-;; Counsel-tramp
-(map! :leader
-      (:desc "counsel-tramp" "s h" #'counsel-tramp))
-
-;; Lookup in dash
-(map! :leader (:prefix-map ("d" . "custom")
-               :desc "Dash lookup" "d" #'dash-at-point))
-
-;; Doom
-(map! :leader
-      (:desc "doom/upgrade" "h r u" #'doom/upgrade))
-
-;; Format current buffer
-(map! :leader
-      (:desc "Format buffer" "f ." #'apheleia-format-buffer)
-      (:desc "Toogle format on save" "f ," #'apheleia-mode))
+;; Company
+(after! company
+  (setq company-idle-delay 0.1)
+  (define-key! company-active-map
+    "TAB"       #'company-complete-selection
+    [tab]       #'company-complete-selection
+    [backtab]   nil))
 
 ;; Projectile
+(setq projectile-project-root-files '())
+(setq projectile-project-search-path
+      (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
+
 (map! :leader
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
-;; Navigation
+;; IVY
+(after! counsel
+  (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
+
+(setq ivy-dispatching-done-hydra-exit-keys '(("C-[" nil)))
+
+;; Tramp
+(setq enable-remote-dir-locals t)
+(after! tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  (add-to-list 'tramp-remote-path "~/.local/bin")
+  (add-to-list 'tramp-remote-path "~/.asdf/shims")
+  (add-to-list 'tramp-remote-path "~/.pyenv/shims"))
+
+(map! :leader
+      (:desc "counsel-tramp" "s h" #'counsel-tramp))
+
+;;; Global keybindings
+(map! :leader (:prefix-map ("d" . "custom")
+               :desc "Dash lookup" "d" #'dash-at-point))
+
+(map! :leader
+      (:desc "doom/upgrade" "h r u" #'doom/upgrade))
+
 (map! :m "C-]" #'+lookup/definition
       :m "M-]" #'previous-buffer)
 

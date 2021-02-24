@@ -12,3 +12,7 @@
   ;; Hide lsp ui so it doesn't lock up
   (when (fboundp 'lsp-ui-sideline--delete-ov)
     (lsp-ui-sideline--delete-ov)))
+
+(map! :leader
+      (:desc "Format buffer" "f ." #'apheleia-format-buffer)
+      (:desc "Toogle format on save" "f ," #'apheleia-mode))
