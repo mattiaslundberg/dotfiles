@@ -148,7 +148,8 @@
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
 ;; Navigation
-(map! :m "C-]" #'+lookup/definition)
+(map! :m "C-]" #'+lookup/definition
+      :m "M-]" #'previous-buffer)
 
 ;;; Language specific
 (let ((cfs (doom-files-in "~/.doom.d/lang")))
