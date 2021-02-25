@@ -120,6 +120,10 @@
 (setq projectile-project-search-path
       (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
 
+(add-hook 'emacs-startup-hook (lambda ()
+  (projectile-discover-projects-in-search-path)
+  (projectile-add-known-project "~/.dotfiles")))
+
 (map! :leader
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
