@@ -158,15 +158,15 @@
 ;;; System specific
 ;; MacOS
 (when IS-MAC
-  (setq dired-use-ls-dired nil)
   (if (file-exists-p "/opt/homebrew/bin/bash")
     (setq shell-file-name "/opt/homebrew/bin/bash"
           vterm-shell "/opt/homebrew/bin/zsh")
     (setq shell-file-name "/usr/local/bin/bash"
           vterm-shell "/usr/local/bin/zsh"))
-  (setq mac-option-key-is-meta t)
-  (setq mac-right-option-modifier nil)
-  (setq ns-use-native-fullscreen t))
+  (setq dired-use-ls-dired nil
+        mac-option-key-is-meta t
+        mac-right-option-modifier nil
+        ns-use-native-fullscreen t))
 ;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Linux
