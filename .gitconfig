@@ -57,4 +57,4 @@
 [github]
     user = mattiaslundberg
 [init]
-    defaultBranch = main
+    defaultBranch = master
