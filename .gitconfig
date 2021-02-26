@@ -53,8 +53,8 @@
 [include]
     path = ~/.gitconfig.local
 [gitlab]
-	user = mattiaslundberg
+    user = mattiaslundberg
 [github]
     user = mattiaslundberg
 [init]
-	defaultBranch = main
+    defaultBranch = main
