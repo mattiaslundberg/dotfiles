@@ -18,6 +18,10 @@
 (add-to-list 'default-frame-alist (cons 'width 120))
 (add-to-list 'default-frame-alist (cons 'height 50))
 
+;; Treesitter
+(when (string-equal system-configuration "x86_64-apple-darwin20.3.0")
+  (add-hook! 'doom-first-file-hook #'global-tree-sitter-mode))
+
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project
       doom-modeline-buffer-encoding nil

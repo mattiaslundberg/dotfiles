@@ -16,6 +16,10 @@
 (package! counsel-tramp)
 (package! polymode)
 
+(when (string-equal system-configuration "x86_64-apple-darwin20.3.0")
+  (package! tree-sitter)
+  (package! tree-sitter-langs))
+
 ;; Disable packages
 (package! nose :disable t)
 (package! pipenv :disable t)
