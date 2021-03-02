@@ -152,7 +152,8 @@
                :desc "Dash lookup" "d" #'dash-at-point))
 
 (map! :m "C-]" #'+lookup/definition
-      :m "M-]" #'previous-buffer)
+      :m "M-[" #'previous-buffer
+      :m "M-]" #'next-buffer)
 
 ;;; Language specific
 (let ((cfs (doom-files-in "~/.doom.d/lang")))
