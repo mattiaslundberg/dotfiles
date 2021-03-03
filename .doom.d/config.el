@@ -61,7 +61,9 @@
         ;; Elixir
         "[/\\\\]\\.elixir_ls\\'"
         "[/\\\\]deps\\'"
-        "[/\\\\]_build\\'"))
+        "[/\\\\]_build\\'"
+        ;; Docker
+        "[/\\\\]\\.docker\\'"))
 
 (defadvice! custom-lsp-ignored ()
   :override #'lsp-file-watch-ignored-directories
