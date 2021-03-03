@@ -497,6 +497,16 @@
                   :action hs.console.clearConsole}])
         :keys []})
 
+
+(local discord-keys
+       [{:mods [:ctrl]
+         :key "["
+         :action (fn [] (hs.eventtap.keyStroke [] :escape))}])
+
+(local discord-config
+       {:key "Discord"
+        :keys discord-keys})
+
 (local slack-config
        {:key "Slack"
         :keys [{:mods [:alt]
@@ -532,6 +542,7 @@
         firefox-config
         vscode-config
         hammerspoon-config
+        discord-config
         slack-config])
 
 (local config
