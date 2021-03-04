@@ -69,6 +69,9 @@
   :override #'lsp-file-watch-ignored-directories
   (append lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
 
+(map! :leader
+  (:desc "lsp-workspace-restart" "d r" #'lsp-workspace-restart))
+
 ;; Treemacs
 (setq +treemacs-git-mode 'extended
       treemacs-indentation 2
