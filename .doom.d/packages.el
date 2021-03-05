@@ -15,6 +15,7 @@
 (package! systemd)
 (package! counsel-tramp)
 (package! polymode)
+(package! apheleia)
 
 (when (string-equal system-configuration "x86_64-apple-darwin20.3.0")
   (package! tree-sitter)
