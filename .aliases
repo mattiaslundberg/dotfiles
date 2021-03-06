@@ -21,6 +21,7 @@ alias mpip=micropipenv
 alias d=docker
 alias dc=docker-compose
 alias manage=./manage.py
+alias pyenv-installable='pyenv install --list | grep -E "^\s*\"?3"'
 
 alias su='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible
