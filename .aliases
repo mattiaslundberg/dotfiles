@@ -20,6 +20,7 @@ alias start_tmux="tmux new-session -A -s main"
 alias mpip=micropipenv
 alias d=docker
 alias dc=docker-compose
+alias manage=./manage.py
 
 alias su='sudo -E -s'
 alias sudo='sudo ' # Make sudo and aliases compatible

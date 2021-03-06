@@ -11,6 +11,7 @@
          ("d" "docker $*")
          ("vs" "vagrant ssh $*")
          ("mex" "iex -S mix $*")
+         ("manage" "./manage.py $*")
          ("reload" "eshell-read-aliases-list"))))
 
 ;; Use emacs as editor
