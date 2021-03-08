@@ -54,7 +54,7 @@
       lsp-modeline-workspace-status-enable nil
       lsp-enable-symbol-highlighting nil)
 
-(setq custom-lsp-file-watch-ignored-directories
+(setq ml/lsp-file-watch-ignored-directories
       '(;; Python
         "[/\\\\]__pycache__\\'"
         "[/\\\\]\\.mypy_cache\\'"
@@ -65,9 +65,9 @@
         ;; Docker
         "[/\\\\]\\.docker\\'"))
 
-(defadvice! custom-lsp-ignored ()
+(defadvice! ml/lsp-ignored ()
   :override #'lsp-file-watch-ignored-directories
-  (append lsp-file-watch-ignored-directories custom-lsp-file-watch-ignored-directories))
+  (append lsp-file-watch-ignored-directories ml/lsp-file-watch-ignored-directories))
 
 (map! :leader
   (:desc "lsp-workspace-restart" "d r" #'lsp-workspace-restart))
@@ -79,7 +79,7 @@
   (add-to-list 'apheleia-formatters '(mixformat . ("mix" "format" "-")))
   (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat)))
 
-(defadvice! custom-apheleia-format-buffer (&rest _)
+(defadvice! ml/apheleia-format-buffer (&rest _)
   "Run formatter from project root, this is required to get mix format to find config files"
   :before #'apheleia-format-buffer
   ;; Hide lsp ui so it doesn't lock up
