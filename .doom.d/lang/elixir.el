@@ -4,7 +4,7 @@
       :prefix "t"
       "A" #'exunit-verify-all-in-umbrella)
 
-(set-popup-rule! "^\\*exunit" :size 0.3 :ttl 0)
+(set-popup-rule! "^\\*exunit" :size 0.5 :ttl 0)
 
 (setq flycheck-elixir-credo-strict t)
 
