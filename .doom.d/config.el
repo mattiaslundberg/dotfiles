@@ -65,9 +65,6 @@
   :override #'lsp-file-watch-ignored-directories
   (append lsp-file-watch-ignored-directories ml/lsp-file-watch-ignored-directories))
 
-(map! :leader
-  (:desc "lsp-workspace-restart" "d r" #'lsp-workspace-restart))
-
 ;; Formatting
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
 
