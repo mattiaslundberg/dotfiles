@@ -24,9 +24,12 @@
       doom-modeline-buffer-modification-icon nil
       doom-modeline-env-version nil)
 
+;; Local variables
+(setq enable-local-variables t)
+
 ;; Don't scroll to the edge of the window
-(setq scroll-margin 3)
-(setq scroll-conservatively 3)
+(setq scroll-margin 3
+      scroll-conservatively 3)
 
 ;; Doom config
 (defun ml/ediff-dotfile-and-template ()
