@@ -323,8 +323,8 @@
          :title "Dash"
          :action (activator "Dash")}
         {:key :x
-         :title "Spark"
-         :action (activator "Spark")}
+         :title "Mail"
+         :action (activator "Mail")}
         {:key :o
          :title "Bitwarden"
          :action (activator "Bitwarden")}
