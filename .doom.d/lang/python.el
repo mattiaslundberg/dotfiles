@@ -10,3 +10,7 @@
                      :major-modes '(python-mode)
                      :remote? t
                      :server-id 'pyls-remote)))
+
+(defadvice! ml/pytest-root ()
+  :override #'python-pytest--project-root
+  (locate-dominating-file default-directory "pytest.ini"))
