@@ -144,7 +144,8 @@
     [backtab]   nil))
 
 ;; Projectile
-(setq projectile-project-root-files '())
+(after! projectile
+  (setq projectile-project-root-files '()))
 (setq projectile-project-search-path
       (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
 
