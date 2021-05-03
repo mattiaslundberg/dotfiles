@@ -144,8 +144,12 @@
     [backtab]   nil))
 
 ;; Projectile
-(after! projectile
-  (setq projectile-project-root-files '()))
+(defun ml/projectile-vc-root-dir (dir)
+  "Retrieve the root directory of the project at DIR using `vc-root-dir'."
+  (let ((default-directory dir))
+    (vc-root-dir)))
+
+(setq projectile-project-root-functions '(ml/projectile-vc-root-dir))
 (setq projectile-project-search-path
       (doom-files-in "~/Development" :depth 0 :type 'dirs :full t))
 
