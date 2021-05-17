@@ -63,6 +63,7 @@ fi
 
 if [ -f ~/.pyenv/bin/pyenv ]; then
 	eval "$(pyenv init - --no-rehash)"
+	eval "$(pyenv init --path)"
 	eval "$(pyenv virtualenv-init -)"
 fi
 
