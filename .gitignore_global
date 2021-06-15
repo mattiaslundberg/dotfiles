@@ -22,3 +22,10 @@ debhelper.log
 # Emacs
 .dir-locals.el
 flycheck_*.el
+
+# Project files
+.python-version
+.rgignore
+
+# TS-ls
+.log/
