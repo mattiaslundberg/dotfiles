@@ -3,7 +3,7 @@
 
 (defun ml/kotlin-test ()
   (interactive)
-  (let ((default-directory (+kotlin-locate-gradlew-file))
+  (let ((default-directory (locate-dominating-file buffer-file-name "gradlew"))
         (compilation-read-command nil)
         (compile-command "sh gradlew clean test"))
     (call-interactively #'compile)))
