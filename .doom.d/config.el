@@ -18,6 +18,9 @@
 (add-to-list 'default-frame-alist (cons 'width 120))
 (add-to-list 'default-frame-alist (cons 'height 50))
 
+;; Compilation
+(setq compilation-scroll-output t)
+
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project
       doom-modeline-buffer-encoding nil
