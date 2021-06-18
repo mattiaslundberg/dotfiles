@@ -18,6 +18,8 @@ fi
 
 (cd ~/.elixir-ls && git pull origin master && mix deps.get && mix elixir_ls.release -o ./bin)
 
+(cd ~/.kotlin-language-server && git pull origin master && ./gradlew :server:installDist)
+
 asdf plugin-update --all
 asdf plugin-list | xargs -I _ asdf install _ latest
 
