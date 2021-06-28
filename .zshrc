@@ -62,8 +62,8 @@ if [ -f ~/.asdf/asdf.sh ]; then
 fi
 
 if [ -f ~/.pyenv/bin/pyenv ]; then
-	eval "$(pyenv init - --no-rehash)"
 	eval "$(pyenv init --path)"
+	eval "$(pyenv init - --no-rehash)"
 	eval "$(pyenv virtualenv-init -)"
 fi
 
