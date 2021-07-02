@@ -77,8 +77,8 @@
 ;; Formatting
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
 
+(setq-default ml/format-on-save t)
 (after! apheleia
-  (setq-default ml/format-on-save t)
   (add-to-list 'apheleia-formatters '(mixformat . ("mix" "format" "-")))
   (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat)))
 
