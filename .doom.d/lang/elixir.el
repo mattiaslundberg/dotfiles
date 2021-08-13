@@ -15,7 +15,7 @@
          ("or" . ?∨))
        ))
 
-(setq lsp-clients-elixir-server-executable "~/.elixir-ls/bin/language_server.sh")
+(setq lsp-elixir-server-command '("~/.elixir-ls/bin/language_server.sh"))
 
 ;; Support Phoenix Liveview inline html
 (define-hostmode poly-elixir-hostmode :mode 'elixir-mode)
