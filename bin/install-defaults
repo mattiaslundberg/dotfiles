@@ -5,4 +5,4 @@
 pip install --upgrade pip black mypy isort autoflake flake8 safety micropipenv
 
 # Node
-npm install -g eslint prettier stylelint
+npm install -g eslint prettier stylelint yalc

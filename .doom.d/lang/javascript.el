@@ -9,11 +9,16 @@
   (interactive)
   (npm-mode--exec-process (format "npm run test -- %s" (buffer-file-name)) ))
 
+(defun ml/yalc-push ()
+  (interactive)
+  (npm-mode--exec-process "yalc publish --push"))
+
 (map! :after js2-mode
       :localleader
       :map js2-mode-map
       (:desc "Run all tests" "t a" #'ml/npm-test)
-      (:desc "Run all tests" "t s" #'ml/npm-test-file))
+      (:desc "Run all tests" "t s" #'ml/npm-test-file)
+      (:desc "Yalc push package" "p" #'ml/yalc-push))
 
 (set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
 
