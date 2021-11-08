@@ -78,6 +78,10 @@
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
 
 (setq-default ml/format-on-save t)
+(after! apheleia
+  (setf (alist-get 'prettier apheleia-formatters)
+      '("npx" "prettier" "--stdin-filepath" filepath)))
+
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
   :around #'apheleia-format-buffer
   (when ml/format-on-save
