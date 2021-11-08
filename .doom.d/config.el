@@ -144,6 +144,7 @@
 ;; Company
 (after! company
   (setq company-idle-delay 0.1)
+  (setq company-shell-dont-fetch-meta t)
   (define-key! company-active-map
     "TAB"       #'company-complete-selection
     [tab]       #'company-complete-selection
