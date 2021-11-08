@@ -78,21 +78,13 @@
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
 
 (setq-default ml/format-on-save t)
-(after! apheleia
-  (add-to-list 'apheleia-formatters '(mixformat . ("mix" "format" "-")))
-  (add-to-list 'apheleia-mode-alist '(elixir-mode . mixformat)))
-
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
-  "Run formatter from project root, this is required to get mix format to find config files"
   :around #'apheleia-format-buffer
   (when ml/format-on-save
     ;; Hide lsp ui so it doesn't lock up
     (when (fboundp 'lsp-ui-sideline--delete-ov)
       (lsp-ui-sideline--delete-ov))
-
-    (if (string-equal "mix" (car command))
-      (let ((default-directory (projectile-project-root))) (funcall orig-fn command callback))
-      (funcall orig-fn command callback))))
+    (funcall orig-fn command callback)))
 
 (map! :leader
       (:desc "Format buffer" "f ." #'apheleia-format-buffer)
