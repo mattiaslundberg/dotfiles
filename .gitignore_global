@@ -30,3 +30,7 @@ flycheck_*.el
 
 # TS-ls
 .log/
+
+# Yalc
+.yalc/
+yalc.lock
