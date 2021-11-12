@@ -13,9 +13,39 @@
   (interactive)
   (npm-mode--exec-process "yalc publish --push"))
 
+(setq-default ml/i18next-translation-file "translations/en.json")
+
+(defun ml/extract-selection-i18next ()
+  (interactive)
+  (let* ((selection (buffer-substring (mark) (point)))
+         (extracted (string-remove-prefix "'" selection))
+         (extracted (string-remove-suffix "'" extracted))
+         (keyname (read-string "Enter key name: "))
+         (filename (format "%s%s" (projectile-project-root) ml/i18next-translation-file))
+         (previous (json-read-file filename)))
+    (message (format "Extracting string '%s' as '%s' " extracted keyname))
+
+    (kill-region (region-beginning) (region-end))
+    (insert (format "t('%s')" keyname))
+    (save-buffer)
+
+    (let ((new (json-add-to-object previous keyname extracted)))
+        (f-write (json-encode new) 'utf-8 filename))))
+
+(defun ml/lookup-string-i18next ()
+  (interactive)
+  (let* ((keyname (thing-at-point 'symbol))
+         (filename (format "%s%s" (projectile-project-root) ml/i18next-translation-file))
+         (json-object-type 'hash-table)
+         (json-key-type 'string)
+         (json (json-read-file filename)))
+    (message (format "Translates to: %s" (gethash keyname json)))))
+
 (map! :after js2-mode
       :localleader
       :map js2-mode-map
+      (:desc "Extract string i18next" "e" #'ml/extract-selection-i18next)
+      (:desc "Lookup string i18next" "l" #'ml/lookup-string-i18next)
       (:desc "Run all tests" "t a" #'ml/npm-test)
       (:desc "Run all tests" "t s" #'ml/npm-test-file)
       (:desc "Yalc push package" "p" #'ml/yalc-push))
