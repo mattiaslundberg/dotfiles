@@ -18,9 +18,6 @@
 (add-to-list 'default-frame-alist (cons 'width 120))
 (add-to-list 'default-frame-alist (cons 'height 50))
 
-;; Fix doom upgrade breaking on undefined variable
-(setq comp-native-version-dir "~")
-
 ;; Compilation
 (setq compilation-scroll-output t)
 
