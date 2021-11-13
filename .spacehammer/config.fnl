@@ -549,8 +549,11 @@
        {:title "Main Menu"
         :items menu-items
         :keys common-keys
+        :enter (fn [] (windows.hide-display-numbers))
+        :exit  (fn [] (windows.hide-display-numbers))
         :apps apps
-        :hyper {:key :F18}})
+        :hyper {:key :F18}
+        :modules {:windows {:center-ratio "80:50"}}})
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
