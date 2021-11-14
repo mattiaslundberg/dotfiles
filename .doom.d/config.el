@@ -5,8 +5,8 @@
       user-mail-address "me@mlundberg.se")
 
 ;; Look and feel
-(setq doom-font (font-spec :family "Fira Code" :size 14.0))
-(setq doom-big-font (font-spec :family "Fira Code" :size 20.0))
+(setq doom-font (font-spec :family "Fira Code" :size 14.0 :weight 'medium))
+(setq doom-big-font (font-spec :family "Fira Code" :size 20.0 :weight 'medium))
 (setq doom-theme 'doom-one-light)
 
 (custom-theme-set-faces! 'doom-one-light
