@@ -13,9 +13,11 @@
   (interactive)
   (npm-mode--exec-process "yalc publish --push"))
 
-(setq-default ml/i18next-translation-file "translations/en.json")
+;; Translation file to use, relative to project root
+(setq-default ml/i18next-translation-file "/translations/en.json")
 
 (defun ml/extract-selection-i18next ()
+  "Extract selected text to i18next translation file, will ask for keyname"
   (interactive)
   (let* ((selection (buffer-substring (mark) (point)))
          (extracted (string-remove-prefix "'" selection))
@@ -33,6 +35,7 @@
         (f-write (json-encode new) 'utf-8 filename))))
 
 (defun ml/lookup-string-i18next ()
+  "Lookup key at point in translation file and show message"
   (interactive)
   (let* ((keyname (thing-at-point 'symbol))
          (filename (format "%s%s" (projectile-project-root) ml/i18next-translation-file))
