@@ -137,7 +137,6 @@
 ;; Company
 (after! company
   (setq company-idle-delay 0.1)
-  (setq company-shell-dont-fetch-meta t)
   (define-key! company-active-map
     "TAB"       #'company-complete-selection
     [tab]       #'company-complete-selection
@@ -199,6 +198,7 @@
   (setq dired-use-ls-dired nil
         mac-option-key-is-meta t
         mac-right-option-modifier nil
+        company-shell-dont-fetch-meta t
         ns-use-native-fullscreen t))
 ;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
