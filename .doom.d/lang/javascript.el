@@ -31,7 +31,8 @@
     (insert (format "t('%s')" keyname))
     (save-buffer)
 
-    (let ((new (json-add-to-object previous keyname extracted)))
+    (let ((json-encoding-pretty-print t)
+          (new (json-add-to-object previous keyname extracted)))
         (f-write (json-encode new) 'utf-8 filename))))
 
 (defun ml/lookup-string-i18next ()
