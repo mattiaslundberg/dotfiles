@@ -21,6 +21,5 @@ fi
 (cd ~/.kotlin-language-server && git pull origin main && ./gradlew :server:installDist)
 
 asdf plugin-update --all
-asdf plugin-list | xargs -I _ asdf install _ latest
 
 ~/.emacs.d/bin/doom --yes upgrade
