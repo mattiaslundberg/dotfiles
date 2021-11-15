@@ -32,6 +32,7 @@
     (save-buffer)
 
     (let ((json-encoding-pretty-print t)
+          (json-encoding-default-indentation "    ")
           (new (json-add-to-object previous keyname extracted)))
         (f-write (json-encode new) 'utf-8 filename))))
 
