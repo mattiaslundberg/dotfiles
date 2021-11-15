@@ -39,6 +39,9 @@
 ;; Local variables
 (setq enable-local-variables t)
 
+;; Allow to save risky dir-locals
+(advice-add 'risky-local-variable-p :override #'ignore)
+
 ;; Don't scroll to the edge of the window
 (setq scroll-margin 3
       scroll-conservatively 3)
