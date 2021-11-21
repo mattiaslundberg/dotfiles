@@ -15,12 +15,11 @@
 (package! systemd)
 (package! polymode)
 (package! apheleia)
+(package! git-auto-commit-mode
+  :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
 
 ;; Disable packages
 (package! nose :disable t)
 (package! pipenv :disable t)
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
-
-(package! git-auto-commit-mode
-  :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
