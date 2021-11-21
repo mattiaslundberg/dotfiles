@@ -199,7 +199,8 @@
 ;;; Language specific
 (let ((cfs (doom-files-in "~/.doom.d/lang")))
   (dolist (cf cfs)
-    (load-file cf)))
+    (when (s-suffix? ".el" cf)
+      (load-file cf))))
 
 ;;; System specific
 ;; MacOS
