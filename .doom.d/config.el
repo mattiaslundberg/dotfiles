@@ -171,12 +171,6 @@
 (map! :leader
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
-;; IVY
-(after! counsel
-  (setq counsel-find-file-ignore-regexp "\\(?:^#\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"))
-
-(setq ivy-dispatching-done-hydra-exit-keys '(("C-[" nil)))
-
 ;; Tramp
 (setq enable-remote-dir-locals t)
 (after! tramp
