@@ -179,9 +179,6 @@
   (add-to-list 'tramp-remote-path "~/.asdf/shims")
   (add-to-list 'tramp-remote-path "~/.pyenv/shims"))
 
-(map! :leader
-      (:desc "counsel-tramp" "s h" #'counsel-tramp))
-
 ;;; Global keybindings
 (map! :leader (:prefix-map ("d" . "custom")
                :desc "Dash lookup" "d" #'dash-at-point))

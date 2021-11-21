@@ -13,7 +13,6 @@
 ;; (package! vagrant-tramp
 ;;   :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
 (package! systemd)
-(package! counsel-tramp)
 (package! polymode)
 (package! apheleia)
 
