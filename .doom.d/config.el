@@ -154,6 +154,8 @@
     [tab]       #'company-complete-selection
     [backtab]   nil))
 
+(map! :leader (:desc "Open right" "M-SPC" #'find-file-other-window))
+
 ;; Projectile
 (defun ml/projectile-vc-root-dir (dir)
   "Retrieve the root directory of the project at DIR using `vc-root-dir'."
