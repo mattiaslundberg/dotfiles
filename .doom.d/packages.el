@@ -24,7 +24,3 @@
 
 (package! git-auto-commit-mode
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
-
-;; Bumps (use github instead of repo)
-(package! spinner
-  :recipe (:host github :repo "Malabarba/spinner.el"))
