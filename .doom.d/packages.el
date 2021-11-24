@@ -23,3 +23,6 @@
 (package! pipenv :disable t)
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
+
+;; Bumps
+(unpin! company-shell)
