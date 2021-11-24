@@ -669,7 +669,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "dictation"
+                            "key_code": "f18"
                         }
                     ]
                 },
@@ -767,6 +767,16 @@
                     "to": [
                         {
                             "key_code": "f20"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "pause"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f18"
                         }
                     ]
                 }

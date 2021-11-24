@@ -455,6 +455,9 @@
          :key :space
          :action "lib.modal:activate-modal"}
         {:mods []
+         :key :f18
+         :action mute-meet}
+        {:mods []
          :key :f20
          :action "lib.modal:activate-modal"}
         {:mods [:cmd :ctrl]
