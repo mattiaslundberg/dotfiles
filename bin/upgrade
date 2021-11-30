@@ -1,7 +1,13 @@
 #!/bin/sh
 
-brew upgrade
-brew upgrade --cask
+if [ which brew ]; then
+    brew upgrade
+    brew upgrade --cask
+
+    brew uninstall emacs-plus@28
+    brew install emacs-plus@28 --with-elrumo2-icon --with-native-comp
+fi
+
 rustup update
 tldr --update
 (cd ~/.hammerspoon && git pull)
