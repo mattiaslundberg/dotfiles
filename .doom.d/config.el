@@ -12,6 +12,15 @@
 (custom-theme-set-faces! 'doom-one-light
  '(elixir-atom-face :foreground "SkyBlue4"))
 
+(defun ml/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'doom-one-light t))
+    ('dark (load-theme 'doom-one t))))
+
+(add-hook 'ns-system-appearance-change-functions #'ml/apply-theme)
+
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
 
