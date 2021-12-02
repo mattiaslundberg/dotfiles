@@ -19,7 +19,8 @@
     ('light (load-theme 'doom-one-light t))
     ('dark (load-theme 'doom-one t))))
 
-(add-hook 'ns-system-appearance-change-functions #'ml/apply-theme)
+(when IS-MAC
+  (add-hook 'ns-system-appearance-change-functions #'ml/apply-theme))
 
 (setq org-directory "~/Documents/org/")
 (setq display-line-numbers-type nil)
