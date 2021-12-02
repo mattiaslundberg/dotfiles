@@ -149,6 +149,19 @@
   end tell
   "))
 
+(fn toggle-dark
+  []
+  "
+  Toggle dark mode
+  "
+  (hs.osascript.applescript "
+  tell application \"System Events\"
+    tell appearance preferences
+        set dark mode to not dark mode
+    end tell
+  end tell
+  "))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -406,6 +419,9 @@
         {:key :p
          :title "System Preferences"
          :action (activator "System Preferences")}
+        {:key :d
+         :title "Dark mode"
+         :action toggle-dark}
         {:key :a
          :title "Activity Monitor"
          :action (activator "Activity Monitor")}])
