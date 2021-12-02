@@ -22,19 +22,24 @@
   (let* ((selection (buffer-substring (mark) (point)))
          (extracted (string-remove-prefix "'" selection))
          (extracted (string-remove-suffix "'" extracted))
-         (keyname (read-string "Enter key name: "))
          (filename (format "%s%s" (projectile-project-root) ml/i18next-translation-file))
-         (previous (json-read-file filename)))
+         (previous (json-read-file filename))
+         (existing-entry (rassoc extracted previous))
+         (keyname (if existing-entry
+           (car existing-entry)
+           (read-string "Enter key name: "))))
+
     (message (format "Extracting string '%s' as '%s' " extracted keyname))
 
     (kill-region (region-beginning) (region-end))
     (insert (format "t('%s')" keyname))
     (save-buffer)
 
-    (let ((json-encoding-pretty-print t)
-          (json-encoding-default-indentation "    ")
-          (new (json-add-to-object previous keyname extracted)))
-        (f-write (json-encode new) 'utf-8 filename))))
+    (when (eq () existing-entry)
+      (let ((json-encoding-pretty-print t)
+            (json-encoding-default-indentation "    ")
+            (new (json-add-to-object previous keyname extracted)))
+          (f-write (json-encode new) 'utf-8 filename)))))
 
 (defun ml/lookup-string-i18next ()
   "Lookup key at point in translation file and show message"
