@@ -2,44 +2,38 @@
 
 ;;; Global configuration
 (setq user-full-name "Mattias Lundberg"
-      user-mail-address "me@mlundberg.se")
+      user-mail-address "me@mlundberg.se"
+      org-directory "~/Documents/org"
+      display-line-numbers nil)
 
-;; Look and feel
+;; Theme
 (setq doom-font (font-spec :family "Fira Code" :size 14.0 :weight 'medium))
 (setq doom-big-font (font-spec :family "Fira Code" :size 20.0 :weight 'medium))
-(setq doom-theme 'doom-one-light)
+(setq ml/theme-light 'doom-one-light
+      ml/theme-dark 'doom-one
+      doom-theme ml/theme-light)
 
 (custom-theme-set-faces! 'doom-one-light
  '(elixir-atom-face :foreground "SkyBlue4"))
 
+;; Automatic theme switching on macos
 (defun ml/apply-theme (appearance)
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'doom-one-light t))
-    ('dark (load-theme 'doom-one t))))
+    ('light (load-theme ml/theme-light t))
+    ('dark (load-theme ml/theme-dark t))))
 
 (when IS-MAC
   (add-hook 'ns-system-appearance-change-functions #'ml/apply-theme))
 
-(setq org-directory "~/Documents/org/")
-(setq display-line-numbers-type nil)
-
+;; Better startup sizing
 (add-to-list 'default-frame-alist (cons 'width 120))
 (add-to-list 'default-frame-alist (cons 'height 50))
 
 ;; So-long
 (setq so-long-threshold 5000
       so-long-max-lines 5000)
-
-;; Notetaking
-(defun ml/add-note ()
-  (interactive)
-  (let* ((content (read-string "Input note: ")))
-    (f-append-text (format "- %s" content) 'utf-8 "~/notes/todo.md")))
-
-(map! :leader
-  (:desc "Add note" "n n" #'ml/add-note))
 
 ;; Compilation
 (setq compilation-scroll-output t)
@@ -52,8 +46,6 @@
 
 ;; Local variables
 (setq enable-local-variables t)
-
-;; Allow to save risky dir-locals
 (advice-add 'risky-local-variable-p :override #'ignore)
 
 ;; Don't scroll to the edge of the window
