@@ -4,7 +4,7 @@
 (setq user-full-name "Mattias Lundberg"
       user-mail-address "me@mlundberg.se"
       org-directory "~/Documents/org"
-      display-line-numbers nil)
+      display-line-numbers-type nil)
 
 ;; Theme
 (setq doom-font (font-spec :family "Fira Code" :size 14.0 :weight 'medium))
