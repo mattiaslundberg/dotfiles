@@ -164,7 +164,7 @@
 (defun ml/projectile-vc-root-dir (dir)
   "Retrieve the root directory of the project at DIR using `vc-root-dir'."
   (let ((default-directory dir))
-    (vc-root-dir)))
+    (locate-dominating-file "." ".git")))
 
 (setq projectile-project-root-functions '(ml/projectile-vc-root-dir))
 (setq projectile-project-search-path
