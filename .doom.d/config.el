@@ -160,6 +160,10 @@
     [tab]       #'company-complete-selection
     [backtab]   nil))
 
+(advice-add 'ispell-lookup-words :around
+            (lambda (orig &rest args)
+              (shut-up (apply orig args))))
+
 ;; Projectile
 (defun ml/projectile-vc-root-dir (dir)
   "Retrieve the root directory of the project at DIR using `vc-root-dir'."
