@@ -72,7 +72,8 @@
       lsp-modeline-diagnostics-enable nil
       lsp-headerline-breadcrumb-enable nil
       lsp-modeline-workspace-status-enable nil
-      lsp-enable-symbol-highlighting nil)
+      lsp-enable-symbol-highlighting nil
+      lsp-lens-enable nil)
 
 (setq ml/lsp-file-watch-ignored-directories
       '(;; Python
