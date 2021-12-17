@@ -68,6 +68,7 @@
 
 ;; LSP
 (setq read-process-output-max (* 1024 1024) ;; 1mb
+      lsp-pyright-multi-root nil
       lsp-file-watch-threshold 10000
       lsp-modeline-diagnostics-enable nil
       lsp-headerline-breadcrumb-enable nil
