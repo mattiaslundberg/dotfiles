@@ -23,3 +23,4 @@
 (package! pipenv :disable t)
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
+(package! code-review :disable t)
