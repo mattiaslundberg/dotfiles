@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $(which brew) ]; then
+if [ -x $(command -v brew) ]; then
     brew upgrade
     brew upgrade --cask
 
@@ -29,5 +29,9 @@ fi
 (cd ~/.kotlin-language-server && git pull origin main && ./gradlew :server:installDist)
 
 asdf plugin-update --all
+
+if [ -x $(command -v gcloud) ]; then
+    gcloud components update
+fi
 
 ~/.emacs.d/bin/doom --yes upgrade
