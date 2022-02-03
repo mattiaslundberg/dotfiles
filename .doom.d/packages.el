@@ -18,6 +18,9 @@
 (package! git-auto-commit-mode
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
 
+(package! lsp-docker
+  :recipe (:host github :repo "emacs-lsp/lsp-docker"))
+
 ;; Disable packages
 (package! nose :disable t)
 (package! pipenv :disable t)
