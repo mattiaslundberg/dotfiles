@@ -32,8 +32,9 @@
 (add-to-list 'default-frame-alist (cons 'height 50))
 
 ;; So-long
-(setq so-long-threshold 5000
-      so-long-max-lines 5000)
+(after! so-long
+  (setq so-long-threshold 5000
+        so-long-max-lines 5000))
 
 ;; Compilation
 (setq compilation-scroll-output t)
