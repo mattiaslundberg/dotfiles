@@ -76,33 +76,6 @@
       lsp-enable-symbol-highlighting nil
       lsp-lens-enable nil)
 
-
-(use-package lsp-docker
-  :defer t
-  :commands lsp-docker-init-clients
-  :config
-  (defvar lsp-docker-client-packages
-      '(lsp-css lsp-clients lsp-bash lsp-pyls lsp-pyright lsp-html lsp-ts
-        lsp-terraform lsp-clangd))
-
-  (defvar lsp-docker-client-configs
-    (list
-     ;; (list :server-id 'bash-ls :docker-server-id 'bashls-docker :server-command "bash-language-server start")
-     ;; (list :server-id 'css-ls :docker-server-id 'cssls-docker :server-command "css-languageserver --stdio")
-     ;; (list :server-id 'html-ls :docker-server-id 'htmls-docker :server-command "html-languageserver --stdio")
-     (list :server-id 'pyright :docker-server-id 'pyright-docker :server-command "pyright")
-     (list :server-id 'ts-ls :docker-server-id 'tsls-docker :server-command "typescript-language-server --stdio")))
-
-   (setq lsp-docker-path-mappings
-        `((,(file-truename "~/Development") . "/Dev")))
-
-   ;; (lsp-docker-init-clients
-   ;;  :client-packages lsp-docker-client-packages
-   ;;  :client-configs lsp-docker-client-configs
-   ;;  :docker-image-id "mattiaslundberg/lsp"
-   ;;  :path-mappings lsp-docker-path-mappings)
-  )
-
 (setq ml/lsp-file-watch-ignored-directories
       '(;; Python
         "[/\\\\]__pycache__\\'"
