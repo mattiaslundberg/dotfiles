@@ -80,11 +80,8 @@
 (setq ml/lsp-file-watch-ignored-directories
       '(;; Python
         "[/\\\\]__pycache__\\'"
-        "[/\\\\]\\.mypy_cache\\'"
         ;; Elixir
-        "[/\\\\]\\.elixir_ls\\'"
         "[/\\\\]deps\\'"
-        "[/\\\\]_build\\'"
         ;; Docker
         "[/\\\\]\\.docker\\'"))
 
