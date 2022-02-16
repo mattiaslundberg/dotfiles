@@ -131,6 +131,7 @@
   "
   Mute/unmute meet running in chrome
   "
+  (hs.alert.show "🔇")
   (hs.osascript.applescript "
     tell application \"Google Chrome\"
     activate
