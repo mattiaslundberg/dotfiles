@@ -2,14 +2,14 @@ autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 
-if [ -f ~/.zinit/bin/zinit.zsh ] ; then
-  . ~/.zinit/bin/zinit.zsh
+if [ -f ~/.zi/bin/zi.zsh ] ; then
+  . ~/.zi/bin/zi.zsh
 fi
 
-zinit light mafredri/zsh-async
-zinit light sindresorhus/pure
-zinit light djui/alias-tips
-zinit light mdumitru/fancy-ctrl-z
+zi light mafredri/zsh-async
+zi light sindresorhus/pure
+zi light djui/alias-tips
+zi light mdumitru/fancy-ctrl-z
 
 setopt COMPLETE_ALIASES
 setopt histignorealldups sharehistory
@@ -103,4 +103,4 @@ if [ -f '/Users/mattias/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mattias
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mattias/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mattias/google-cloud-sdk/completion.zsh.inc'; fi
 
-zinit light zsh-users/zsh-syntax-highlighting
+zi light zsh-users/zsh-syntax-highlighting
