@@ -52,10 +52,6 @@ if [ -f /opt/homebrew/opt/asdf/asdf.sh ]; then
     . /opt/homebrew/opt/asdf/asdf.sh
     . /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash
 fi
-if [ -f /usr/local/opt/asdf/asdf.sh ]; then
-    . /usr/local/opt/asdf/asdf.sh
-    . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-fi
 if [ -f ~/.asdf/asdf.sh ]; then
     . ~/.asdf/asdf.sh
     . ~/.asdf/completions/asdf.bash
@@ -88,9 +84,6 @@ export PATH="~/.cargo/bin:${PATH}"
 export FZF_DEFAULT_COMMAND='fd --type f'
 if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh 
-fi
-if [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]; then
-    . /usr/local/opt/fzf/shell/key-bindings.zsh
 fi
 if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]; then
     . /opt/homebrew/opt/fzf/shell/key-bindings.zsh
