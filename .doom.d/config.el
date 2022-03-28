@@ -201,9 +201,7 @@
 ;;; System specific
 ;; MacOS
 (when IS-MAC
-  (if (file-exists-p "/opt/homebrew/bin/bash")
-    (setq shell-file-name "/opt/homebrew/bin/bash")
-    (setq shell-file-name "/usr/local/bin/bash"))
+  (setq shell-file-name "/opt/homebrew/bin/bash")
   (setq dired-use-ls-dired nil
         mac-option-key-is-meta t
         mac-right-option-modifier nil
