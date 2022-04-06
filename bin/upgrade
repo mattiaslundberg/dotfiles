@@ -3,9 +3,6 @@
 if [ -x $(command -v brew) ]; then
     brew upgrade
     brew upgrade --cask
-
-    brew uninstall emacs-plus@28
-    brew install emacs-plus@28 --with-elrumo2-icon --with-native-comp
 fi
 
 rustup update
@@ -31,7 +28,5 @@ fi
 asdf plugin-update --all
 
 if [ -x $(command -v gcloud) ]; then
-    gcloud components update
+    CLOUDSDK_CORE_DISABLE_PROMPTS=1 gcloud components update
 fi
-
-~/.emacs.d/bin/doom --yes upgrade

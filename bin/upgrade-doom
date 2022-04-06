@@ -1,0 +1,6 @@
+#!/bin/sh
+
+brew uninstall emacs-plus@28
+brew install emacs-plus@28 --with-elrumo2-icon --with-native-comp
+
+~/.emacs.d/bin/doom --yes upgrade
