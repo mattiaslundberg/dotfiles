@@ -79,8 +79,6 @@ pipenv-docker() {
     docker run -it -v $(pwd):/usr/repo --rm mattiaslundberg/docker-pipenv 
 }
 
-export PATH="~/.cargo/bin:${PATH}"
-
 export FZF_DEFAULT_COMMAND='fd --type f'
 if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]; then
     . /opt/homebrew/opt/fzf/shell/key-bindings.zsh
