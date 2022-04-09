@@ -74,11 +74,6 @@ if [ -e ~/.zshrc.local.gpg ]; then
     eval "$(gpg --decrypt ~/.zshrc.local.gpg 2>/dev/null)"
 fi
 
-pipenv-docker() {
-    docker build -f ~/.dotfiles/.dockerfiles/Dockerfile.pipenv -t mattiaslundberg/docker-pipenv .
-    docker run -it -v $(pwd):/usr/repo --rm mattiaslundberg/docker-pipenv 
-}
-
 export FZF_DEFAULT_COMMAND='fd --type f'
 if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]; then
     . /opt/homebrew/opt/fzf/shell/key-bindings.zsh
