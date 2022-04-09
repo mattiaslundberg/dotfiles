@@ -139,10 +139,6 @@
       :n ",," 'with-editor-finish)
 (map! :map magit-status-mode-map
       :n "z" #'magit-stash)
-;; (map! :map forge-post-mode-map
-;;       :n ",k" 'forge-post-cancel
-;;       :n ",c" 'forge-post-submit
-;;       :n ",," 'forge-post-submit)
 
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
@@ -207,7 +203,6 @@
         mac-right-option-modifier nil
         company-shell-dont-fetch-meta t
         ns-use-native-fullscreen t))
-;; (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Linux
 (when IS-LINUX
