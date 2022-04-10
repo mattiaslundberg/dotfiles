@@ -59,7 +59,7 @@
       (:desc "Extract string i18next" "e" #'ml/extract-selection-i18next)
       (:desc "Lookup string i18next" "l" #'ml/lookup-string-i18next)
       (:desc "Run all tests" "t a" #'ml/npm-test)
-      (:desc "Run all tests" "t s" #'ml/npm-test-file)
+      (:desc "Run file tests" "t s" #'ml/npm-test-file)
       (:desc "Yalc push package" "p" #'ml/yalc-push))
 
 (set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
