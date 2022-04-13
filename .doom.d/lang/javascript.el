@@ -19,9 +19,9 @@
 (defun ml/extract-selection-i18next ()
   "Extract selected text to i18next translation file, will ask for keyname"
   (interactive)
-  (let* ((selection (buffer-substring (mark) (point)))
-         (extracted (string-remove-prefix "'" selection))
-         (extracted (string-remove-prefix "\"" selection))
+  (let* ((extracted (buffer-substring (mark) (point)))
+         (extracted (string-remove-prefix "'" extracted))
+         (extracted (string-remove-prefix "\"" extracted))
          (extracted (string-remove-suffix "'" extracted))
          (extracted (string-remove-suffix "\"" extracted))
          (filename (format "%s%s" (projectile-project-root) ml/i18next-translation-file))
