@@ -63,9 +63,3 @@
       (:desc "Yalc push package" "p" #'ml/yalc-push))
 
 (set-popup-rule! "^\\*npm:" :size 0.3 :ttl 0)
-
-(add-hook! '(js2-mode typescript-mode)
-  (set (make-local-variable 'prettify-symbols-alist)
-       '(("&&" . ?∧)
-         ("||" . ?∨))
-       ))

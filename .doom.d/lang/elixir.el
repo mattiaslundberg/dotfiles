@@ -8,13 +8,6 @@
 
 (setq flycheck-elixir-credo-strict t)
 
-(add-hook! 'elixir-mode-hook
-  (set (make-local-variable 'prettify-symbols-alist)
-       '(("fn" . ?λ)
-         ("and" . ?∧)
-         ("or" . ?∨))
-       ))
-
 (setq lsp-elixir-server-command '("~/.elixir-ls/bin/language_server.sh"))
 
 ;; Support Phoenix Liveview inline html
