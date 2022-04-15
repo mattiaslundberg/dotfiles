@@ -12,7 +12,8 @@
 ;; (package! vagrant)
 ;; (package! vagrant-tramp
 ;;   :recipe (:host github :repo "mattiaslundberg/vagrant-tramp"))
-(package! systemd)
+(when IS-LINUX
+  (package! systemd))
 (package! polymode)
 (package! apheleia)
 (package! git-auto-commit-mode
