@@ -197,8 +197,8 @@
 ;;; System specific
 ;; MacOS
 (when IS-MAC
-  (setq shell-file-name "/opt/homebrew/bin/bash")
-  (setq dired-use-ls-dired nil
+  (setq shell-file-name "/opt/homebrew/bin/bash"
+        dired-use-ls-dired nil
         mac-option-key-is-meta t
         mac-right-option-modifier nil
         company-shell-dont-fetch-meta t
