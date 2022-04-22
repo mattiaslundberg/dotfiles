@@ -1,6 +1,3 @@
-(setq lsp-clients-kotlin-server-executable "~/.kotlin-language-server/server/build/install/server/bin/kotlin-language-server")
-
-
 (defun ml/kotlin-test ()
   (interactive)
   (let ((default-directory (locate-dominating-file buffer-file-name "gradlew"))
