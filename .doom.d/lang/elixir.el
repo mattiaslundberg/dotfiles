@@ -8,8 +8,6 @@
 
 (setq flycheck-elixir-credo-strict t)
 
-(setq lsp-elixir-server-command '("~/.elixir-ls/bin/language_server.sh"))
-
 ;; Support Phoenix Liveview inline html
 (define-hostmode poly-elixir-hostmode :mode 'elixir-mode)
 
