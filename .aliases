@@ -20,7 +20,7 @@ alias start_tmux="tmux new-session -A -s main"
 alias mpip=micropipenv
 alias d=docker
 alias dc=docker-compose
-alias manage=./manage.py
+alias manage='python manage.py'
 alias pyenv-installable='pyenv install --list | grep -E "^\s*\"?3"'
 
 alias su='sudo -E -s'
