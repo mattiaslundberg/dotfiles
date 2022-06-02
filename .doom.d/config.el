@@ -152,6 +152,10 @@
   :after #'magit-checkout
   (projectile-invalidate-cache nil))
 
+(defadvice! ml/magit-pull-and-invalidate (&rest args)
+  :after #'magit-pull
+  (projectile-invalidate-cache nil))
+
 ;; Company
 (after! company
   (setq company-idle-delay 0.1)
