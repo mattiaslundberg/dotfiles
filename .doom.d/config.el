@@ -143,6 +143,15 @@
 (map! :leader
       (:desc "Blame" "g b" #'magit-blame-addition))
 
+(defadvice! ml/magit-clone-and-invalidate (&rest args)
+  :after #'magit-clone
+  (projectile-invalidate-cache nil)
+  (projectile-discover-projects-in-search-path))
+
+(defadvice! ml/magit-checkout-and-invalidate (&rest args)
+  :after #'magit-checkout
+  (projectile-invalidate-cache nil))
+
 ;; Company
 (after! company
   (setq company-idle-delay 0.1)
@@ -168,7 +177,6 @@
 (add-hook 'emacs-startup-hook (lambda ()
   (projectile-discover-projects-in-search-path)
   (projectile-add-known-project "~/.dotfiles")))
-
 (map! :leader
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
