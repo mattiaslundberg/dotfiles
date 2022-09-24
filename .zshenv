@@ -1,6 +1,8 @@
 unset MAILCHECK
 export EDITOR="emacs"
 
+export LANG=en_US.UTF-8
+
 export PIPENV_IGNORE_VIRTUALENVS=1
 export MICROPIPENV_NO_LOCKFILE_WRITE=1
 
