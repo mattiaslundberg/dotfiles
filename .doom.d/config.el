@@ -86,11 +86,13 @@
 
 ;; Formatting
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
-
 (setq-default ml/format-on-save t)
-(after! apheleia
-  (setf (alist-get 'prettier apheleia-formatters)
-      '("npx" "prettier" "--stdin-filepath" filepath)))
+
+(defadvice! ml/apheleia--format-command (orig-fn command remote &optional stdin-buffer)
+  :around #'apheleia--format-command
+    (when (eq (car command) 'npx)
+      (setcar command "npx"))
+    (funcall orig-fn command remote stdin-buffer))
 
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
   :around #'apheleia-format-buffer
