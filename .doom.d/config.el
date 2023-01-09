@@ -53,7 +53,7 @@
   (interactive)
   (ediff-files
     "~/.doom.d/init.el"
-    "~/.emacs.d/init.example.el"))
+    "~/.emacs.d/templates/init.example.el"))
 
 (map! :leader
       (:desc "doom/upgrade" "h r u" #'doom/upgrade)
