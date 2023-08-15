@@ -2,7 +2,7 @@
 
 (defadvice! ml/pytest-root ()
   :override #'python-pytest--project-root
-  (locate-dominating-file default-directory "pyproject.toml"))
+  (locate-dominating-file default-directory "pytest.ini"))
 
 (fset 'extract-python-string
    (kmacro-lambda-form [?v ?a ?\" ?S ?f ?_ return escape] 0 "%d"))
