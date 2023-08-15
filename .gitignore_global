@@ -34,3 +34,6 @@ flycheck_*.el
 # Yalc
 .yalc/
 yalc.lock
+
+# direnv
+.envrc
