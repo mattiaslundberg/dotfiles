@@ -55,6 +55,7 @@ fi
 if [ -f ~/.asdf/asdf.sh ]; then
     . ~/.asdf/asdf.sh
     . ~/.asdf/completions/asdf.bash
+    . "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 fi
 
 
