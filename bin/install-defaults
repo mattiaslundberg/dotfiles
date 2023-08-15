@@ -2,7 +2,7 @@
 # Install nice to have dev-utils
 
 # Python
-pip install --upgrade pip black mypy isort autoflake flake8 safety micropipenv
+pip install --upgrade pip black mypy isort autoflake flake8 safety pipenv poetry
 
 # Node
 npm install -g eslint prettier stylelint yalc
