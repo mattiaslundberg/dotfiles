@@ -34,6 +34,3 @@ addToPath ~/.bin
 addToPath ~/.emacs.d/bin/
 addToPath ~/go/bin
 addToPath ~/.cargo/bin
-
-export PYENV_ROOT="$HOME/.pyenv"
-addToPath "$PYENV_ROOT/bin"

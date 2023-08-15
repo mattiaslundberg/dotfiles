@@ -191,8 +191,7 @@
 (after! tramp
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   (add-to-list 'tramp-remote-path "~/.local/bin")
-  (add-to-list 'tramp-remote-path "~/.asdf/shims")
-  (add-to-list 'tramp-remote-path "~/.pyenv/shims"))
+  (add-to-list 'tramp-remote-path "~/.asdf/shims"))
 
 ;;; Global keybindings
 (map! :leader (:prefix-map ("d" . "custom")
