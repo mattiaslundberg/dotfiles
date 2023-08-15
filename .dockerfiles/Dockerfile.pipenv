@@ -1,7 +1,0 @@
-FROM python:3.9-buster
-
-WORKDIR /usr/repo
-
-RUN pip install pipenv
-
-CMD sh

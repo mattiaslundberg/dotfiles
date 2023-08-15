@@ -36,11 +36,6 @@ function light() {
   $src | highlight -O rtf --syntax $1 --font "Source Code Pro" --style base16/gruvbox-light-hard -W -J 80 -j 3 --font-size 24 | pbcopy
 }
 
-pipenv-docker() {
-    docker build -f ~/.dotfiles/.dockerfiles/Dockerfile.pipenv -t mattiaslundberg/docker-pipenv .
-    docker run -it -v $(pwd):/usr/repo --rm mattiaslundberg/docker-pipenv
-}
-
 function docker-show-context() {
   docker build -t docker-show-context https://github.com/pwaller/docker-show-context.git
   docker run --rm -v $PWD:/data docker-show-context
