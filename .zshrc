@@ -45,6 +45,10 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
+if [ -f /opt/homebrew/bin/kubectl ]; then
+   source <(kubectl completion zsh)
+fi
+
 # Keybindings.
 bindkey -v
 
