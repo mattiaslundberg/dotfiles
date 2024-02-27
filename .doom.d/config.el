@@ -14,7 +14,7 @@
       doom-theme ml/theme-light)
 
 (custom-theme-set-faces! 'doom-one-light
- '(elixir-atom-face :foreground "SkyBlue4"))
+  '(elixir-atom-face :foreground "SkyBlue4"))
 
 ;; Automatic theme switching on macos
 (defun ml/apply-theme (appearance)
@@ -52,8 +52,8 @@
 (defun ml/ediff-dotfile-and-template ()
   (interactive)
   (ediff-files
-    "~/.doom.d/init.el"
-    "~/.emacs.d/templates/init.example.el"))
+   "~/.doom.d/init.el"
+   "~/.emacs.d/templates/init.example.el"))
 
 (map! :leader
       (:desc "doom/upgrade" "h r u" #'doom/upgrade)
@@ -62,37 +62,15 @@
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
-;; LSP
-(setq read-process-output-max (* 1024 1024) ;; 1mb
-      lsp-pyright-multi-root nil
-      lsp-file-watch-threshold 10000
-      lsp-modeline-diagnostics-enable nil
-      lsp-headerline-breadcrumb-enable nil
-      lsp-modeline-workspace-status-enable nil
-      lsp-enable-symbol-highlighting nil
-      lsp-lens-enable nil)
-
-(setq ml/lsp-file-watch-ignored-directories
-      '(;; Python
-        "[/\\\\]__pycache__\\'"
-        ;; Elixir
-        "[/\\\\]deps\\'"
-        ;; Docker
-        "[/\\\\]\\.docker\\'"))
-
-(defadvice! ml/lsp-ignored ()
-  :override #'lsp-file-watch-ignored-directories
-  (append lsp-file-watch-ignored-directories ml/lsp-file-watch-ignored-directories))
-
 ;; Formatting
 (add-hook 'doom-first-file-hook #'apheleia-global-mode)
 (setq-default ml/format-on-save t)
 
 (defadvice! ml/apheleia--format-command (orig-fn command remote &optional stdin-buffer)
   :around #'apheleia--format-command
-    (when (eq (car command) 'npx)
-      (setcar command "npx"))
-    (funcall orig-fn command remote stdin-buffer))
+  (when (eq (car command) 'npx)
+    (setcar command "npx"))
+  (funcall orig-fn command remote stdin-buffer))
 
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
   :around #'apheleia-format-buffer
@@ -122,12 +100,12 @@
   (interactive)
   (ediff-copy-diff ediff-current-difference nil 'C nil
                    (concat
-                     (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
-                     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
+                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+                    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
 
 (add-hook 'ediff-keymap-setup-hook (lambda ()
-  (if ediff-3way-job
-    (define-key ediff-mode-map "x" #'ml/ediff-copy-both-to-C))))
+                                     (if ediff-3way-job
+                                         (define-key ediff-mode-map "x" #'ml/ediff-copy-both-to-C))))
 
 ;; Magit
 (after! magit
@@ -182,7 +160,7 @@
 (setq projectile-auto-discover t)
 
 (add-hook 'emacs-startup-hook (lambda ()
-  (projectile-add-known-project "~/.dotfiles")))
+                                (projectile-add-known-project "~/.dotfiles")))
 (map! :leader
       (:desc "Add projects from path" "p A" #'projectile-discover-projects-in-search-path))
 
