@@ -34,6 +34,9 @@
 ;; Compilation
 (setq compilation-scroll-output t)
 
+;; Eglot
+(setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
+
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project
       doom-modeline-buffer-encoding nil
