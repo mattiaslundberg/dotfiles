@@ -87,6 +87,8 @@
       (:desc "Format buffer" "f ." #'apheleia-format-buffer)
       (:desc "Toogle format on save" "f ," #'apheleia-mode))
 
+(setq apheleia-remote-algorithm 'local)
+
 ;; Treemacs
 (setq +treemacs-git-mode 'extended
       treemacs-indentation 2
