@@ -25,3 +25,4 @@
 (package! alchemist :disable t)
 (package! alchemist-company :disable t)
 (package! code-review :disable t)
+(package! tide :disable t)
