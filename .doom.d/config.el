@@ -78,9 +78,6 @@
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
   :around #'apheleia-format-buffer
   (when ml/format-on-save
-    ;; Hide lsp ui so it doesn't lock up
-    (when (fboundp 'lsp-ui-sideline--delete-ov)
-      (lsp-ui-sideline--delete-ov))
     (funcall orig-fn command callback)))
 
 (map! :leader
