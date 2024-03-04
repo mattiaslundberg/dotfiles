@@ -15,7 +15,6 @@
 (when IS-LINUX
   (package! systemd))
 (package! polymode)
-(package! apheleia)
 (package! git-auto-commit-mode
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
 

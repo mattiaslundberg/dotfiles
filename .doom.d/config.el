@@ -67,14 +67,9 @@
 (setq create-lockfiles nil)
 
 ;; Formatting
-(add-hook 'doom-first-file-hook #'apheleia-global-mode)
 (setq-default ml/format-on-save t)
-
-(defadvice! ml/apheleia--format-command (orig-fn command remote &optional stdin-buffer)
-  :around #'apheleia--format-command
-  (when (eq (car command) 'npx)
-    (setcar command "npx"))
-  (funcall orig-fn command remote stdin-buffer))
+(setq +format-with-lsp nil)
+(setq apheleia-remote-algorithm 'local)
 
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
   :around #'apheleia-format-buffer
@@ -84,8 +79,6 @@
 (map! :leader
       (:desc "Format buffer" "f ." #'apheleia-format-buffer)
       (:desc "Toogle format on save" "f ," #'apheleia-mode))
-
-(setq apheleia-remote-algorithm 'local)
 
 ;; Treemacs
 (setq +treemacs-git-mode 'extended
