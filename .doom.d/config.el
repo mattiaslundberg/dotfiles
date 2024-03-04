@@ -36,6 +36,7 @@
 
 ;; Eglot
 (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
+(set-eglot-client! 'rjsx-mode `("typescript-language-server" "--stdio"))
 
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project
