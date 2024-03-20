@@ -132,13 +132,9 @@
   :after #'magit-pull
   (projectile-invalidate-cache nil))
 
-;; Company
-(after! company
-  (setq company-idle-delay 0.1)
-  (define-key! company-active-map
-    "TAB"       #'company-complete-selection
-    [tab]       #'company-complete-selection
-    [backtab]   nil))
+;; Corfu
+(after! corfu
+  (setq corfu-preselect 'first))
 
 (advice-add 'ispell-lookup-words :around
             (lambda (orig &rest args)
