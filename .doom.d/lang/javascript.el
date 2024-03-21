@@ -1,6 +1,9 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
+(add-hook 'rjsx-mode (lambda ()
+                       (flymake-eslint-enable)))
+
 (defun ml/npm-test ()
   (interactive)
   (npm-mode--exec-process "npm run test"))
@@ -28,8 +31,8 @@
          (previous (json-read-file filename))
          (existing-entry (rassoc extracted previous))
          (keyname (if existing-entry
-           (car existing-entry)
-           (read-string "Enter key name: "))))
+                      (car existing-entry)
+                    (read-string "Enter key name: "))))
 
     (message (format "Extracting string '%s' as '%s' " extracted keyname))
 
@@ -41,7 +44,7 @@
       (let ((json-encoding-pretty-print t)
             (json-encoding-default-indentation "    ")
             (new (json-add-to-object previous keyname extracted)))
-          (f-write (json-encode new) 'utf-8 filename)))))
+        (f-write (json-encode new) 'utf-8 filename)))))
 
 (defun ml/lookup-string-i18next ()
   "Lookup key at point in translation file and show message"

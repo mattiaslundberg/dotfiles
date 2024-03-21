@@ -16,6 +16,7 @@
 (package! polymode)
 (package! git-auto-commit-mode
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
+(package! flymake-eslint)
 
 ;; Disable packages
 (package! nose :disable t)
