@@ -164,9 +164,6 @@
   (add-to-list 'tramp-remote-path "~/.asdf/shims"))
 
 ;;; Global keybindings
-(map! :leader (:prefix-map ("d" . "custom")
-               :desc "Dash lookup" "d" #'dash-at-point))
-
 (map! :m "C-]" #'+lookup/definition
       :m "M-[" #'previous-buffer
       :m "M-]" #'next-buffer)
