@@ -1,8 +1,12 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 
-(add-hook 'rjsx-mode (lambda ()
-                       (flymake-eslint-enable)))
+
+(defun ml/enable-eslint ()
+  (when (member major-mode '(rjsx-mode typescript-tsx-mode typescript-mode))
+    (flymake-eslint-enable)))
+
+(add-hook 'eglot-managed-mode-hook #'ml/enable-eslint)
 
 (defun ml/npm-test ()
   (interactive)
