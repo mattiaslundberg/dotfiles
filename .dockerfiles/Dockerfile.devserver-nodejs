@@ -1,3 +1,4 @@
+# docker build -t ml/devserver-nodejs:20 -f Dockerfile.devserver-nodejs .
 FROM mcr.microsoft.com/devcontainers/javascript-node:20
 
 RUN npm i -g typescript-language-server eslint stylelint prettier typescript
