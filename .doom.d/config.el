@@ -36,9 +36,9 @@
 
 ;; Eglot
 (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
-(setq eglot-withhold-process-id 1)
+;; (setq eglot-withhold-process-id 1)
 ;; (set-eglot-client! 'rjsx-mode `("typescript-language-server" "--stdio"))
-(set-eglot-client! 'rjsx-mode `("~/.bin/lsp-docker.sh" "typescript-language-server --stdio"))
+;; (set-eglot-client! 'rjsx-mode `("~/.bin/lsp-docker.sh" "typescript-language-server --stdio"))
 
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-with-project
