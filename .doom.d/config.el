@@ -109,7 +109,8 @@
 (after! magit
   (setq magit-prefer-push-default t
         magit-revision-show-gravatars nil
-        magit-display-buffer-function 'magit-display-buffer-traditional))
+        magit-display-buffer-function 'magit-display-buffer-traditional
+        git-commit-summary-max-length 78))
 
 (map! :map with-editor-mode-map
       :n ",k" 'with-editor-cancel
