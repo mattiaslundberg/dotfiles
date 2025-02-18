@@ -18,7 +18,7 @@ if [ -f /usr/bin/snap ]; then
 	sudo snap refresh
 fi
 
-asdf plugin-update --all
+asdf plugin update --all
 
 if [ -x $(command -v gcloud) ]; then
     CLOUDSDK_CORE_DISABLE_PROMPTS=1 gcloud components update

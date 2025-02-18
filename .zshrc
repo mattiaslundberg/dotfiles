@@ -52,16 +52,8 @@ fi
 # Keybindings.
 bindkey -v
 
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-    . /opt/homebrew/opt/asdf/libexec/asdf.sh
-    . /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf
-fi
-if [ -f ~/.asdf/asdf.sh ]; then
-    . ~/.asdf/asdf.sh
-    . ~/.asdf/completions/asdf.bash
-fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
 
 # Load external files
 if [ -f ~/.aliases ]; then
