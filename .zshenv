@@ -34,3 +34,4 @@ addToPath ~/.bin
 addToPath ~/.emacs.d/bin/
 addToPath ~/go/bin
 addToPath ~/.cargo/bin
+addToPath ~/.local/bin
