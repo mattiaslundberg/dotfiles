@@ -53,7 +53,8 @@ fi
 bindkey -v
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-. "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# . "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+eval "$(direnv hook zsh)"
 
 # Load external files
 if [ -f ~/.aliases ]; then
