@@ -37,3 +37,4 @@ yalc.lock
 
 # direnv
 .envrc
+.direnv/
