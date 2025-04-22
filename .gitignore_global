@@ -38,3 +38,5 @@ yalc.lock
 # direnv
 .envrc
 .direnv/
+
+docker-compose.override.yml

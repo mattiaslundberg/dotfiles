@@ -19,7 +19,7 @@ alias rerun='fd | entr '
 alias start_tmux="tmux new-session -A -s main"
 alias mpip=micropipenv
 alias d=docker
-alias dc='docker compose'
+alias dc='docker compose -f docker-compose.yml -f docker-compose.override.yml'
 alias dce='dc exec $(basename $PWD)'
 alias manage='python manage.py'
 
