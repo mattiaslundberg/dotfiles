@@ -111,6 +111,7 @@
   (setq magit-prefer-push-default t
         magit-revision-show-gravatars nil
         magit-display-buffer-function 'magit-display-buffer-traditional
+        magit-show-long-lines-warning nil
         git-commit-summary-max-length 78))
 
 (map! :map with-editor-mode-map
