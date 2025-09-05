@@ -71,7 +71,6 @@
 
 ;; Formatting
 (setq-default ml/format-on-save t)
-(setq +format-with-lsp nil)
 (setq apheleia-remote-algorithm 'local)
 
 (defadvice! ml/apheleia-format-buffer (orig-fn command &optional callback)
