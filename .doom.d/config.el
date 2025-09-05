@@ -79,6 +79,7 @@
     (funcall orig-fn command callback)))
 
 (map! :leader
+      (:desc "Save buffer" "f s" #'save-buffer)
       (:desc "Format buffer" "f ." #'apheleia-format-buffer)
       (:desc "Toogle format on save" "f ," #'apheleia-mode))
 
