@@ -373,6 +373,9 @@
         {:key :w
          :title "Discord"
          :action (activator "Discord")}
+        {:key :q
+         :title "ChatGPT"
+         :action (activator "ChatGPT")}
         {:key :a
          :title "Authy Desktop"
          :action (activator "Authy Desktop")}
