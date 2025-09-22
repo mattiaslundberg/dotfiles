@@ -78,8 +78,9 @@
   (when ml/format-on-save
     (funcall orig-fn command callback)))
 
-(add-to-list 'apheleia-formatters '(terragrunt-format . ("terragrunt" "hcl" "fmt" "--stdin")))
-(add-to-list 'apheleia-mode-alist '(hcl-mode . terragrunt-format))
+(after! apheleia
+  (add-to-list 'apheleia-formatters '(terragrunt-format . ("terragrunt" "hcl" "fmt" "--stdin")))
+  (add-to-list 'apheleia-mode-alist '(hcl-mode . terragrunt-format)))
 
 (map! :leader
       (:desc "Save buffer" "f s" #'save-buffer)
