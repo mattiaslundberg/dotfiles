@@ -17,6 +17,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_CASK_OPTS=--require-sha
 export HOMEBREW_CACHE=/opt/HomebrewCache
+export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
 
 addToPath() {
 	case ":$PATH:" in
