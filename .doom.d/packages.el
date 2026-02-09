@@ -18,6 +18,10 @@
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
 (package! flymake-eslint)
 
+(package! shell-maker)
+(package! acp)
+(package! agent-shell)
+
 ;; Disable packages
 (package! nose :disable t)
 (package! pipenv :disable t)

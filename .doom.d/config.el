@@ -87,6 +87,34 @@
       (:desc "Format buffer" "f ." #'apheleia-format-buffer)
       (:desc "Toogle format on save" "f ," #'apheleia-mode))
 
+;; agent-shell
+(after! agent-shell
+  (setq agent-shell-preferred-agent-config 'codex)
+  (setq agent-shell-agent-configs
+        (mapcar (lambda (config)
+                  (if (eq (map-elt config :identifier) 'codex)
+                      (let ((updated (copy-tree config)))
+                        (map-put! updated :default-model-id (lambda () "gpt-5.3-codex/high"))
+                        (map-put! updated :default-session-mode-id (lambda () "auto"))
+                        updated)
+                    config))
+                agent-shell-agent-configs))
+
+  (map! :map agent-shell-viewport-edit-mode-map
+        :n ",k" #'agent-shell-viewport-compose-cancel
+        :n ",c" #'agent-shell-viewport-compose-send
+        :n ",," #'agent-shell-viewport-compose-send-and-kill)
+
+  (map! :map agent-shell-mode-map
+        :localleader
+        (:prefix ("a" . "agent")
+         :desc "Agent mode"    "m" #'agent-shell-set-session-mode
+         :desc "Agent compose" "c" #'agent-shell-prompt-compose
+         :desc "Agent model"   "n" #'agent-shell-set-session-model)))
+
+(map! :leader
+      :desc "Agent shell" "\\" #'agent-shell)
+
 ;; Treemacs
 (setq +treemacs-git-mode 'extended
       treemacs-indentation 2
@@ -114,7 +142,7 @@
 (after! magit
   (setq magit-prefer-push-default t
         magit-revision-show-gravatars nil
-        magit-display-buffer-function 'magit-display-buffer-traditional
+        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1
         magit-show-long-lines-warning nil
         git-commit-summary-max-length 78))
 

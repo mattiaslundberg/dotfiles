@@ -23,6 +23,7 @@ debhelper.log
 # Emacs
 .dir-locals.el
 flycheck_*.el
+.agent-shell/
 
 # Project files
 .python-version
