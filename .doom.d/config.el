@@ -89,15 +89,19 @@
 
 ;; agent-shell
 (after! agent-shell
-  (setq agent-shell-preferred-agent-config 'codex)
   (setq agent-shell-agent-configs
         (mapcar (lambda (config)
-                  (if (eq (map-elt config :identifier) 'codex)
-                      (let ((updated (copy-tree config)))
-                        (map-put! updated :default-model-id (lambda () "gpt-5.3-codex/high"))
-                        (map-put! updated :default-session-mode-id (lambda () "auto"))
-                        updated)
-                    config))
+                  (cond ((eq (map-elt config :identifier) 'codex)
+                         (let ((updated (copy-tree config)))
+                           (map-put! updated :default-model-id (lambda () "gpt-5.3-codex/high"))
+                           (map-put! updated :default-session-mode-id (lambda () "auto"))
+                           updated))
+                        ((eq (map-elt config :identifier) 'cursor)
+                         (let ((updated (copy-tree config)))
+                           (map-put! updated :default-model-id (lambda () "opus-4.6-thinking"))
+                           (map-put! updated :default-session-mode-id (lambda () "agent"))
+                           updated))
+                        (t config)))
                 agent-shell-agent-configs))
 
   (map! :map agent-shell-viewport-edit-mode-map
@@ -107,9 +111,9 @@
 
   (map! :map agent-shell-mode-map
         :localleader
-        (:prefix ("a" . "agent")
+        (:prefix ("a" . "Agent")
+         :desc "Agent compose" "a" #'agent-shell-prompt-compose
          :desc "Agent mode"    "m" #'agent-shell-set-session-mode
-         :desc "Agent compose" "c" #'agent-shell-prompt-compose
          :desc "Agent model"   "n" #'agent-shell-set-session-model)))
 
 (map! :leader
