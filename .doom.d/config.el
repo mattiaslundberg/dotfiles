@@ -90,8 +90,7 @@
 ;; agent-shell
 (after! agent-shell
   (require 'agent-shell-sidebar nil t)
-  (defadvice! +agent-shell--display-compose-in-sidebar-window (orig buffer)
-    :around #'agent-shell--display-buffer
+  (defun ml/agent-shell--sidebar-context ()
     (let* ((sidebar-window (selected-window))
            (sidebar-buffer (and (window-live-p sidebar-window)
                                 (window-buffer sidebar-window)))
@@ -100,77 +99,64 @@
                             (buffer-live-p sidebar-buffer)
                             (with-current-buffer sidebar-buffer
                               (bound-and-true-p agent-shell-sidebar--is-sidebar)))))
-      (if (and in-sidebar
+      (list :window sidebar-window :in-sidebar in-sidebar)))
+
+  (defun ml/agent-shell--sidebar-compose-edit-p (context)
+    (and (plist-get context :in-sidebar)
+         (derived-mode-p 'agent-shell-viewport-edit-mode)))
+
+  (defun ml/agent-shell--set-sidebar-window-buffer (sidebar-window buffer)
+    (let ((was-dedicated (window-dedicated-p sidebar-window)))
+      (set-window-dedicated-p sidebar-window nil)
+      (set-window-buffer sidebar-window buffer)
+      (set-window-dedicated-p sidebar-window was-dedicated)
+      (with-current-buffer buffer
+        (when (boundp 'agent-shell-sidebar--is-sidebar)
+          (setq-local agent-shell-sidebar--is-sidebar t)))
+      (select-window sidebar-window)))
+
+  (defadvice! +agent-shell--display-compose-in-sidebar-window (orig buffer)
+    :around #'agent-shell--display-buffer
+    (let* ((context (ml/agent-shell--sidebar-context))
+           (sidebar-window (plist-get context :window)))
+      (if (and (plist-get context :in-sidebar)
                (buffer-live-p buffer)
                (with-current-buffer buffer
                  (or (derived-mode-p 'agent-shell-viewport-edit-mode)
                      (derived-mode-p 'agent-shell-viewport-view-mode))))
-          (let ((was-dedicated (window-dedicated-p sidebar-window)))
-            (set-window-dedicated-p sidebar-window nil)
-            (set-window-buffer sidebar-window buffer)
-            (set-window-dedicated-p sidebar-window was-dedicated)
-            (with-current-buffer buffer
-              (when (boundp 'agent-shell-sidebar--is-sidebar)
-                (setq-local agent-shell-sidebar--is-sidebar t)))
-            (select-window sidebar-window))
+          (ml/agent-shell--set-sidebar-window-buffer sidebar-window buffer)
         (funcall orig buffer))))
+
   (defadvice! +agent-shell-viewport-compose-send-and-kill-in-sidebar (orig &rest args)
     :around #'agent-shell-viewport-compose-send-and-kill
-    (let* ((sidebar-window (selected-window))
-           (sidebar-buffer (and (window-live-p sidebar-window)
-                                (window-buffer sidebar-window)))
-           (in-sidebar (and (window-live-p sidebar-window)
-                            (window-parameter sidebar-window 'window-side)
-                            (buffer-live-p sidebar-buffer)
-                            (with-current-buffer sidebar-buffer
-                              (bound-and-true-p agent-shell-sidebar--is-sidebar)))))
-      (if (not (and in-sidebar
-                    (derived-mode-p 'agent-shell-viewport-edit-mode)))
+    (let* ((context (ml/agent-shell--sidebar-context))
+           (sidebar-window (plist-get context :window)))
+      (if (not (ml/agent-shell--sidebar-compose-edit-p context))
           (apply orig args)
         (let* ((viewport-buffer (current-buffer))
                (shell-buffer (agent-shell-viewport--shell-buffer))
-               (prompt (buffer-string))
-               (was-dedicated (window-dedicated-p sidebar-window)))
+               (prompt (buffer-string)))
           (unless (buffer-live-p shell-buffer)
             (user-error "No shell available"))
           (with-current-buffer shell-buffer
             (agent-shell--insert-to-shell-buffer :text prompt :submit t :no-focus t))
-          (set-window-dedicated-p sidebar-window nil)
-          (set-window-buffer sidebar-window shell-buffer)
-          (set-window-dedicated-p sidebar-window was-dedicated)
-          (with-current-buffer shell-buffer
-            (when (boundp 'agent-shell-sidebar--is-sidebar)
-              (setq-local agent-shell-sidebar--is-sidebar t)))
-          (kill-buffer viewport-buffer)
-          (select-window sidebar-window)))))
+          (ml/agent-shell--set-sidebar-window-buffer sidebar-window shell-buffer)
+          (kill-buffer viewport-buffer)))))
+
   (defadvice! +agent-shell-viewport-compose-cancel-in-sidebar (orig &rest args)
     :around #'agent-shell-viewport-compose-cancel
-    (let* ((sidebar-window (selected-window))
-           (sidebar-buffer (and (window-live-p sidebar-window)
-                                (window-buffer sidebar-window)))
-           (in-sidebar (and (window-live-p sidebar-window)
-                            (window-parameter sidebar-window 'window-side)
-                            (buffer-live-p sidebar-buffer)
-                            (with-current-buffer sidebar-buffer
-                              (bound-and-true-p agent-shell-sidebar--is-sidebar)))))
-      (if (not (and in-sidebar
-                    (derived-mode-p 'agent-shell-viewport-edit-mode)))
+    (let* ((context (ml/agent-shell--sidebar-context))
+           (sidebar-window (plist-get context :window)))
+      (if (not (ml/agent-shell--sidebar-compose-edit-p context))
           (apply orig args)
         (let* ((viewport-buffer (current-buffer))
-               (shell-buffer (agent-shell-viewport--shell-buffer))
-               (was-dedicated (window-dedicated-p sidebar-window)))
+               (shell-buffer (agent-shell-viewport--shell-buffer)))
           (unless (buffer-live-p shell-buffer)
             (user-error "No shell available"))
           (when (or (string-empty-p (string-trim (buffer-string)))
                     (y-or-n-p "Discard composed prompt? "))
-            (set-window-dedicated-p sidebar-window nil)
-            (set-window-buffer sidebar-window shell-buffer)
-            (set-window-dedicated-p sidebar-window was-dedicated)
-            (with-current-buffer shell-buffer
-              (when (boundp 'agent-shell-sidebar--is-sidebar)
-                (setq-local agent-shell-sidebar--is-sidebar t)))
-            (kill-buffer viewport-buffer)
-            (select-window sidebar-window))))))
+            (ml/agent-shell--set-sidebar-window-buffer sidebar-window shell-buffer)
+            (kill-buffer viewport-buffer))))))
 
   (setq agent-shell-agent-configs
         (mapcar (lambda (config)
