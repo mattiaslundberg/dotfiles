@@ -18,9 +18,11 @@
   :recipe (:host github :repo "ryuslash/git-auto-commit-mode"))
 (package! flymake-eslint)
 
-(package! shell-maker)
 (package! acp)
+(package! shell-maker)
 (package! agent-shell)
+(package! agent-shell-sidebar
+  :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))
 
 ;; Disable packages
 (package! nose :disable t)
