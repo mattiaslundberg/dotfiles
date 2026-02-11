@@ -97,5 +97,25 @@
          :desc "Agent mode"    "m" #'agent-shell-set-session-mode
          :desc "Agent model"   "n" #'agent-shell-set-session-model)))
 
+(defun ml/agent-shell--find-sidebar-window ()
+  (catch 'window
+    (dolist (window (window-list))
+      (let ((buffer (window-buffer window)))
+        (when (and (window-live-p window)
+                   (window-parameter window 'window-side)
+                   (buffer-live-p buffer)
+                   (with-current-buffer buffer
+                     (bound-and-true-p agent-shell-sidebar--is-sidebar)))
+          (throw 'window window))))
+    nil))
+
+(defun ml/agent-shell-sidebar-toggle-or-focus ()
+  (interactive)
+  (let ((sidebar-window (ml/agent-shell--find-sidebar-window)))
+    (if (and (window-live-p sidebar-window)
+             (not (eq (selected-window) sidebar-window)))
+        (select-window sidebar-window)
+      (call-interactively #'agent-shell-sidebar-toggle))))
+
 (map! :leader
-      :desc "Agent shell" "\\" #'agent-shell-sidebar-toggle)
+      :desc "Agent shell" "\\" #'ml/agent-shell-sidebar-toggle-or-focus)
