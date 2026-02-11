@@ -191,6 +191,7 @@
 
        :custom
        ;;vagrant
+       agent-shell
        eshell
 
        :config
