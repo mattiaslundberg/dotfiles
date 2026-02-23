@@ -3,7 +3,6 @@
 ;;; Global configuration
 (setq user-full-name "Mattias Lundberg"
       user-mail-address "me@mlundberg.se"
-      org-directory "~/Documents/org"
       display-line-numbers-type nil)
 
 ;; Theme
@@ -36,9 +35,6 @@
 
 ;; Eglot
 (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
-;; (setq eglot-withhold-process-id 1)
-;; (set-eglot-client! 'rjsx-mode `("typescript-language-server" "--stdio"))
-;; (set-eglot-client! 'rjsx-mode `("~/.bin/lsp-docker.sh" "typescript-language-server --stdio"))
 (set-eglot-client! 'typescript-tsx-mode '("typescript-language-server" "--stdio"))
 
 ;; Modeline
@@ -60,7 +56,7 @@
   (interactive)
   (ediff-files
    "~/.doom.d/init.el"
-   "~/.emacs.d/templates/init.example.el"))
+   "~/.emacs.d/static/init.example.el"))
 
 (map! :leader
       (:desc "doom/upgrade" "h r u" #'doom/upgrade)
@@ -97,18 +93,6 @@
                                 (treemacs-fringe-indicator-mode -1)
                                 (treemacs-follow-mode)))
 (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
-
-;; Ediff
-(defun ml/ediff-copy-both-to-C ()
-  (interactive)
-  (ediff-copy-diff ediff-current-difference nil 'C nil
-                   (concat
-                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
-                    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer))))
-
-(add-hook 'ediff-keymap-setup-hook (lambda ()
-                                     (if ediff-3way-job
-                                         (define-key ediff-mode-map "x" #'ml/ediff-copy-both-to-C))))
 
 ;; Magit
 (after! magit
