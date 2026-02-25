@@ -14,6 +14,7 @@
 (require-macros :lib.macros)
 (local windows (require :windows))
 (local slack (require :slack))
+(local modal (require :lib.modal))
 
 (local {:concat concat
         :logf logf} (require :lib.functional))
@@ -162,6 +163,15 @@
     end tell
   end tell
   "))
+
+(fn toggle-modal
+  []
+  "
+  Toggle the spacehammer modal menu.
+  "
+  (if ((. modal :activate-modal))
+      nil
+      (hs.eventtap.keyStroke [] :escape)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General
@@ -479,7 +489,7 @@
          :action mute-meet}
         {:mods []
          :key :f20
-         :action "lib.modal:activate-modal"}
+         :action toggle-modal}
         {:mods [:cmd :ctrl]
          :key "`"
          :action toggle-console}
